@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA;kBACkB",
     "sources": [
-        "../sass/custom.scss"
+        "../sass/custom.scss",
+        "../sass/subpages/_about.scss"
     ],
     "names": [],
     "file": "custom.css"
