@@ -1,0 +1,33 @@
+.siteFooter{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    svg{
+        position: relative;
+        top: 12px;
+    }
+
+    &__wrap{
+        padding: 60px 0 50px;
+        background-color: $red-color;
+
+        p{
+            font-size: 24px;
+            line-height: 28px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+        }
+    }
+}
+@media (max-width: 991px){
+    .siteFooter{
+        svg{
+            width: 2800px;
+            top: 15px;
+        }
+    }
+}

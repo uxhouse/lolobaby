@@ -1,15 +1,86 @@
+/*  Variables
+--------------- */
+@import 'variables';
+
+/*  Fonts
+--------------- */
+@import 'parts/fonts';
+
 /*  Subpages
 --------------- */
+@import 'subpages/homePage';
 @import 'subpages/about';
 
-
+/*  Partials
+--------------- */
+@import 'parts/siteHeader';
+@import 'parts/siteFooter';
 
 /*  Global
 --------------- */
 
+#page{
+    overflow: hidden;
+}
+
 .btn{
-    display: inline;
-    background-color: #f00;
-    width: 100px;
+    display: inline-block;
+    background-color: $red-color;
     height: 40px;
+    padding: 0 30px;
+    border-radius: 0;
+    transition: ease .3s;
+
+    span{
+        font-size: 16px;
+        line-height: 40px;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        position: relative;
+        padding-right: 25px;
+
+        &:after{
+            content: '';
+            background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_right_white.svg');
+            background-repeat: no-repeat;
+            background-size: 18px;
+            width: 18px;
+            height: 13px;
+            display: inline-block;
+            position: absolute;
+            top: 3px;
+            right: 0;
+            pointer-events: none;
+            transition: ease .3s;
+        }
+    }
+    &:hover{
+        background-color: #f35a45;
+
+        span{
+            &:after{
+                right: -3px;
+            }
+        }
+    }
+}
+
+.sectionHeading{
+    transform: rotate(-3deg);
+
+    span{
+        font-family: "Pacifico";
+        font-size: 60px;
+        line-height: 105px;
+        color: $blue-color;
+        position: relative;
+    }
+
+    &--big{
+        span{
+            font-size: 120px;
+            line-height: 211px;
+        }
+    }
 }

@@ -1,3 +1,359 @@
+/*  Variables
+--------------- */
+/* ---- COLORS ---- */
+/*  Fonts
+--------------- */
+/* ---- NUNITO ---- */
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/lolobaby/fonts/Nunito/Nunito-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+
+/* ---- Pacifico ---- */
+@font-face {
+  font-family: 'Pacifico';
+  src: url("/wp-content/themes/lolobaby/fonts/Pacifico/Pacifico-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "Nunito";
+  font-weight: 400;
+}
+
 /*  Subpages
 --------------- */
+.homeSlider {
+  height: 670px;
+  width: 100%;
+  background-color: #6f6f6f;
+}
+
+/*  Partials
+--------------- */
+/* ---- COLORS ---- */
+body.admin-bar .siteHeader--frontPage {
+  top: 32px;
+}
+
+.siteHeader {
+  width: 100%;
+  height: 107px;
+  background-color: #405DB8;
+  z-index: 100;
+}
+
+.siteHeader--frontPage {
+  height: 100px;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+}
+
+.siteHeader--frontPage .siteHeader__logo .wrap {
+  background-color: #EC422B;
+}
+
+.siteHeader__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: inherit;
+  position: relative;
+  z-index: 3;
+}
+
+.siteHeader__menu {
+  width: calc(50% - 60px);
+}
+
+.siteHeader__menu ul li {
+  padding-right: 20px;
+}
+
+.siteHeader__menu ul li:last-of-type {
+  padding-right: 0;
+}
+
+.siteHeader__menu ul li a {
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFF;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.siteHeader__menu ul li a:hover {
+  opacity: .7;
+}
+
+.siteHeader__menu ul li.current-menu-item a {
+  font-weight: 800;
+}
+
+.siteHeader__logo {
+  width: 120px;
+  height: 100%;
+}
+
+.siteHeader__logo .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.siteHeader__logo .wrap img {
+  max-width: 85px;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.siteHeader__logo:hover .wrap img {
+  opacity: .8;
+}
+
+.siteHeader__actions {
+  width: calc(50% - 60px);
+  text-align: right;
+}
+
+.siteHeader__actions a {
+  margin-left: 22px;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.siteHeader__actions a:first-of-type {
+  margin-left: 0;
+}
+
+.siteHeader__actions a:hover {
+  opacity: .7;
+}
+
+.siteHeader svg {
+  position: relative;
+  top: -20px;
+  z-index: 2;
+}
+
+@media (max-width: 991px) {
+  .siteHeader {
+    height: 77px;
+  }
+  .siteHeader--frontPage {
+    height: 70px;
+  }
+  .siteHeader__menu ul li {
+    padding-right: 15px;
+  }
+  .siteHeader__menu ul li a {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .siteHeader__actions a {
+    margin-left: 15px;
+  }
+  .siteHeader__actions a img {
+    max-width: 15px;
+  }
+  .siteHeader svg {
+    width: 2800px;
+  }
+}
+
+@media (max-width: 767px) {
+  .siteHeader {
+    height: 60px;
+  }
+  .siteHeader--frontPage {
+    height: 60px;
+  }
+  .siteHeader__menu {
+    display: none;
+  }
+  .siteHeader__logo {
+    width: 60px;
+  }
+  .siteHeader__logo .wrap img {
+    width: 100%;
+  }
+  .siteHeader__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: calc(100% - 60px);
+  }
+  .siteHeader__actions .menu-toggle {
+    width: 30px;
+    margin-left: 15px;
+    padding: 0px;
+    background: transparent;
+    border: 0;
+    outline: none;
+  }
+  .siteHeader__actions .menu-toggle:focus {
+    border: 0;
+  }
+  .siteHeader__actions .menu-toggle img {
+    max-width: 20px;
+  }
+}
+
+.siteFooter {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.siteFooter svg {
+  position: relative;
+  top: 12px;
+}
+
+.siteFooter__wrap {
+  padding: 60px 0 50px;
+  background-color: #EC422B;
+}
+
+.siteFooter__wrap p {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .siteFooter svg {
+    width: 2800px;
+    top: 15px;
+  }
+}
+
+/*  Global
+--------------- */
+#page {
+  overflow: hidden;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #EC422B;
+  height: 40px;
+  padding: 0 30px;
+  border-radius: 0;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.btn span {
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  padding-right: 25px;
+}
+
+.btn span:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/arrow_right_white.svg");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  width: 18px;
+  height: 13px;
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: 0;
+  pointer-events: none;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.btn:hover {
+  background-color: #f35a45;
+}
+
+.btn:hover span:after {
+  right: -3px;
+}
+
+.sectionHeading {
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.sectionHeading span {
+  font-family: "Pacifico";
+  font-size: 60px;
+  line-height: 105px;
+  color: #1034A6;
+  position: relative;
+}
+
+.sectionHeading--big span {
+  font-size: 120px;
+  line-height: 211px;
+}
 /*# sourceMappingURL=custom.css.map */
