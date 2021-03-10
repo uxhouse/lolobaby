@@ -1,0 +1,66 @@
+p {
+    margin-top: 15px;
+}
+
+.section {
+    &--about {
+        position: relative;
+        padding: 50px 0;
+    }
+
+    &--highQuality {
+        position: relative;
+        display: flex;
+    }
+
+    &--environmentCare {
+        background-image: url('/wp-content/themes/lolobaby/images/environmentCare-image.jpg');
+        background-size: cover;
+        background-position: right;
+        padding: 90px 0;
+        margin: 70px 0;
+    }
+}
+
+.planeDrawing {
+    &--right {
+        top: 30px;
+        right: 0;
+    }
+    &--left {
+        bottom: -80px;
+        left: -120px;
+    }
+}
+
+.aboutDescription {
+    max-width: 674px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.imageWrapper {
+    background-image: url('/wp-content/themes/lolobaby/images/highQuality-image.jpg');
+    background-size: cover;
+    background-position: center;
+    flex: 12;
+    height: 626px;
+}
+
+.highQualityDescription {
+    flex: 8;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.environmentCareDescription {
+    max-width: 300px;
+}
+
+@media (max-width: 767px){
+    .planeDrawing {
+        display: none;
+    }
+}

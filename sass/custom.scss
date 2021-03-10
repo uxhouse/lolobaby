@@ -15,12 +15,17 @@
 --------------- */
 @import 'parts/siteHeader';
 @import 'parts/siteFooter';
+@import 'parts/knowledgeZone';
 
 /*  Global
 --------------- */
 
 #page{
     overflow: hidden;
+}
+
+p {
+    color: $primary-text-color;
 }
 
 .btn{
@@ -68,6 +73,7 @@
 
 .sectionHeading{
     transform: rotate(-3deg);
+    text-align: center;
 
     span{
         font-family: "Pacifico";
@@ -83,4 +89,15 @@
             line-height: 211px;
         }
     }
+}
+
+.secondaryHeading {
+    font-size: 30px;
+    color: $blue-color;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.drawing {
+    position: absolute;
 }
