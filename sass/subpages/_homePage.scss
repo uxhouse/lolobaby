@@ -1,5 +1,79 @@
+
+$sliderHeight: 65vh;
+
 .homeSlider{
-    height: 670px;
+    height: $sliderHeight;
     width: 100%;
-    background-color: #6f6f6f;
+    position: relative;
+
+    &__slider{
+        height: $sliderHeight;
+    }
+    &__slide{
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: $sliderHeight;
+        background-size: cover;
+        outline: none;
+    }
+    &__wrap{
+        max-width: 650px;
+        text-align: center;
+
+        h2{
+            font-family: "Pacifico";
+            font-size: 130px;
+            line-height: 130px;
+            color: #fff;
+            transform: rotate(-3deg);
+            pointer-events: none;
+        }
+        a{
+            margin-top: 10vh;
+        }
+    }
+    &__nav{
+        display: flex;
+        width: fit-content;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    &__arrow{
+        cursor: pointer;
+        transition: ease .3s;
+
+        &:hover{
+            opacity: .8;
+        }
+    }
+    &__dots{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+
+        span{
+            display: block;
+            width: 11px;
+            height: 11px;
+            border-radius: 100%;
+            font-size: 0;
+            background-color: #fff;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: ease .3s;
+
+            &.active{
+                background-color: $red-color;
+            }
+
+            &:hover{
+                opacity: .8;
+            }
+        }
+    }
 }

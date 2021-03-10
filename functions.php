@@ -143,15 +143,25 @@ function lolobaby_scripts() {
 	wp_enqueue_style( 'lolobaby-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'lolobaby-style', 'rtl', 'replace' );
 
+	/* jQuery */
+	wp_register_script( 'lolobaby-jQuery', 'https://code.jquery.com/jquery-3.6.0.min.js', null, null, true );
+	wp_enqueue_script('lolobaby-jQuery');
+
+	/* Bootstrap */
 	wp_enqueue_style( 'lolobaby-bootstrap', get_template_directory_uri() . '/css/bootstrap/bootstrap.css', array(), _S_VERSION );
 
-	wp_enqueue_style( 'lolobaby-custom', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION );
+	/* Slick */
+	wp_enqueue_script( 'lolobaby-slick', get_template_directory_uri() . '/plugins/slick/slick.min.js', array(), _S_VERSION, true );
+	wp_enqueue_style( 'lolobaby-slickCSS', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _S_VERSION );
+	wp_enqueue_style( 'lolobaby-slickThemeCSS', get_template_directory_uri() . '/plugins/slick/slick-theme.css', array(), _S_VERSION );
 
-	wp_enqueue_script( 'lolobaby-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	/* Custom CSS */
+	wp_enqueue_style( 'lolobaby-custom', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION );
 
 	/* Custom js */
 	wp_enqueue_script( 'lolobaby-custom-js', get_template_directory_uri() . '/js/custom.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'lolobaby-sliders-js', get_template_directory_uri() . '/js/sliders.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'lolobaby-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
