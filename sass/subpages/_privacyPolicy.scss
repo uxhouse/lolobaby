@@ -1,0 +1,26 @@
+.section {
+    &--privacyPolicy {
+        position: relative;
+        padding: 50px 0;
+        text-align: center;
+
+        p {
+            margin: 15px 0;
+        }
+    }
+}
+
+.privacyPolicy {
+    &__content {
+        max-width: 674px;
+        margin: 30px auto;
+    }
+
+    &__subheading {
+        font-size: 16px;
+        font-weight: 800;
+        color: $primary-text-color;
+        text-transform: uppercase;
+        margin: 25px 0;
+    }
+}
