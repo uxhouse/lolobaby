@@ -60,9 +60,450 @@ body {
 /*  Subpages
 --------------- */
 .homeSlider {
-  height: 670px;
+  height: 65vh;
   width: 100%;
-  background-color: #6f6f6f;
+  position: relative;
+}
+
+.homeSlider__slider {
+  height: 65vh;
+}
+
+.homeSlider__slide {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 65vh;
+  background-size: cover;
+  outline: none;
+}
+
+.homeSlider__wrap {
+  max-width: 650px;
+  text-align: center;
+}
+
+.homeSlider__wrap h2 {
+  font-family: "Pacifico";
+  font-size: 130px;
+  line-height: 130px;
+  color: #fff;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+.homeSlider__wrap a {
+  margin-top: 10vh;
+}
+
+.homeSlider__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.homeSlider__arrow {
+  cursor: pointer;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.homeSlider__arrow:hover {
+  opacity: .8;
+}
+
+.homeSlider__dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10px;
+}
+
+.homeSlider__dots span {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 100%;
+  font-size: 0;
+  background-color: #fff;
+  margin: 0 10px;
+  cursor: pointer;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.homeSlider__dots span.active {
+  background-color: #EC422B;
+}
+
+.homeSlider__dots span:hover {
+  opacity: .8;
+}
+
+/* ---- Reassurance boxes ---- */
+.homeReassurance {
+  background-color: #FFCAD4;
+  padding: 38px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.homeReassurance__cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/wp-content/themes/lolobaby/images/reassurance_cover.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  left: 0;
+  top: 0;
+}
+
+.homeReassurance__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  z-index: 4;
+}
+
+.homeReassurance__box {
+  width: 240px;
+}
+
+.homeReassurance__box .icon {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 100%;
+  text-align: center;
+  padding-top: 18px;
+  margin: 0 auto 36px;
+}
+
+.homeReassurance__box p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  text-align: center;
+  color: #FFFCFC;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.homeReassurance__waves {
+  position: absolute;
+  bottom: -23px;
+  z-index: 3;
+}
+
+/* ---- Bestsellers ---- */
+.homeBestsellers__heading {
+  position: relative;
+  margin-top: -50px;
+  z-index: 3;
+  margin-bottom: 20px;
+}
+
+.homeBestsellers__heading h2 span {
+  position: relative;
+  z-index: 3;
+}
+
+.homeBestsellers__heading h2 span:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/bestsellers_plane_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  width: 100px;
+  height: 95px;
+  position: absolute;
+  left: -68px;
+  bottom: 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.homeBestsellers__wrap {
+  position: relative;
+}
+
+.homeBestsellers__arrow {
+  position: absolute;
+  top: 46%;
+  cursor: pointer;
+  z-index: 3;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.homeBestsellers__arrow:hover {
+  opacity: .8;
+}
+
+.homeBestsellers__arrow--left {
+  left: 21px;
+}
+
+.homeBestsellers__arrow--right {
+  right: 21px;
+}
+
+.homeBestsellers__list .productTile {
+  max-height: 450px;
+  height: 100%;
+}
+
+.homeBestsellers__list .productTile__wrap, .homeBestsellers__list .productTile__thumb,
+.homeBestsellers__list .productTile__thumb img {
+  max-height: inherit;
+}
+
+.homeBestsellers__list .productTile:hover .productTile__cover {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.homeBestsellers__list .productTile:hover .productTile__wishlist,
+.homeBestsellers__list .productTile:hover .productTile__bestseller {
+  opacity: 0;
+}
+
+.homeBestsellers__waves {
+  position: absolute;
+  bottom: -15px;
+}
+
+/* ---- Collections ---- */
+.homeCollections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.homeCollections__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: calc(100% / 2);
+  height: 85vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.homeCollections__content {
+  text-align: center;
+}
+
+.homeCollections__content p {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 10%;
+}
+
+.homeCollections__content h2 {
+  font-family: "Pacifico";
+  font-size: 160px;
+  line-height: 180px;
+  color: #fff;
+  margin: 0 0 7vh;
+}
+
+/* ---- Reassurance boxes ---- */
+.homeDelivery {
+  background-color: #405DB8;
+  padding: 84px 0 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.homeDelivery__cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/wp-content/themes/lolobaby/images/delivery_cover.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 3;
+  left: 0;
+  top: 0;
+}
+
+.homeDelivery__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  z-index: 4;
+}
+
+.homeDelivery__box {
+  width: 240px;
+}
+
+.homeDelivery__box .icon {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 100%;
+  text-align: center;
+  padding-top: 18px;
+  margin: 0 auto 36px;
+}
+
+.homeDelivery__box p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  text-align: center;
+  color: #FFFCFC;
+  text-transform: uppercase;
+  margin: 0 auto;
+  max-width: 150px;
+  min-height: 48px;
+}
+
+.homeDelivery__waves {
+  position: absolute;
+  bottom: -23px;
+  z-index: 3;
+}
+
+/* ---- Instagram ---- */
+.homeInstagram__heading h2 span {
+  position: relative;
+}
+
+.homeInstagram__heading h2 span:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/instagram_heading_ico.svg");
+  background-size: 98px;
+  width: 98px;
+  height: 98px;
+  position: absolute;
+  left: -60px;
+  top: 50px;
+  z-index: -1;
+}
+
+.homeInstagram__heading .hash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.homeInstagram__heading .hash p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.homeInstagram__heading .hash p img {
+  max-width: 20px;
+  margin-right: 8px;
+  margin-top: -2px;
+}
+
+.homeInstagram__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px 0 100px;
+}
+
+.homeInstagram__box {
+  width: calc(100% / 4 - 8px);
+  max-height: 470px;
+}
+
+.homeInstagram__box .thumb {
+  max-height: inherit;
+  margin-bottom: 30px;
+}
+
+.homeInstagram__box .thumb img {
+  width: 100%;
+  height: 100%;
+  max-height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.homeInstagram__box p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.homeInstagram__box p img {
+  max-width: 20px;
+  margin-right: 8px;
+  margin-top: -6px;
 }
 
 /*  Partials
@@ -81,7 +522,7 @@ body.admin-bar .siteHeader--frontPage {
 
 .siteHeader--frontPage {
   height: 100px;
-  position: fixed;
+  position: absolute;
   top: 0;
   background-color: transparent;
 }
@@ -289,6 +730,112 @@ body.admin-bar .siteHeader--frontPage {
   }
 }
 
+.productTile {
+  width: 326px;
+  height: 326px;
+  outline: none;
+}
+
+.productTile__wrap {
+  position: relative;
+}
+
+.productTile__thumb {
+  width: 100%;
+  height: 100%;
+}
+
+.productTile__thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.productTile__cover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #405cb8c9;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.productTile__cover h3 {
+  font-size: 30px;
+  line-height: 41px;
+  font-weight: 600;
+  color: #fff;
+  max-width: 150px;
+  text-align: center;
+  margin: 0 auto 10px;
+  text-transform: uppercase;
+}
+
+.productTile__cover .price {
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.productTile__bestseller {
+  position: absolute;
+  right: 13px;
+  top: 15px;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productTile__bestseller p {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.productTile__bestseller p:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/star_ico_red.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 8px;
+  position: relative;
+  top: 3px;
+}
+
+.productTile__wishlist {
+  position: absolute;
+  left: 13px;
+  top: 19px;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
 /*  Global
 --------------- */
 #page {
@@ -337,6 +884,28 @@ body.admin-bar .siteHeader--frontPage {
 
 .btn:hover span:after {
   right: -3px;
+}
+
+.homeSectionHeading {
+  font-family: "Pacifico";
+  font-size: 120px;
+  line-height: 211px;
+  color: #1034A6;
+  position: relative;
+  text-align: center;
+  margin: 0;
+}
+
+.homeSectionHeading span {
+  color: #1034A6;
+  display: block;
+  position: relative;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .sectionHeading {
