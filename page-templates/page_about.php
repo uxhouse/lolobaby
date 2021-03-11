@@ -36,7 +36,11 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <a href="#" class="btn"><span>Zobacz wszystkie artykuły</span></a>
+    
+    <!-- Strefa wiedzy -->
+    <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
+
+    <a href="/blog" class="btn"><span>Zobacz wszystkie artykuły</span></a>
 </main>
 
 <?php get_footer(); ?>
