@@ -1,3 +1,6 @@
+
+/* ---- Home page top slider ---- */ 
+
 $(document).ready(function(){
     $('.homeSlider__slider').slick({
         slidesToShow: 1,
@@ -23,4 +26,16 @@ $(document).ready(function(){
         $('.homeSlider__dots span').removeClass('active');
         $('.homeSlider__dots span[num="' + currentSlide + '"]').addClass('active');
     });
+});
+
+/* ---- Bestsellers slider ---- */ 
+
+$(document).ready(function(){
+    $('.homeBestsellers__list').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: $('.homeBestsellers__arrow--left'),
+        nextArrow: $('.homeBestsellers__arrow--right'),
+    })
 });
