@@ -18,8 +18,8 @@ get_header(); ?>
     </section>
     <div class="container">
         <section class="section section--highQuality">
-            <div class="imageWrapper"></div>
-            <div class="highQualityDescription">
+            <img class="highQuality__image" src="<?php echo get_template_directory_uri() . '/images/highQuality-image.jpg' ?>" alt="" />
+            <div class="highQuality__description">
                 <h2 class="secondaryHeading">Wysoka jakość<br>i funkcjonalność</h2>
                 <p>Jako mama dwójki temperamentnych dzieci często miałam problem ze znalezieniem ubranek, odpowiadających na moje potrzeby. Przede wszystkim łatwych w zakładaniu i umożliwiających szybkie przewijanie. Zrodził się więc pomysł na markę, której produkty mają być nie tylko ładne ale przede wszystkim proste i luźne w kroju, bez zbędnych zdobień i zatrzasków. </p>
                 <p>Gwarancja jakości i bezpieczeństwa to nasz priorytet. Szyjemy i projektujemy w Polsce z wyłącznie certyfikowanych materiałów. Dzianiny z naszej kolekcji są niezwykle miękkie i jedwabiste w dotyku, dzięki czemu idealnie otulają noworodki dając im ciepło i ochronę, których Maluszki tak bardzo potrzebują.</p>
@@ -36,7 +36,12 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <a href="#" class="btn"><span>Zobacz wszystkie artykuły</span></a>
+    <!-- Strefa wiedzy -->
+    <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
+    
+    <div class="container blogLink">
+        <a href="/blog" class="btn"><span>Zobacz wszystkie artykuły</span></a>
+    </div>
 </main>
 
 <?php get_footer(); ?>

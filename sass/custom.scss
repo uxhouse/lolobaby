@@ -11,13 +11,15 @@
 @import 'subpages/homePage';
 @import 'subpages/about';
 @import 'subpages/privacyPolicy';
+@import 'subpages/contact';
 
 /*  Partials
 --------------- */
 @import 'parts/siteHeader';
 @import 'parts/siteFooter';
 @import 'parts/knowledgeZone';
-
+@import 'parts/postTile';
+@import 'parts/productTile';
 
 /*  Global
 --------------- */
@@ -120,6 +122,23 @@ p {
         span{
             font-size: 120px;
             line-height: 211px;
+        }
+    }
+    &--red {
+        span {
+            color: $red-color;
+        }
+    }
+    
+    &--withImage {
+        span {
+            position: relative;
+            z-index: 1;
+            img {
+                position: absolute;
+                top: 10px;
+                left: -70px;
+            }
         }
     }
 }
