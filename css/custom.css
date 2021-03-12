@@ -1054,6 +1054,122 @@ p {
   }
 }
 
+/*  WooCommerce
+--------------- */
+.archiveShop {
+  position: relative;
+  /* ---- Product List ---- */
+}
+
+.archiveShop:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/archive_plane_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 344px;
+  width: 344px;
+  height: 210px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.archiveShop__header h1 {
+  margin: 0 0 30px;
+}
+
+.archiveShop__header .catDesc {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.archiveShop__header .catDesc p {
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  margin: 0;
+  color: #4F4F4F;
+}
+
+.archiveShop__header .categoryWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.archiveShop__header .categoryWrapper__cat {
+  width: 123px;
+  text-align: center;
+}
+
+.archiveShop__header .categoryWrapper__cat .thumb {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  margin: 0 auto 25px;
+  position: relative;
+}
+
+.archiveShop__header .categoryWrapper__cat .thumb__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.archiveShop__header .categoryWrapper__cat .thumb__icon {
+  position: absolute;
+  left: -15px;
+  bottom: -5px;
+  max-width: 60px;
+  max-height: 45px;
+}
+
+.archiveShop__header .categoryWrapper__cat .name {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  color: #4F4F4F;
+  text-align: center;
+  margin: 0 0 5px;
+  text-transform: uppercase;
+}
+
+.archiveShop__header .categoryWrapper__cat a {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 300;
+  text-align: center;
+  color: #EC422B;
+  text-decoration: underline !important;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.archiveShop__header .categoryWrapper__cat a:hover {
+  opacity: .7;
+}
+
+.archiveShop__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.archiveShop__list .productTile {
+  width: calc(100% / 3 - 10px);
+}
+
 /*  Partials
 --------------- */
 /* ---- COLORS ---- */
@@ -1066,6 +1182,7 @@ body.admin-bar .siteHeader--frontPage {
   height: 107px;
   background-color: #405DB8;
   z-index: 100;
+  margin-bottom: 70px;
 }
 
 .siteHeader--frontPage {
@@ -1073,10 +1190,15 @@ body.admin-bar .siteHeader--frontPage {
   position: absolute;
   top: 0;
   background-color: transparent;
+  margin-bottom: 0;
 }
 
 .siteHeader--frontPage .siteHeader__logo .wrap {
   background-color: #EC422B;
+}
+
+.siteHeader--frontPage .siteHeader__logo .wrap img {
+  width: 85px;
 }
 
 .siteHeader__wrap {
@@ -1146,7 +1268,7 @@ body.admin-bar .siteHeader--frontPage {
 }
 
 .siteHeader__logo .wrap img {
-  max-width: 85px;
+  width: 105px;
   -webkit-transition: ease .3s;
   transition: ease .3s;
 }
@@ -1389,6 +1511,14 @@ body.admin-bar .siteHeader--frontPage {
   outline: none;
 }
 
+.productTile--archive {
+  height: auto;
+}
+
+.productTile--archive .productTile__thumb {
+  height: 326px;
+}
+
 .productTile__wrap {
   position: relative;
 }
@@ -1493,6 +1623,30 @@ body.admin-bar .siteHeader--frontPage {
   transition: ease .3s;
 }
 
+.productTile__content {
+  padding: 20px 0 38px;
+  text-align: center;
+}
+
+.productTile__content h3 {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  text-align: center;
+  font-weight: 600;
+  max-width: 140px;
+  margin: 0 auto 10px;
+  text-transform: uppercase;
+}
+
+.productTile__content p {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
 /*  Global
 --------------- */
 #page {
@@ -1545,6 +1699,21 @@ p {
 
 .btn:hover span:after {
   right: -3px;
+}
+
+.btn--archive {
+  height: 26px;
+  padding: 0 19px;
+}
+
+.btn--archive span {
+  font-size: 12px;
+  line-height: 26px;
+  padding: 0;
+}
+
+.btn--archive span:after {
+  display: none;
 }
 
 .homeSectionHeading {

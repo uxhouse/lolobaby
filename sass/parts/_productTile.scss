@@ -3,6 +3,13 @@
     height: 326px;
     outline: none;
 
+    &--archive{
+        height: auto;
+
+        .productTile__thumb{
+            height: 326px;
+        }
+    }
     &__wrap{
         position: relative;
     }
@@ -87,5 +94,27 @@
         left: 13px;
         top: 19px;
         transition: ease .3s;
+    }
+    &__content{
+        padding: 20px 0 38px;
+        text-align: center;
+
+        h3{
+            font-size: 16px;
+            line-height: 22px;
+            color: #4F4F4F;
+            text-align: center;
+            font-weight: 600;
+            max-width: 140px;
+            margin: 0 auto 10px;
+            text-transform: uppercase;
+        }
+        p{
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 800;
+            text-align: center;
+            margin: 0 0 20px;
+        }
     }
 }

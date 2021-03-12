@@ -1,0 +1,100 @@
+.archiveShop{
+    position: relative;
+
+    &:after{
+        content: '';
+        background-image: url('/wp-content/themes/lolobaby/images/icons/archive_plane_ico.svg');
+        background-repeat: no-repeat;
+        background-size: 344px;
+        width: 344px;
+        height: 210px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &__header{
+        h1{
+            margin: 0 0 30px;
+        }
+        .catDesc{
+            max-width: 680px;
+            margin: 0 auto;
+
+            p{
+                font-size: 16px;
+                line-height: 22px;
+                text-align: center;
+                margin: 0;
+                color: $primary-text-color;
+            }
+        }
+        .categoryWrapper{
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            margin: 30px auto;
+
+            &__cat{
+                width: 123px;
+                text-align: center;
+
+                .thumb{
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 100%;
+                    margin: 0 auto 25px;
+                    position: relative;
+
+                    &__image{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 100%;
+                    }
+                    &__icon{
+                        position: absolute;
+                        left: -15px;
+                        bottom: -5px;
+                        max-width: 60px;
+                        max-height: 45px;
+                    }
+                }
+                .name{
+                    font-size: 16px;
+                    line-height: 22px;
+                    font-weight: 800;
+                    color: $primary-text-color;
+                    text-align: center;
+                    margin: 0 0 5px;
+                    text-transform: uppercase;
+                }
+                a{
+                    font-size: 15px;
+                    line-height: 20px;
+                    font-weight: 300;
+                    text-align: center;
+                    color: $red-color;
+                    text-decoration: underline !important;
+                    transition: ease .3s;
+
+                    &:hover{
+                        opacity: .7;
+                    }
+                }
+            }
+        }
+    }
+
+    /* ---- Product List ---- */
+    &__list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1020px;
+        margin: 0 auto;
+
+        .productTile{
+            width: calc(100% / 3 - 10px);
+        }
+    }
+}
