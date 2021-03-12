@@ -1,8 +1,7 @@
 <?php
 $args = array(
-    'numberposts'    => 3,
-    'post_type'        => 'post',
     'posts_per_page' => 3,
+    'post_type'        => 'post',
 );
 $the_query = new WP_Query($args); ?>
 <?php if ($the_query->have_posts()) : ?>

@@ -264,6 +264,9 @@ $sliderHeight: 65vh;
             opacity: .8;
         }
 
+        &--mobile{
+            display: none !important;
+        }
         &--left{
             left: 21px;
         }
@@ -343,6 +346,9 @@ $sliderHeight: 65vh;
         
             &--desktop{
                 display: none !important;
+            }
+            &--mobile{
+                display: block !important;
             }
 
             img{
