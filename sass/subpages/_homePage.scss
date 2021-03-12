@@ -1,5 +1,731 @@
+
+$sliderHeight: 65vh;
+
 .homeSlider{
-    height: 670px;
+    height: $sliderHeight;
     width: 100%;
-    background-color: #6f6f6f;
+    position: relative;
+
+    &__slider{
+        height: $sliderHeight;
+    }
+    &__slide{
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: $sliderHeight;
+        background-size: cover;
+        background-position: center;
+        outline: none;
+    }
+    &__wrap{
+        max-width: 650px;
+        text-align: center;
+
+        h2{
+            font-family: "Pacifico";
+            font-size: 130px;
+            line-height: 130px;
+            color: #fff;
+            transform: rotate(-3deg);
+            pointer-events: none;
+        }
+        a{
+            margin-top: 10vh;
+        }
+    }
+    &__nav{
+        display: flex;
+        width: fit-content;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    &__arrow{
+        cursor: pointer;
+        transition: ease .3s;
+
+        &:hover{
+            opacity: .8;
+        }
+    }
+    &__dots{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+
+        span{
+            display: block;
+            width: 11px;
+            height: 11px;
+            border-radius: 100%;
+            font-size: 0;
+            background-color: #fff;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: ease .3s;
+
+            &.active{
+                background-color: $red-color;
+            }
+
+            &:hover{
+                opacity: .8;
+            }
+        }
+    }
+}
+@media (max-width: 1199px){
+    .homeSlider{
+        &__wrap{
+            max-width: 550px;
+
+            h2{
+                font-size: 100px;
+                line-height: 100px;
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeSlider{
+        &__wrap{
+            max-width: 340px;
+
+            h2{
+                font-size: 60px;
+                line-height: 70px;
+            }
+            a{
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+/* ---- Reassurance boxes ---- */ 
+
+.homeReassurance{
+    background-color: $pink-color;
+    padding: 38px 0;
+    position: relative;
+    z-index: 2;
+
+    &__cover{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('/wp-content/themes/lolobaby/images/reassurance_cover.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 3;
+        left: 0;
+        top: 0;
+    }
+    &__wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 4;
+    }
+    &__box{
+        width: 240px;
+
+        .icon{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 100%;
+            text-align: center;
+            padding-top: 18px;
+            margin: 0 auto 36px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 800;
+            text-align: center;
+            color: #FFFCFC;
+            text-transform: uppercase;
+            margin: 0;
+        }
+    }
+    &__waves{
+        position: absolute;
+        bottom: -23px;
+        z-index: 3;
+    }
+}
+@media (max-width: 991px){
+    .homeReassurance{
+        &__cover{
+            display: none;
+        }
+        &__box{
+            .icon{
+                width: 90px;
+                height: 90px;
+
+                img{
+                    max-width: 90%;
+                    max-height: 120%;
+                }
+            }
+            p{
+                font-size: 14px;
+                line-height: 19px;
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeReassurance{
+        &__box{
+            width: calc(100% / 3 - 20px);
+
+            p{
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+@media (max-width: 575px){
+    .homeReassurance{
+        padding: 28px 0;
+
+        &__box{
+            width: 124px;
+
+            .icon{
+                width: 70px;
+                height: 70px;
+                padding-top: 10px;
+                margin: 0 auto 20px;
+
+                img{
+                    max-height: 110%;
+                }
+            }
+            p{
+                font-size: 10px;
+                line-height: 14px;
+                min-height: 42px;
+            }
+        }
+    }
+}
+
+/* ---- Bestsellers ---- */ 
+
+.homeBestsellers{
+    &__heading{
+        position: relative;
+        margin-top: -50px;
+        z-index: 3;
+        margin-bottom: 20px;
+
+        h2{
+            span{
+                position: relative;
+                z-index: 3;
+
+                &:before{
+                    content: '';
+                    background-image: url('/wp-content/themes/lolobaby/images/icons/bestsellers_plane_ico.svg');
+                    background-repeat: no-repeat;
+                    background-size: 100px;
+                    width: 100px;
+                    height: 95px;
+                    position: absolute;
+                    left: -68px;
+                    bottom: 40px;
+                    z-index: -1;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+    &__wrap{
+        position: relative;
+    }
+    &__arrow{
+        position: absolute;
+        top: 46%;
+        cursor: pointer;
+        z-index: 3;
+        transition: ease .3s;
+
+        &:hover{
+            opacity: .8;
+        }
+
+        &--left{
+            left: 21px;
+        }
+        &--right{
+            right: 21px;
+        }
+    }
+    &__list{
+        .productTile{
+            max-height: 450px;
+            height: 100%;
+
+            &__wrap,
+            &__thumb,
+            &__thumb img{
+                max-height: inherit;
+            }
+
+            &:hover{
+                .productTile__cover{
+                    opacity: 1;
+                    pointer-events: all;
+                }
+                .productTile__wishlist,
+                .productTile__bestseller{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    &__waves{
+        position: absolute;
+        bottom: -15px;
+    }
+}
+@media (max-width: 991px){
+    .homeBestsellers{
+        &__heading{
+            margin-top: -30px;
+            h2{
+                span{
+                    &:before{
+                        background-size: 75px;
+                        width: 75px;
+                        height: 70px;
+                        left: -50px;
+                    }
+                }
+            }
+        }
+        &__nav{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            bottom: 20px;
+            margin-top: 30px;
+        }
+        &__dots{
+            margin: 0 35px;
+
+            span{
+                display: inline-block;
+                width: 11px;
+                height: 11px;
+                background-color: #d9d9d9;
+                border-radius: 100%;
+                margin: 0 3px;
+                transition: ease .3s;
+
+                &.active{
+                    background-color: #EC422B;
+                }
+            }
+        }
+        &__arrow{
+            position: relative;
+        
+            &--desktop{
+                display: none !important;
+            }
+
+            img{
+                filter: contrast(0.7);
+            }
+        }
+        &__list{
+            .slick-list{
+                margin: 0 -10px;
+            }
+            .productTile{
+                max-height: none;
+                opacity: .3;
+                transition: ease .3s;
+
+                &.slick-current{
+                    margin: 0 10px;
+                    opacity: 1;
+                }
+
+                &__wrap{
+                    height: auto;
+                }
+                &__thumb{
+                    height: 326px;
+                }
+                &__cover{
+                    background: transparent;
+                    position: relative;
+                    opacity: 1;
+                    pointer-events: all;
+                    padding: 20px 15px;
+
+                    h3{
+                        color: #4F4F4F;
+                        max-width: 90%;
+                    }
+                    .price{
+                        color: #4F4F4F;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeBestsellers{
+        &__heading{
+            margin: -10px 0 10px;
+
+            h2{
+                span{
+                    &:before{
+                        background-size: 45px;
+                        width: 45px;
+                        height: 42px;
+                        left: -35px;
+                        bottom: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ---- Collections ---- */ 
+
+.homeCollections{
+    display: flex;
+
+    &__box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% / 2);
+        height: 85vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__content{
+        text-align: center;
+
+        p{
+            font-size: 16px;
+            line-height: 21px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10%;
+        }
+        h2{
+            font-family: "Pacifico";
+            font-size: 160px;
+            line-height: 180px;
+            color: #fff;
+            margin: 0 0 7vh;
+        }
+    }
+}
+@media (max-width: 1199px){
+    .homeCollections{
+        &__content{
+            h2{
+                font-size: 120px;
+                line-height: 150px;
+            }
+        }
+    }
+}
+@media (max-width: 991px){
+    .homeCollections{
+        &__content{
+            h2{
+                font-size: 100px;
+                line-height: 130px;
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeCollections{
+        flex-direction: column;
+
+        &__box{
+            width: 100%;
+            height: 65vh;
+        }
+        &__content{
+            p{
+                margin: 0;
+            }
+            h2{
+                font-size: 60px;
+                line-height: 105px;
+                margin: 0 0 15px;
+            }
+        }
+    }
+}
+
+/* ---- Reassurance boxes ---- */ 
+
+.homeDelivery{
+    background-color: $blue-light-color;
+    padding: 84px 0 60px;
+    position: relative;
+    z-index: 2;
+
+    &__cover{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('/wp-content/themes/lolobaby/images/delivery_cover.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 3;
+        left: 0;
+        top: 0;
+    }
+    &__wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 4;
+    }
+    &__box{
+        width: 240px;
+
+        .icon{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 100%;
+            text-align: center;
+            padding-top: 18px;
+            margin: 0 auto 36px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 800;
+            text-align: center;
+            color: #FFFCFC;
+            text-transform: uppercase;
+            margin: 0 auto;
+            max-width: 150px;
+            min-height: 48px;
+        }
+    }
+    &__waves{
+        position: absolute;
+        bottom: -23px;
+        z-index: 3;
+    }
+}
+@media (max-width: 991px){
+    .homeDelivery{
+        &__box{
+            .icon{
+                img{
+                    max-width: 90%;
+                    max-height: 110%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeDelivery{
+        padding: 40px 0 0px;
+
+        &__wrap{
+            flex-wrap: wrap;
+        }
+        &__box{
+            width: calc(100% / 2);
+            margin-bottom: 30px;
+        }
+        &__cover{
+            width: 160px;
+            height: 160px;
+            background-size: cover;
+        }
+    }
+}
+
+/* ---- Instagram ---- */ 
+.homeInstagram{
+    &__heading{
+        h2{
+            span{
+                position: relative;
+
+                &:before{
+                    content: '';
+                    background-image: url('/wp-content/themes/lolobaby/images/icons/instagram_heading_ico.svg');
+                    background-repeat: no-repeat;
+                    background-size: 98px;
+                    width: 98px;
+                    height: 98px;
+                    position: absolute;
+                    left: -60px;
+                    top: 50px;
+                    z-index: -1;
+                }
+            }
+        }
+        .hash{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 430px;
+            margin: 0 auto;
+
+            p{
+                font-size: 16px;
+                line-height: 22px;
+                font-weight: 800;
+                color: #4F4F4F;
+                text-transform: uppercase;
+                margin: 0;
+
+                img{
+                    max-width: 20px;
+                    margin-right: 8px;
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+    &__wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 50px 0 100px;
+    }
+    &__box{
+        width: calc(100% / 4 - 8px);
+        max-height: 470px;
+
+        .thumb{
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative; /* If you want text inside of it */
+            margin-bottom: 30px;
+
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                max-height: inherit;
+                object-fit: cover;
+            }
+        }
+        p{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 800;
+            color: #4F4F4F;
+            margin: 0;
+            text-transform: uppercase;
+            text-align: center;
+
+            img{
+                max-width: 20px;
+                margin-right: 8px;
+                margin-top: -6px;
+            }
+        }
+    }
+}
+@media (max-width: 991px){
+    .homeInstagram{
+        &__heading{
+            h2{
+                span{
+                    &:before{
+                        background-size: 70px;
+                        width: 70px;
+                        height: 70px;
+                        left: -40px;
+                        top: 40px;
+                    }
+                }
+            }
+        }
+        &__wrap{
+            margin: 50px 0;
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeInstagram{
+        &__heading{
+            margin-top: 30px;
+
+            h2{
+                span{
+                    &:before{
+                        background-size: 50px;
+                        width: 50px;
+                        height: 50px;
+                        left: -30px;
+                        top: 25px;
+                    }
+                }
+            }
+            .hash{
+                flex-wrap: wrap;
+                max-width: 250px;
+                margin: 10px auto 0;
+
+                p{
+                    text-align: center;
+
+                    &:first-of-type{
+                        width: 100%;
+                        margin: 0 0 15px;
+                    }
+                }
+            }
+        }
+        &__wrap{
+            margin: 30px 0 20px;
+        }
+        &__box{
+            width: calc(100% / 2 - 5px);
+
+            &:nth-last-child(1),
+            &:nth-last-child(2){
+                display: none;
+            }
+
+            .thumb{
+                margin-bottom: 15px;
+            }
+        }
+    }
 }

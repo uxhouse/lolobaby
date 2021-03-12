@@ -18,6 +18,7 @@
 @import 'parts/siteFooter';
 @import 'parts/knowledgeZone';
 
+
 /*  Global
 --------------- */
 
@@ -69,6 +70,37 @@ p {
                 right: -3px;
             }
         }
+    }
+}
+
+.homeSectionHeading{
+    font-family: "Pacifico";
+    font-size: 120px;
+    line-height: 211px;
+    color: $blue-color;
+    position: relative;
+    text-align: center;
+    margin: 0;
+
+    span{
+        color: $blue-color;
+        display: block;
+        position: relative;
+        transform: rotate(-3deg);
+        max-width: fit-content;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 991px){
+    .homeSectionHeading{
+        font-size: 90px;
+        line-height: 150px;
+    }
+}
+@media (max-width: 767px){
+    .homeSectionHeading{
+        font-size: 60px;
+        line-height: 105px;
     }
 }
 
