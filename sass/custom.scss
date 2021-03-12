@@ -19,6 +19,7 @@
 @import 'parts/siteFooter';
 @import 'parts/knowledgeZone';
 @import 'parts/postTile';
+@import 'parts/productTile';
 
 /*  Global
 --------------- */
@@ -71,6 +72,25 @@ p {
                 right: -3px;
             }
         }
+    }
+}
+
+.homeSectionHeading{
+    font-family: "Pacifico";
+    font-size: 120px;
+    line-height: 211px;
+    color: $blue-color;
+    position: relative;
+    text-align: center;
+    margin: 0;
+
+    span{
+        color: $blue-color;
+        display: block;
+        position: relative;
+        transform: rotate(-3deg);
+        max-width: fit-content;
+        margin: 0 auto;
     }
 }
 
