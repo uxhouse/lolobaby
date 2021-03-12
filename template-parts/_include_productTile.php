@@ -1,4 +1,4 @@
-<article class="productTile">
+<article class="productTile" productID="<?php the_ID(); ?>">
     <div class="productTile__wrap">
         <div class="productTile__thumb">
             <img src="<?php echo get_the_post_thumbnail_url(); ?>"/>

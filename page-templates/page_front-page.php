@@ -80,7 +80,7 @@ get_header(); ?>
             <h2 class="homeSectionHeading"><span>bestsellery</span></h2>
         </div>
         <div class="homeBestsellers__wrap">
-            <div class="homeBestsellers__arrow homeBestsellers__arrow--left">
+            <div class="homeBestsellers__arrow homeBestsellers__arrow--left homeBestsellers__arrow--desktop">
                 <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_left_red.svg'; ?>"/>
             </div>
             <div class="homeBestsellers__list">
@@ -88,8 +88,21 @@ get_header(); ?>
                     <?php include get_template_directory() . '/template-parts/_include_productTile.php'; ?>
                 <?php endwhile; ?>
             </div>
-            <div class="homeBestsellers__arrow homeBestsellers__arrow--right">
+            <div class="homeBestsellers__arrow homeBestsellers__arrow--right homeBestsellers__arrow--desktop">
                 <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_red.svg'; ?>"/>
+            </div>
+            <div class="homeBestsellers__nav">
+                <div class="homeBestsellers__arrow homeBestsellers__arrow--left">
+                    <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_left_white.svg'; ?>"/>
+                </div>
+                <div class="homeBestsellers__dots">
+                    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                        <span productID="<?php the_ID(); ?>"></span>
+                    <?php endwhile; ?>
+                </div>
+                <div class="homeBestsellers__arrow homeBestsellers__arrow--right">
+                    <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
+                </div>
             </div>
             <div class="homeBestsellers__waves">
                 <svg xmlns="http://www.w3.org/2000/svg" width="5469" height="34" viewBox="0 0 5469 34" fill="none">
