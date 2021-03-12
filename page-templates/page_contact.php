@@ -8,7 +8,7 @@ get_header(); ?>
     <section class="section section--contact">
         <div class="container contactContent">
             <div class="contactContent__imageWrapper">
-                <img class="contactContent__image" src="<?php echo get_template_directory_uri() . '/images/contact-image.jpg' ?>" alt=""/>
+                <img class="contactContent__image" src="<?php echo get_template_directory_uri() . '/images/contact-image.jpg' ?>" alt="" />
                 <div class="contactContent__headingWrapper">
                     <h2 class="sectionHeading sectionHeading--red contactContent__heading">
                         <span>Kontakt</span>
