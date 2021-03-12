@@ -1088,6 +1088,8 @@ body.admin-bar .siteHeader--frontPage {
   transition: ease .3s;
   opacity: 0;
   pointer-events: none;
+  text-decoration: none !important;
+  color: unset !important;
 }
 
 .productTile__cover h3 {
@@ -1099,6 +1101,7 @@ body.admin-bar .siteHeader--frontPage {
   text-align: center;
   margin: 0 auto 10px;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .productTile__cover .price {
@@ -1107,6 +1110,7 @@ body.admin-bar .siteHeader--frontPage {
   font-weight: 800;
   color: #fff;
   margin: 0 0 16px;
+  text-decoration: none;
 }
 
 .productTile__bestseller {

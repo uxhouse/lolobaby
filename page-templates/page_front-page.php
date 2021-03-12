@@ -121,13 +121,13 @@ get_header(); ?>
             $name = get_sub_field('homepage_collections_name');
             $term = get_sub_field('homepage_collections_link');
         ?>
-        <div class="homeCollections__box" style="background-image: url('<?php echo $bg; ?>');">
+        <a href="<?php echo esc_url( get_term_link( $term ) ); ?>" class="homeCollections__box" style="background-image: url('<?php echo $bg; ?>');">
             <div class="homeCollections__content">
                 <p>kolekcja</p>
                 <h2><?php echo $name; ?></h2>
-                <a href="<?php echo esc_url( get_term_link( $term ) ); ?>" class="btn"><span>Sprawdź</span></a>
+                <span class="btn"><span>Sprawdź</span></span>
             </div>
-        </div>
+        </a>
         <?php endwhile; ?>
     </section>
     <?php endif; ?>
