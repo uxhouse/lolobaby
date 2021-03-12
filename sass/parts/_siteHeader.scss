@@ -12,16 +12,22 @@ body.admin-bar{
     height: 107px;
     background-color: $blue-light-color;
     z-index: 100;
+    margin-bottom: 70px;
 
     &--frontPage{
         height: 100px;
         position: absolute;
         top: 0;
         background-color: transparent;
+        margin-bottom: 0;
 
         .siteHeader__logo{
             .wrap{
                 background-color: $red-color;
+
+                img{
+                    width: 85px;
+                }
             }
         }
     }
@@ -80,7 +86,7 @@ body.admin-bar{
             outline: none;
 
             img{
-                max-width: 85px;
+                width: 105px;
                 transition: ease .3s;
             }
         }

@@ -1,4 +1,4 @@
-<article class="productTile" productID="<?php the_ID(); ?>">
+<article class="productTile<?php if(!is_front_page()): ?> productTile--archive<?php endif; ?>" productID="<?php the_ID(); ?>">
     <div class="productTile__wrap">
         <div class="productTile__thumb">
             <img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
@@ -21,6 +21,13 @@
             <p class="price"><?php $price = get_post_meta( get_the_ID(), '_regular_price', true); echo woocommerce_price($price); ?></p>
             <p href="<?php the_permalink(); ?>" class="btn"><span>Sprawdź</span></p>
         </a>
+        <?php endif; ?>
+        <?php if(!is_front_page()): ?>
+            <div class="productTile__content">
+                <h3><?php the_title(); ?></h3>
+                <p class="price"><?php $price = get_post_meta( get_the_ID(), '_regular_price', true); echo woocommerce_price($price); ?></p>
+                <a href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></a>
+            </div>
         <?php endif; ?>
     </div>
 </article>
