@@ -16,6 +16,7 @@
 @import 'parts/siteHeader';
 @import 'parts/siteFooter';
 @import 'parts/knowledgeZone';
+@import 'parts/postTile';
 
 /*  Global
 --------------- */
@@ -87,6 +88,18 @@ p {
         span{
             font-size: 120px;
             line-height: 211px;
+        }
+    }
+
+    &--withImage {
+        span {
+            position: relative;
+            z-index: 1;
+            img {
+                position: absolute;
+                top: 10px;
+                left: -70px;
+            }
         }
     }
 }
