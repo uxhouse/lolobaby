@@ -36,7 +36,6 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    
     <!-- Strefa wiedzy -->
     <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
     

@@ -93,6 +93,18 @@ p {
         margin: 0 auto;
     }
 }
+@media (max-width: 991px){
+    .homeSectionHeading{
+        font-size: 90px;
+        line-height: 150px;
+    }
+}
+@media (max-width: 767px){
+    .homeSectionHeading{
+        font-size: 60px;
+        line-height: 105px;
+    }
+}
 
 .sectionHeading{
     transform: rotate(-3deg);
@@ -112,7 +124,6 @@ p {
             line-height: 211px;
         }
     }
-
     &--red {
         span {
             color: $red-color;
