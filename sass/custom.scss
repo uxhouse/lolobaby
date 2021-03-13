@@ -142,3 +142,9 @@ p {
 .drawing {
     position: absolute;
 }
+
+.container--min {
+    @media (min-width: 1200px) {
+        max-width: 1000px;
+    }
+}

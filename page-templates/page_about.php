@@ -6,7 +6,7 @@ get_header(); ?>
 
 <main class="lolosite lolosite--aboutPage">
     <section class="section section--about">
-        <div class="container">
+        <div class="container container--min">
             <h2 class="sectionHeading">
                 <span>O nas</span>
             </h2>
@@ -16,7 +16,7 @@ get_header(); ?>
         </div>
         <img class="drawing planeDrawing planeDrawing--right" src="<?php echo get_template_directory_uri() . '/images/plane-red1.svg' ?>" alt="" />
     </section>
-    <div class="container">
+    <div class="container container--min">
         <section class="section section--highQuality">
             <img class="highQuality__image" src="<?php echo get_template_directory_uri() . '/images/highQuality-image.jpg' ?>" alt="" />
             <div class="highQuality__description">
@@ -28,7 +28,7 @@ get_header(); ?>
         </section>
     </div>
     <section class="section section--environmentCare">
-        <div class="container">
+        <div class="container container--min">
             <div class="environmentCareDescription">
                 <h2 class="secondaryHeading">Lolobaby to także dbałość o środowisko. </h2>
                 <p>Nasze produkty pakujemy efektownie ale i ekologicznie. Pudełka, w których wysyłamy nasze ubranka, wykonane są w 90% z przetwarzalnych materiałów wtórnych, barwione farbami na bazie wody.</p>
@@ -40,7 +40,7 @@ get_header(); ?>
     <!-- Strefa wiedzy -->
     <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
     
-    <div class="container blogLink">
+    <div class="container container--min blogLink">
         <a href="/blog" class="btn"><span>Zobacz wszystkie artykuły</span></a>
     </div>
 </main>
