@@ -160,6 +160,14 @@ p {
         }
     }
 }
+@media (max-width: 767px){
+    .sectionHeading{
+        span{
+            font-size: 30px;
+            line-height: 53px;
+        }
+    }
+}
 
 .secondaryHeading {
     font-size: 30px;

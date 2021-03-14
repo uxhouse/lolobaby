@@ -219,3 +219,40 @@ function my_acf_json_load_point( $paths ) {
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
 }
+
+/* Sort Engine rename positions */
+
+function sorting_name_default( $catalog_orderby ) {
+    $catalog_orderby = str_replace("Domyślne sortowanie", "Sortuj wg", $catalog_orderby);
+    return $catalog_orderby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'sorting_name_default' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sorting_name_default' );
+
+function sorting_name_popularity( $catalog_orderby ) {
+    $catalog_orderby = str_replace("Sortuj wg popularności", "Popularność", $catalog_orderby);
+    return $catalog_orderby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'sorting_name_popularity' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sorting_name_popularity' );
+
+function sorting_name_newest( $catalog_orderby ) {
+    $catalog_orderby = str_replace("Sortuj od najnowszych", "Od najnowszych", $catalog_orderby);
+    return $catalog_orderby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'sorting_name_newest' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sorting_name_newest' );
+
+function sorting_name_price_from( $catalog_orderby ) {
+    $catalog_orderby = str_replace("Sortuj wg ceny: od najniższej", "Cena: od najniższej", $catalog_orderby);
+    return $catalog_orderby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'sorting_name_price_from' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sorting_name_price_from' );
+
+function sorting_name_price_to( $catalog_orderby ) {
+    $catalog_orderby = str_replace("Sortuj wg ceny: od najwyższej", "Cena: od najwyższej", $catalog_orderby);
+    return $catalog_orderby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'sorting_name_price_to' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sorting_name_price_to' );

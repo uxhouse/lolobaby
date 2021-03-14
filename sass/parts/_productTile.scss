@@ -8,6 +8,7 @@
 
         .productTile__thumb{
             height: 326px;
+            position: relative;
         }
     }
     &__wrap{
@@ -94,6 +95,23 @@
         left: 13px;
         top: 19px;
         transition: ease .3s;
+    }
+    &__colors{
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        max-width: fit-content;
+        margin: 0 auto;
+
+        span{
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            margin: 0 7px;
+        }
     }
     &__content{
         padding: 20px 0 38px;
