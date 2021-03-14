@@ -45,11 +45,7 @@ get_header( 'shop' ); ?>
                 // since wordpress 4.5.0
                 $args = array(
                     'taxonomy'   => "product_cat",
-                    'number'     => $number,
-                    'orderby'    => $orderby,
-                    'order'      => $order,
-                    'hide_empty' => $hide_empty,
-                    'include'    => $ids
+                    'orderby'      => 'name',
                 );
                 $product_categories = get_terms($args);
             foreach( $product_categories as $cat ) : 
@@ -58,7 +54,7 @@ get_header( 'shop' ); ?>
                 $term_fields = get_fields( 'term_' . $cat->term_id );
             ?>
                 <?php if($cat->count >= 1): ?>
-                    <div class="categoryWrapper__cat">
+                    <div class="categoryWrapper__cat" term="term-<?php echo $cat->slug; ?>">
                         <div class="thumb">
                             <img class="thumb__image" src="<?php echo $image; ?>"/>
                             <img class="thumb__icon" src="<?php echo $term_fields['categoryIcon']; ?>"/>
@@ -74,17 +70,45 @@ get_header( 'shop' ); ?>
         </div>
     </header>
     <section class="archiveShop__content">
+        <div class="archiveTop container">
+            <div class="filterEngine">
+                <div class="filterEngine__title">
+                    <p>Filtruj wg:</p>
+                </div>
+                <div class="filterEngine__engine">
+                    <?php echo do_shortcode('[woof]'); ?>
+                </div>
+                <div class="filterEngine__checkboxes">
+                    <div class="checkbox">
+                        <label for="onlyAvailable">Tylko dostępne</label>
+                        <input type="checkbox" name="onlyAvailable" class="engineCheckbox" id="onlyAvailable" />
+                    </div>
+                    <div class="checkbox">
+                        <label for="priceDrop">Przecena</label>
+                        <input type="checkbox" name="priceDrop" class="engineCheckbox" id="priceDrop" />
+                    </div>
+                </div>
+            </div>
+            <div class="filterOpen">
+                <div class="filterOpen__btn">
+                    <p>Filtruj</p>
+                </div>
+            </div>
+            <div class="sortEngine">
+                <?php
+                    /**
+                     * Hook: woocommerce_before_shop_loop.
+                     *
+                     * @hooked woocommerce_output_all_notices - 10
+                     * @hooked woocommerce_result_count - 20
+                     * @hooked woocommerce_catalog_ordering - 30
+                     */
+                    do_action( 'woocommerce_before_shop_loop' );
+                ?>
+            </div>
+        </div>
         <?php
         if ( woocommerce_product_loop() ) {
-
-            /**
-             * Hook: woocommerce_before_shop_loop.
-             *
-             * @hooked woocommerce_output_all_notices - 10
-             * @hooked woocommerce_result_count - 20
-             * @hooked woocommerce_catalog_ordering - 30
-             */
-            do_action( 'woocommerce_before_shop_loop' );
 
             woocommerce_product_loop_start();
 
