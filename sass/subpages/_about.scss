@@ -46,6 +46,7 @@ p {
 .highQuality {
     &__image {
         width: 55%;
+        max-height: 626px;
         @media (max-width: 767px) {
             width: 100%;
         }
