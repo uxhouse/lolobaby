@@ -38,6 +38,20 @@ get_header(); ?>
     </section>
     <!-- Strefa wiedzy -->
     <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
+
+    <?php
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type'        => 'post',
+    );
+    $the_query = new WP_Query($args); ?>
+    <?php if ($the_query->have_posts()) : ?>
+    <section class="blog">
+        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+            <?php include get_template_directory() . '/template-parts/_include_postTile.php'; ?>
+        <?php endwhile; ?>
+    </section>
+    <?php endif; ?>
     
     <div class="container blogLink">
         <a href="/blog" class="btn"><span>Zobacz wszystkie artykuły</span></a>
