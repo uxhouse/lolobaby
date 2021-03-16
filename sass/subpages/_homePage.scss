@@ -1,5 +1,5 @@
 
-$sliderHeight: 65vh;
+$sliderHeight: 85vh;
 
 .homeSlider{
     height: $sliderHeight;
@@ -297,6 +297,9 @@ $sliderHeight: 65vh;
             }
         }
     }
+    &__nav{
+        display: none;
+    }
     &__waves{
         position: absolute;
         bottom: -15px;
@@ -391,6 +394,9 @@ $sliderHeight: 65vh;
                     }
                 }
             }
+        }
+        &__nav{
+            display: block;
         }
     }
 }

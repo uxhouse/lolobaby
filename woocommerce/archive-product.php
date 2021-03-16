@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' ); ?>
 <div class="archiveShop">
-    <div class="archiveShop__breadcrumb container">
+    <!-- <div class="archiveShop__breadcrumb container">
         <?php
             /**
              * Hook: woocommerce_before_main_content.
@@ -28,9 +28,10 @@ get_header( 'shop' ); ?>
              * @hooked woocommerce_breadcrumb - 20
              * @hooked WC_Structured_Data::generate_website_data() - 30
              */
-            do_action( 'woocommerce_before_main_content' );
+            // do_action( 'woocommerce_before_main_content' );
         ?>
-    </div>
+    </div> -->
+    <?php include get_template_directory() . '/template-parts/_include_archiveBreadcrumbs.php'; ?>
     <header class="archiveShop__header container">
         <h1 class="sectionHeading"><span><?php woocommerce_page_title(); ?></span></h1>
         <div class="catDesc">
@@ -54,14 +55,14 @@ get_header( 'shop' ); ?>
                 $term_fields = get_fields( 'term_' . $cat->term_id );
             ?>
                 <?php if($cat->count >= 1): ?>
-                    <div class="categoryWrapper__cat" term="term-<?php echo $cat->slug; ?>">
+                    <a href="<?php echo get_category_link($cat->term_id); ?>" class="categoryWrapper__cat" term="term-<?php echo $cat->slug; ?>">
                         <div class="thumb">
                             <img class="thumb__image" src="<?php echo $image; ?>"/>
                             <img class="thumb__icon" src="<?php echo $term_fields['categoryIcon']; ?>"/>
                         </div>
                         <p class="name"><?php echo $cat->name; ?></p>
-                        <a href="<?php echo get_category_link($cat->term_id); ?>">Wybierz</a>
-                    </div>
+                        <span>Wybierz</span>
+                    </a>
                 <?php endif; ?>
             <?php endforeach; ?>
         </div>
@@ -94,7 +95,7 @@ get_header( 'shop' ); ?>
                     <p>Filtruj</p>
                 </div>
             </div>
-            <div class="sortEngine">
+            <div class="sortEngine" itemscount="<?php $totalproducts = wc_get_loop_prop( 'total' ); echo $totalproducts; ?>">
                 <?php
                     /**
                      * Hook: woocommerce_before_shop_loop.
@@ -105,6 +106,17 @@ get_header( 'shop' ); ?>
                      */
                     do_action( 'woocommerce_before_shop_loop' );
                 ?>
+                <div class="sortEngine__wrap">
+                    <div class="sortEngine__block">
+                        <p>Sortuj wg</p>
+                    </div>
+                    <div class="sortEngine__dropdown">
+                        <p class="sortEngine__select" sortname="popularity">Popularność</p>
+                        <p class="sortEngine__select" sortname="date">Od najnowszych</p>
+                        <p class="sortEngine__select" sortname="price">Cena: od najniższej</p>
+                        <p class="sortEngine__select" sortname="price-desc">Cena: od najwyższej</p>
+                    </div>
+                </div>
             </div>
         </div>
         <?php

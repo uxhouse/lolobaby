@@ -11,6 +11,7 @@
         "../sass/subpages/_contact.scss",
         "../sass/subpages/_blog.scss",
         "../sass/woocommerce/_archiveShop.scss",
+        "../sass/woocommerce/_productPage.scss",
         "../sass/parts/_siteHeader.scss",
         "../sass/_variables.scss",
         "../sass/parts/_siteFooter.scss",
