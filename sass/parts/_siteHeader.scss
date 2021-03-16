@@ -19,15 +19,10 @@ body.admin-bar{
         position: absolute;
         top: 0;
         background-color: transparent;
-        margin-bottom: 0;
 
         .siteHeader__logo{
             .wrap{
                 background-color: $red-color;
-
-                img{
-                    width: 85px;
-                }
             }
         }
     }
@@ -86,7 +81,7 @@ body.admin-bar{
             outline: none;
 
             img{
-                width: 105px;
+                max-width: 85px;
                 transition: ease .3s;
             }
         }
@@ -104,13 +99,57 @@ body.admin-bar{
 
         a{
             margin-left: 22px;
+            position: relative;
             transition: ease .3s;
 
-            &:first-of-type{
-                margin-left: 0;
-            }
+            // &:first-of-type{
+            //     margin-left: 0;
+            // }
             &:hover{
-                opacity: .7;
+                img{
+                    opacity: .7;
+                }
+                .actionsTooltip{
+                    opacity: 1;
+                }
+            }
+
+            img{
+                transition: ease .3s;
+            }
+
+            .actionsTooltip{
+                padding: 0 15px;
+                position: absolute;
+                bottom: -50px;
+                right: 0;
+                background-color: $red-color;
+                opacity: 0;
+                pointer-events: none;
+                transition: ease .3s;
+
+                &:after{
+                    content: '';
+                    width: 0px;
+                    height: 0px;
+                    border-top: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    border-bottom: 7px solid #EC422B;
+                    border-left: 7px solid transparent;
+                    top: -13px;
+                    right: 7px;
+                    position: absolute;
+                }
+
+                p{
+                    font-size: 12px;
+                    line-height: 30px;
+                    font-weight: 800;
+                    color: #fff;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                    margin: 0;
+                }
             }
         }
     }

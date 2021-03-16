@@ -1,6 +1,13 @@
 .archiveShop{
     position: relative;
 
+    .loloBreadcrumbs{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
     &:after{
         content: '';
         background-image: url('/wp-content/themes/lolobaby/images/icons/archive_plane_ico.svg');
@@ -38,8 +45,15 @@
             &__cat{
                 width: 123px;
                 text-align: center;
+                transition: ease .3s;
+
+                &:hover{
+                    opacity: .7;
+                }
 
                 &--current{
+                    pointer-events: none;
+
                     .thumb{
                         &:after{
                             content: '';
@@ -84,13 +98,14 @@
                     margin: 0 0 5px;
                     text-transform: uppercase;
                 }
-                a{
+                span{
                     font-size: 15px;
                     line-height: 20px;
                     font-weight: 300;
                     text-align: center;
                     color: $red-color;
                     text-decoration: underline !important;
+                    cursor: pointer;
                     transition: ease .3s;
 
                     &:hover{
@@ -150,6 +165,9 @@
 @media (max-width: 767px){
     .archiveShop{
         &:after{
+            display: none;
+        }
+        .loloBreadcrumbs{
             display: none;
         }
         &__header{
@@ -439,6 +457,7 @@
         position: absolute;
         left: 16px;
         bottom: -31px;
+        z-index: 5;
 
         ul{
             li{
@@ -452,6 +471,9 @@
 
                     &:hover{
                         opacity: .7;
+                    }
+                    &[data-tax="orderby"]{
+                        display: none;
                     }
 
                     span{
@@ -481,6 +503,43 @@
         margin-left: auto;
         position: relative;
 
+        select{
+            display: none;
+            max-width: 135px;
+            height: 38px;
+            border: 2px dashed $pink-color;
+            padding: 0 35px 0 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+
+            &::-ms-expand{
+                display: none;
+            }
+
+            option{
+                background-color: #fff;
+                color: $primary-text-color;
+            }
+        }
+    }
+    &__wrap{
+        position: relative;
+    }
+    &__block{
+        max-width: 135px;
+        height: 38px;
+        border: 2px dashed $pink-color;
+        padding: 0 35px 0 10px;
+        margin-left: auto;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+
         &:after{
             content: '';
             background-image: url('/wp-content/themes/lolobaby/images/icons/dropdown_arrow_ico.svg');
@@ -495,21 +554,46 @@
             cursor: pointer;
         }
 
-        select{
-            max-width: 135px;
-            height: 38px;
-            border: 2px dashed $pink-color;
-            padding: 0 35px 0 10px;
+        p{
             font-size: 14px;
+            line-height: 36px;
             text-transform: uppercase;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
+            color: $primary-text-color;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+    &__dropdown{
+        min-width: 100%;
+        background: #fff;
+        padding: 5px 0;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, .25);
+        position: absolute;
+        right: 0;
+        top: 50px;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 9;
+        transition: ease .3s;
+
+        &--active{
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        p{
+            font-size: 10px;
+            line-height: 14px;
+            color: $primary-text-color;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 5px 10px;
             cursor: pointer;
 
-
-            &::-ms-expand{
-                display: none;
+            &:hover,
+            &.selected{
+                background-color: #F2F2F2;
             }
         }
     }

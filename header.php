@@ -46,10 +46,30 @@
 			</div>
 			<div class="siteHeader__actions">
 				<div class="wrap">
-					<a href="#"><img src="<?php echo get_template_directory_uri() . '/images/icons/search_ico_white.svg' ?>"/></a>
-					<a href="#"><img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_white.svg' ?>"/></a>
-					<a href="#"><img src="<?php echo get_template_directory_uri() . '/images/icons/user_ico_white.svg' ?>"/></a>
-					<a href="#"><img src="<?php echo get_template_directory_uri() . '/images/icons/cart_ico_white.svg' ?>"/></a>
+					<a href="#">
+						<img src="<?php echo get_template_directory_uri() . '/images/icons/search_ico_white.svg' ?>"/>
+						<div class="actionsTooltip">
+							<p>Szukaj</p>
+						</div>
+					</a>
+					<a href="#">
+						<img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_white.svg' ?>"/>
+						<div class="actionsTooltip">
+							<p>Ulubione</p>
+						</div>
+					</a>
+					<a href="#">
+						<img src="<?php echo get_template_directory_uri() . '/images/icons/user_ico_white.svg' ?>"/>
+						<div class="actionsTooltip">
+							<p>Mój profil</p>
+						</div>
+					</a>
+					<a href="#">
+						<img src="<?php echo get_template_directory_uri() . '/images/icons/cart_ico_white.svg' ?>"/>
+						<div class="actionsTooltip">
+							<p>Koszyk</p>
+						</div>
+					</a>
 				</div>
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/mobileMenu_btn_ico.svg' ?>"/>

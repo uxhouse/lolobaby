@@ -63,9 +63,9 @@ get_header(); ?>
 
     <?php 
     $args = array(
-        'posts_per_page'	=> -1,
-        'post_type'		    => 'product',
-        'meta_query'        => array(
+        'numberposts'	=> -1,
+        'post_type'		=> 'product',
+        'meta_query' => array(
             array(
                 'key'   => 'product_bestseller',
                 'value' => '1',
@@ -92,7 +92,7 @@ get_header(); ?>
                 <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_red.svg'; ?>"/>
             </div>
             <div class="homeBestsellers__nav">
-                <div class="homeBestsellers__arrow homeBestsellers__arrow--mobile homeBestsellers__arrow--left">
+                <div class="homeBestsellers__arrow homeBestsellers__arrow--left">
                     <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_left_white.svg'; ?>"/>
                 </div>
                 <div class="homeBestsellers__dots">
@@ -100,7 +100,7 @@ get_header(); ?>
                         <span productID="<?php the_ID(); ?>"></span>
                     <?php endwhile; ?>
                 </div>
-                <div class="homeBestsellers__arrow homeBestsellers__arrow--mobile homeBestsellers__arrow--right">
+                <div class="homeBestsellers__arrow homeBestsellers__arrow--right">
                     <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
                 </div>
             </div>
