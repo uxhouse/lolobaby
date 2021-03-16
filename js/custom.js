@@ -58,7 +58,6 @@ $(document).ready(function(){
     });
 
     /* ---- Filter engine ---- */
-
     setTimeout(function(){
         $('.woof_container').each(function(){
             var attributeName = $(this).find('.woof_checkboxBlock').attr('attrname').replace('Atrybut produktu: ', '');
@@ -87,7 +86,6 @@ $(document).ready(function(){
     });
 
     /* ---- Newsletter ---- */
-
     $('.engineCheckbox').on('click', function(){
         if($(this).is(":checked")){
             $(this).parent().addClass('checkbox--checked');
@@ -96,4 +94,5 @@ $(document).ready(function(){
             $(this).parent().removeClass('checkbox--checked');
         }
     });
+
 });

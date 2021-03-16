@@ -1,0 +1,555 @@
+body.single-product{
+    .woocommerce-breadcrumb{
+        display: none !important;
+    }
+}
+.loloBreadcrumbs{
+    &--product{
+        margin-bottom: 50px;
+    }
+}
+.productPage{
+    .productContent{
+        &__top{
+            display: flex;
+            margin-bottom: 40px;
+        }
+        &__gallery{
+            width: 50%;
+            
+            .woocommerce-product-gallery{
+                width: calc(100% - 130px);
+
+                &__trigger{
+                    height: 425px;
+                    width: 100%;
+                    right: 0;
+                    top: 0;
+                    opacity: 0;
+                }
+
+                &__image{
+                    a{
+                        display: block;
+                        width: 100%;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .flex-control-nav{
+                    max-width: 325px;
+                    margin: 0 auto !important;
+
+                    .slick-prev{
+                        width: 28px;
+                        left: -48px;
+
+                        &:before{
+                            content: '';
+                            background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_left_red.svg');
+                            background-size: 28px;
+                            width: 28px;
+                            height: 20px;
+                            display: block;
+                            transition: ease .3s;
+                        }
+                    }
+                    .slick-next{
+                        width: 28px;
+                        right: -48px;
+
+                        &:before{
+                            content: '';
+                            background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_right_red.svg');
+                            background-size: 28px;
+                            width: 28px;
+                            height: 20px;
+                            display: block;
+                            transition: ease .3s;
+                        }
+                    }
+
+                    .slick-track{
+                        display: flex;
+                    }
+                    li{
+                        width: 95px !important;
+                        height: 95px;
+                        margin: 0 10px !important;
+                        outline: none;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+        &__summary{
+            width: 50%;
+
+            .product_title{
+                font-size: 50px;
+                line-height: 60px;
+                font-weight: 800;
+                color: $primary-text-color;
+                margin: 0 0 15px;
+                text-transform: uppercase;
+            }
+            .product_collection{
+                font-size: 14px;
+                line-height: 19px;
+                font-weight: 800;
+                color: $primary-text-color;
+                margin: 0 0 15px;
+                text-transform: uppercase;
+            }
+            .price{
+                font-size: 30px;
+                line-height: 40px;
+                font-weight: 300;
+                color: $primary-text-color;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            table.variations{
+                margin: 20px 0 0;
+
+                tr{
+                    display: flex;
+                    flex-direction: column;
+
+                    &:first-of-type{
+                        margin-bottom: 20px;
+
+                        td{
+                            &:first-of-type{
+                                display: none;
+                            }
+                        }
+                    }
+
+                    td{
+                        &.label{
+                            label{
+                                font-size: 14px;
+                                line-height: 19px;
+                                font-weight: 800;
+                                color: $primary-text-color;
+                                margin: 0 0 5px;
+                                text-transform: uppercase;
+                            }
+                        }
+                        .color-variable-wrapper{
+                            .rtwpvs-term{
+                                padding: 0;
+                                margin: 4px 20px 4px 0;
+                                box-shadow: unset;
+
+                                &.selected{
+                                    span{
+                                        box-shadow: 0 0 0 5px $red-color;
+
+                                        &:after{
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                                &:hover{
+                                    span{
+                                        box-shadow: 0 0 0 5px $red-color;
+                                    }
+                                }
+
+                                span{
+                                    position: relative;
+                                    transition: ease .3s;
+
+                                    &:after{
+                                        opacity: 1;
+                                        content: '';
+                                        background-image: url('/wp-content/themes/lolobaby/images/icons/variation_check_ico.svg');
+                                        background-repeat: no-repeat;
+                                        background-size: 16px;
+                                        width: 16px !important;
+                                        height: 14px !important;
+                                        position: absolute;
+                                        border-radius: 0 !important;
+                                        left: 7px !important;
+                                        top: 7px !important;
+                                        box-shadow: none !important;
+                                        opacity: 0;
+                                        pointer-events: none;
+                                        transition: ease .3s;
+                                    }
+                                }
+                            }
+                        }
+                        .button-variable-wrapper{
+                            .rtwpvs-term{
+                                box-shadow: unset;
+                                border: 2px dashed $pink-color;
+                                border-radius: 0;
+                                height: auto;
+
+                                &:before,
+                                &::after{
+                                    display: none;
+                                }
+                                &:hover{
+                                    box-shadow: unset;
+                                    background-color: $red-color !important;
+                                    border: 2px solid $red-color;
+
+                                    span{
+                                        color: #fff;
+                                    }
+                                }
+                                &.selected{
+                                    background-color: $red-color !important;
+                                    border: 2px solid $red-color;
+
+                                    span{
+                                        color: #fff;
+                                        padding-right: 28px !important;
+
+                                        &:after{
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+
+                                span{
+                                    font-size: 14px;
+                                    line-height: 19px;
+                                    font-weight: 800;
+                                    color: $primary-text-color;
+                                    margin: 0;
+                                    text-transform: uppercase;
+                                    padding: 10px !important;
+                                    transition: ease .3s;
+
+                                    &::after{
+                                        content: '';
+                                        background-image: url('/wp-content/themes/lolobaby/images/icons/variation_check_ico.svg');
+                                        background-repeat: no-repeat;
+                                        background-size: 16px;
+                                        width: 16px;
+                                        height: 14px;
+                                        position: absolute;
+                                        right: 7px;
+                                        top: 12px;
+                                        opacity: 0;
+                                        pointer-events: none;
+                                        filter: contrast(1) brightness(5);
+                                        transition: ease .3s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .reset_variations{
+                    display: none;
+                }
+            }
+            .openSizeModal{
+                font-size: 14px;
+                line-height: 19px;
+                color: $primary-text-color;
+                font-weight: 300;
+                max-width: fit-content;
+                margin: 5px 0 30px;
+                text-decoration: underline;
+                cursor: pointer;
+                transition: ease .3s;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+            .productActions{
+                display: flex;
+                align-items: center;
+
+                .addwishlist{
+                    margin-left: 30px;
+
+                    a{
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        line-height: 19px;
+                        color: $primary-text-color;
+                        font-weight: 300;
+                        transition: ease .3s;
+
+                        &:hover{
+                            opacity: .7;
+                        }
+                        &:before{
+                            content: '';
+                            background-image: url('/wp-content/themes/lolobaby/images/icons/wishlist_ico_red.svg');
+                            background-repeat: no-repeat;
+                            background-size: 40px;
+                            width: 40px;
+                            height: 36px;
+                            position: relative;
+                            margin-right: 8px;
+                        }
+
+                        span{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            .woocommerce-variation-add-to-cart{
+                max-width: fit-content;
+
+                .quantity{
+                    display: none !important;
+                }
+                .button{
+                    background-color: $red-color;
+                    border: 0;
+                    height: 69px;
+                    line-height: 1;
+                    padding: 0 70px 0 30px;
+                    font-size: 20px;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    color: #fff;
+                    position: relative;
+                    cursor: pointer;
+                    transition: ease .3s;
+
+                    &:hover{
+                        opacity: .8;
+                    }
+
+                    &:after{
+                        content: '';
+                        background-image: url('http://lolobaby.local/wp-content/themes/lolobaby/images/icons/cart_ico_white.svg');
+                        background-repeat: no-repeat;
+                        background-size: 20px;
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        right: 30px;
+                        top: 22px;
+                    }
+                }
+            }
+            .summary{
+                &__info{
+                    margin: 20px 0 0;
+                }
+                &__delivery{
+                    display: flex;
+                    align-items: center;
+                    margin: 0 0 40px;
+    
+                    .info{
+                        display: flex;
+                        align-items: center;
+    
+                        img{
+                            width: 20px;
+                            margin-right: 5px;
+                        }
+                        p{
+                            font-size: 14px;
+                            line-height: 19px;
+                            font-weight: 800;
+                            color: $primary-text-color;
+                            margin: 0;
+                            text-transform: uppercase;
+                        }
+                    }
+                    a{
+                        font-size: 14px;
+                        line-height: 19px;
+                        color: $primary-text-color;
+                        font-weight: 300;
+                        text-decoration: underline !important;
+                        margin-left: 15px;
+                        transition: ease .3s;
+
+                        &:hover{
+                            opacity: .7;
+                        }
+                    }
+                }
+                &__boxes{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+
+                    .box{
+                        width: 155px;
+                        position: relative;
+
+                        &:nth-child(1){
+                            &:after{
+                                content: '';
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/product_box_draw1.svg');
+                                background-repeat: no-repeat;
+                                background-size: 120px;
+                                width: 120px;
+                                height: 60px;
+                                position: absolute;
+                                right: -90px;
+                                top: -10px;
+                            }
+                        }
+                        &:nth-child(2){
+                            &:after{
+                                content: '';
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/product_box_draw2.svg');
+                                background-repeat: no-repeat;
+                                background-size: 120px;
+                                width: 120px;
+                                height: 55px;
+                                position: absolute;
+                                right: -85px;
+                                top: 15px;
+                            }
+                        }
+
+                        &__thumb{
+                            width: 68px;
+                            height: 68px;
+                            background-color: $pink-color;
+                            border-radius: 100%;
+                            text-align: center;
+                            margin: 0 auto 20px;
+
+                            img{
+                                max-width: 90%;
+                                height: 100%;
+                                margin-top: 10px;
+                            }
+                        }
+                        p{
+                            font-size: 16px;
+                            line-height: 22px;
+                            color: $primary-text-color;
+                            margin: 0;
+                            text-align: center;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+        &__content{
+            position: relative;
+
+            &:before{
+                content: '';
+                background-image: url('/wp-content/themes/lolobaby/images/icons/product_content_plane.svg');
+                background-repeat: no-repeat;
+                background-size: 400px;
+                width: 400px;
+                height: 300px;
+                position: absolute;
+                left: 0;
+                top: -50px;
+            }
+            .divider{
+                margin: 40px auto 15px;
+            }
+            .content_title{
+                font-family: "Pacifico";
+                font-size: 60px;
+                line-height: 105px;
+                color: $blue-color;
+                text-align: center;
+                transform: rotate(-3deg);
+            }
+            .main_text{
+                font-size: 16px;
+                line-height: 22px;
+                color: $primary-text-color;
+                margin: 30px 0;
+                text-align: center;
+            }
+            .content_tab{
+                max-width: 220px;
+                margin: 0 auto 20px;
+                text-align: center;
+                
+                h4{
+                    font-size: 14px;
+                    line-height: 19px;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    color: $primary-text-color;
+                    margin: 0 0 15px;
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 19px;
+                    font-weight: 300;
+                    color: $primary-text-color;
+                }
+            }
+        }
+    }
+    &__related{
+        margin: 30px 0 50px;
+
+        &>h2{
+            font-size: 30px;
+            line-height: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin: 0 0 30px;
+            text-transform: uppercase;
+            color: $primary-text-color;
+        }
+        .relatedList{
+            display: flex;
+
+            .productTile{
+                width: calc(100% / 4);
+                height: auto;
+
+                &:hover{
+                    .productTile__bestseller{
+                        opacity: 0;
+                    }
+                    .productTile__cover{
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+
+                &__thumb{
+                    width: 100%;
+                    padding-top: 100%;
+                    position: relative;
+
+                    img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        max-height: inherit;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -376,6 +376,10 @@ body {
   opacity: 0;
 }
 
+.homeBestsellers__nav {
+  display: none;
+}
+
 .homeBestsellers__waves {
   position: absolute;
   bottom: -15px;
@@ -463,6 +467,9 @@ body {
   }
   .homeBestsellers__list .productTile__cover .price {
     color: #4F4F4F;
+  }
+  .homeBestsellers__nav {
+    display: block;
   }
 }
 
@@ -1758,6 +1765,621 @@ p {
   }
 }
 
+body.single-product .woocommerce-breadcrumb {
+  display: none !important;
+}
+
+.loloBreadcrumbs--product {
+  margin-bottom: 50px;
+}
+
+.productPage .productContent__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.productPage .productContent__gallery {
+  width: 50%;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery {
+  width: calc(100% - 130px);
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery__trigger {
+  height: 425px;
+  width: 100%;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery__image a {
+  display: block;
+  width: 100%;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery__image a img {
+  width: 100%;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav {
+  max-width: 325px;
+  margin: 0 auto !important;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav .slick-prev {
+  width: 28px;
+  left: -48px;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav .slick-prev:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/arrow_left_red.svg");
+  background-size: 28px;
+  width: 28px;
+  height: 20px;
+  display: block;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav .slick-next {
+  width: 28px;
+  right: -48px;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav .slick-next:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/arrow_right_red.svg");
+  background-size: 28px;
+  width: 28px;
+  height: 20px;
+  display: block;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav li {
+  width: 95px !important;
+  height: 95px;
+  margin: 0 10px !important;
+  outline: none;
+}
+
+.productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.productPage .productContent__summary {
+  width: 50%;
+}
+
+.productPage .productContent__summary .product_title {
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0 0 15px;
+  text-transform: uppercase;
+}
+
+.productPage .productContent__summary .product_collection {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0 0 15px;
+  text-transform: uppercase;
+}
+
+.productPage .productContent__summary .price {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 300;
+  color: #4F4F4F;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.productPage .productContent__summary table.variations {
+  margin: 20px 0 0;
+}
+
+.productPage .productContent__summary table.variations tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.productPage .productContent__summary table.variations tr:first-of-type {
+  margin-bottom: 20px;
+}
+
+.productPage .productContent__summary table.variations tr:first-of-type td:first-of-type {
+  display: none;
+}
+
+.productPage .productContent__summary table.variations tr td.label label {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0 0 5px;
+  text-transform: uppercase;
+}
+
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term {
+  padding: 0;
+  margin: 4px 20px 4px 0;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+}
+
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term.selected span {
+  -webkit-box-shadow: 0 0 0 5px #EC422B;
+          box-shadow: 0 0 0 5px #EC422B;
+}
+
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term.selected span:after {
+  opacity: 1;
+}
+
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term:hover span {
+  -webkit-box-shadow: 0 0 0 5px #EC422B;
+          box-shadow: 0 0 0 5px #EC422B;
+}
+
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term span {
+  position: relative;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term span:after {
+  opacity: 1;
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/variation_check_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px !important;
+  height: 14px !important;
+  position: absolute;
+  border-radius: 0 !important;
+  left: 7px !important;
+  top: 7px !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  border: 2px dashed #FFCAD4;
+  border-radius: 0;
+  height: auto;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term:before, .productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term::after {
+  display: none;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term:hover {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  background-color: #EC422B !important;
+  border: 2px solid #EC422B;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term:hover span {
+  color: #fff;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term.selected {
+  background-color: #EC422B !important;
+  border: 2px solid #EC422B;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term.selected span {
+  color: #fff;
+  padding-right: 28px !important;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term.selected span:after {
+  opacity: 1;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term span {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0;
+  text-transform: uppercase;
+  padding: 10px !important;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary table.variations tr td .button-variable-wrapper .rtwpvs-term span::after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/variation_check_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px;
+  height: 14px;
+  position: absolute;
+  right: 7px;
+  top: 12px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-filter: contrast(1) brightness(5);
+          filter: contrast(1) brightness(5);
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary table.variations .reset_variations {
+  display: none;
+}
+
+.productPage .productContent__summary .openSizeModal {
+  font-size: 14px;
+  line-height: 19px;
+  color: #4F4F4F;
+  font-weight: 300;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 5px 0 30px;
+  text-decoration: underline;
+  cursor: pointer;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary .openSizeModal:hover {
+  opacity: .7;
+}
+
+.productPage .productContent__summary .productActions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productPage .productContent__summary .productActions .addwishlist {
+  margin-left: 30px;
+}
+
+.productPage .productContent__summary .productActions .addwishlist a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  line-height: 19px;
+  color: #4F4F4F;
+  font-weight: 300;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary .productActions .addwishlist a:hover {
+  opacity: .7;
+}
+
+.productPage .productContent__summary .productActions .addwishlist a:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/wishlist_ico_red.svg");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  width: 40px;
+  height: 36px;
+  position: relative;
+  margin-right: 8px;
+}
+
+.productPage .productContent__summary .productActions .addwishlist a span {
+  text-decoration: underline;
+}
+
+.productPage .productContent__summary .woocommerce-variation-add-to-cart {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.productPage .productContent__summary .woocommerce-variation-add-to-cart .quantity {
+  display: none !important;
+}
+
+.productPage .productContent__summary .woocommerce-variation-add-to-cart .button {
+  background-color: #EC422B;
+  border: 0;
+  height: 69px;
+  line-height: 1;
+  padding: 0 70px 0 30px;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary .woocommerce-variation-add-to-cart .button:hover {
+  opacity: .8;
+}
+
+.productPage .productContent__summary .woocommerce-variation-add-to-cart .button:after {
+  content: '';
+  background-image: url("http://lolobaby.local/wp-content/themes/lolobaby/images/icons/cart_ico_white.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 30px;
+  top: 22px;
+}
+
+.productPage .productContent__summary .summary__info {
+  margin: 20px 0 0;
+}
+
+.productPage .productContent__summary .summary__delivery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 40px;
+}
+
+.productPage .productContent__summary .summary__delivery .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productPage .productContent__summary .summary__delivery .info img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.productPage .productContent__summary .summary__delivery .info p {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.productPage .productContent__summary .summary__delivery a {
+  font-size: 14px;
+  line-height: 19px;
+  color: #4F4F4F;
+  font-weight: 300;
+  text-decoration: underline !important;
+  margin-left: 15px;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary .summary__delivery a:hover {
+  opacity: .7;
+}
+
+.productPage .productContent__summary .summary__boxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.productPage .productContent__summary .summary__boxes .box {
+  width: 155px;
+  position: relative;
+}
+
+.productPage .productContent__summary .summary__boxes .box:nth-child(1):after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/product_box_draw1.svg");
+  background-repeat: no-repeat;
+  background-size: 120px;
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  right: -90px;
+  top: -10px;
+}
+
+.productPage .productContent__summary .summary__boxes .box:nth-child(2):after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/product_box_draw2.svg");
+  background-repeat: no-repeat;
+  background-size: 120px;
+  width: 120px;
+  height: 55px;
+  position: absolute;
+  right: -85px;
+  top: 15px;
+}
+
+.productPage .productContent__summary .summary__boxes .box__thumb {
+  width: 68px;
+  height: 68px;
+  background-color: #FFCAD4;
+  border-radius: 100%;
+  text-align: center;
+  margin: 0 auto 20px;
+}
+
+.productPage .productContent__summary .summary__boxes .box__thumb img {
+  max-width: 90%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+.productPage .productContent__summary .summary__boxes .box p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  margin: 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+.productPage .productContent__content {
+  position: relative;
+}
+
+.productPage .productContent__content:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/product_content_plane.svg");
+  background-repeat: no-repeat;
+  background-size: 400px;
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  top: -50px;
+}
+
+.productPage .productContent__content .divider {
+  margin: 40px auto 15px;
+}
+
+.productPage .productContent__content .content_title {
+  font-family: "Pacifico";
+  font-size: 60px;
+  line-height: 105px;
+  color: #1034A6;
+  text-align: center;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.productPage .productContent__content .main_text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.productPage .productContent__content .content_tab {
+  max-width: 220px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.productPage .productContent__content .content_tab h4 {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #4F4F4F;
+  margin: 0 0 15px;
+}
+
+.productPage .productContent__content .content_tab p {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  color: #4F4F4F;
+}
+
+.productPage__related {
+  margin: 30px 0 50px;
+}
+
+.productPage__related > h2 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 30px;
+  text-transform: uppercase;
+  color: #4F4F4F;
+}
+
+.productPage__related .relatedList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.productPage__related .relatedList .productTile {
+  width: calc(100% / 4);
+  height: auto;
+}
+
+.productPage__related .relatedList .productTile:hover .productTile__bestseller {
+  opacity: 0;
+}
+
+.productPage__related .relatedList .productTile:hover .productTile__cover {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.productPage__related .relatedList .productTile__thumb {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.productPage__related .relatedList .productTile__thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  max-height: inherit;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 /*  Partials
 --------------- */
 /* ---- COLORS ---- */
@@ -2024,6 +2646,19 @@ body.admin-bar .siteHeader--frontPage {
 .siteFooter__wrap {
   padding: 60px 0 50px;
   background-color: #EC422B;
+  position: relative;
+}
+
+.siteFooter__wrap:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/footer_corner_dots.svg");
+  background-repeat: no-repeat;
+  background-size: 250px;
+  width: 250px;
+  height: 130px;
+  position: absolute;
+  right: 0;
+  top: -20px;
 }
 
 .siteFooter .footerContent {
@@ -2034,6 +2669,19 @@ body.admin-bar .siteHeader--frontPage {
 
 .siteFooter .footerContent__info {
   width: calc(100% - 445px);
+  position: relative;
+}
+
+.siteFooter .footerContent__info:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/footer_plane.svg");
+  background-repeat: no-repeat;
+  background-size: 350px;
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  right: 30px;
+  top: 60px;
 }
 
 .siteFooter .footerContent__newsletter {
@@ -2294,7 +2942,25 @@ body.admin-bar .siteHeader--frontPage {
   opacity: .7;
 }
 
+@media (max-width: 1199px) {
+  .siteFooter__wrap:after {
+    background-size: 200px;
+    width: 200px;
+    height: 100px;
+  }
+  .siteFooter .footerContent__info:after {
+    background-size: 250px;
+    width: 250px;
+    height: 350px;
+    right: 0px;
+    top: 130px;
+  }
+}
+
 @media (max-width: 991px) {
+  .siteFooter__wrap:after {
+    display: none;
+  }
   .siteFooter svg {
     width: 2800px;
     top: 15px;
@@ -2308,6 +2974,9 @@ body.admin-bar .siteHeader--frontPage {
   .siteFooter .footerContent__info {
     width: 100%;
     margin-bottom: 50px;
+  }
+  .siteFooter .footerContent__info:after {
+    display: none;
   }
   .siteFooter .footerContent__newsletter {
     width: 100%;
@@ -2747,6 +3416,21 @@ p {
 
 .btn:hover span:after {
   right: -3px;
+}
+
+.btn--archive {
+  height: 26px;
+  padding: 0 19px;
+}
+
+.btn--archive span {
+  font-size: 12px;
+  line-height: 26px;
+  padding: 0;
+}
+
+.btn--archive span:after {
+  display: none;
 }
 
 .homeSectionHeading {

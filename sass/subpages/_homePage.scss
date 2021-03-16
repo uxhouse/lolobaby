@@ -297,6 +297,9 @@ $sliderHeight: 85vh;
             }
         }
     }
+    &__nav{
+        display: none;
+    }
     &__waves{
         position: absolute;
         bottom: -15px;
@@ -391,6 +394,9 @@ $sliderHeight: 85vh;
                     }
                 }
             }
+        }
+        &__nav{
+            display: block;
         }
     }
 }
