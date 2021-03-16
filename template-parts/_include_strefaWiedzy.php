@@ -6,7 +6,7 @@ $args = array(
 $the_query = new WP_Query($args); ?>
 <?php if ($the_query->have_posts()) : ?>
     <section class="knowledgeZone">
-        <div class="container">
+        <div class="container container--min">
             <div class="knowledgeZone__heading">
                 <h2 class="sectionHeading sectionHeading--withImage">
                     <span>

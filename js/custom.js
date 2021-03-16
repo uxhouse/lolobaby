@@ -94,5 +94,19 @@ $(document).ready(function(){
             $(this).parent().removeClass('checkbox--checked');
         }
     });
+  
+    /* ---- Blog dropdown ---- */
 
+    var blogButton = $('.blog__dropdownButton');
+
+    blogButton.on('click', function(){
+        var blogDescription = $('.blog__description');
+        if (blogDescription.hasClass('open')) {
+            blogDescription.removeClass('open');
+            blogButton.text('Rozwiń');
+        } else {
+            blogDescription.addClass('open');
+            blogButton.text('Zwiń');
+        }
+    });
 });
