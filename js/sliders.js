@@ -67,3 +67,14 @@ $(document).ready(function(){
         $('.homeBestsellers__dots span[productid="' + currentSlide + '"]').addClass('active');
     });
 });
+
+/* ---- Product page ---- */
+$(document).ready(function(){
+    var productGalleryNav = $('.woocommerce-product-gallery').find('.flex-control-nav');
+    $(productGalleryNav).slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: false,
+        variableWidth: true,
+    });
+});

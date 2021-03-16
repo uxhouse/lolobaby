@@ -16,6 +16,7 @@
 /*  WooCommerce
 --------------- */
 @import 'woocommerce/archiveShop';
+@import 'woocommerce/productPage';
 
 /*  Partials
 --------------- */
@@ -111,6 +112,20 @@ p {
         span{
             &:after{
                 right: -3px;
+            }
+        }
+    }
+    &--archive{
+        height: 26px;
+        padding: 0 19px;
+        
+        span{
+            font-size: 12px;
+            line-height: 26px;
+            padding: 0;
+
+            &:after{
+                display: none;
             }
         }
     }

@@ -11,6 +11,19 @@
     &__wrap{
         padding: 60px 0 50px;
         background-color: $red-color;
+        position: relative;
+
+        &:after{
+            content: '';
+            background-image: url('/wp-content/themes/lolobaby/images/icons/footer_corner_dots.svg');
+            background-repeat: no-repeat;
+            background-size: 250px;
+            width: 250px;
+            height: 130px;
+            position: absolute;
+            right: 0;
+            top: -20px;
+        }
     }
     
     .footerContent{
@@ -18,6 +31,19 @@
 
         &__info{
             width: calc(100% - 445px);
+            position: relative;
+
+            &:after{
+                content: '';
+                background-image: url('/wp-content/themes/lolobaby/images/icons/footer_plane.svg');
+                background-repeat: no-repeat;
+                background-size: 350px;
+                width: 350px;
+                height: 500px;
+                position: absolute;
+                right: 30px;
+                top: 60px;
+            }
         }
         &__newsletter{
             width: 445px;
@@ -252,8 +278,35 @@
         }
     }
 }
+@media (max-width: 1199px){
+    .siteFooter{
+        &__wrap{
+            &:after{
+                background-size: 200px;
+                width: 200px;
+                height: 100px;
+            }
+        }
+        .footerContent{
+            &__info{
+                &:after{
+                    background-size: 250px;
+                    width: 250px;
+                    height: 350px;
+                    right: 0px;
+                    top: 130px;
+                }
+            }
+        }
+    }
+}
 @media (max-width: 991px){
     .siteFooter{
+        &__wrap{
+            &:after{
+                display: none;
+            }
+        }
         svg{
             width: 2800px;
             top: 15px;
@@ -264,6 +317,10 @@
             &__info{
                 width: 100%;
                 margin-bottom: 50px;
+
+                &:after{
+                    display: none;
+                }
             }
             &__newsletter{
                 width: 100%;
