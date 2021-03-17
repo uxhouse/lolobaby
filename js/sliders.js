@@ -67,3 +67,37 @@ $(document).ready(function(){
         $('.homeBestsellers__dots span[productid="' + currentSlide + '"]').addClass('active');
     });
 });
+
+/* ---- Knowledge zone slider ---- */ 
+
+$(document).ready(function(){
+    if ($(window).width() < 992) {
+
+        $('.knowledgeZone__list').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            prevArrow: $('.knowledgeZone__arrow--left'),
+            nextArrow: $('.knowledgeZone__arrow--right'),
+            centerMode: true,
+            variableWidth: true,
+            infinite: true,
+        });
+        $('.knowledgeZone__dots span').first().addClass('active');
+        $('.knowledgeZone__dots span').on('click', function(){
+            $('.knowledgeZone__dots span').removeClass('active');
+            $(this).addClass('active');
+
+            var dotNum = $(this).attr('postid');
+            var getSlide = $('.slick-slide[postid="' + dotNum + '"]');
+            var slideIndex = getSlide.data("slick-index");
+            $('.knowledgeZone__list').slick('slickGoTo', slideIndex);
+        });
+        $('.knowledgeZone__arrow').on('click', function(){
+            var currentSlide = $('.postTile.slick-current').attr('postid');
+
+            $('.knowledgeZone__dots span').removeClass('active');
+            $('.knowledgeZone__dots span[postid="' + currentSlide + '"]').addClass('active');
+        });
+    }
+});

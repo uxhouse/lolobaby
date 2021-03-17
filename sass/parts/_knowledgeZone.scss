@@ -3,9 +3,89 @@
         margin-bottom: 60px;
     }
 
+    &__wrap {
+        position: relative;
+    }
+
     &__list {
-        display: flex;
-        flex-wrap: wrap;
         margin: 30px 0;
+        display: flex;
+
+        @media (max-width: 991px) {
+            width: 100vw;
+            margin-left: calc((100vw - 100%) *(-0.5));
+        }
+
+        .slick-slide {
+            display: flex; 
+        }
+
+        .postTile {
+            min-height: 580px;
+            @media (max-width: 991px) {
+                max-width: 40vw;
+            }
+            @media (max-width: 575px) {
+                max-width: 70vw;
+                opacity: .3;
+                transition: ease .3s;
+    
+                &.slick-current{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__nav{
+        justify-content: center;
+        position: relative;
+        bottom: 20px;
+        margin-top: 30px;
+        display: none;
+
+        @media(max-width: 991px) {
+            display: flex;
+        }
+    }
+
+    &__arrow{
+        position: relative;
+        top: 46%;
+        cursor: pointer;
+        z-index: 3;
+        transition: ease .3s;
+
+        &:hover{
+            opacity: .8;
+        }
+
+        &--left{
+            left: 21px;
+        }
+        &--right{
+            right: 21px;
+        }
+        img{
+            filter: contrast(0.7);
+        }
+    }
+
+    &__dots{
+        margin: 0 35px;
+
+        span{
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            background-color: #d9d9d9;
+            border-radius: 100%;
+            margin: 0 3px;
+            transition: ease .3s;
+
+            &.active{
+                background-color: #EC422B;
+            }
+        }
     }
 }

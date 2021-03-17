@@ -116,6 +116,11 @@ p {
         line-height: 105px;
         color: $blue-color;
         position: relative;
+
+        @media (max-width: 575px) {
+            font-size: 30px;
+            line-height: 53px;
+        }
     }
 
     &--big{
@@ -138,6 +143,14 @@ p {
                 position: absolute;
                 top: 10px;
                 left: -70px;
+                width: 110px;
+                height: 90px;
+                @media(max-width: 575px) {
+                    width: 70px;
+                    height: 60px;
+                    top: -5px;
+                    left: -45px;
+                }
             }
         }
     }
