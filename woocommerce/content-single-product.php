@@ -91,7 +91,7 @@ if ( post_password_required() ) {
         </div>
         <div class="productContent__content">
             <div class="divider container">
-                <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
+                <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <h2 class="content_title">Szczegółowy opis</h2>
             <p class="main_text"><?php the_field('product_desc'); ?></p>
@@ -124,7 +124,7 @@ if ( post_password_required() ) {
             </div>
             <?php endif; ?>
             <div class="divider container">
-                <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
+                <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
         </div>
     </div>

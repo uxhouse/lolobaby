@@ -111,7 +111,6 @@ $(document).ready(function(){
     });
   
     /* ---- Blog dropdown ---- */
-
     var blogButton = $('.blog__dropdownButton');
 
     blogButton.on('click', function(){
@@ -123,5 +122,17 @@ $(document).ready(function(){
             blogDescription.addClass('open');
             blogButton.text('Zwiń');
         }
+    });
+
+    /* ---- Product image zoom ---- */
+    $(document).ready(function(){
+        $('.woocommerce-product-gallery__image').each(function(){
+            var wooImage = $(this).find('a');
+            var wooImageSource = wooImage.attr('href');
+            $(wooImage).zoom({
+                url: wooImageSource,
+                magnify: 2,
+            });
+        });
     });
 });

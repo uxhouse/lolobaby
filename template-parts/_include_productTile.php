@@ -1,6 +1,6 @@
 <article class="productTile<?php if(!is_front_page()): ?> productTile--archive<?php endif; ?>" productID="<?php the_ID(); ?>">
     <div class="productTile__wrap">
-        <div class="productTile__thumb">
+        <a href="<?php the_permalink() ?>" class="productTile__thumb">
             <img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
             <?php if(!is_front_page()):
                 $thisProductID = get_the_ID();
@@ -13,7 +13,7 @@
                     </div>
                 <?php endif; ?>
             <?php endif; ?>
-        </div>
+        </a>
         <?php if(!is_front_page()): ?>
         <div class="productTile__wishlist">
             <a href="#">
@@ -34,11 +34,11 @@
         </a>
         <?php endif; ?>
         <?php if(!is_front_page()): ?>
-            <div class="productTile__content">
+            <a href="<?php the_permalink(); ?>" class="productTile__content">
                 <h3><?php the_title(); ?></h3>
                 <p class="price"><?php $price = get_post_meta( get_the_ID(), '_regular_price', true); echo woocommerce_price($price); ?></p>
-                <a href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></a>
-            </div>
+                <p href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></p>
+            </a>
         <?php endif; ?>
     </div>
 </article>

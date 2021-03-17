@@ -7,8 +7,12 @@
         height: auto;
 
         .productTile__thumb{
+            display: block;
             height: 326px;
             position: relative;
+        }
+        .productTile__content{
+            display: block;
         }
     }
     &__wrap{
@@ -63,8 +67,8 @@
     }
     &__bestseller{
         position: absolute;
-        right: 13px;
-        top: 15px;
+        right: 18px;
+        top: 13px;
         transition: ease .3s;
 
         p{
@@ -92,8 +96,8 @@
     }
     &__wishlist{
         position: absolute;
-        left: 13px;
-        top: 19px;
+        left: 18px;
+        top: 15px;
         transition: ease .3s;
     }
     &__colors{
@@ -133,6 +137,9 @@
             font-weight: 800;
             text-align: center;
             margin: 0 0 20px;
+        }
+        .btn{
+            margin: 0;
         }
     }
 }
