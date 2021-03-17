@@ -1,6 +1,10 @@
 .knowledgeZone {
     &__heading {
         margin-bottom: 60px;
+        
+        @media (max-width: 575px) {
+            margin-bottom: 40px;
+        }
     }
 
     &__wrap {

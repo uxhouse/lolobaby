@@ -28,14 +28,19 @@ get_header(); ?>
         </section>
     </div>
     <section class="section section--environmentCare">
+        <div class="environmentCare__image"></div>
         <div class="container container--min">
-            <div class="environmentCareDescription">
+            <div class="environmentCare__description">
                 <h2 class="secondaryHeading">Lolobaby to także dbałość o środowisko. </h2>
                 <p>Nasze produkty pakujemy efektownie ale i ekologicznie. Pudełka, w których wysyłamy nasze ubranka, wykonane są w 90% z przetwarzalnych materiałów wtórnych, barwione farbami na bazie wody.</p>
                 <p>Zapraszamy na nasz pokład. Wyruszmy razem w piękną i spokojną podróż!</p>
             </div>
         </div>
     </section>
+    <div class="divider">
+        <img class="divider__image" src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg' ?>" alt="" />
+    </div>
+    
     <!-- Strefa wiedzy -->
     <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
     
