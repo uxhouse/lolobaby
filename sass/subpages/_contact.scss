@@ -1,12 +1,12 @@
 .section {
     &--contact {
         position: relative;
-        padding-top: 120px;
-        padding-bottom: 90px;
+        padding-top: 50px;
+        padding-bottom: 70px;
 
         @media (max-width: 767px){
-            padding-top: 60px;
-            padding-bottom: 60px;
+            padding-top: 0;
+            padding-bottom: 30px;
         }
     }
 }
@@ -51,7 +51,7 @@
         justify-content: center;
         
         @media (max-width: 767px){
-            margin-top: 80px;
+            margin-top: 50px;
             padding: 0;
             text-align: center;
             align-items: center;
