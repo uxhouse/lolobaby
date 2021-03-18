@@ -1,5 +1,5 @@
 
-$sliderHeight: 65vh;
+$sliderHeight: 85vh;
 
 .homeSlider{
     height: $sliderHeight;
@@ -264,6 +264,9 @@ $sliderHeight: 65vh;
             opacity: .8;
         }
 
+        &--mobile{
+            display: none !important;
+        }
         &--left{
             left: 21px;
         }
@@ -293,6 +296,9 @@ $sliderHeight: 65vh;
                 }
             }
         }
+    }
+    &__nav{
+        display: none;
     }
     &__waves{
         position: absolute;
@@ -344,6 +350,9 @@ $sliderHeight: 65vh;
             &--desktop{
                 display: none !important;
             }
+            &--mobile{
+                display: block !important;
+            }
 
             img{
                 filter: contrast(0.7);
@@ -385,6 +394,9 @@ $sliderHeight: 65vh;
                     }
                 }
             }
+        }
+        &__nav{
+            display: flex;
         }
     }
 }

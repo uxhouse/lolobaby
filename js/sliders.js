@@ -101,3 +101,14 @@ $(document).ready(function(){
         });
     }
 });
+
+/* ---- Product page ---- */
+$(document).ready(function(){
+    var productGalleryNav = $('.woocommerce-product-gallery').find('.flex-control-nav');
+    $(productGalleryNav).slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: false,
+        variableWidth: true,
+    });
+});

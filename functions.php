@@ -155,6 +155,9 @@ function lolobaby_scripts() {
 	wp_enqueue_style( 'lolobaby-slickCSS', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _S_VERSION );
 	wp_enqueue_style( 'lolobaby-slickThemeCSS', get_template_directory_uri() . '/plugins/slick/slick-theme.css', array(), _S_VERSION );
 
+	/* Slick */
+	wp_enqueue_script( 'lolobaby-zoom', get_template_directory_uri() . '/plugins/zoom/jquery.zoom.min.js', array(), _S_VERSION, true );
+
 	/* Custom CSS */
 	wp_enqueue_style( 'lolobaby-custom', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION );
 
@@ -219,3 +222,7 @@ function my_acf_json_load_point( $paths ) {
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
 }
+
+/* Woocommerce remove hooks - product page */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
