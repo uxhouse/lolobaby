@@ -5,6 +5,7 @@
 get_header(); ?>
 
 <main class="lolosite lolosite--aboutPage">
+    <?php include get_template_directory() . '/template-parts/_include_aboutBreadcrumbs.php'; ?>
     <section class="section section--about">
         <div class="container container--min">
             <h2 class="sectionHeading">
