@@ -226,3 +226,15 @@ function my_acf_json_load_point( $paths ) {
 /* Woocommerce remove hooks - product page */
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+/* Woocommerce cart attribute update */
+add_filter( 'woocommerce_add_cart_item', 'filter_add_cart_item', 10, 2 );
+function filter_add_cart_item( $cart_item_data, $cart_item_key ) {
+    if ( isset($cart_item_data['pa_kolor']) ) {
+        // Changing the term slug for product attribute "Size" from "m" to "XXL"
+        $cart_item_data['pa_kolor'] = 'niebieski';
+    }
+    return $cart_item_data;
+}
+
+remove_action( 'template_redirect', 'redirect_canonical' );

@@ -101,6 +101,7 @@ $(document).ready(function(){
     });
 
     /* ---- Newsletter ---- */
+
     $('.engineCheckbox').on('click', function(){
         if($(this).is(":checked")){
             $(this).parent().addClass('checkbox--checked');
@@ -111,6 +112,7 @@ $(document).ready(function(){
     });
   
     /* ---- Blog dropdown ---- */
+
     var blogButton = $('.blog__dropdownButton');
 
     blogButton.on('click', function(){
@@ -133,6 +135,81 @@ $(document).ready(function(){
                 url: wooImageSource,
                 magnify: 2,
             });
+        });
+    });
+
+    /* ---- Cart actions ---- */
+
+    $(document).ready(function(){
+        $('.selectTrigger').on('click', function(){
+            var dropdown = $(this).parent().find('.selectDropdown');
+            dropdown.addClass('selectDropdown--active');
+
+            $(document).mouseup(function(e){
+                if (!dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+                    dropdown.removeClass('selectDropdown--active');
+                }
+            });
+        });
+
+        setTimeout(function(){
+            $("[name='update_cart']").attr('aria-disabled', 'false').removeAttr("disabled");
+        }, 500);
+        var quantitySelect = $('.dropdownInput__dropdown').find('span');
+
+        $(quantitySelect).on('click', function(){
+            var value = $(this).text();
+            $(this).parent().removeClass('selectDropdown--active');
+            $(this).parent().parent().find('.dropdownInput__current').text(value);
+    
+            var qtyInput = $(this).parent().parent().parent().find('input.qty');
+            qtyInput.val(value).trigger('change');
+            setTimeout(function(){
+                $("[name='update_cart']").trigger('click').trigger('click');
+                console.log('clicked');
+            }, 1000);
+        });
+
+        /* Coupon actions */
+
+        $('input[name="couponInput"]').on('keyup', function() {
+            $('#coupon_code').val($(this).val());
+        });
+        $('.couponInput__submit').on('click', function(){
+            $("[name='apply_coupon']").trigger('click');
+        });
+
+        /* Delivery select */
+
+        function changePrice(current, changed) {
+            var currentPrice = current[0];
+            //Now, just change the value of the first text node:
+            currentPrice.childNodes[0]['data'].nodeValue = changed;
+        }
+
+        var deliverySelector = $('input[name="delivery_option"]');
+        var deliveryAmount = $('.cartTotals__value[valuename="deliverycost"]');
+        var totalValue = $('.cartTotals__total').find('span.amount').find('bdi');
+        var currentTotal = totalValue[0].childNodes[0]['data'].replace(/\,/g, '.');
+
+        $(deliverySelector).on('click', function(){
+            var selectedAmount = $(this).parent().parent().attr('methodamount');
+            
+            $('.deliveryList__option').removeClass('deliveryList__option--checked');
+            var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
+            var totalAmount = updateTotal;
+            
+
+            if($(this).is(":checked")){
+                $(this).parent().parent().addClass('deliveryList__option--checked');
+            }
+            else if($(this).is(":not(:checked)")){
+                $(this).parent().parent().removeClass('deliveryList__option--checked');
+            }
+
+            console.log(parseFloat(currentTotal));
+            deliveryAmount.find('p').text(selectedAmount + ' zł');
+            totalValue.html(totalAmount + ' zł');
         });
     });
 });

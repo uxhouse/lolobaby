@@ -18,6 +18,7 @@
 --------------- */
 @import 'woocommerce/archiveShop';
 @import 'woocommerce/productPage';
+@import 'woocommerce/cart';
 
 /*  Partials
 --------------- */
@@ -222,5 +223,17 @@ p {
 .container--min {
     @media (min-width: 1200px) {
         max-width: 1000px;
+    }
+}
+
+.selectDropdown{
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    transition: ease .3s;
+
+    &--active{
+        opacity: 1;
+        pointer-events: all;
     }
 }

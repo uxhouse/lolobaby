@@ -64,7 +64,7 @@
 							<p>Mój profil</p>
 						</div>
 					</a>
-					<a href="#">
+					<a href="<?php echo wc_get_cart_url(); ?>">
 						<img src="<?php echo get_template_directory_uri() . '/images/icons/cart_ico_white.svg' ?>"/>
 						<div class="actionsTooltip">
 							<p>Koszyk</p>
