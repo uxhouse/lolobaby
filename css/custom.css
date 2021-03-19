@@ -1770,7 +1770,7 @@ p {
 
 .filterMobile__options {
   border-bottom: 1px solid #BDBDBD;
-  max-height: calc(100% - 210px);
+  max-height: calc(100% - 250px);
   overflow-y: scroll;
 }
 
@@ -1980,6 +1980,18 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.filterMobile__summary:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/wave_thin.svg");
+  background-repeat: no-repeat;
+  background-size: 1000px;
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 80px);
+  height: 10px;
 }
 
 .filterMobile__summary p {
