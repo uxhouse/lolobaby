@@ -12,6 +12,7 @@ get_header(); ?>
     );
     $the_query = new WP_Query($args); ?>
     <?php if ($the_query->have_posts()) : ?>
+    <?php include get_template_directory() . '/template-parts/_include_blogBreadcrumbs.php'; ?>
     <section class="section section--blog">
         <div class="container container--min">
             <h2 class="sectionHeading">

@@ -1,4 +1,4 @@
-<div class="postTile">
+<div class="postTile" postid="<?php the_ID(); ?>">
     <div>
         <div class="postTile__thumb">
             <img class="postTile__image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />

@@ -5,6 +5,7 @@
 get_header(); ?>
 
 <main class="lolosite lolosite--contactPage">
+    <?php include get_template_directory() . '/template-parts/_include_contactBreadcrumbs.php'; ?>
     <section class="section section--contact">
         <div class="container contactContent">
             <div class="contactContent__imageWrapper">
