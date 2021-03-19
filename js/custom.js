@@ -153,7 +153,7 @@ $(document).ready(function(){
             blogButton.text('Zwiń');
         }
     });
-
+  
     /* ---- Newsletter ---- */
 
     $('.engineCheckbox').on('click', function(){

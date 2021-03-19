@@ -5,14 +5,18 @@ p {
 .section {
     &--about {
         position: relative;
-        padding: 50px 0;
+        padding-bottom: 50px;
+
+        @media (max-width: 575px){
+            padding-bottom: 25px;
+        }
     }
 
     &--highQuality {
         position: relative;
         display: flex;
 
-        @media(max-width: 767px) {
+        @media(max-width: 991px) {
             flex-direction: column;
         }
     }
@@ -21,19 +25,44 @@ p {
         background-image: url('/wp-content/themes/lolobaby/images/environmentCare-image.jpg');
         background-size: cover;
         background-position: right;
+        background-repeat: no-repeat;
         padding: 90px 0;
         margin: 70px 0;
+
+        @media (max-width: 991px){
+            background-position: 30% 0%;
+        }
+        @media (max-width: 767px){
+            background-position: 50% 0%;
+        }
+        @media (max-width: 575px){
+            margin: 25px 0;
+            padding: 0;
+            background-image: none;
+        }
     }
 }
 
 .planeDrawing {
     &--right {
-        top: 30px;
+        top: 0;
         right: 0;
+
+        @media (max-width: 991px){
+            transform: translateX(50%);
+        }
     }
+
     &--left {
         bottom: -80px;
         left: -120px;
+        @media (max-width: 991px){
+            display: none;
+        }
+    }
+
+    @media (max-width: 575px){
+        display: none;
     }
 }
 
@@ -46,9 +75,12 @@ p {
 .highQuality {
     &__image {
         width: 55%;
-        max-height: 626px;
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
             width: 100%;
+        }
+        @media (max-width: 575px) {
+            min-width: 100vw;
+            margin-left: -15px;
         }
     }
     &__description {
@@ -60,26 +92,64 @@ p {
         @media (max-width: 1199px) {
             padding-left: 30px;
         }
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
             padding-left: 0;
-            padding-top: 50px;
+            padding-top: 80px;
             text-align: center;
+        }
+        @media (max-width: 575px) {
+            padding-top: 50px;
         }
     }
 }
 
-.environmentCareDescription {
-    max-width: 300px;
+.environmentCare {
+    &__image {
+        display: none;
+        width: 100vw;
+        height: 300px;
+        background-image: url('/wp-content/themes/lolobaby/images/environmentCare-image.jpg');
+        background-size: cover;
+        background-position: 70% 0%;
+        background-repeat: no-repeat;
+
+        @media (max-width: 575px) {
+            display: block;
+        }
+    }
+
+    &__description {
+        max-width: 300px;
+        
+        @media (max-width: 575px) {
+            text-align: center;
+            max-width: none;
+            margin-top: 40px;
+        }
+    }
+}
+
+.divider {
+    overflow-x: hidden;
+    margin-bottom: 25px;
+    display: none;
+    
+    @media (max-width: 575px) {
+        display: block;
+    }
+
+    &__image {
+        width: 1136px;
+        max-width: none;
+    }
 }
 
 .blogLink {
     text-align: center;
     margin-top: 40px;
     margin-bottom: 60px;
-}
-
-@media (max-width: 767px){
-    .planeDrawing {
+    
+    @media (max-width: 991px){
         display: none;
     }
 }

@@ -75,6 +75,9 @@ p {
         color: $primary-text-color;
         padding: 0 4px;
     }
+    @media (max-width: 575px) {
+        display: none;
+    }
 }
 .btn{
     display: inline-block;
@@ -196,6 +199,14 @@ p {
                 position: absolute;
                 top: 10px;
                 left: -70px;
+                width: 110px;
+                height: 90px;
+                @media(max-width: 767px) {
+                    width: 70px;
+                    height: 60px;
+                    top: -5px;
+                    left: -45px;
+                }
             }
         }
     }
