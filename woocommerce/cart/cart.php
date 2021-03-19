@@ -17,8 +17,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-do_action( 'woocommerce_before_cart' ); ?>
-<?php
+do_action( 'woocommerce_before_cart' );
+
+    global $woocommerce;
+    $chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+    $chosen_shipping = $chosen_methods[0];
+    $shipmentID = (int) filter_var($chosen_shipping, FILTER_SANITIZE_NUMBER_INT);
+?>
+<?php 
 $brand_terms = get_terms(array(
     'taxonomy'      => 'pa_kolor',
     'hide_empty'    => 'false',
@@ -30,7 +36,7 @@ if($brand_terms): ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-<div class="loloCart container">
+<div class="loloCart container"<?php if($shipmentID): ?> selectedShipment="id_<?php echo $shipmentID; ?>"<?php endif; ?>>
     <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
         <div class="loloCart__wave">
             <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
@@ -83,12 +89,13 @@ if($brand_terms): ?>
                     <div class="cartItem__size">
                         <?php
                             $data = $cart_item['data'];
-                            $attributeSize = $data->get_attribute('pa_rozmiar');
+                            $attributeSize = $cart_item['variation']['attribute_pa_rozmiar'];
                             $size_term = wc_get_product_terms( $product_id, 'pa_rozmiar', array( 'fields' => 'all' ) );
                             if($size_term):
                         ?>
                         <p class="cartItem__title">Rozmiar:</p>
                         <div class="dropdownInput">
+                            <input style="display: none !important;" type="text" name="cart[<?php echo $cart_item_key; ?>][pa_rozmiar]" id="select_size" class="select_size" value="<?php echo $attributeSize; ?>"/>
                             <div class="dropdownInput__select selectTrigger">
                                 <p class="dropdownInput__current"><?php echo $attributeSize; ?></p>
                             </div>
@@ -224,6 +231,11 @@ if($brand_terms): ?>
             do_action( 'woocommerce_cart_collaterals' );
         ?>
         </div>
+    </div>
+    <div class="loloCart__afterCart container">
+        <a href="<?php echo home_url(); ?>" class="continue">Kontynuuj zakupy</a>
+        <a href="<?php echo home_url('/zamowienie'); ?>" class="tocheckout btn"><span>Przejdź dalej</span></a>
+        <?php // do_action( 'woocommerce_proceed_to_checkout' ); ?>
     </div>
 </div>
 <?php do_action( 'woocommerce_after_cart' ); ?>

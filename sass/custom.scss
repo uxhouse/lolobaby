@@ -237,3 +237,35 @@ p {
         pointer-events: all;
     }
 }
+
+.woocommerce-notices-wrapper{
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 5px;
+
+        li{
+            line-height: 40px;
+            padding: 0 20px;
+            color: #fff;
+        }
+    }
+    div.woocommerce-message{
+        line-height: 40px;
+        padding: 0 20px;
+        color: #fff;
+        border-radius: 5px;
+        margin-bottom: 10px;
+
+        a{
+            color: #fff;
+            text-decoration: underline !important;
+            transition: ease .3s;
+
+            &:hover{
+                opacity: .7;
+            }
+        }
+    }
+}

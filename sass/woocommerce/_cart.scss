@@ -444,6 +444,21 @@ body.woocommerce-cart{
                         }
                     }
                 }
+                .couponList{
+                    &__coupon{
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 0 0 20px;
+
+                        .amount{
+                            p{
+                                a{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             &__delivery{
                 display: flex;
@@ -465,6 +480,27 @@ body.woocommerce-cart{
                 margin: 15px 0 0;
                 padding: 15px 0 0;
                 border-top: 1px solid #BDBDBD;
+            }
+        }
+    }
+    &__afterCart{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 50px auto;
+
+        .continue{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: underline !important;
+            color: $blue-color;
+            margin: 0;
+            transition: ease .3s;
+            
+            &:hover{
+                opacity: .7;
             }
         }
     }

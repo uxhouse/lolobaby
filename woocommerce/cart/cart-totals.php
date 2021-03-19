@@ -16,7 +16,6 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
 ?>
 <div class="cartTotals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
@@ -36,18 +35,17 @@ defined( 'ABSPATH' ) || exit;
             <p class="couponInput__submit">Zatwierdź</p>
         </div>
         <div class="couponList">
-
-        </div>
         <?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
 			<div class="couponList__coupon coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
-				<div class="name">
-                    <p><?php wc_cart_totals_coupon_label( $coupon ); ?></p>
+				<div class="cartTotals__title name">
+                    <p>Zniżka:</p>
                 </div>
-                <div class="amount">
-                    <p><?php wc_cart_totals_coupon_html( $coupon ); ?></p>
+                <div class="cartTotals__value amount">
+                    <p data-title="<?php echo esc_attr( wc_cart_totals_coupon_label( $coupon, false ) ); ?>"><?php wc_cart_totals_coupon_html( $coupon ); ?></p>
                 </div>
             </div>
 		<?php endforeach; ?>
+        </div>
     </div>
     <div class="cartTotals__delivery">
         <div class="cartTotals__title">
@@ -77,11 +75,5 @@ defined( 'ABSPATH' ) || exit;
         </div>
     </div>
     <?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>
-
-	<div class="wc-proceed-to-checkout">
-		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
-	</div>
-
 	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
-
 </div>

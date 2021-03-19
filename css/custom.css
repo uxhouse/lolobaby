@@ -1566,6 +1566,10 @@ p {
   top: 7px;
 }
 
+.filterEngine__engine .dofilter {
+  display: none !important;
+}
+
 .filterEngine__checkboxes {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1629,6 +1633,279 @@ p {
 
 .filterEngine__checkboxes .checkbox input {
   display: none;
+}
+
+.filterMobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: #fff;
+  padding: 22px 40px 30px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: left ease 1s;
+  transition: left ease 1s;
+  left: -100%;
+}
+
+.filterMobile.active {
+  opacity: 1;
+  pointer-events: all;
+  left: 0;
+}
+
+.filterMobile__heading {
+  margin: 0 0 20px;
+}
+
+.filterMobile__heading h2 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 800;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+.filterMobile__options {
+  border-bottom: 1px solid #BDBDBD;
+  max-height: calc(100% - 210px);
+  overflow-y: scroll;
+}
+
+.filterMobile__options .woof_container {
+  padding: 0;
+  margin: 30px 0;
+}
+
+.filterMobile__options .woof_container .woof_checkboxBlock {
+  position: relative;
+}
+
+.filterMobile__options .woof_container .woof_checkboxBlock:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/dropdown_arrow_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 17px;
+  width: 17px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+
+.filterMobile__options .woof_container .woof_checkboxBlock.hasCheckedItems p:after {
+  content: attr(itemschecked);
+  position: absolute;
+  right: -5px;
+  top: -2px;
+  background-color: #EC422B;
+  border-radius: 100%;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 25px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.filterMobile__options .woof_container .woof_checkboxBlock p {
+  font-size: 16px;
+  line-height: 22px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+  padding-right: 30px;
+}
+
+.filterMobile__options .woof_container .woof_container_inner {
+  display: none;
+  margin-top: 20px;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li {
+  padding: 10px !important;
+  margin: 0 10px 10px 0 !important;
+  position: relative;
+  border: 2px solid #EC422B;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li.checked {
+  background-color: #EC422B;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li.checked label {
+  color: #fff;
+  padding-right: 25px;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li.checked label:after {
+  opacity: 1;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li label {
+  display: block !important;
+  font-size: 14px;
+  line-height: 1;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  font-weight: 800;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.filterMobile__options .woof_container .woof_container_inner ul li label:after {
+  content: '';
+  background-image: url(/wp-content/themes/lolobaby/images/icons/variation_check_ico.svg);
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px;
+  height: 14px;
+  position: absolute;
+  right: 7px;
+  top: 8px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-filter: contrast(1) brightness(5);
+  filter: contrast(1) brightness(5);
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.filterMobile__options .woof_submit_search_form_container {
+  margin: 0;
+}
+
+.filterMobile__options .woof_reset_search_form,
+.filterMobile__options .dofilter {
+  display: none !important;
+}
+
+.filterMobile__checkboxes .checkbox {
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+
+.filterMobile__checkboxes .checkbox--checked label:before {
+  opacity: 1 !important;
+}
+
+.filterMobile__checkboxes .checkbox label {
+  width: 100%;
+  font-size: 16px;
+  color: #4F4F4F;
+  margin: 0;
+  text-transform: uppercase;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.filterMobile__checkboxes .checkbox label:before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background-color: #EC422B;
+  position: absolute;
+  right: 3px;
+  top: 6px;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition: ease .1s;
+  transition: ease .1s;
+}
+
+.filterMobile__checkboxes .checkbox label:after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #ddd;
+  position: absolute;
+  right: 0;
+  top: 3px;
+}
+
+.filterMobile__checkboxes .checkbox input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.filterMobile__summary {
+  width: calc(100% - 80px);
+  position: absolute;
+  bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.filterMobile__summary p {
+  margin: 0;
+}
+
+.filterMobile__summary p.delete {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  position: relative;
+}
+
+.filterMobile__summary p.delete:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/clear_filter_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 10px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: -20px;
+  top: 6px;
 }
 
 .filterOpen {
@@ -1859,6 +2136,11 @@ p {
   .archiveTop .sortEngine form {
     margin: 20px auto 0;
   }
+  .archiveTop .sortEngine .woof_products_top_panel {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1867,7 +2149,7 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    margin: 10px auto 20px;
+    margin: 10px auto 40px;
   }
   .archiveTop .filterEngine {
     display: none;
@@ -1877,6 +2159,9 @@ p {
   }
   .archiveTop .sortEngine form {
     margin: 0 0 0 auto;
+  }
+  .archiveTop .sortEngine .woof_products_top_panel {
+    left: 15px;
   }
 }
 
@@ -2151,6 +2436,10 @@ body.single-product .woocommerce-breadcrumb {
 
 .productPage .productContent__summary table.variations .reset_variations {
   display: none;
+}
+
+.productPage .productContent__summary .woocommerce-variation {
+  display: none !important;
 }
 
 .productPage .productContent__summary .openSizeModal {
@@ -3004,6 +3293,20 @@ body.woocommerce-cart #masthead {
   opacity: .7;
 }
 
+.loloCart__summary .cartTotals__coupon .couponList__coupon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 0 20px;
+}
+
+.loloCart__summary .cartTotals__coupon .couponList__coupon .amount p a {
+  display: none;
+}
+
 .loloCart__summary .cartTotals__delivery {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3036,6 +3339,35 @@ body.woocommerce-cart #masthead {
   margin: 15px 0 0;
   padding: 15px 0 0;
   border-top: 1px solid #BDBDBD;
+}
+
+.loloCart__afterCart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px auto;
+}
+
+.loloCart__afterCart .continue {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: underline !important;
+  color: #1034A6;
+  margin: 0;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.loloCart__afterCart .continue:hover {
+  opacity: .7;
 }
 
 /*  Partials
@@ -4273,5 +4605,37 @@ p {
 .selectDropdown--active {
   opacity: 1;
   pointer-events: all;
+}
+
+.woocommerce-notices-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.woocommerce-notices-wrapper ul li {
+  line-height: 40px;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.woocommerce-notices-wrapper div.woocommerce-message {
+  line-height: 40px;
+  padding: 0 20px;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.woocommerce-notices-wrapper div.woocommerce-message a {
+  color: #fff;
+  text-decoration: underline !important;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.woocommerce-notices-wrapper div.woocommerce-message a:hover {
+  opacity: .7;
 }
 /*# sourceMappingURL=custom.css.map */

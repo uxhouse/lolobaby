@@ -226,15 +226,54 @@ function my_acf_json_load_point( $paths ) {
 /* Woocommerce remove hooks - product page */
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 
-/* Woocommerce cart attribute update */
-add_filter( 'woocommerce_add_cart_item', 'filter_add_cart_item', 10, 2 );
-function filter_add_cart_item( $cart_item_data, $cart_item_key ) {
-    if ( isset($cart_item_data['pa_kolor']) ) {
-        // Changing the term slug for product attribute "Size" from "m" to "XXL"
-        $cart_item_data['pa_kolor'] = 'niebieski';
+/* Remove default shipping method */
+add_filter( 'pre_option_woocommerce_default_gateway' . '__return_false', 99 );
+add_filter( 'woocommerce_shipping_chosen_method', '__return_false', 99);
+
+/* Woocommerce cart size attribute update */
+function filter_woocommerce_update_cart_action_cart_updated( $cart_updated ) {
+    $cart_updated = false;
+	$cart = WC()->cart->cart_contents;
+	
+    if ( $cart_updated == false ) {
+		foreach($_POST['cart'] as $cart_item_id => $cart_item ) {
+			$cartItem = $cart[$cart_item_id];
+			$updatedSize = $cart_item['pa_rozmiar'];
+			$currentSize = $cartItem['variation']['attribute_pa_rozmiar'];
+			$cartItemColor = $cartItem['variation']['attribute_pa_kolor'];
+
+			$args = array(
+				'post_type'     => 'product_variation',
+				'post_status'   => array( 'private', 'publish' ),
+				'numberposts'   => -1,
+				'orderby'       => 'menu_order',
+				'order'         => 'asc',
+				'post_parent'   => $cart_item_id, 
+			);
+			$variations = get_posts( $args );
+			
+			foreach ( $variations as $variation ) {
+				$variation_ID = $variation->ID;
+				$product_variation = new WC_Product_Variation( $variation_ID );
+				$variation_size = $product_variation->attributes['pa_rozmiar'];
+				$variation_color = $product_variation->attributes['pa_kolor'];
+			
+				$availableVariants = array($variation_ID, $variation_color, $variation_size);
+
+				if($updatedSize == $availableVariants[2] && $cartItemColor == $availableVariants[1] && $updatedSize !== $currentSize){
+					$cartItem['variation_id'] = $availableVariants[0];
+					$cartItem['variation']['attribute_pa_rozmiar'] = $updatedSize;
+					WC()->cart->cart_contents[$cart_item_id] = $cartItem;
+
+					$currentUpdatedSize = $cartItem['variation']['attribute_pa_rozmiar'];
+					wc_add_notice( __( 'Produkt został zmieniony! ' . $cartItem->name . ' - Rozmiar: ' . $currentUpdatedSize, 'woocommerce' ), 'success' );
+				}
+			}
+		}
+		WC()->cart->set_session();
     }
-    return $cart_item_data;
+    return $cart_updated;
 }
-
-remove_action( 'template_redirect', 'redirect_canonical' );
+add_filter( 'woocommerce_update_cart_action_cart_updated', 'filter_woocommerce_update_cart_action_cart_updated', 10, 1 );
