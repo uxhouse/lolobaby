@@ -275,6 +275,8 @@ body.woocommerce-cart{
                     }
                 }
 
+                &[methodid="id_1"],
+                &[methodid="id_2"],
                 &[methodid="id_7"],
                 &[methodid="id_6"]{
                     .name{
@@ -294,8 +296,10 @@ body.woocommerce-cart{
                         }
                     }
                 }
+                
                 &[methodid="id_5"],
-                &[methodid="id_4"]{
+                &[methodid="id_4"],
+                &[methodid="id_3"]{
                     .name{
                         label{
                             &:after{
