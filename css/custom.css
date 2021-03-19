@@ -3119,7 +3119,7 @@ body.woocommerce-cart #masthead {
   opacity: 1 !important;
 }
 
-.loloCart__delivery .deliveryList__option[methodid="id_7"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_6"] .name label:after {
+.loloCart__delivery .deliveryList__option[methodid="id_1"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_2"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_7"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_6"] .name label:after {
   content: '';
   background-image: url("/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg");
   background-repeat: no-repeat;
@@ -3132,7 +3132,7 @@ body.woocommerce-cart #masthead {
   display: block;
 }
 
-.loloCart__delivery .deliveryList__option[methodid="id_5"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_4"] .name label:after {
+.loloCart__delivery .deliveryList__option[methodid="id_5"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_4"] .name label:after, .loloCart__delivery .deliveryList__option[methodid="id_3"] .name label:after {
   content: '';
   background-image: url("/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg");
   background-repeat: no-repeat;
