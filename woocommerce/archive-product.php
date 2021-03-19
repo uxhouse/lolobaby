@@ -82,11 +82,11 @@ get_header( 'shop' ); ?>
                 <div class="filterEngine__checkboxes">
                     <div class="checkbox">
                         <label for="onlyAvailable">Tylko dostępne</label>
-                        <input type="checkbox" name="onlyAvailable" class="engineCheckbox" id="onlyAvailable" />
+                        <input type="checkbox" name="onlyAvailable" class="engineCheckbox" />
                     </div>
                     <div class="checkbox">
                         <label for="priceDrop">Przecena</label>
-                        <input type="checkbox" name="priceDrop" class="engineCheckbox" id="priceDrop" />
+                        <input type="checkbox" name="priceDrop" class="engineCheckbox" />
                     </div>
                 </div>
             </div>
@@ -116,6 +116,28 @@ get_header( 'shop' ); ?>
                         <p class="sortEngine__select" sortname="price">Cena: od najniższej</p>
                         <p class="sortEngine__select" sortname="price-desc">Cena: od najwyższej</p>
                     </div>
+                </div>
+            </div>
+            <div id="filterMobile" class="filterMobile">
+                <div class="filterMobile__heading">
+                    <h2>Filtruj wg:</h2>
+                </div>
+                <div class="filterMobile__options">
+                    <?php echo do_shortcode('[woof]'); ?>
+                </div>
+                <div class="filterMobile__checkboxes">
+                    <div class="checkbox">
+                        <label for="onlyAvailable">Tylko dostępne</label>
+                        <input type="checkbox" name="onlyAvailable" class="engineCheckbox" />
+                    </div>
+                    <div class="checkbox">
+                        <label for="priceDrop">Przecena</label>
+                        <input type="checkbox" name="priceDrop" class="engineCheckbox" />
+                    </div>
+                </div>
+                <div class="filterMobile__summary">
+                    <p class="delete">Wyczyść wszystkie filtry</p>
+                    <p class="btn woof_submit_search_form"><span>Zapisz</span></p>
                 </div>
             </div>
         </div>

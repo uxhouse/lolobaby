@@ -49,6 +49,11 @@ if ( post_password_required() ) {
             <div class="productContent__summary">
                 <h1 class="product_title"><?php the_title(); ?></h1>
                 <p class="product_collection">Bambusowe</p>
+                <?php if ($product->is_type('variable')): ?>
+                    <p class="price price--variation"><?php echo wc_price($product->get_price()); ?></p>
+                <?php else: ?>
+                    <p class="price"><?php echo wc_price($product->get_price()); ?></p>
+                <?php endif; ?>
                 <?php
                 /**
                  * Hook: woocommerce_single_product_summary.
