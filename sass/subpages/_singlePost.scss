@@ -58,6 +58,11 @@
         padding: 40px 0;
         position: relative;
 
+        h1, h2, h3, h4, h5, h6 {
+            text-transform: uppercase;
+            color: $primary-text-color;
+        }
+
         @media (max-width: 991px) {
             max-width: none;
         }
