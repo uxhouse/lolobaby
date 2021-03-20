@@ -12,10 +12,7 @@ get_header();
 
 <main id="primary" class="lolosite lolosite--singlePostPage">
 
-    <?php
-        while ( have_posts() ) :
-            the_post();
-    ?>
+    <?php while ( have_posts() ) : the_post(); ?>
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
@@ -68,9 +65,7 @@ get_header();
     <!-- Strefa wiedzy -->
     <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
             
-    <?php
-        endwhile; // End of the loop.
-    ?>
+    <?php endwhile; ?>
 
 </main>
 

@@ -991,6 +991,7 @@ p {
 
 .divider {
   overflow-x: hidden;
+  text-align: center;
   margin-bottom: 25px;
   display: none;
 }
@@ -1269,6 +1270,122 @@ p {
 
 @media (max-width: 1100px) {
   .pen {
+    display: none;
+  }
+}
+
+.singlePost__header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 2000px) {
+  .singlePost__header {
+    min-height: 60vh;
+  }
+}
+
+@media (max-width: 575px) {
+  .singlePost__header {
+    margin-bottom: 10px;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+.singlePost__headerContent {
+  max-width: 440px;
+  text-align: center;
+  padding: 50px 15px;
+}
+
+.singlePost__date {
+  color: #fff;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.singlePost__date:after {
+  content: '';
+  display: block;
+  width: 82px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.singlePost__title {
+  color: #fff;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.singlePost__content {
+  max-width: 675px;
+  margin: 0 auto;
+  padding: 40px 0;
+  position: relative;
+}
+
+.singlePost__content h1, .singlePost__content h2, .singlePost__content h3, .singlePost__content h4, .singlePost__content h5, .singlePost__content h6 {
+  text-transform: uppercase;
+  color: #4F4F4F;
+}
+
+@media (max-width: 991px) {
+  .singlePost__content {
+    max-width: none;
+  }
+}
+
+.singlePost__headerWave {
+  position: absolute;
+  bottom: -15px;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+.singlePost__headerWave img {
+  min-width: 2735px;
+}
+
+.divider--singlePost {
+  display: block;
+}
+
+.drawing--singlePost {
+  top: -20px;
+  right: -170px;
+}
+
+@media (max-width: 1199px) {
+  .drawing--singlePost {
+    right: -125px;
+  }
+}
+
+@media (max-width: 991px) {
+  .drawing--singlePost {
     display: none;
   }
 }
@@ -3503,6 +3620,10 @@ body.admin-bar .siteHeader--frontPage {
 
 .siteHeader--frontPage .siteHeader__logo .wrap {
   background-color: #EC422B;
+}
+
+.siteHeader--frontPage .siteHeader__logo .wrap--transparent {
+  background-color: transparent;
 }
 
 .siteHeader__wrap {
