@@ -254,6 +254,9 @@ body.single-product{
                     display: none;
                 }
             }
+            .woocommerce-variation{
+                display: none !important;
+            }
             .openSizeModal{
                 font-size: 14px;
                 line-height: 19px;

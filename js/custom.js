@@ -29,6 +29,7 @@ $(document).ready(function(){
         var date = $(this).attr('sortname');
         console.log(date);
         $('.orderby').val(date).trigger('change');
+        $('.')
     });
     $(document).ready(function(){
         var sortdata = getUrlParameter('orderby');
@@ -85,7 +86,76 @@ $(document).ready(function(){
         }
     });
 
+    if($(window).width() > 991){
+        $('.woof_checkbox_label').on('click', function(){
+            setTimeout(function(){
+                $('.woof_submit_search_form').trigger('click');
+            }, 200);
+        });
+    }
+
+    /* ---- Filter engine MOBILE ---- */
+    if($(window).width() < 767){
+        $('.filterOpen').on('click', function(){
+            $('.filterMobile').addClass('active');
+        });
+    
+        $('.woof_checkboxBlock').on('click', function(){
+            $('.woof_container_inner').slideUp();
+    
+            if($(this).hasClass('opened')){
+                $(this).parent().find('.woof_container_inner').slideUp();
+                $(this).removeClass('opened');
+            }else{
+                $(this).parent().find('.woof_container_inner').slideDown();
+                $(this).addClass('opened');
+            }
+        });
+        var removefiltermobile = $('.filterMobile__summary').find('p.delete');
+        $(removefiltermobile).on('click', function(){
+            $('.woof_reset_search_form').trigger('click');
+        });
+        $('.woof_checkbox_term').on('click', function(){
+            if($(this).is(":checked")){
+                $(this).parent().addClass('checked');
+            }
+            else if($(this).is(":not(:checked)")){
+                $(this).parent().removeClass('checked');
+            }
+        });
+        $(document).ready(function(){
+            var mobileFilterWrap = $('.filterMobile__options').find('.woof_container')
+            setTimeout(function(){
+                $('.woof_checkbox_label_selected').parent().addClass('checked');
+                
+                $(mobileFilterWrap).each(function(){
+                    var numItems = $(this).find('li.checked').length;
+                    if(numItems > 0){
+                        $(this).find('.woof_checkboxBlock').addClass('hasCheckedItems');
+                        $(this).find('.woof_checkboxBlock').find('p').attr('itemschecked', numItems);
+                    }
+                });
+            }, 200);
+        });
+    }
+
+    /* ---- Blog dropdown ---- */
+
+    var blogButton = $('.blog__dropdownButton');
+
+    blogButton.on('click', function(){
+        var blogDescription = $('.blog__description');
+        if (blogDescription.hasClass('open')) {
+            blogDescription.removeClass('open');
+            blogButton.text('Rozwiń');
+        } else {
+            blogDescription.addClass('open');
+            blogButton.text('Zwiń');
+        }
+    });
+  
     /* ---- Newsletter ---- */
+
     $('.engineCheckbox').on('click', function(){
         if($(this).is(":checked")){
             $(this).parent().addClass('checkbox--checked');
@@ -96,6 +166,7 @@ $(document).ready(function(){
     });
   
     /* ---- Blog dropdown ---- */
+
     var blogButton = $('.blog__dropdownButton');
 
     blogButton.on('click', function(){
@@ -119,5 +190,100 @@ $(document).ready(function(){
                 magnify: 2,
             });
         });
+    });
+
+    /* ---- Cart actions ---- */
+
+    $(document).ready(function(){
+        $('.selectTrigger').on('click', function(){
+            var dropdown = $(this).parent().find('.selectDropdown');
+            dropdown.addClass('selectDropdown--active');
+
+            $(document).mouseup(function(e){
+                if (!dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+                    dropdown.removeClass('selectDropdown--active');
+                }
+            });
+        });
+
+        setTimeout(function(){
+            $("[name='update_cart']").attr('aria-disabled', 'false').removeAttr("disabled");
+        }, 500);
+        var quantitySelect = $('.dropdownInput__dropdown').find('span');
+
+        $(quantitySelect).on('click', function(){
+            var value = $(this).text();
+            $(this).parent().removeClass('selectDropdown--active');
+            $(this).parent().parent().find('.dropdownInput__current').text(value);
+    
+            var qtyInput = $(this).parent().parent().parent().find('input.qty');
+            var sizeInput = $(this).parent().parent().find('input.select_size');
+            qtyInput.val(value).trigger('change');
+            sizeInput.val(value).trigger('change');
+            setTimeout(function(){
+                $("[name='update_cart']").trigger('click').trigger('click');
+                console.log('clicked');
+            }, 1000);
+        });
+
+        /* Coupon actions */
+
+        $('input[name="couponInput"]').on('keyup', function() {
+            $('#coupon_code').val($(this).val());
+        });
+        $('.couponInput__submit').on('click', function(){
+            $("[name='apply_coupon']").trigger('click');
+        });
+
+        /* Delivery select */
+
+        var deliverySelector = $('input[name="delivery_option"]');
+        var deliveryAmount = $('.cartTotals__value[valuename="deliverycost"]');
+        var totalValue = $('.cartTotals__total').find('span.amount').find('bdi');
+        var currency = $('body').attr('currency');
+        if($('body').hasClass('woocommerce-cart')){
+            var currentTotal = totalValue[0].childNodes[0]['data'].replace(',', '.');
+        }
+
+        var selectedShipment = $('.loloCart').attr('selectedshipment');
+        if(typeof selectedShipment !== typeof undefined && selectedShipment !== false){
+            $('.deliveryList').css('opacity', '.5');
+            $('.deliveryList').css('pointer-events', 'none');
+            $('.deliveryList__option[methodid="' + selectedShipment + '"]').addClass('deliveryList__option--checked');
+            var selectedOptionAmount = $('.deliveryList__option').attr('methodamount');
+            deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
+        }else{
+            $(deliverySelector).on('click', function(){
+                var selectedAmount = $(this).parent().parent().attr('methodamount');
+                
+                $('.deliveryList__option').removeClass('deliveryList__option--checked');
+                var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
+                var totalAmount = updateTotal;
+                
+                if($(this).is(":checked")){
+                    $(this).parent().parent().addClass('deliveryList__option--checked');
+                }
+                else if($(this).is(":not(:checked)")){
+                    $(this).parent().parent().removeClass('deliveryList__option--checked');
+                }
+    
+                var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
+                deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
+                totalValue.html(totalAmountFormated + ' ' + currency);
+            });
+        }
+
+        /* Product page - variation update price */
+
+        setTimeout(function(){
+            $('.variations_form').each( function() {
+                $(this).on('found_variation', function( event, variation ) {
+                    var currency = $('body').attr('currency');
+                    var price = parseFloat(variation.display_price);
+                    var priceFormated = price.toFixed(2).toString().replace(".", ",");
+                    $('.price--variation').html(priceFormated + ' ' + currency);
+                });
+            });
+        }, 200);
     });
 });

@@ -20,7 +20,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'lolobaby' ); ?></a>
@@ -64,10 +64,11 @@
 							<p>Mój profil</p>
 						</div>
 					</a>
-					<a href="#">
+					<a href="<?php echo wc_get_cart_url(); ?>">
 						<img src="<?php echo get_template_directory_uri() . '/images/icons/cart_ico_white.svg' ?>"/>
 						<div class="actionsTooltip">
 							<p>Koszyk</p>
+							<span></span>
 						</div>
 					</a>
 				</div>

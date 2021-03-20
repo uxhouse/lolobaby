@@ -27,24 +27,24 @@
 					<div class="footerContent__links">
 						<ul>
 							<li class="title">O zakupach:</li>
-							<li><a href="#">Dostawa</a></li>
-							<li><a href="#">Płatności</a></li>
-							<li><a href="#">Zwroty</a></li>
-							<li><a href="#">Reklamacje</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Regulamin</a></li>
-							<li><a href="#">Polityka prywatnosci</a></li>
+							<li><a href="<?php echo home_url('/dostawa') ?>">Dostawa</a></li>
+							<li><a href="<?php echo home_url('/platnosci') ?>">Płatności</a></li>
+							<li><a href="<?php echo home_url('/zwroty') ?>">Zwroty</a></li>
+							<li><a href="<?php echo home_url('/reklamacje') ?>">Reklamacje</a></li>
+							<li><a href="<?php echo home_url('/faq') ?>">FAQ</a></li>
+							<li><a href="<?php echo home_url('/regulamin') ?>">Regulamin</a></li>
+							<li><a href="<?php echo home_url('/polityka-prywatnosci') ?>">Polityka prywatnosci</a></li>
 						</ul>
 						<ul>
 							<li class="title">O nas:</li>
-							<li><a href="#">LoloBaby</a></li>
-							<li><a href="#">Kontakt</a></li>
-							<li><a href="#">Blog</a></li>
+							<li><a href="<?php echo home_url('/o-nas') ?>">LoloBaby</a></li>
+							<li><a href="<?php echo home_url('/kontakt') ?>">Kontakt</a></li>
+							<li><a href="<?php echo home_url('/blog') ?>">Blog</a></li>
 						</ul>
 					</div>
 					<div class="footerContent__social">
 						<p>Bądź na bieżąco</p>
-						<a href="#" class="social">
+						<a href="https://www.instagram.com/lolo_baby_pl/" target="_blank" class="social">
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico_white.svg'; ?>"/>
 							<p>lolo_baby_pl</p>
 						</a>

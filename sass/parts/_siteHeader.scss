@@ -268,3 +268,57 @@ body.admin-bar{
         }
     }
 }
+
+
+/* ---- Cart header ---- */
+
+.cartHeader{
+    background-color: $pink-color;
+    position: relative;
+    height: 88px;
+    margin-bottom: 70px;
+
+    &__wrap{
+        display: flex;
+        align-items: center;
+        height: calc(100% - 25px);
+        position: relative;
+        top: 15px;
+        z-index: 3;
+
+        h1{
+            font-size: 30px;
+            line-height: 41px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: $red-color;
+            margin: 0;
+        }
+    }
+    &__logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100%;
+        max-width: fit-content;
+        margin: 0 auto;
+        transition: ease .3s;
+
+        &:hover{
+            opacity: .7;
+        }
+
+        img{
+            height: 100%;
+        }
+    }
+    svg{
+        position: relative;
+        bottom: -5px;
+        z-index: 2;
+    }
+}
