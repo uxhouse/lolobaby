@@ -23,6 +23,9 @@ body.admin-bar{
         .siteHeader__logo{
             .wrap{
                 background-color: $red-color;
+                &--transparent {
+                    background-color: transparent;
+                }
             }
         }
     }
