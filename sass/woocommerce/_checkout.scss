@@ -1,0 +1,256 @@
+.loloCheckout{
+
+}
+.checkoutLogin{
+    display: none;
+    opacity: 0;
+    transition: ease .3s;
+
+    &--ready{
+        display: block;
+    }
+    &--visible{
+        opacity: 1;
+    }
+
+    &__title{
+        font-size: 30px;
+        line-height: 41px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $primary-text-color;
+        margin: 0 0 30px;
+        text-align: center;
+    }
+
+    &__input{
+        text-align: center;
+        margin-bottom: 9px;
+
+        input{
+            height: 60px;
+            width: 100%;
+            max-width: 440px;
+            border: 2px solid $red-color;
+            border-radius: 0;
+            text-align: center;
+            font-size: 15px;
+            line-height: 20px;
+            color: $primary-text-color;
+            outline: none !important;
+        }
+    }
+    &__actions{
+        max-width: 440px;
+        margin: 0 auto;
+
+        .top{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0 40px;
+
+            .remember{
+                position: relative;
+                padding-left: 25px;
+
+                &:before{
+                    content: '';
+                    width: 15px;
+                    height: 15px;
+                    border: 3px solid #ddd;
+                    border-radius: 100%;
+                    background-color: #ddd;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    transition: ease .3s;
+                }
+                &.checkbox--checked{
+                    &:before{
+                        border: 3px solid #ddd;
+                        background-color: $red-color;
+                    }
+                }
+
+                input{
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+                span{
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: $primary-text-color;
+                    margin: 0;
+                }
+            }
+
+            &>a{
+                font-size: 16px;
+                line-height: 22px;
+                color: $primary-text-color;
+                text-decoration: underline !important;
+                margin: 0;
+                transition: ease .3s;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
+        .bottom{
+            text-align: center;
+            margin: 0 0 40px;
+        }
+    }
+    &__gotoOtherForm{
+        text-align: center;
+        margin: 0 0 50px;
+
+        .wave{
+            max-width: 700px;
+            margin: 0 auto 40px;
+            position: relative;
+            height: 10px;
+            overflow: hidden;
+
+            img{
+                width: 800px;
+                max-width: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        h3{
+            font-size: 20px;
+            line-height: 27px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: $primary-text-color;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        p{
+            margin: 0;
+        }
+    }
+}
+.gotoRegister{
+    display: none;
+    opacity: 0;
+    transition: ease .3s;
+
+    &--ready{
+        display: block;
+    }
+    &--visible{
+        opacity: 1;
+    }
+}
+.checkoutRegister{
+    display: none;
+    opacity: 0;
+    transition: ease .3s;
+
+    &--ready{
+        display: block;
+    }
+    &--visible{
+        opacity: 1;
+    }
+
+    &>h2{
+        font-size: 30px;
+        line-height: 41px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $primary-text-color;
+        margin: 0 0 30px;
+        text-align: center;
+    }
+    &__form{
+        margin-bottom: 40px;
+    }
+    &__input{
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto 9px;
+        text-align: center;
+
+        input{
+            height: 60px;
+            width: 100%;
+            max-width: 440px;
+            border: 2px solid $red-color;
+            border-radius: 0;
+            text-align: center;
+            font-size: 15px;
+            line-height: 20px;
+            color: $primary-text-color;
+            outline: none !important;
+        }
+    }
+    &__checkbox{
+        max-width: 440px;
+        margin: 0 auto 9px;
+        position: relative;
+        padding-left: 40px;
+
+        &.top{
+            margin-top: 40px;
+        }
+        &.bottom{
+            margin-bottom: 40px;
+        }
+
+        &:before{
+            content: '';
+            width: 15px;
+            height: 15px;
+            border: 3px solid #ddd;
+            border-radius: 100%;
+            background-color: #ddd;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            transition: ease .3s;
+        }
+        &.checkbox--checked{
+            &:before{
+                border: 3px solid #ddd;
+                background-color: $red-color;
+            }
+        }
+
+        input{
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        label{
+            font-size: 12px;
+            line-height: 16px;
+            color: $primary-text-color;
+            margin: 0;
+
+            a{
+                color: $primary-text-color;
+                text-decoration: underline !important;
+                transition: ease .3s;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
+    }
+}

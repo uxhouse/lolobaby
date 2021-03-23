@@ -285,5 +285,44 @@ $(document).ready(function(){
                 });
             });
         }, 200);
+
+        /* Checkout login - register forms */
+        var openRegister = $('.checkoutLogin__gotoOtherForm').find('.openRegister');
+        var openLogin = $('.checkoutLogin__gotoOtherForm').find('.openLogin');
+
+        $(openRegister).on('click', function(){
+            /* Hide login form */
+            $('.checkoutLogin').removeClass('checkoutLogin--visible');
+            $('.gotoRegister').removeClass('gotoRegister--visible');
+            setTimeout(function(){
+                $('.checkoutLogin').removeClass('checkoutLogin--ready');
+                $('.gotoRegister').removeClass('gotoRegister--ready');
+            }, 200);
+
+            /* Open register form */
+            setTimeout(function(){
+                $('.checkoutRegister').addClass('checkoutRegister--ready');
+            }, 200);
+            setTimeout(function(){
+                $('.checkoutRegister').addClass('checkoutRegister--visible');
+            }, 500);
+        });
+        $(openLogin).on('click', function(){
+            /* Hide register form */
+            $('.checkoutRegister').removeClass('checkoutRegister--visible');
+            setTimeout(function(){
+                $('.checkoutRegister').removeClass('checkoutRegister--ready');
+            }, 200);
+
+            /* Open login form */
+            setTimeout(function(){
+                $('.checkoutLogin').addClass('checkoutLogin--ready');
+                $('.gotoRegister').addClass('gotoRegister--ready');
+            }, 200);
+            setTimeout(function(){
+                $('.checkoutLogin').addClass('checkoutLogin--visible');
+                $('.gotoRegister').addClass('gotoRegister--visible');
+            }, 500);
+        });
     });
 });

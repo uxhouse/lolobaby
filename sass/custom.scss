@@ -21,6 +21,7 @@
 @import 'woocommerce/archiveShop';
 @import 'woocommerce/productPage';
 @import 'woocommerce/cart';
+@import 'woocommerce/checkout';
 
 /*  Partials
 --------------- */
@@ -135,6 +136,12 @@ p {
                 display: none;
             }
         }
+    }
+    &--button{
+        font-size: 16px;
+        color: #fff;
+        text-transform: uppercase;
+        outline: none !important;
     }
 }
 
