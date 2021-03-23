@@ -1,4 +1,4 @@
-<div class="postTile" postid="<?php the_ID(); ?>">
+<a class="postTile" href="<?php echo get_permalink(); ?>" postid="<?php the_ID(); ?>">
     <div>
         <div class="postTile__thumb">
             <img class="postTile__image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
@@ -18,6 +18,6 @@
                 ?>
             </p>
         </div>
-        <div class="postTile__link"><a href="<?php echo get_permalink(); ?>">Czytaj więcej</a></div>
+        <div class="postTile__readMore">Czytaj więcej</div>
     </div>
-</div>
+</a>
