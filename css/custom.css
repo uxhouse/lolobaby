@@ -3213,8 +3213,51 @@ body.single-product .woocommerce-breadcrumb {
   .productPage__related .productTile__content {
     display: block !important;
   }
-  .productPage__related__nav {
-    display: block;
+  .productPage__related .productTile__content h3 {
+    font-size: 30px;
+    line-height: 41px;
+    font-weight: 600;
+    max-width: 90%;
+  }
+  .productPage__related .relatedList__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    bottom: 20px;
+    margin-top: 30px;
+  }
+  .productPage__related .relatedList__dots {
+    margin: 0 20px;
+  }
+  .productPage__related .relatedList__dots span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background-color: #d9d9d9;
+    border-radius: 100%;
+    margin: 0 3px;
+    -webkit-transition: ease .3s;
+    transition: ease .3s;
+  }
+  .productPage__related .relatedList__dots span.active {
+    background-color: #EC422B;
+  }
+  .productPage__related .relatedList__arrow {
+    position: relative;
+  }
+  .productPage__related .relatedList__arrow--desktop {
+    display: none !important;
+  }
+  .productPage__related .relatedList__arrow--mobile {
+    display: block !important;
+  }
+  .productPage__related .relatedList__arrow img {
+    -webkit-filter: contrast(0.7);
+            filter: contrast(0.7);
   }
 }
 
