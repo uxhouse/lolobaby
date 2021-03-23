@@ -3354,12 +3354,70 @@ body.woocommerce-cart #masthead {
           filter: grayscale(0) brightness(1);
 }
 
+@media (max-width: 1199px) {
+  .cartProgress {
+    max-width: 870px;
+    margin: 0 auto 35px;
+  }
+  .cartProgress__step .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+  }
+  .cartProgress__step .name {
+    width: calc(100% - 45px);
+  }
+  .cartProgress__step .name p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 991px) {
+  .cartProgress {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 0 15px;
+  }
+  .cartProgress__step {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cartProgress__step .icon {
+    width: 100%;
+    margin: 0 auto 10px;
+  }
+  .cartProgress__step .name {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .cartProgress {
+    margin: 0 auto 10px;
+  }
+  .cartProgress__step .icon {
+    height: 20px;
+  }
+  .cartProgress__step .name p {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .cartProgress__arrow {
+    width: 20px;
+    margin: 0 10px;
+  }
+}
+
 .loloCart {
   /* After cart item list */
 }
 
 .loloCart__wave {
-  margin: 30px 0;
+  margin: 30px auto;
 }
 
 .loloCart .cartItem {
@@ -3851,6 +3909,141 @@ body.woocommerce-cart #masthead {
   opacity: .7;
 }
 
+@media (max-width: 1199px) {
+  .loloCart .cartItem__top {
+    width: 380px;
+  }
+  .loloCart .cartItem__bottom {
+    width: calc(100% - 380px);
+  }
+}
+
+@media (max-width: 991px) {
+  .loloCart .cartItem {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-top: 1px solid #BDBDBD;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .loloCart .cartItem:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .loloCart .cartItem__top {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin: 0 0 15px;
+  }
+  .loloCart .cartItem__thumb {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  .loloCart .cartItem__name {
+    width: calc(100% - 100px);
+  }
+  .loloCart .cartItem__bottom {
+    width: 100%;
+  }
+  .loloCart .cartItem__bottom .cartItem__remove {
+    display: none;
+  }
+  .loloCart__bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .loloCart__delivery {
+    width: 100%;
+    margin: 0 0 50px;
+  }
+  .loloCart__summary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .loloCart__wave {
+    width: 100%;
+    max-width: none;
+    height: 10px;
+    position: relative;
+  }
+  .loloCart__wave img {
+    width: 800px;
+    max-width: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .loloCart .cartItem__thumb {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .loloCart .cartItem__name {
+    width: calc(100% - 50px);
+  }
+  .loloCart .cartItem__name h3 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .loloCart .cartItem__title {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 10px 0 0;
+  }
+  .loloCart .cartItem__color span {
+    width: 10px;
+    height: 10px;
+  }
+  .loloCart .cartItem .dropdownInput__select {
+    height: 35px;
+    padding: 0 26px 0 10px;
+  }
+  .loloCart .cartItem .dropdownInput__select:after {
+    background-size: 11px;
+    width: 11px;
+    height: 6px;
+    top: 17px;
+    right: 8px;
+  }
+  .loloCart .cartItem__subtotal > span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .loloCart__delivery .deliveryList__option .amount span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .loloCart__summary .cartTotals__value span,
+  .loloCart__summary .cartTotals__value p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .loloCart__summary .cartTotals__coupon .cartTotals__title p, .loloCart__summary .cartTotals__delivery .cartTotals__title p, .loloCart__summary .cartTotals__total .cartTotals__title p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .loloCart__afterCart {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    margin: 30px 0 20px;
+  }
+  .loloCart__afterCart .tocheckout {
+    margin-bottom: 15px;
+  }
+}
+
 /*  Partials
 --------------- */
 /* ---- COLORS ---- */
@@ -4172,6 +4365,26 @@ body.admin-bar .siteHeader--frontPage {
   position: relative;
   bottom: -5px;
   z-index: 2;
+}
+
+@media (max-width: 991px) {
+  .cartHeader {
+    height: 70px;
+    margin-bottom: 60px;
+  }
+  .cartHeader__wrap {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .cartHeader__wrap h1 {
+    font-size: 20px;
+    line-height: 27px;
+  }
+  .cartHeader__logo {
+    left: 12px;
+    right: auto;
+  }
 }
 
 .siteFooter {
