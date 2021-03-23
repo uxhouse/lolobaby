@@ -34,6 +34,10 @@ if ( post_password_required() ) {
 <section class="productPage">
     <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'productContent', $product ); ?>>
         <div class="productContent__top container">
+            <div class="productContent__header" style="display: none;">
+                <h1 class="product_title"><?php the_title(); ?></h1>
+                <p class="product_collection">Bambusowe</p>
+            </div>
             <div class="productContent__gallery">
                 <?php
                 /**
@@ -144,6 +148,20 @@ if ( post_password_required() ) {
             <?php include get_template_directory() . '/template-parts/_include_productTile-related.php'; ?>
             <?php endforeach; ?>
         </div>
+        <div class="relatedList__nav">
+                <div class="relatedList__arrow relatedList__arrow--left">
+                    <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_left_white.svg'; ?>"/>
+                </div>
+                <div class="relatedList__dots">
+                    <?php foreach( $related_posts as $post ): 
+                    setup_postdata($post); ?>
+                        <span productID="<?php echo get_the_ID($post); ?>"></span>
+                    <?php endforeach; ?>
+                </div>
+                <div class="relatedList__arrow relatedList__arrow--right">
+                    <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
+                </div>
+            </div>
     </div>
     <?php wp_reset_postdata(); ?>
     <?php endif; ?>
