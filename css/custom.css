@@ -2910,6 +2910,7 @@ body.single-product .woocommerce-breadcrumb {
 }
 
 .productPage .productContent__content .divider {
+  display: block;
   margin: 40px auto 15px;
 }
 
@@ -2973,9 +2974,17 @@ body.single-product .woocommerce-breadcrumb {
   display: flex;
 }
 
+.productPage__related .relatedList__nav {
+  display: none;
+}
+
 .productPage__related .relatedList .productTile {
   width: calc(100% / 4);
   height: auto;
+}
+
+.productPage__related .relatedList .productTile__content {
+  display: none;
 }
 
 .productPage__related .relatedList .productTile:hover .productTile__bestseller {
@@ -3004,6 +3013,209 @@ body.single-product .woocommerce-breadcrumb {
   max-height: inherit;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+@media (max-width: 1400px) {
+  .productPage .productContent__content:before {
+    background-size: 320px;
+    width: 320px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .productPage .productContent__gallery .woocommerce-product-gallery {
+    width: calc(100% - 80px);
+  }
+  .productPage .productContent__summary .product_title {
+    font-size: 40px;
+    line-height: 50px;
+    margin: 0 0 10px;
+  }
+  .productPage .productContent__summary .productActions .addwishlist {
+    margin-left: 20px;
+  }
+  .productPage .productContent__summary .productActions .addwishlist a:before {
+    background-size: 26px;
+    width: 30px;
+    height: 23px;
+  }
+  .productPage .productContent__summary .productActions .addwishlist a span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .loloBreadcrumbs--product {
+    display: none !important;
+  }
+  .productPage .productContent__top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .productPage .productContent__header {
+    display: block !important;
+    text-align: center;
+    margin: 0 0 40px;
+    padding: 0 15px;
+  }
+  .productPage .productContent__header .product_title {
+    font-size: 50px;
+    line-height: 68px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #4F4F4F;
+    margin: 0 0 10px;
+  }
+  .productPage .productContent__header .product_collection {
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #4F4F4F;
+    margin: 0;
+  }
+  .productPage .productContent__gallery {
+    width: 100%;
+  }
+  .productPage .productContent__gallery .woocommerce-product-gallery {
+    margin: 0 auto;
+    float: none !important;
+  }
+  .productPage .productContent__summary {
+    width: 100%;
+    position: relative;
+  }
+  .productPage .productContent__summary .product_title,
+  .productPage .productContent__summary .product_collection {
+    display: none;
+  }
+  .productPage .productContent__summary .price--variation {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
+  .productPage .productContent__summary table.variations {
+    margin: 30px 0 0;
+  }
+  .productPage .productContent__summary table.variations tr:first-of-type {
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto 80px;
+  }
+  .productPage .productContent__summary .productActions .addwishlist a:before {
+    background-size: 39px;
+    width: 39px;
+    height: 35px;
+    margin: 0;
+  }
+  .productPage .productContent__summary .productActions .addwishlist a span {
+    display: none;
+  }
+  .productPage .productContent__summary .summary__delivery {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .productPage .productContent__summary .summary__boxes {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .productPage .productContent__content:before {
+    display: none;
+  }
+  .productPage .productContent__content .divider {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 40px 0 15px;
+    padding: 0;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .productPage .productContent__content .divider img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 991px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .productPage .productContent__top {
+    padding: 0;
+  }
+  .productPage .productContent__gallery .woocommerce-product-gallery {
+    width: 100%;
+  }
+  .productPage .productContent__gallery .woocommerce-product-gallery .flex-control-nav {
+    display: none;
+  }
+  .productPage .productContent__summary {
+    padding: 0 20px;
+  }
+  .productPage .productContent__summary table.variations {
+    margin: 10px 0 0;
+  }
+  .productPage .productContent__summary .price--variation {
+    top: 70px;
+  }
+  .productPage .productContent__summary .summary__boxes .box__thumb {
+    width: 50px;
+    height: 50px;
+  }
+  .productPage .productContent__summary .summary__boxes .box p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .productPage .productContent__content {
+    padding: 0 20px;
+  }
+  .productPage .productContent__content .divider {
+    width: calc(100% + 60px);
+    max-width: calc(100% + 60px);
+    margin: 40px -40px 15px;
+  }
+  .productPage .productContent__content .content_title {
+    font-size: 30px;
+    line-height: 53px;
+  }
+  .productPage__related {
+    margin: 15px 0 0;
+  }
+  .productPage__related .productTile {
+    width: 326px !important;
+    height: auto !important;
+    opacity: .3;
+    -webkit-transition: ease .3s;
+    transition: ease .3s;
+  }
+  .productPage__related .productTile.slick-current {
+    opacity: 1;
+  }
+  .productPage__related .productTile:hover .productTile__bestseller {
+    opacity: 1;
+  }
+  .productPage__related .productTile__cover {
+    display: none;
+  }
+  .productPage__related .productTile__content {
+    display: block !important;
+  }
+  .productPage__related__nav {
+    display: block;
+  }
 }
 
 body.woocommerce-cart #masthead {
