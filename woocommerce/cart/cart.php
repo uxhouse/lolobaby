@@ -36,12 +36,12 @@ if($brand_terms): ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-<div class="loloCart container"<?php if($shipmentID): ?> selectedShipment="id_<?php echo $shipmentID; ?>"<?php endif; ?>>
+<div class="loloCart"<?php if($shipmentID): ?> selectedShipment="id_<?php echo $shipmentID; ?>"<?php endif; ?>>
     <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
-        <div class="loloCart__wave">
+        <div class="loloCart__wave container">
             <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
         </div>
-        <div class="loloCart__items">
+        <div class="loloCart__items container">
             <?php do_action( 'woocommerce_before_cart_table' ); ?>
             <?php
                 foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
@@ -67,6 +67,21 @@ if($brand_terms): ?>
                     </div>
                     <div class="cartItem__name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
                         <h3><?php echo $_product->get_title(); ?></h3>
+                    </div>
+                    <div class="cartItem__remove">
+                    <?php
+                        echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            'woocommerce_cart_item_remove_link',
+                            sprintf(
+                                '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s"><img src="/wp-content/themes/lolobaby/images/icons/cartItem_trash.svg"/></a>',
+                                esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                                esc_html__( 'Remove this item', 'woocommerce' ),
+                                esc_attr( $product_id ),
+                                esc_attr( $_product->get_sku() )
+                            ),
+                            $cart_item_key
+                        );
+                    ?>
                     </div>
                 </div>
                 <div class="cartItem__bottom">
@@ -178,7 +193,7 @@ if($brand_terms): ?>
                 <?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
             </div>
         </div>
-        <div class="loloCart__wave">
+        <div class="loloCart__wave container">
             <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
         </div>
         <div class="couponWrap" style="display: none !important;">

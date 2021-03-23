@@ -322,3 +322,22 @@ body.admin-bar{
         z-index: 2;
     }
 }
+@media (max-width: 991px){
+    .cartHeader{
+        height: 70px;
+        margin-bottom: 60px;
+
+        &__wrap{
+            justify-content: flex-end;
+
+            h1{
+                font-size: 20px;
+                line-height: 27px;
+            }
+        }
+        &__logo{
+            left: 12px;
+            right: auto;
+        }
+    }
+}
