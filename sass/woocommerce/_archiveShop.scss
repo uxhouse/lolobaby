@@ -667,6 +667,7 @@
                 line-height: 22px;
                 color: $primary-text-color;
                 position: relative;
+                padding-right: 30px;
 
                 &:after{
                     content: '';
@@ -676,7 +677,7 @@
                     width: 10px;
                     height: 10px;
                     position: absolute;
-                    right: -20px;
+                    right: 10px;
                     top: 6px;
                 }
             }
