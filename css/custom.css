@@ -1416,6 +1416,10 @@ p {
   top: 0;
 }
 
+.archiveShop__header {
+  position: relative;
+}
+
 .archiveShop__header h1 {
   margin: 0 0 30px;
 }
