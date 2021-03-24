@@ -262,6 +262,11 @@ body.admin-bar{
 }
 @media (max-width: 575px){
     .siteHeader{
+        &--frontPage{
+            .siteHeader__wrap{
+                padding: 0 20px 0 0;
+            }
+        }
         &__wrap{
             padding: 0 20px 0 10px;
         }
