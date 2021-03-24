@@ -221,6 +221,10 @@ $(document).ready(function(){
         $(this).addClass('mobileMenu__position--active');
         $(this).find('ul').slideToggle();
     });
+    var menumobilepositionhref = $('.mobileMenu__position').find('a');
+    $(menumobilepositionhref).on('click', function(){
+        $('.mobileMenu').removeClass('mobileMenu--active');
+    });
 
     /* ---- Cart actions ---- */
 
