@@ -143,6 +143,9 @@ $currentUser = wp_get_current_user();
     <div class="summaryPage__cartItems">
         <?php $itemsCount = $woocommerce->cart->cart_contents_count; ?>
         <h2 class="summaryPage__secTitle">Twój koszyk (<?php echo $itemsCount; ?>)</h2>
+        <div class="wave wave--mobile">
+            <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
+        </div>
     <?php
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
         $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
