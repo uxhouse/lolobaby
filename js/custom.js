@@ -218,8 +218,19 @@ $(document).ready(function(){
     var menumobileposition = $('.mobileMenu__position');
     $(menumobileposition).on('click', function(){
         $('.mobileMenu__position').find('ul').slideUp();
-        $(this).addClass('mobileMenu__position--active');
-        $(this).find('ul').slideToggle();
+        if($(this).hasClass('mobileMenu__position--active')){
+            $(this).removeClass('mobileMenu__position--active');
+            $(this).find('ul').slideUp();
+        }else{
+            $('.mobileMenu__position').removeClass('mobileMenu__position--active');
+            $(this).addClass('mobileMenu__position--active');
+            $(this).find('ul').slideDown();
+        }
+        
+    });
+    var menumobilepositionhref = $('.mobileMenu__position').find('a');
+    $(menumobilepositionhref).on('click', function(){
+        $('.mobileMenu').removeClass('mobileMenu--active');
     });
 
     /* ---- Cart actions ---- */
