@@ -2120,6 +2120,7 @@ p {
   line-height: 22px;
   color: #4F4F4F;
   position: relative;
+  padding-right: 30px;
 }
 
 .filterMobile__summary p.delete:after {
@@ -2130,7 +2131,7 @@ p {
   width: 10px;
   height: 10px;
   position: absolute;
-  right: -20px;
+  right: 10px;
   top: 6px;
 }
 
