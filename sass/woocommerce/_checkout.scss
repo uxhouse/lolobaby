@@ -1,9 +1,12 @@
-.loloCheckout{
-
+body.woocommerce-checkout{
+    #masthead{
+        display: none !important;
+    }
 }
 .checkoutLogin{
     display: none;
     opacity: 0;
+    padding: 0 20px;
     transition: ease .3s;
 
     &--ready{
@@ -176,6 +179,7 @@
     }
     &__form{
         margin-bottom: 40px;
+        padding: 0 20px;
     }
     &__input{
         max-width: 440px;
@@ -273,6 +277,27 @@
     }
 
     .checkoutForm{
+        .woocommerce-NoticeGroup{
+            ul{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                background: unset;
+
+                &.woocommerce-error{
+                    li{
+                        background-color: #e2401c;
+                    }
+                }
+
+                li{
+                    margin-bottom: 5px;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    color: #fff;
+                }
+            }
+        }
         &__userdata{
             display: flex;
             justify-content: space-between;

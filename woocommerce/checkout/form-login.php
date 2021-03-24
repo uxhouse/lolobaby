@@ -31,15 +31,16 @@ woocommerce_login_form(
 ?>
 <div class="checkoutRegister">
 	<h2>Zarejestruj się</h2>
-	<form class="checkoutRegister__form" id="checkoutRegisterForm" method="post" action="/">
+	<form class="checkoutRegister__form" id="checkoutRegisterForm" name="checkoutRegisterForm" method="post" action="/">
+		<input type="hidden" name="register-formid" value="21"/>
 		<div class="checkoutRegister__input">
-			<input type="text" name="register-user-name" placeholder="Wpisz imię i nazwisko"/>
+			<input type="text" name="registerUsername" placeholder="Wpisz imię i nazwisko"/>
 		</div>
 		<div class="checkoutRegister__input">
-			<input type="email" name="register-user-email" placeholder="Wpisz adres e-mail"/>
+			<input type="email" name="registerUseremail" placeholder="Wpisz adres e-mail"/>
 		</div>
 		<div class="checkoutRegister__input">
-			<input type="password" name="register-user-password" placeholder="Ustal hasło"/>	
+			<input type="password" name="registerUserpassword" placeholder="Ustal hasło"/>	
 		</div>
 		<div class="checkoutRegister__checkbox top">
 			<input type="checkbox" class="engineCheckbox" name="register-consent"/>
