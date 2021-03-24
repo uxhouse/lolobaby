@@ -143,6 +143,27 @@ p {
         text-transform: uppercase;
         outline: none !important;
     }
+    &--light{
+        background-color: #fff;
+        border: 2px solid $primary-text-color;
+        
+        span{
+            color: $primary-text-color;
+            padding: 0;
+            transition: ease .3s;
+
+            &:after{
+                display: none;
+            }
+        }
+        &:hover{
+            background-color: $primary-text-color;
+
+            span{
+                color: #fff;
+            }
+        }
+    }
 }
 
 .homeSectionHeading{

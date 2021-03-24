@@ -254,3 +254,661 @@
         }
     }
 }
+
+
+/////////////////////////////////////////////////
+//////////////// CHECKOUT FORM /////////////////
+////////////////////////////////////////////////
+
+.checkoutPage{
+    display: none;
+    opacity: 0;
+    transition: ease .3s;
+
+    &--ready{
+        display: block;
+    }
+    &--visible{
+        opacity: 1;
+    }
+
+    .checkoutForm{
+        &__userdata{
+            display: flex;
+            justify-content: space-between;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        &__billing{
+            width: 50%;
+
+            &>h2{
+                font-size: 30px;
+                line-height: 41px;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: $primary-text-color;
+                margin: 0 0 20px;
+                text-align: center;
+            }
+
+            .form{
+                .radio{
+                    display: flex;
+                    justify-content: space-between;
+                    max-width: 250px;
+                    margin: 0 auto 20px;
+
+                    &__option{
+                        position: relative;
+                        padding-left: 25px;
+
+                        &:before{
+                            content: '';
+                            width: 15px;
+                            height: 15px;
+                            border: 3px solid #ddd;
+                            border-radius: 100%;
+                            background-color: #ddd;
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translate(0, -50%);
+                            cursor: pointer;
+                            transition: ease .3s;
+                        }
+                        &.radio-selected{
+                            &:before{
+                                border: 3px solid #ddd;
+                                background-color: $red-color;
+                            }
+                        }
+
+                        input{
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            cursor: pointer;
+                        }
+                        label{
+                            font-size: 14px;
+                            line-height: 19px;
+                            color: $primary-text-color;
+                            text-transform: uppercase;
+                            margin: 0;
+                        }
+                    }
+                }
+                input[type="text"]{
+                    display: block;
+                    height: 60px;
+                    width: 440px;
+                    margin: 0 auto 9px;
+                    border: 2px solid $red-color;
+                    border-radius: 0;
+                    text-align: center;
+                    font-size: 15px;
+                    color: $primary-text-color;
+                    transition: ease .3s;
+
+                    &.comapnyField{
+                        display: none;
+                        opacity: 0;
+
+                        &.ready{
+                            display: block;
+                        }
+                        &.visible{
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        &__shipping{
+            width: 50%;
+
+            &>h2{
+                font-size: 30px;
+                line-height: 41px;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: $primary-text-color;
+                margin: 0 0 64px;
+                text-align: center;
+            }
+            .woocommerce-billing-fields__field-wrapper{
+                p{
+                    display: block;
+                    margin: 0;
+
+                    &.visible-none{
+                        display: none;
+                    }
+                    &.woocommerce-validated{
+                        input{
+                            border-color: #27AE60;
+                        }
+                    }
+                    &.woocommerce-invalid{
+                        input{
+                            background-color: $pink-color;
+                        }
+                    }
+                    input{
+                        display: block;
+                        height: 60px;
+                        width: 440px;
+                        margin: 0 auto 9px;
+                        border: 2px solid $red-color;
+                        border-radius: 0;
+                        text-align: center;
+                        font-size: 15px;
+                        color: $primary-text-color;
+                        box-shadow: none !important;
+                        outline: none !important;
+                        transition: ease .3s;
+                    }
+                    .woocommerce-input-wrapper{
+                        .country_select{
+                            max-width: 440px;
+                            margin: 0 auto 9px !important;
+                        }
+                        .select2{
+                            display: block;
+                            max-width: 440px;
+                            margin: 0 auto;
+                        }
+                        .select2-selection{
+                            max-width: 440px;
+                            margin: 0 auto 9px;
+                            height: 60px;
+                            border: 2px solid $red-color;
+                            border-radius: 0;
+
+                            &__rendered{
+                                line-height: 60px;
+                                text-align: center;
+                                color: $primary-text-color;
+                                font-size: 15px;
+                                padding: 0;
+                            }
+                            &__arrow{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__delivery{
+        .wave{
+            margin: 30px 0;
+        }
+        .heading{
+            text-align: center;
+
+            h3{
+                font-size: 30px;
+                line-height: 41px;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: $primary-text-color;
+                margin: 0 0 20px;
+                text-align: center;
+            }
+        }
+        .checkoutDeliverySelected{
+            text-align: center;
+            margin-bottom: 30px;
+
+            &--disable{
+                display: none;
+            }
+
+            .name{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                line-height: 27px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin: 0;
+                color: $primary-text-color;
+                position: relative;
+
+                &:before{
+                    content: '';
+                    background-repeat: no-repeat;
+                    position: relative;
+                    margin-right: 10px;
+                    display: inline-block;
+                }
+
+                &[methodid="1"],
+                &[methodid="2"],
+                &[methodid="7"],
+                &[methodid="6"]{
+                    &:before{
+                        background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
+                        background-size: 70px 50px;
+                        width: 70px;
+                        height: 50px;
+                    }
+                }
+                &[methodid="5"],
+                &[methodid="4"],
+                &[methodid="3"]{
+                    &:before{
+                        background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
+                        background-size: 50px 50px;
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+            }
+            .buttons{
+                display: flex;
+                justify-content: space-between;
+                margin: 30px auto 0;
+                max-width: fit-content;
+
+                p{
+                    margin: 0;
+                }
+            }
+        }
+        .checkoutDeliverySelect{
+            margin: 0 0 50px;
+            
+            ul{
+                display: flex;
+                justify-content: space-between;
+                padding: 0;
+                margin: 0 auto;
+                list-style: none;
+                max-width: 800px;
+
+                li{
+                    width: 190px;
+                    border: 2px dashed $pink-color;
+                    border-radius: 0;
+                    position: relative;
+                    padding: 10px;
+                    transition: ease .3s;
+
+                    &.radio-selected{
+                        border: 2px solid $red-color;
+                    }
+
+                    &[methodid="1"],
+                    &[methodid="2"],
+                    &[methodid="7"],
+                    &[methodid="6"]{
+                        label{
+                            &:before{
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
+                                background-size: 100px 50px;
+                                width: 100px;
+                            }
+                        }
+                    }
+                    &[methodid="5"],
+                    &[methodid="4"],
+                    &[methodid="3"]{
+                        label{
+                            &:before{
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
+                                background-size: 80px 50px;
+                                width: 80px;
+                            }
+                        }
+                    }
+
+                    input{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        cursor: pointer;
+                        opacity: 0;
+                    }
+                    label{
+                        width: 100%;
+                        margin: 0;
+                        font-size: 14px;
+                        line-height: 18px;
+                        color: $primary-text-color;
+                        text-transform: uppercase;
+                        text-align: center;
+
+                        &:before{
+                            content: '';
+                            background-repeat: no-repeat;
+                            height: 50px;
+                            position: relative;
+                            display: block;
+                            margin: 0 auto;
+                            pointer-events: none;
+                            margin-bottom: 15px;
+                        }
+
+                        span{
+                            display: block;
+                            font-weight: 800;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__nextstep{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .previousStep{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 0;
+            text-decoration: underline !important;
+            color: $blue-color;
+            transition: ease .3s;
+
+            &:hover{
+                opacity: .7;
+            }
+        }
+        .nextStep{
+            transition: ease .3s;
+
+            &--disabled{
+                pointer-events: none;
+                filter: grayscale(1)
+            }
+        }
+    }
+    &__payment{
+        display: none;
+    }
+}
+
+/////////////////////////////////////////////////
+//////////////// SUMMARY PAGE //////////////////
+////////////////////////////////////////////////
+
+.summaryPage{
+    display: none;
+    opacity: 0;
+    transition: ease .3s;
+
+    &--ready{
+        display: block;
+    }
+    &--visible{
+        opacity: 1;
+    }
+
+    &__secTitle{
+        font-size: 30px;
+        line-height: 41px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $primary-text-color;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+    &__cartItems{
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .cartItem{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        &__title{
+            font-size: 14px;
+            line-height: 19px;
+            color: $primary-text-color;
+            text-transform: uppercase;
+            margin: 0 20px 0 0;
+        }
+        &__selected{
+            font-size: 14px;
+            line-height: 19px;
+            font-weight: 800;
+            color: $primary-text-color;
+            text-transform: uppercase;
+            margin: 0 20px 0 0;
+        }
+
+        &__top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 350px;
+        }
+        &__bottom{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: calc(100% - 350px);
+        }
+        &__thumb{
+            width: 95px;
+            height: 95px;
+            margin-right: 20px;
+
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        &__name{
+            width: calc(100% - 115px);
+
+            h3{
+                max-width: 180px;
+                font-size: 20px;
+                line-height: 27px;
+                font-weight: 600;
+                color: $primary-text-color;
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+        &__color{
+            display: flex;
+            align-items: center;
+
+            span{
+                display: block;
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+            }
+        }
+        &__size{
+            display: flex;
+            align-items: center;
+        }
+        &__quantity{
+            display: flex;
+            align-items: center;
+        }
+        &__price{
+            span{
+                font-size: 20px;
+                line-height: 27px;
+                text-transform: uppercase;
+                color: $primary-text-color;
+                margin: 0;
+            }
+        }
+        &__remove{
+            a{
+                display: flex;
+
+                img{
+                    width: 20px;
+                    transition: ease .3s;
+                }
+
+                &:hover{
+                    img{
+                        opacity: .7;
+                    }
+                }
+            }
+        }
+    }
+    &__shipping{
+        .wave{
+            margin: 30px 0;
+        }
+        .name{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            line-height: 27px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0;
+            color: $primary-text-color;
+            position: relative;
+
+            &:before{
+                content: '';
+                background-repeat: no-repeat;
+                position: relative;
+                margin-right: 10px;
+                display: inline-block;
+            }
+
+            &[methodid="1"],
+            &[methodid="2"],
+            &[methodid="7"],
+            &[methodid="6"]{
+                &:before{
+                    background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
+                    background-size: 70px 50px;
+                    width: 70px;
+                    height: 50px;
+                }
+            }
+            &[methodid="5"],
+            &[methodid="4"],
+            &[methodid="3"]{
+                &:before{
+                    background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
+                    background-size: 50px 50px;
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+    &__payment{
+        .optionList{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            &__option{
+                display: flex;
+                align-items: center;
+                height: 47px;
+                padding: 0 30px;
+                background-color: #fff;
+                border: 2px dashed $pink-color;
+                margin-right: 30px;
+                cursor: pointer;
+                transition: ease .3s;
+
+                &--active,
+                &:hover{
+                    background-color: $red-color;
+                    border: 2px solid $red-color;
+
+                    .name{
+                        color: #fff !important;
+                    }
+                }
+
+                &:last-of-type{
+                    margin-right: 0;
+                }
+
+                .name{
+                    font-size: 20px;
+                    line-height: 27px;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    margin: 0;
+                    text-align: center;
+                    color: $red-color;
+                    transition: ease .3s;
+                }
+            }
+        }
+    }
+    &__secureInfo{
+        max-width: 800px;
+        margin: 50px auto;
+
+        p{
+            font-size: 16px;
+            line-height: 22px;
+            color: $primary-text-color;
+            margin: 0;
+            text-align: center;
+
+            a{
+                color: $primary-text-color;
+                text-decoration: underline !important;
+                transition: ease .3s;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
+    }
+    &__nextstep{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .previousStep{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 0;
+            text-decoration: underline !important;
+            color: $blue-color;
+            cursor: pointer;
+            transition: ease .3s;
+
+            &:hover{
+                opacity: .7;
+            }
+        }
+    }
+}
