@@ -1579,6 +1579,10 @@ p {
   top: 0;
 }
 
+.archiveShop__header {
+  position: relative;
+}
+
 .archiveShop__header h1 {
   margin: 0 0 30px;
 }
@@ -4073,13 +4077,6 @@ body.woocommerce-cart #masthead {
   opacity: .7;
 }
 
-
-.checkoutLogin {
-  display: none;
-  opacity: 0;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
-
 @media (max-width: 1199px) {
   .loloCart .cartItem__top {
     width: 380px;
@@ -4215,12 +4212,11 @@ body.woocommerce-cart #masthead {
   }
 }
 
-/*  Partials
---------------- */
-/* ---- COLORS ---- */
-body.admin-bar .siteHeader--frontPage {
-  top: 32px;
-
+.checkoutLogin {
+  display: none;
+  opacity: 0;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
 }
 
 .checkoutLogin--ready {
