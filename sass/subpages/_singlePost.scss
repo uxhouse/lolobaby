@@ -1,5 +1,6 @@
 .singlePost {
     &__header {
+        background-image: url('/wp-content/themes/lolobaby/images/single-post-bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -12,6 +13,9 @@
 
         @media (max-width: 2000px) {
             min-height: 60vh;
+        }
+        @media(max-width: 767px) {
+            min-height: 100vw;
         }
 
         @media (max-width: 575px) {
