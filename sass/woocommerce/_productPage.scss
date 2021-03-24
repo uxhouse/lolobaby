@@ -624,16 +624,16 @@ body.single-product{
             &__header{
                 display: block !important;
                 text-align: center;
-                margin: 0 0 40px;
+                margin: 0 0 20px;
                 padding: 0 15px;
 
                 .product_title{
-                    font-size: 50px;
-                    line-height: 68px;
+                    font-size: 36px;
+                    line-height: 42px;
                     font-weight: 800;
                     text-transform: uppercase;
                     color: $primary-text-color;
-                    margin: 0 0 10px;
+                    margin: 0 0 5px;
                 }
                 .product_collection{
                     font-size: 14px;

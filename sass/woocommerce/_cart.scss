@@ -24,6 +24,7 @@ body.woocommerce-cart{
                 height: 100%;
                 object-fit: contain;
                 filter: brightness(2.3);
+                transition: ease .3s;
             }
         }
         .name{
@@ -36,6 +37,7 @@ body.woocommerce-cart{
                 color: #BDBDBD;
                 margin: 0;
                 text-transform: uppercase;
+                transition: ease .3s;
             }
         }
         &--active{
@@ -59,11 +61,13 @@ body.woocommerce-cart{
         align-items: center;
         width: 28px;
         margin: 0 20px;
+        transition: ease .3s;
 
         img{
             width: 100%;
             object-fit: contain;
             filter: grayscale(1) brightness(1.8);
+            transition: ease .3s;
         }
         &--active{
             img{

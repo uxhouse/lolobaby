@@ -1,0 +1,12 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.56294 17.9627C9.9935 11.841 14.8453 6.07339 17.4492 1.86019L19.8948 3.37167C17.2559 7.64154 12.249 13.6633 5.54525 20.045L3.56294 17.9627Z" fill="white"/>
+<circle cx="18.5" cy="14.875" r="2.375" fill="white"/>
+<ellipse cx="5.625" cy="5.375" rx="2.375" ry="2.375" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="25" height="25" fill="white"/>
+</clipPath>
+</defs>
+</svg>

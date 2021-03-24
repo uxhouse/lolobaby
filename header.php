@@ -52,13 +52,13 @@
 							<p>Szukaj</p>
 						</div>
 					</a>
-					<a href="#">
+					<a href="<?php ?>">
 						<img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_white.svg' ?>"/>
 						<div class="actionsTooltip">
 							<p>Ulubione</p>
 						</div>
 					</a>
-					<a href="#">
+					<a href="<?php echo home_url('/moje-konto'); ?>">
 						<img src="<?php echo get_template_directory_uri() . '/images/icons/user_ico_white.svg' ?>"/>
 						<div class="actionsTooltip">
 							<p>Mój profil</p>
@@ -83,3 +83,79 @@
 		</svg>
 		<?php endif; ?>
 	</header><!-- #masthead -->
+	<div id="mobileMenu" class="mobileMenu">
+		<div class="mobileMenu__wrap">
+			<div class="mobileMenu__actionbtn">
+				<a href="<?php echo home_url('/moje-konto'); ?>">
+					<span>Zaloguj się</span>
+					<img src="<?php echo get_template_directory_uri() . '/images/icons/user_ico_white.svg'; ?>"/>
+				</a>
+			</div>
+			<div class="mobileMenu__position">
+				<div class="header">
+					<p class="name">Produkty</p>
+					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
+				</div>
+				<ul>
+				<?php
+					// since wordpress 4.5.0
+					$args = array(
+						'taxonomy'   => "product_cat",
+						'orderby'      => 'name',
+					);
+					$product_categories = get_terms($args);
+					foreach( $product_categories as $cat ) : 
+						$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+						$image = wp_get_attachment_url( $thumbnail_id );
+						$term_fields = get_fields( 'term_' . $cat->term_id );
+					?>
+						<li>
+							<a href="<?php echo get_category_link($cat->term_id); ?>">
+								<img class="icon" src="<?php echo $term_fields['categoryIcon']; ?>"/>
+								<p class="name"><?php echo $cat->name; ?></p>								
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+			<div class="mobileMenu__position">
+				<div class="header">
+					<div class="name">Kolekcje</div>
+					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
+				</div>
+				<ul>
+					<?php
+						$allVariants = get_terms('pa_kolekcja', array(
+							'hide_empty' => false,
+						));
+                        foreach($allVariants as $variant):?>
+							<li><a href="<?php echo home_url('/produkty?swoof=1&pa_kolekcja=') . $variant->slug; ?>"><p class="name"><?php echo $variant->name; ?></p></a></li>
+                        <?php endforeach ?>
+				</ul>
+			</div>
+			<div class="mobileMenu__position">
+				<a href="#" class="header">
+					<div class="name">Wyprzedaż</div>
+					<img src="<?php echo get_template_directory_uri() . '/images/icons/percent_white_ico.svg'; ?>"/>
+				</a>
+			</div>
+			<div class="mobileMenu__position">
+				<a href="<?php echo home_url('/blog'); ?>" class="header">
+					<div class="name">Blog</div>
+					<img src="<?php echo get_template_directory_uri() . '/images/icons/book_white_ico.svg'; ?>"/>
+				</a>
+			</div>
+		</div>
+		<div class="mobileMenu__footer">
+			<div class="wave">
+				<img src="<?php echo get_template_directory_uri() . '/images/icons/wave_white_thin.svg'; ?>"/>
+			</div>
+			<div class="content">
+				<p>Bądź na bieżąco</p>
+				<a href="https://www.instagram.com/lolo_baby_pl/" target="_blank" class="social">
+					<img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico_white.svg'; ?>"/>
+					<p>lolo_baby_pl</p>
+				</a>
+			</div>
+		</div>
+	</div>

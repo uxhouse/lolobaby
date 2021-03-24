@@ -277,3 +277,47 @@ function filter_woocommerce_update_cart_action_cart_updated( $cart_updated ) {
     return $cart_updated;
 }
 add_filter( 'woocommerce_update_cart_action_cart_updated', 'filter_woocommerce_update_cart_action_cart_updated', 10, 1 );
+
+
+/*** Custom register form ***/
+
+add_action('init','create_account');
+function create_account(){
+    //You may need some data validation here
+	$formID = ( isset($_POST['register-formid']) ? $_POST['register-formid'] : '' );
+    $user = ( isset($_POST['registerUsername']) ? $_POST['registerUsername'] : '' );
+    $pass = ( isset($_POST['registerUserpassword']) ? $_POST['registerUserpassword'] : '' );
+    $email = ( isset($_POST['registerUseremail']) ? $_POST['registerUseremail'] : '' );
+
+	if (!email_exists($email)){
+		$user_id = wp_create_user($user, $pass, $email);
+		if(!is_wp_error($user_id)){
+			//user has been created
+			$user = new WP_User($user_id);
+			$user->set_role('customer');
+
+			if($formID == 21){
+				wp_redirect(home_url('/zamowienie'));
+			}else{
+				wp_redirect(home_url('/moje-konto'));
+			}
+			exit;
+		}else{
+			
+		}
+	}
+}
+
+// define the woocommerce_process_login_errors callback 
+function filter_woocommerce_process_login_errors($validation_error, $post_username, $post_password)
+{
+    //if (strpos($post_username, '@') == FALSE)
+    if (!filter_var($post_username, FILTER_VALIDATE_EMAIL)) //<--recommend option
+    {
+        throw new Exception( '<strong>' . __( 'Error', 'woocommerce' ) . ':</strong> ' . __( 'Please Enter a Valid Email ID.', 'woocommerce' ) );
+    }
+    return $validation_error;
+}
+
+// add the filter 
+add_filter('woocommerce_process_login_errors', 'filter_woocommerce_process_login_errors', 10, 3);

@@ -12,7 +12,7 @@
 <main class="lolobaby<?php if(is_cart()): ?> lolobaby--cart<?php endif; ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php lolobaby_post_thumbnail(); ?>
-	<?php if(is_cart()):
+	<?php if(is_cart() || is_checkout()):
 		global $woocommerce;
 		$itemsCount = $woocommerce->cart->cart_contents_count;	
 	?>
@@ -36,10 +36,10 @@
 					<p>Koszyk</p>
 				</div>
 			</div>
-			<div class="cartProgress__arrow">
+			<div class="cartProgress__arrow step-2">
 				<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_arrow.svg'; ?>"/>
 			</div>
-			<div class="cartProgress__step">
+			<div class="cartProgress__step step-2">
 				<div class="icon">
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_2.svg'; ?>"/>
 				</div>
@@ -47,10 +47,10 @@
 					<p>Logowanie</p>
 				</div>
 			</div>
-			<div class="cartProgress__arrow">
+			<div class="cartProgress__arrow step-3">
 				<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_arrow.svg'; ?>"/>
 			</div>
-			<div class="cartProgress__step">
+			<div class="cartProgress__step step-3">
 				<div class="icon">
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_3.svg'; ?>"/>
 				</div>
@@ -58,10 +58,10 @@
 					<p>Dostawa</p>
 				</div>
 			</div>
-			<div class="cartProgress__arrow">
+			<div class="cartProgress__arrow step-4">
 				<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_arrow.svg'; ?>"/>
 			</div>
-			<div class="cartProgress__step">
+			<div class="cartProgress__step step-4">
 				<div class="icon">
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_4.svg'; ?>"/>
 				</div>

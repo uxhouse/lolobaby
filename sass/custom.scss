@@ -46,6 +46,12 @@
 }
 #page{
     overflow: hidden;
+    position: relative;
+}
+body{
+    &.noscroll{
+        overflow-y: hidden;
+    }
 }
 
 p {
