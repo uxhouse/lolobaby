@@ -72,7 +72,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     if ($(window).width() < 992) {
-
         $('.knowledgeZone__list').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -110,5 +109,38 @@ $(document).ready(function(){
         slidesToScroll: 1,
         infinite: false,
         variableWidth: true,
+    });
+});
+
+/* ---- Related products slider ---- */ 
+
+$(document).ready(function(){
+    if ($(window).width() < 767){
+        $('.relatedList').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            arrows: true,
+            infinite: true,
+            variableWidth: true,
+            prevArrow: $('.relatedList__arrow--left'),
+            nextArrow: $('.relatedList__arrow--right'),
+        });
+    }
+    $('.relatedList__dots span').first().addClass('active');
+    $('.relatedList__dots span').on('click', function(){
+        $('.relatedList__dots span').removeClass('active');
+        $(this).addClass('active');
+
+        var dotNum = $(this).attr('productid');
+        var getSlide = $('.slick-slide[productid="' + dotNum + '"]');
+        var slideIndex = getSlide.data("slick-index");
+        $('.homeBestsellers__list').slick('slickGoTo', slideIndex);
+    });
+    $('.relatedList__arrow').on('click', function(){
+        var currentSlide = $('.productTile.slick-current').attr('productid');
+
+        $('.relatedList__dots span').removeClass('active');
+        $('.relatedList__dots span[productid="' + currentSlide + '"]').addClass('active');
     });
 });

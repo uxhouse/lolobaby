@@ -15,6 +15,7 @@
         "../sass/woocommerce/_archiveShop.scss",
         "../sass/woocommerce/_productPage.scss",
         "../sass/woocommerce/_cart.scss",
+        "../sass/woocommerce/_checkout.scss",
         "../sass/parts/_siteHeader.scss",
         "../sass/_variables.scss",
         "../sass/parts/_siteFooter.scss",

@@ -29,7 +29,6 @@ $(document).ready(function(){
         var date = $(this).attr('sortname');
         console.log(date);
         $('.orderby').val(date).trigger('change');
-        $('.')
     });
     $(document).ready(function(){
         var sortdata = getUrlParameter('orderby');
@@ -154,7 +153,7 @@ $(document).ready(function(){
         }
     });
   
-    /* ---- Newsletter ---- */
+    /* ---- Check engine ---- */
 
     $('.engineCheckbox').on('click', function(){
         if($(this).is(":checked")){
@@ -162,6 +161,14 @@ $(document).ready(function(){
         }
         else if($(this).is(":not(:checked)")){
             $(this).parent().removeClass('checkbox--checked');
+        }
+    });
+
+    $('.engineRadio').on('click', function(){
+        var radioGroupName = $(this).attr('name');
+        if($(this).is(":checked")){
+            $('input[name="' + radioGroupName + '"]').parent().removeClass('radio-selected');
+            $(this).parent().addClass('radio-selected');
         }
     });
   
@@ -285,5 +292,214 @@ $(document).ready(function(){
                 });
             });
         }, 200);
+
+        /* Checkout login - register forms */
+        var openRegister = $('.checkoutLogin__gotoOtherForm').find('.openRegister');
+        var openLogin = $('.checkoutLogin__gotoOtherForm').find('.openLogin');
+
+        $(openRegister).on('click', function(){
+            /* Hide login form */
+            $('.checkoutLogin').removeClass('checkoutLogin--visible');
+            $('.gotoRegister').removeClass('gotoRegister--visible');
+            setTimeout(function(){
+                $('.checkoutLogin').removeClass('checkoutLogin--ready');
+                $('.gotoRegister').removeClass('gotoRegister--ready');
+            }, 200);
+
+            /* Open register form */
+            setTimeout(function(){
+                $('.checkoutRegister').addClass('checkoutRegister--ready');
+            }, 200);
+            setTimeout(function(){
+                $('.checkoutRegister').addClass('checkoutRegister--visible');
+            }, 500);
+        });
+        $(openLogin).on('click', function(){
+            /* Hide register form */
+            $('.checkoutRegister').removeClass('checkoutRegister--visible');
+            setTimeout(function(){
+                $('.checkoutRegister').removeClass('checkoutRegister--ready');
+            }, 200);
+
+            /* Open login form */
+            setTimeout(function(){
+                $('.checkoutLogin').addClass('checkoutLogin--ready');
+                $('.gotoRegister').addClass('gotoRegister--ready');
+            }, 200);
+            setTimeout(function(){
+                $('.checkoutLogin').addClass('checkoutLogin--visible');
+                $('.gotoRegister').addClass('gotoRegister--visible');
+            }, 500);
+        });
+    });
+    
+    /* Checkout form custom */
+
+    $(document).ready(function(){
+        var formBillingInputs = $('.checkoutForm__billing').find('input[type="text"]');
+        $(formBillingInputs).on('change keyup', function(){
+            var value = $(this).val();
+            var name = $(this).attr('name');
+            $('input[name="' + name + '"]').val(value);
+        });
+        var formBillingInputs = $('.checkoutForm__billing').find('input.engineRadio');
+        $(formBillingInputs).on('click', function(){
+            var value = $(this).attr('value');
+            var name = $(this).attr('forfield');
+            $('input[name="' + name + '"][value="' + value + '"]').attr('checked', true).trigger('click');
+        });
+    });
+
+    $(document).ready(function(){
+        var input = $('.radio__option').find('input');
+
+        $(input).on('click', function(){
+            if($(this).attr('value') == 'private'){
+                $('.checkoutForm__billing').find('.comapnyField').removeClass('visible');
+                setTimeout(function(){
+                    $('.checkoutForm__billing').find('.comapnyField').removeClass('ready');
+                }, 300);
+            }
+            if($(this).attr('value') == 'business'){
+                $('.checkoutForm__billing').find('.comapnyField').addClass('ready');
+                setTimeout(function(){
+                    $('.checkoutForm__billing').find('.comapnyField').addClass('visible');
+                }, 300);
+            }
+        });
+    });
+
+    ///////////// Validate /////////////
+    
+
+    /////////////  Select choosed shipment option //////////////
+    $(document).ready(function(){
+        var shipmentID = $('.checkoutPage').attr('selectedshipment');
+        $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
+        setTimeout(function(){
+            $('li[methodid="' + shipmentID + '"]').find('input').trigger('click');
+        }, 100);
+
+        if(shipmentID > 0){
+            $('.checkoutDeliverySelect').slideUp();
+            $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób płatności');
+        }else{
+            $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób płatności');
+        }
+    });
+
+    /////////////  Hide shipment options on select - and clone data //////////////
+    $(document).ready(function(){
+        var shipmentoption = $('#shipping_method').find('li');
+        $(shipmentoption).on('click', function(){
+            var name = $(this).find('label')[0].childNodes[0].nodeValue;
+            var methodid = $(this).attr('methodid');
+
+            $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
+            $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
+            $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
+
+            setTimeout(function(){
+                $('.checkoutDeliverySelect').slideUp();
+            }, 200);
+        });
+    });
+
+    /////////////  Open shipment methods on click  //////////////
+    $(document).ready(function(){
+        $('.changeShipmentMethod').on('click', function(){
+            $('.checkoutDeliverySelect').slideDown();
+        });
+    });
+
+    ///////////// Checkout form - nav ///////////////
+    $(document).ready(function(){
+        var checkoutNext = $('.checkoutPage__nextstep').find('.nextStep');
+
+        $(checkoutNext).on('click', function(){
+            $('.checkoutPage').removeClass('checkoutPage--visible');
+            setTimeout(function(){
+                $('.checkoutPage').removeClass('checkoutPage--ready');
+                $('.summaryPage').addClass('summaryPage--ready');
+            }, 300);
+            setTimeout(function(){
+                $('.summaryPage').addClass('summaryPage--visible');
+            }, 350);
+        });
+    });
+
+    ///////////// Summary page - nav ///////////////
+    $(document).ready(function(){
+        var checkoutPrev = $('.summaryPage__nextstep').find('.previousStep');
+        var checkoutNext = $('.summaryPage__nextstep').find('.nextStep');
+
+        $(checkoutPrev).on('click', function(){
+            $('.summaryPage').removeClass('summaryPage--visible');
+            setTimeout(function(){
+                $('.summaryPage').removeClass('summaryPage--ready');
+                $('.checkoutPage').addClass('checkoutPage--ready');
+            }, 300);
+            setTimeout(function(){
+                $('.checkoutPage').addClass('checkoutPage--visible');
+            }, 350);
+        });
+        $(checkoutNext).on('click', function(){
+            $('button[name="woocommerce_checkout_place_order"]').trigger('click');
+        });
+    });
+
+    //////// Payment method select ///////
+    $(document).ready(function(){
+        var option = $('.summaryPage__payment').find('.optionList__option');
+
+        $(option).on('click', function(){
+            var paymentmethod = $(this).attr('paymentmethod');
+            $('.optionList__option').removeClass('optionList__option--active');
+            $(this).addClass('optionList__option--active');
+
+            $('.wc_payment_methods').find('#' + paymentmethod).attr('checked', true).trigger('click');
+        });
+    });
+
+    /* ---- FAQ accordeon ---- */
+    
+    // set first item of list to opened
+    function openFirstItem(list) {
+        $('.faq__answer').css("height", "auto");
+        var initialHeight = $(list).find('.faq__item .faq__answer p').eq(0).outerHeight();
+        $('.faq__answer').css("height", "0");
+        $(list).find('.faq__item .faq__answer').eq(0).css("height", initialHeight + 30);
+        $(list).find('.faq__item').eq(0).addClass('open');
+    }
+
+    openFirstItem($('.faq__list').eq(0));
+
+    $('.faq__item').each(function() {
+        $(this).on('click', function() {
+            var height = $(this).find('.faq__answer p').outerHeight();
+            $(this).parent().find('.faq__answer').css("height", "0");
+
+            if ($(this).hasClass('open')) {
+                $('.faq__item').removeClass('open');
+            } else {
+                $('.faq__item').removeClass('open');
+                $(this).addClass('open');
+                $(this).find('.faq__answer').css("height", height + 30);
+            };
+        });
+    });
+
+    /* ---- FAQ filters engine ---- */
+
+    $('.faq__filter').each(function() {
+        $(this).on('click', function() {
+            $('.faq__list').removeClass('active');
+            $('.faq__filter').removeClass('active');
+            $(this).addClass('active');
+            var category = $(this).attr('data-category');
+            var list = $(".faq__list[data-category='" + category + "']");
+            list.addClass('active');
+            openFirstItem(list);
+        });
     });
 });
