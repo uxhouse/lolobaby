@@ -4931,7 +4931,91 @@ body.woocommerce-checkout #masthead {
   display: none;
 }
 
+@media (max-width: 991px) {
+  .checkoutPage .checkoutForm__billing {
+    width: 49%;
+  }
+  .checkoutPage .checkoutForm__billing .form input[type="text"] {
+    max-width: 440px;
+    width: 100%;
+  }
+  .checkoutPage .checkoutForm__shipping {
+    width: 49%;
+  }
+  .checkoutPage .checkoutForm__shipping .woocommerce-billing-fields__field-wrapper p input {
+    max-width: 440px;
+    width: 100%;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelect ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelect ul li {
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .checkoutPage .checkoutForm {
+    margin-top: 30px;
+  }
+  .checkoutPage .checkoutForm__userdata {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .checkoutPage .checkoutForm__billing {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .checkoutPage .checkoutForm__shipping {
+    width: 100%;
+  }
+  .checkoutPage .checkoutForm__shipping > h2 {
+    margin: 0 0 20px;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelect ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelect ul li {
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .checkoutPage__delivery .wave {
+    position: relative;
+    width: 100%;
+    height: 10px;
+  }
+  .checkoutPage__delivery .wave img {
+    position: absolute;
+    width: 1000px;
+    max-width: none;
+    top: 0;
+    left: -20px;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelect ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelect ul li {
+    max-width: 320px;
+  }
+  .checkoutPage__nextstep {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 .summaryPage {
+  margin-top: 100px;
   display: none;
   opacity: 0;
   -webkit-transition: ease .3s;
@@ -4944,6 +5028,10 @@ body.woocommerce-checkout #masthead {
 
 .summaryPage--visible {
   opacity: 1;
+}
+
+.summaryPage .wave--mobile {
+  display: none;
 }
 
 .summaryPage__secTitle {
@@ -5254,6 +5342,104 @@ body.woocommerce-checkout #masthead {
 
 .summaryPage__nextstep .previousStep:hover {
   opacity: .7;
+}
+
+@media (max-width: 991px) {
+  .summaryPage {
+    margin-top: 50px;
+  }
+  .summaryPage .cartItem__top {
+    width: 210px;
+  }
+  .summaryPage .cartItem__bottom {
+    width: calc(100% - 210px);
+  }
+  .summaryPage .cartItem__thumb {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+  }
+  .summaryPage .cartItem__name {
+    width: calc(100% - 80px);
+  }
+  .summaryPage .cartItem__name h3 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .summaryPage .cartItem {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .summaryPage .cartItem__top {
+    width: 100%;
+  }
+  .summaryPage .cartItem__bottom {
+    width: 100%;
+  }
+  .summaryPage .cartItem__title {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .summaryPage .cartItem__color span {
+    width: 10px;
+    height: 10px;
+  }
+  .summaryPage .cartItem__price span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .summaryPage__payment .optionList {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .summaryPage__payment .optionList__option {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+  .summaryPage__payment .optionList__option .name {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .summaryPage__cartItems .summaryPage__secTitle {
+    display: none;
+  }
+  .summaryPage .wave {
+    position: relative;
+    height: 10px;
+    width: 100%;
+  }
+  .summaryPage .wave--mobile {
+    display: block !important;
+    margin-bottom: 25px;
+  }
+  .summaryPage .wave img {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 1000px;
+    max-width: none;
+  }
+  .summaryPage__shipping .summaryPage__secTitle {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 600;
+  }
+  .summaryPage__shipping .wave {
+    margin: 20px 0;
+  }
+  .summaryPage__nextstep {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
 }
 
 /*  Partials
