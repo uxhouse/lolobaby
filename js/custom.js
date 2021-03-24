@@ -460,4 +460,46 @@ $(document).ready(function(){
             $('.wc_payment_methods').find('#' + paymentmethod).attr('checked', true).trigger('click');
         });
     });
+
+    /* ---- FAQ accordeon ---- */
+    
+    // set first item of list to opened
+    function openFirstItem(list) {
+        $('.faq__answer').css("height", "auto");
+        var initialHeight = $(list).find('.faq__item .faq__answer p').eq(0).outerHeight();
+        $('.faq__answer').css("height", "0");
+        $(list).find('.faq__item .faq__answer').eq(0).css("height", initialHeight + 30);
+        $(list).find('.faq__item').eq(0).addClass('open');
+    }
+
+    openFirstItem($('.faq__list').eq(0));
+
+    $('.faq__item').each(function() {
+        $(this).on('click', function() {
+            var height = $(this).find('.faq__answer p').outerHeight();
+            $(this).parent().find('.faq__answer').css("height", "0");
+
+            if ($(this).hasClass('open')) {
+                $('.faq__item').removeClass('open');
+            } else {
+                $('.faq__item').removeClass('open');
+                $(this).addClass('open');
+                $(this).find('.faq__answer').css("height", height + 30);
+            };
+        });
+    });
+
+    /* ---- FAQ filters engine ---- */
+
+    $('.faq__filter').each(function() {
+        $(this).on('click', function() {
+            $('.faq__list').removeClass('active');
+            $('.faq__filter').removeClass('active');
+            $(this).addClass('active');
+            var category = $(this).attr('data-category');
+            var list = $(".faq__list[data-category='" + category + "']");
+            list.addClass('active');
+            openFirstItem(list);
+        });
+    });
 });

@@ -10,6 +10,7 @@
         "../sass/subpages/_privacyPolicy.scss",
         "../sass/subpages/_contact.scss",
         "../sass/subpages/_blog.scss",
+        "../sass/subpages/_faq.scss",
         "../sass/subpages/_singlePost.scss",
         "../sass/woocommerce/_archiveShop.scss",
         "../sass/woocommerce/_productPage.scss",
