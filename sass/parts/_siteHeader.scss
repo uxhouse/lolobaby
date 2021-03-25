@@ -427,6 +427,12 @@ body.admin-bar{
 
 /* ---- Cart header ---- */
 
+body[thankyoupage="true"]{
+    .cartHeader{
+        display: none;
+    }
+}
+
 .cartHeader{
     background-color: $pink-color;
     position: relative;

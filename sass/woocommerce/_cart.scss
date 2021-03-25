@@ -1,6 +1,14 @@
 body.woocommerce-cart{
     #masthead{
-        display: none !important;
+        display: none;
+    }
+}
+body[thankyoupage="true"]{
+    #masthead{
+        display: block !important;
+    }
+    .cartProgress{
+        display: none;
     }
 }
 .cartProgress{

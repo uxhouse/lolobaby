@@ -662,11 +662,11 @@ body {
 }
 
 /* ---- Instagram ---- */
-.homeInstagram__heading h2 span {
+.homeInstagram__heading .homeSectionHeading span {
   position: relative;
 }
 
-.homeInstagram__heading h2 span:before {
+.homeInstagram__heading .homeSectionHeading span:before {
   content: '';
   background-image: url("/wp-content/themes/lolobaby/images/icons/instagram_heading_ico.svg");
   background-repeat: no-repeat;
@@ -676,6 +676,27 @@ body {
   position: absolute;
   left: -60px;
   top: 50px;
+  z-index: -1;
+}
+
+.homeInstagram__heading .sectionHeading {
+  margin: 0 0 20px;
+}
+
+.homeInstagram__heading .sectionHeading span {
+  position: relative;
+}
+
+.homeInstagram__heading .sectionHeading span:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/instagram_heading_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 52px;
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  left: -40px;
+  top: 20px;
   z-index: -1;
 }
 
@@ -788,6 +809,13 @@ body {
     left: -30px;
     top: 25px;
   }
+  .homeInstagram__heading .sectionHeading span {
+    font-size: 45px;
+  }
+  .homeInstagram__heading .sectionHeading span:before {
+    left: -35px;
+    top: 10px;
+  }
   .homeInstagram__heading .hash {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -812,6 +840,22 @@ body {
   }
   .homeInstagram__box .thumb {
     margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .homeInstagram .wave {
+    position: relative;
+    height: 10px;
+    width: 100%;
+    padding: 0;
+  }
+  .homeInstagram .wave img {
+    width: 800px;
+    max-width: none;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -3430,7 +3474,15 @@ body.single-product .woocommerce-breadcrumb {
 }
 
 body.woocommerce-cart #masthead {
-  display: none !important;
+  display: none;
+}
+
+body[thankyoupage="true"] #masthead {
+  display: block !important;
+}
+
+body[thankyoupage="true"] .cartProgress {
+  display: none;
 }
 
 .cartProgress {
@@ -4221,7 +4273,11 @@ body.woocommerce-cart #masthead {
 }
 
 body.woocommerce-checkout #masthead {
-  display: none !important;
+  display: none;
+}
+
+body[thankyoupage="true"] #masthead {
+  display: block !important;
 }
 
 .checkoutLogin {
@@ -5442,6 +5498,232 @@ body.woocommerce-checkout #masthead {
   }
 }
 
+.loloTYP__heading {
+  margin: 0 0 80px;
+  position: relative;
+}
+
+.loloTYP__heading:before {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/thankyou_plane_top.svg");
+  background-repeat: no-repeat;
+  background-size: 330px;
+  width: 330px;
+  height: 270px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.loloTYP__heading .wrap {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.loloTYP__heading h2 {
+  margin: 0 0 40px;
+}
+
+.loloTYP__heading h4 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0 0 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loloTYP__heading .content {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.loloTYP__review {
+  background-color: #FFCAD4;
+  position: relative;
+}
+
+.loloTYP__review .wave {
+  position: absolute;
+}
+
+.loloTYP__review .wave--top {
+  top: -20px;
+}
+
+.loloTYP__review .wave--bottom {
+  bottom: -20px;
+}
+
+.loloTYP__review .wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  top: -60px;
+}
+
+.loloTYP__review .wrap p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  margin: 0 0 30px;
+  text-align: center;
+}
+
+.loloTYP__review .wrap .form {
+  width: 100%;
+}
+
+.loloTYP__review .wrap .form__stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto 30px;
+}
+
+.loloTYP__review .wrap .form__stars .star--deactive {
+  -webkit-filter: brightness(15) !important;
+          filter: brightness(15) !important;
+}
+
+.loloTYP__review .wrap .form__stars .star--active {
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
+}
+
+.loloTYP__review .wrap .form__stars .star:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/thankyou_review_star.svg");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: block;
+  margin: 0 10px;
+}
+
+.loloTYP__review .wrap .form__stars > .star {
+  position: relative;
+  cursor: pointer;
+  -webkit-filter: brightness(15);
+          filter: brightness(15);
+  -webkit-transition: ease .1s;
+  transition: ease .1s;
+}
+
+.loloTYP__review .wrap .form__stars > .star--active ~ .star {
+  -webkit-filter: brightness(15) !important;
+          filter: brightness(15) !important;
+}
+
+.loloTYP__review .wrap .form__stars[data-rating-value] .star {
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
+}
+
+.loloTYP__review .wrap .form__stars[class]:hover > .star {
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
+}
+
+.loloTYP__review .wrap .form__stars[class] > .star:hover ~ .star {
+  -webkit-filter: brightness(15) !important;
+          filter: brightness(15) !important;
+}
+
+.loloTYP__review .wrap .form__radio {
+  display: none !important;
+}
+
+.loloTYP__review .wrap .form__textarea textarea {
+  height: 100px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.loloTYP__review .wrap .form__submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin: 20px 0 0;
+}
+
+.loloTYP__info {
+  margin: 70px 0;
+}
+
+.loloTYP__info .wrap {
+  max-width: 730px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.loloTYP__info .wrap h4 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 800;
+  color: #4F4F4F;
+  margin: 0 0 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loloTYP__info .wrap p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.loloTYP__info .wrap p:last-of-type {
+  margin: 0;
+}
+
+.loloTYP__info .wrap a {
+  margin: 30px 0 0;
+}
+
+@media (max-width: 1199px) {
+  .loloTYP__heading:before {
+    background-size: 230px;
+    width: 230px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 767px) {
+  .loloTYP__heading:before {
+    display: none;
+  }
+  .loloTYP__review .wrap {
+    top: -40px;
+  }
+}
+
 /*  Partials
 --------------- */
 /* ---- COLORS ---- */
@@ -5878,6 +6160,10 @@ body.admin-bar .siteHeader {
 }
 
 /* ---- Cart header ---- */
+body[thankyoupage="true"] .cartHeader {
+  display: none;
+}
+
 .cartHeader {
   background-color: #FFCAD4;
   position: relative;
@@ -6895,6 +7181,7 @@ p {
   color: #fff;
   text-transform: uppercase;
   outline: none !important;
+  font-weight: 800;
 }
 
 .btn--light {
@@ -6919,6 +7206,23 @@ p {
 
 .btn--light:hover span {
   color: #fff;
+}
+
+.btn--blue {
+  background-color: #1034A6;
+}
+
+.btn--blue:hover {
+  background-color: #1034A6;
+  opacity: .85;
+}
+
+.btn--noarrow span {
+  padding: 0;
+}
+
+.btn--noarrow span:after {
+  display: none;
 }
 
 .homeSectionHeading {
