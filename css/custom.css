@@ -7371,6 +7371,10 @@ p {
   margin-bottom: 10px;
 }
 
+.woocommerce-notices-wrapper div.woocommerce-message[data-flexible_shipping_free_shipping_notice="yes"] {
+  display: none !important;
+}
+
 .woocommerce-notices-wrapper div.woocommerce-message a {
   color: #fff;
   text-decoration: underline !important;

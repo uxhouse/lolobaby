@@ -325,6 +325,10 @@ p {
         border-radius: 5px;
         margin-bottom: 10px;
 
+        &[data-flexible_shipping_free_shipping_notice="yes"]{
+            display: none !important;
+        }
+
         a{
             color: #fff;
             text-decoration: underline !important;
