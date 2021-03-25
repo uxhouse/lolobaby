@@ -227,6 +227,10 @@ body[thankyoupage="true"]{
             align-items: center;
             justify-content: space-between;
             width: 450px;
+
+            .cartItem__remove{
+                display: none;
+            }
         }
         &__bottom{
             display: flex;
@@ -611,6 +615,10 @@ body[thankyoupage="true"]{
                 width: 100%;
                 justify-content: flex-start;
                 margin: 0 0 15px;
+
+                .cartItem__remove{
+                    display: block !important;
+                }
             }
             &__thumb{
                 width: 100px;

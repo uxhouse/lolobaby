@@ -3743,6 +3743,10 @@ body[thankyoupage="true"] .cartProgress {
   width: 450px;
 }
 
+.loloCart .cartItem__top .cartItem__remove {
+  display: none;
+}
+
 .loloCart .cartItem__bottom {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4167,6 +4171,9 @@ body[thankyoupage="true"] .cartProgress {
         -ms-flex-pack: start;
             justify-content: flex-start;
     margin: 0 0 15px;
+  }
+  .loloCart .cartItem__top .cartItem__remove {
+    display: block !important;
   }
   .loloCart .cartItem__thumb {
     width: 100px;
