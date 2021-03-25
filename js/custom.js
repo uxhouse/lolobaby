@@ -635,4 +635,20 @@ $(document).ready(function(){
             openFirstItem(list);
         });
     });
+
+    /* ---- Thank you page review form ---- */
+    $(document).ready(function(){
+        var star = $('.form__stars').find('.star');
+        star.parent().attr('data-rating-value', '5');
+
+        $(star).on('click', function(){
+            var value = $(this).attr('value');
+            $('.form__radio').find('input[value="' + value + '"]').trigger('click');
+        });
+
+        $('.form__stars > .star').click(function() {
+            $(this).addClass('star--active').siblings().removeClass('star--active');
+            $(this).parent().attr('data-rating-value', $(this).attr('value'));
+        });
+    });
 });

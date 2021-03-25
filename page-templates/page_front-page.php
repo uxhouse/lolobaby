@@ -156,42 +156,7 @@ get_header(); ?>
     </section>
     <?php endif; ?>
 
-    <?php
-        $igPosts = get_field('homepage_instagram');
-        $counter = 0;    
-        if($igPosts):
-        shuffle($igPosts)
-    ?>
-    <section class="homeInstagram">
-        <div class="homeInstagram__heading">
-            <h2 class="homeSectionHeading"><span>odwiedź nas</span></h2>
-            <div class="hash">
-                <p><img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico.svg'; ?>"/>lolobaby</p>
-                <p><img src="<?php echo get_template_directory_uri() . '/images/icons/hash_ico.svg'; ?>"/>lolobaby</p>
-                <p><img src="<?php echo get_template_directory_uri() . '/images/icons/hash_ico.svg'; ?>"/>pulltofly</p>
-            </div>
-        </div>
-        <div class="homeInstagram__wrap">
-            <?php
-                foreach($igPosts as $post):
-                $image = $post['homepage_instagram_image'];
-                $user = $post['homepage_instagram_user'];
-                $counter++;
-
-                if( $counter > 4 ){
-                    break;
-                }
-            ?>
-            <div class="homeInstagram__box">
-                <div class="thumb">
-                    <img src="<?php echo $image; ?>"/>
-                </div>
-                <p><img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico_red.svg';?>"/><?php echo $user; ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
-    <?php endif; ?>
+    <?php include get_template_directory() . '/template-parts/_include_instagramSection.php'; ?>
 </main>
 
 <?php get_footer(); ?>

@@ -23,6 +23,7 @@
 @import 'woocommerce/productPage';
 @import 'woocommerce/cart';
 @import 'woocommerce/checkout';
+@import 'woocommerce/thankyou';
 
 /*  Partials
 --------------- */
@@ -149,6 +150,7 @@ p {
         color: #fff;
         text-transform: uppercase;
         outline: none !important;
+        font-weight: 800;
     }
     &--light{
         background-color: #fff;
@@ -168,6 +170,23 @@ p {
 
             span{
                 color: #fff;
+            }
+        }
+    }
+    &--blue{
+        background-color: $blue-color;
+
+        &:hover{
+            background-color: $blue-color;
+            opacity: .85;
+        }
+    }
+    &--noarrow{
+        span{
+            padding: 0;
+
+            &:after{
+                display: none;
             }
         }
     }

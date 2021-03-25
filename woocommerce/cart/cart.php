@@ -39,7 +39,7 @@ if($brand_terms): ?>
 <div class="loloCart"<?php if($shipmentID): ?> selectedShipment="id_<?php echo $shipmentID; ?>"<?php endif; ?>>
     <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
         <div class="loloCart__wave container">
-            <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
+            <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
         <div class="loloCart__items container">
             <?php do_action( 'woocommerce_before_cart_table' ); ?>
@@ -194,7 +194,7 @@ if($brand_terms): ?>
             </div>
         </div>
         <div class="loloCart__wave container">
-            <img src="http://lolobaby.local/wp-content/themes/lolobaby/images/wave_thin.svg">
+            <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
         <div class="couponWrap" style="display: none !important;">
         <?php if ( wc_coupons_enabled() ) { ?>

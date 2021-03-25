@@ -587,7 +587,7 @@ $sliderHeight: 85vh;
 /* ---- Instagram ---- */ 
 .homeInstagram{
     &__heading{
-        h2{
+        .homeSectionHeading{
             span{
                 position: relative;
 
@@ -601,6 +601,26 @@ $sliderHeight: 85vh;
                     position: absolute;
                     left: -60px;
                     top: 50px;
+                    z-index: -1;
+                }
+            }
+        }
+        .sectionHeading{
+            margin: 0 0 20px;
+
+            span{
+                position: relative;
+
+                &:before{
+                    content: '';
+                    background-image: url('/wp-content/themes/lolobaby/images/icons/instagram_heading_ico.svg');
+                    background-repeat: no-repeat;
+                    background-size: 52px;
+                    width: 52px;
+                    height: 52px;
+                    position: absolute;
+                    left: -40px;
+                    top: 20px;
                     z-index: -1;
                 }
             }
@@ -709,6 +729,16 @@ $sliderHeight: 85vh;
                     }
                 }
             }
+            .sectionHeading{
+                span{
+                    font-size: 45px;
+
+                    &:before{
+                        left: -35px;
+                        top: 10px;
+                    }
+                }
+            }
             .hash{
                 flex-wrap: wrap;
                 max-width: 250px;
@@ -738,6 +768,24 @@ $sliderHeight: 85vh;
             .thumb{
                 margin-bottom: 15px;
             }
+        }
+    }
+}
+@media (max-width: 575px){
+    .homeInstagram{
+        .wave{
+           position: relative;
+           height: 10px;
+           width: 100%;
+           padding: 0;
+           
+           img{
+               width: 800px;
+               max-width: none;
+               position: absolute;
+               top: 0;
+               left: 0;
+           }
         }
     }
 }

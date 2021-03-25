@@ -1,6 +1,14 @@
 body.woocommerce-cart{
     #masthead{
-        display: none !important;
+        display: none;
+    }
+}
+body[thankyoupage="true"]{
+    #masthead{
+        display: block !important;
+    }
+    .cartProgress{
+        display: none;
     }
 }
 .cartProgress{
@@ -219,6 +227,10 @@ body.woocommerce-cart{
             align-items: center;
             justify-content: space-between;
             width: 450px;
+
+            .cartItem__remove{
+                display: none;
+            }
         }
         &__bottom{
             display: flex;
@@ -603,6 +615,10 @@ body.woocommerce-cart{
                 width: 100%;
                 justify-content: flex-start;
                 margin: 0 0 15px;
+
+                .cartItem__remove{
+                    display: block !important;
+                }
             }
             &__thumb{
                 width: 100px;

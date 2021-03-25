@@ -1,8 +1,14 @@
 body.woocommerce-checkout{
     #masthead{
-        display: none !important;
+        display: none;
     }
 }
+body[thankyoupage="true"]{
+    #masthead{
+        display: block !important;
+    }
+}
+
 .checkoutLogin{
     display: none;
     opacity: 0;
