@@ -22,7 +22,31 @@
             padding: 0 20px;
         }
         h2{
-           margin: 0 0 40px;
+            position: relative;
+            margin: 0 0 40px;
+
+            &:before{
+                content: '';
+                background-image: url('/wp-content/themes/lolobaby/images/icons/thankyou_stars_before.svg');
+                background-repeat: no-repeat;
+                background-size: 100px;
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                left: 0;
+                top: 20px;
+            }
+            &:after{
+                content: '';
+                background-image: url('/wp-content/themes/lolobaby/images/icons/thankyou_stars_after.svg');
+                background-repeat: no-repeat;
+                background-size: 100px;
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
         }
         h4{
             font-size: 16px;
@@ -202,6 +226,28 @@
         &__heading{
             &:before{
                 display: none;
+            }
+            h2{
+                &:before{
+                    background-size: 50px;
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    left: -220px;
+                    right: 0;
+                    margin: 0 auto;
+                    top: 20px;
+                }
+                &:after{
+                    background-size: 50px;
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    right: -220px;
+                    left: 0;
+                    margin: 0 auto;
+                    top: 0;
+                }
             }
         }
         &__review{
