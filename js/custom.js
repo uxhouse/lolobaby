@@ -651,4 +651,13 @@ $(document).ready(function(){
             $(this).parent().attr('data-rating-value', $(this).attr('value'));
         });
     });
+
+
+    /* ---- User edit forms ---- */
+    $(document).ready(function(){
+        $('.openForm').on('click', function(){
+            $(this).parent().parent().find('.form').addClass('form--active');
+            $(this).parent().addClass('content--hidden');
+        });
+    });
 });

@@ -1,0 +1,293 @@
+.accountPage{
+    &__title{
+        font-size: 30px;
+        line-height: 41px;
+        font-weight: 800;
+        color: $primary-text-color;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+    }
+    &__heading{
+        margin: 0 0 70px;
+
+        .wrap{
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+
+            h2{
+                margin: 0 0 20px;
+            }
+            p{
+                font-size: 16px;
+                line-height: 22px;
+                color: $primary-text-color;
+                margin: 0;
+            }
+        }
+    }
+    &__orders{
+        table{
+            thead{
+                tr{
+                    border-bottom: 1px solid #4F4F4F;
+                    height: 56px;
+
+                    td{
+                        font-size: 14px;
+                        line-height: 19px;
+                        color: $primary-text-color;
+                        text-transform: uppercase;
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    border-bottom: 1px solid #BDBDBD;
+                    height: 56px;
+
+                    td{
+                        font-size: 14px;
+                        line-height: 19px;
+                        font-weight: 300;
+                        color: $primary-text-color;
+                        text-transform: uppercase;
+                        margin: 0;
+                        text-align: center;
+
+                        &.orderid{
+                            font-weight: 800;
+                            color: $red-color;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .tableMobile{
+            display: none;
+
+            &__row{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 35px 10px;
+                border-bottom: 1px solid #BDBDBD;
+            }
+            &__pos{
+                width: calc(100% / 2);
+                padding: 0 20px;
+                margin: 0 0 20px;
+
+                &.orderid{
+                    span{
+                        font-weight: 800;
+                        color: $red-color;
+                        text-decoration: underline;
+                    }
+                }
+                &.invoice{
+                    a{
+                        font-weight: 800;
+                        color: $red-color;
+                        text-decoration: underline !important;
+                        text-transform: uppercase;
+                    }
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 19px;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    margin: 0 0 5px;
+                }
+                span{
+                    font-size: 14px;
+                    line-height: 19px;
+                    text-transform: uppercase;
+                    color: $primary-text-color;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .userData{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 70px auto 0;
+
+        &__data{
+            width: 328px;
+            height: auto;
+            margin-bottom: 100px;
+            position: relative;
+
+            &[type="logout"]{
+                display: flex;
+                align-items: flex-end;
+                height: 170px;
+            }
+
+            h2{
+                margin: 0 0 25px;
+            }
+            .wave{
+                position: relative;
+                width: 100%;
+                height: 10px;
+                overflow: hidden;
+
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 800px;
+                    max-width: none;
+                }
+            }
+            .content{
+                margin: 20px 0 0;
+                transition: ease .3s;
+
+                &--hidden{
+                    display: none;
+                }
+
+                p{
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: $primary-text-color;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    margin: 0;
+                }
+                .btn{
+                    margin: 20px 0 0;
+                }
+            }
+            .form{
+                margin: 20px 0 0;
+                display: none;
+                transition: ease .3s;
+
+                &--active{
+                    display: block;
+                }
+
+                form{
+                    .flex{
+                        display: flex;
+                        justify-content: space-between;
+
+                        input{
+                            width: 49%;
+                        }
+                    }
+                    input{
+                        width: 100%;
+                        height: 60px;
+                        background-color: #fff;
+                        border: 2px dashed $pink-color;
+                        border-radius: 0;
+                        padding: 0 15px;
+                        margin: 0 0 9px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1199px){
+    .accountPage{
+        .userData{
+            &__data{
+                width: 280px;
+            }
+        }
+    }
+}
+@media (max-width: 991px){
+    .accountPage{
+        &__title{
+            font-size: 24px;
+            line-height: 32px;
+            margin: 0 0 10px;
+        }
+        &__orders{
+            .heading{
+                h3{
+                    text-align: center;
+                }
+            }
+            table{
+                display: none;
+            }
+            .tableMobile{
+                display: block !important;
+            }
+        }
+        .userData{
+            &__data{
+                h2{
+                    margin: 0 0 15px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .accountPage{
+        .userData{
+            &__data{
+                width: 100%;
+                position: relative;
+                margin-bottom: 20px;
+
+                &:after{
+                    content: '';
+                    background-image: url('/wp-content/themes/lolobaby/images/wave_thin.svg');
+                    background-repeat: no-repeat;
+                    background-size: 800px;
+                    width: 280px;
+                    height: 20px;
+                    position: relative;
+                    display: block;
+                    margin: 30px auto 0;
+                }
+
+                &[type="logout"]{
+                    height: auto;
+                    justify-content: center;
+                    
+                    &:after{
+                        display: none;
+                    }
+                }
+                
+                h2{
+                    font-size: 14px;
+                    line-height: 19px;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+                .wave{
+                    display: none;
+                }
+                .content{
+                    text-align: center;
+                }
+                .form{
+                    text-align: center;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+            }
+        }
+    }
+}

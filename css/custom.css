@@ -5893,6 +5893,301 @@ body[thankyoupage="true"] #masthead {
   }
 }
 
+.accountPage__title {
+  font-size: 30px;
+  line-height: 41px;
+  font-weight: 800;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.accountPage__heading {
+  margin: 0 0 70px;
+}
+
+.accountPage__heading .wrap {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.accountPage__heading .wrap h2 {
+  margin: 0 0 20px;
+}
+
+.accountPage__heading .wrap p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  margin: 0;
+}
+
+.accountPage__orders table thead tr {
+  border-bottom: 1px solid #4F4F4F;
+  height: 56px;
+}
+
+.accountPage__orders table thead tr td {
+  font-size: 14px;
+  line-height: 19px;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
+.accountPage__orders table tbody tr {
+  border-bottom: 1px solid #BDBDBD;
+  height: 56px;
+}
+
+.accountPage__orders table tbody tr td {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
+.accountPage__orders table tbody tr td.orderid {
+  font-weight: 800;
+  color: #EC422B;
+  text-decoration: underline;
+}
+
+.accountPage__orders .tableMobile {
+  display: none;
+}
+
+.accountPage__orders .tableMobile__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 35px 10px;
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.accountPage__orders .tableMobile__pos {
+  width: calc(100% / 2);
+  padding: 0 20px;
+  margin: 0 0 20px;
+}
+
+.accountPage__orders .tableMobile__pos.orderid span {
+  font-weight: 800;
+  color: #EC422B;
+  text-decoration: underline;
+}
+
+.accountPage__orders .tableMobile__pos.invoice a {
+  font-weight: 800;
+  color: #EC422B;
+  text-decoration: underline !important;
+  text-transform: uppercase;
+}
+
+.accountPage__orders .tableMobile__pos p {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 5px;
+}
+
+.accountPage__orders .tableMobile__pos span {
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #4F4F4F;
+  margin: 0;
+}
+
+.accountPage .userData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 70px auto 0;
+}
+
+.accountPage .userData__data {
+  width: 328px;
+  height: auto;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.accountPage .userData__data[type="logout"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 170px;
+}
+
+.accountPage .userData__data h2 {
+  margin: 0 0 25px;
+}
+
+.accountPage .userData__data .wave {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+}
+
+.accountPage .userData__data .wave img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  max-width: none;
+}
+
+.accountPage .userData__data .content {
+  margin: 20px 0 0;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.accountPage .userData__data .content--hidden {
+  display: none;
+}
+
+.accountPage .userData__data .content p {
+  font-size: 14px;
+  line-height: 19px;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0;
+}
+
+.accountPage .userData__data .content .btn {
+  margin: 20px 0 0;
+}
+
+.accountPage .userData__data .form {
+  margin: 20px 0 0;
+  display: none;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.accountPage .userData__data .form--active {
+  display: block;
+}
+
+.accountPage .userData__data .form form .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.accountPage .userData__data .form form .flex input {
+  width: 49%;
+}
+
+.accountPage .userData__data .form form input {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  border: 2px dashed #FFCAD4;
+  border-radius: 0;
+  padding: 0 15px;
+  margin: 0 0 9px;
+}
+
+@media (max-width: 1199px) {
+  .accountPage .userData__data {
+    width: 280px;
+  }
+}
+
+@media (max-width: 991px) {
+  .accountPage__title {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0 0 10px;
+  }
+  .accountPage__orders .heading h3 {
+    text-align: center;
+  }
+  .accountPage__orders table {
+    display: none;
+  }
+  .accountPage__orders .tableMobile {
+    display: block !important;
+  }
+  .accountPage .userData__data h2 {
+    margin: 0 0 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .accountPage .userData__data {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .accountPage .userData__data:after {
+    content: '';
+    background-image: url("/wp-content/themes/lolobaby/images/wave_thin.svg");
+    background-repeat: no-repeat;
+    background-size: 800px;
+    width: 280px;
+    height: 20px;
+    position: relative;
+    display: block;
+    margin: 30px auto 0;
+  }
+  .accountPage .userData__data[type="logout"] {
+    height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .accountPage .userData__data[type="logout"]:after {
+    display: none;
+  }
+  .accountPage .userData__data h2 {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .accountPage .userData__data .wave {
+    display: none;
+  }
+  .accountPage .userData__data .content {
+    text-align: center;
+  }
+  .accountPage .userData__data .form {
+    text-align: center;
+  }
+  .accountPage .userData__data .form input {
+    height: 45px;
+  }
+}
+
 /*  Partials
 --------------- */
 /* ---- COLORS ---- */

@@ -18,6 +18,7 @@
         "../sass/woocommerce/_cart.scss",
         "../sass/woocommerce/_checkout.scss",
         "../sass/woocommerce/_thankyou.scss",
+        "../sass/woocommerce/_accountPage.scss",
         "../sass/parts/_siteHeader.scss",
         "../sass/_variables.scss",
         "../sass/parts/_siteFooter.scss",
