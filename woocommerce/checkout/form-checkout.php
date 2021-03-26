@@ -31,6 +31,7 @@ $chosen_shipping = $chosen_methods[0];
 $shipmentID = (int) filter_var($chosen_shipping, FILTER_SANITIZE_NUMBER_INT);
 
 $currentUser = wp_get_current_user();
+$currentUserID = get_current_user_id();
 ?>
 <div class="checkoutPage checkoutPage--ready checkoutPage--visible container" selectedshipment="<?php echo $shipmentID; ?>">
     <form name="checkout" method="post" class="checkout checkoutForm woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
@@ -50,9 +51,9 @@ $currentUser = wp_get_current_user();
                             <label for="selectTypeBusiness">Firma</label>
                         </div>
                     </div>
-                    <input type="text" class="comapnyField" name="billing_company" placeholder="Nazwa firmy"/>
-                    <input type="text" class="comapnyField" name="billing_company_nip" placeholder="NIP"/>
-                    <input type="text" name="billing_phone" placeholder="Numer telefonu"/>
+                    <input type="text" class="comapnyField" name="billing_company" placeholder="Nazwa firmy" value="<?php echo get_user_meta( $currentUserID, 'billing_company', true ); ?>"/>
+                    <input type="text" class="comapnyField" name="billing_company_nip" placeholder="NIP" value="<?php echo get_user_meta( $currentUserID, 'billing_company_nip', true ); ?>"/>
+                    <input type="text" name="billing_phone" placeholder="Numer telefonu" value="<?php echo get_user_meta( $currentUserID, 'billing_phone', true ); ?>"/>
                     <input type="text" name="billing_email" placeholder="Adres e-mail" value="<?php echo $currentUser->user_email; ?>"/>
                 </div>
             </div>
