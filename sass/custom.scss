@@ -15,7 +15,7 @@
 @import 'subpages/blog';
 @import 'subpages/faq';
 @import 'subpages/singlePost';
-
+@import 'subpages/wishlistpage';
 
 /*  WooCommerce
 --------------- */
@@ -175,6 +175,7 @@ p {
     }
     &--blue{
         background-color: $blue-color;
+        color: #fff !important;
 
         &:hover{
             background-color: $blue-color;
