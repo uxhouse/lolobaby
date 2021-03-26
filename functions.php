@@ -321,3 +321,49 @@ function filter_woocommerce_process_login_errors($validation_error, $post_userna
 
 // add the filter 
 add_filter('woocommerce_process_login_errors', 'filter_woocommerce_process_login_errors', 10, 3);
+
+
+/*** Custom edit form ***/
+
+add_action('init', 'user_edit_account_person');
+function user_edit_account_person(){
+	$user_id = get_current_user_id();
+	$username = ( isset($_POST['person_name']) ? $_POST['person_name'] : '' );
+    $email = ( isset($_POST['person_email']) ? $_POST['person_email'] : '' );
+    $phone = ( isset($_POST['person_phone']) ? $_POST['person_phone'] : '' );
+
+	if (!empty($username) && !empty($email) && !empty($phone)) {
+		update_user_meta( $user_id, 'billing_username', $username );
+		update_user_meta( $user_id, 'billing_email', $email );
+		update_user_meta( $user_id, 'billing_phone', $phone );
+		wc_add_notice( 'Dane zostały pomyślnie zmienione', 'success' );
+	}
+}
+
+add_action('init', 'user_edit_account_delivery');
+function user_edit_account_delivery(){
+	$user_id = get_current_user_id();
+	$username = ( isset($_POST['delivery_name']) ? $_POST['delivery_name'] : '' );
+    $address = ( isset($_POST['delivery_address']) ? $_POST['delivery_address'] : '' );
+    $postcode = ( isset($_POST['delivery_postcode']) ? $_POST['delivery_postcode'] : '' );
+    $city = ( isset($_POST['delivery_city']) ? $_POST['delivery_city'] : '' );
+
+	if (!empty($username) && !empty($address) && !empty($postcode) && !empty($city)) {
+		update_user_meta( $user_id, 'billing_username', $username );
+		update_user_meta( $user_id, 'billing_address_1', $address );
+		update_user_meta( $user_id, 'billing_postcode', $postcode );
+		update_user_meta( $user_id, 'billing_city', $city );
+		wc_add_notice( 'Dane zostały pomyślnie zmienione', 'success' );
+	}
+}
+
+add_action('init', 'user_change_pass');
+function user_change_pass(){
+	$user_id = get_current_user_id();
+    $password = ( isset($_POST['user_password_change']) ? $_POST['user_password_change'] : '' );
+
+	if (!empty($password)) {
+		wp_set_password( $password, $user_id );
+		wc_add_notice( 'Hasło do Twojego konta zostało pomyślnie zmienione', 'success' );
+	}
+}
