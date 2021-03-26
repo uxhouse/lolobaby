@@ -84,6 +84,9 @@
 		<?php endif; ?>
 	</header><!-- #masthead -->
 	<div id="mobileMenu" class="mobileMenu">
+		<div class="mobileMenu__close">
+			<img src="<?php echo get_template_directory_uri() . '/images/icons/mobile_menu_close_ico.svg'; ?>"/>
+		</div>
 		<div class="mobileMenu__wrap">
 			<div class="mobileMenu__actionbtn">
 				<a href="<?php echo home_url('/moje-konto'); ?>">

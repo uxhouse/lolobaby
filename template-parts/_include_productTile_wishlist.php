@@ -39,7 +39,7 @@
                 <p class="price"><?php
             echo apply_filters( 'tinvwl_wishlist_item_price', $product->get_price_html(), $wl_product, $product ); // WPCS: xss ok.
             ?></p>
-                <p href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></p>
+                <a href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></a>
             </a>
         <?php endif; ?>
     </div>

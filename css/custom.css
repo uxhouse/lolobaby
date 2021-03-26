@@ -6466,8 +6466,20 @@ body.admin-bar .siteHeader {
   right: 0;
 }
 
+.mobileMenu__close {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+.mobileMenu__close img {
+  -webkit-filter: brightness(15);
+          filter: brightness(15);
+  width: 25px;
+}
+
 .mobileMenu__wrap {
-  padding: 30px 20px;
+  padding: 50px 20px 30px;
 }
 
 .mobileMenu__actionbtn {
@@ -7359,6 +7371,10 @@ body[thankyoupage="true"] .cartHeader {
 
 .productTile--wishlist {
   height: auto;
+}
+
+.productTile--wishlist .productTile__wrap {
+  text-align: center;
 }
 
 .productTile--wishlist .productTile__thumb {

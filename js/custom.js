@@ -207,6 +207,10 @@ $(document).ready(function(){
         $('.mobileMenu').addClass('mobileMenu--active');
         $('body').addClass('noscroll');
     });
+    $('.mobileMenu__close').on('click', function(){
+        $('.mobileMenu').removeClass('mobileMenu--active');
+        $('body').removeClass('noscroll');
+    });
     $(document).mouseup(function(e){
         var menumobile = $('.mobileMenu');
         if (!menumobile.is(e.target) && menumobile.has(e.target).length === 0) {

@@ -18,6 +18,9 @@
     &--wishlist{
         height: auto;
 
+        .productTile__wrap{
+            text-align: center;
+        }
         .productTile__thumb{
             display: block;
             height: 326px;
