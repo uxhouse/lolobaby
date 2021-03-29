@@ -91,7 +91,8 @@ $currentUserID = get_current_user_id();
     <div class="checkoutPage__nextstep">
         <a href="<?php echo home_url('/koszyk'); ?>" class="previousStep"><span>Powrót</span></a>
         <p class="btn nextStep"><span>Przejdź dalej</span></p>
-    </div><div class="checkoutPage__payment">
+    </div>
+    <div class="checkoutPage__payment">
         <?php
             if ( ! is_ajax() ) {
                 do_action( 'woocommerce_review_order_before_payment' );
@@ -139,115 +140,6 @@ $currentUserID = get_current_user_id();
     </div>
     <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
     </form>
-</div>
-<div class="summaryPage container">
-    <div class="summaryPage__cartItems">
-        <?php $itemsCount = $woocommerce->cart->cart_contents_count; ?>
-        <h2 class="summaryPage__secTitle">Twój koszyk (<?php echo $itemsCount; ?>)</h2>
-        <div class="wave wave--mobile">
-            <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
-        </div>
-    <?php
-        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
-        $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-        $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-
-        if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ):
-        $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-    ?>
-    <div class="cartItem <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-        <div class="cartItem__top">
-            <div class="cartItem__thumb">
-            <?php
-                $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-
-                if ( ! $product_permalink ) {
-                    echo $thumbnail; // PHPCS: XSS ok.
-                } else {
-                    printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
-                }
-            ?>
-            </div>
-            <div class="cartItem__name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
-                <h3><?php echo $_product->get_title(); ?></h3>
-            </div>
-        </div>
-        <div class="cartItem__bottom">
-            <div class="cartItem__color">
-                <p class="cartItem__title">Kolor:</p>
-                <?php
-                    $data = $cart_item['data'];
-                    $attributes = $data->get_attribute('pa_kolor');
-                    $productVariant = strtoupper($cart_item['data']->attributes['pa_kolor']);
-                    $allVariants = wc_get_product_terms( $product_id, 'pa_kolor', array( 'fields' => 'all' ) );
-                
-                foreach($allVariants as $variant){
-                    $variantName = strtoupper($variant->name);
-                    if($variantName == $productVariant){
-                        echo '<span style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
-                    }
-                }
-                ?>
-            </div>
-            <div class="cartItem__size">
-                <?php
-                    $data = $cart_item['data'];
-                    $attributeSize = $cart_item['variation']['attribute_pa_rozmiar'];
-                    $size_term = wc_get_product_terms( $product_id, 'pa_rozmiar', array( 'fields' => 'all' ) );
-                    if($size_term):
-                ?>
-                <p class="cartItem__title">Rozmiar:</p>
-                <p class="cartItem__selected"><?php echo $attributeSize; ?></p>
-                <?php endif; ?>
-            </div>
-            <div class="cartItem__quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-                <p class="cartItem__title">Ilość:</p>
-                <p class="cartItem__selected"><?php echo $cart_item['quantity']; ?></p>
-            </div>
-            <div class="cartItem__price">
-                <p><?php echo wc_price($cart_item['quantity'] * $cart_item['data']->price); ?></p>
-            </div>
-        </div>
-    </div>
-    <?php endif; ?>
-    <?php endforeach; ?>
-    </div>
-    <div class="summaryPage__shipping">
-        <div class="wave">
-            <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
-        </div>
-        <h2 class="summaryPage__secTitle">Wybrany sposób dostawy:</h2>
-        <p class="name" methodid="0">Wczytywanie</p>
-        <div class="wave">
-            <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
-        </div>
-    </div>
-    <div class="summaryPage__payment">
-        <h2 class="summaryPage__secTitle">Wybierz sposób płatności:</h2>
-        <div class="optionList">
-        <?php
-            $gateways = WC()->payment_gateways->get_available_payment_gateways();
-            $enabled_gateways = [];
-            if( $gateways ):
-                foreach( $gateways as $gateway ): 
-                if( $gateway->enabled == 'yes' ) {
-                    $enabled_gateways[] = $gateway;
-                }
-            ?>
-                <div class="optionList__option" paymentmethod="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
-                    <p class="name"><?php echo $gateway->title; ?></p>
-                </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
-    </div>
-    <div class="summaryPage__secureInfo">
-        <p>Gwarantujemy całkowite bezpieczeństwo Twoich danych. Wszystkie poufne informacje są wysyłane w zaszyfrowanej postaci, co zapewnia ich pełną ochronę. Więcej szczegółów znajdziesz w <a href="/polityka-prywatnosci">Polityce prywatności</a></p>
-    </div>
-    <div class="summaryPage__nextstep">
-        <p class="previousStep"><span>Powrót</span></p>
-        <p class="btn nextStep"><span>Złóż zamówienie</span></p>
-    </div>
 </div>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

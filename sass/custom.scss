@@ -16,6 +16,7 @@
 @import 'subpages/faq';
 @import 'subpages/singlePost';
 @import 'subpages/wishlistpage';
+@import 'subpages/search';
 
 /*  WooCommerce
 --------------- */
@@ -243,6 +244,12 @@ p {
             line-height: 211px;
         }
     }
+    &--medium{
+        span{
+            font-size: 80px;
+            line-height: 140px;
+        }
+    }
     &--red {
         span {
             color: $red-color;
@@ -307,6 +314,9 @@ p {
     }
 }
 
+.woocommerce-info.cart-empty{
+    display: none !important;
+}
 .woocommerce-notices-wrapper{
     ul{
         list-style: none;
@@ -340,5 +350,10 @@ p {
                 opacity: .7;
             }
         }
+    }
+}
+div.woocommerce-message{
+    &[data-flexible_shipping_free_shipping_notice="yes"]{
+        display: none !important;
     }
 }
