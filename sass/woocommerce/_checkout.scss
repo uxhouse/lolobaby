@@ -780,18 +780,44 @@ body[thankyoupage="true"]{
 //////////////// SUMMARY PAGE //////////////////
 ////////////////////////////////////////////////
 
+body.woocommerce-order-pay{
+    .cartProgress{
+        &__arrow,
+        &__step{
+            &.step-4{
+                filter: grayscale(0);
+
+                img{
+                   filter: grayscale(0) brightness(1) !important;
+                }
+                .icon{
+                    img{
+                        filter: brightness(1) !important;
+                    }
+                }
+                .name{
+                    p{
+                        font-weight: 800;
+                        color: #EC422B;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .summaryPage{
     margin-top: 100px;
-    display: none;
-    opacity: 0;
+    // display: none;
+    // opacity: 0;
     transition: ease .3s;
 
-    &--ready{
-        display: block;
-    }
-    &--visible{
-        opacity: 1;
-    }
+    // &--ready{
+    //     display: block;
+    // }
+    // &--visible{
+    //     opacity: 1;
+    // }
 
     .wave{
         &--mobile{
@@ -1009,6 +1035,25 @@ body[thankyoupage="true"]{
                 }
             }
         }
+        .optionContent{
+            ul{
+                padding: 0;
+                margin: 30px 0;
+                width: 100%;
+
+                .morePayMethods{
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    a{
+                        width: 134px;
+                    }
+                }
+            }
+            #payment{
+                display: none !important;
+            }
+        }
     }
     &__secureInfo{
         max-width: 800px;
@@ -1123,6 +1168,12 @@ body[thankyoupage="true"]{
                     }
                 }
             }
+            .optionContent{
+                .morePayMethods{
+                    max-width: 414px;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }
@@ -1163,6 +1214,18 @@ body[thankyoupage="true"]{
         }
         &__nextstep{
             flex-direction: column-reverse;
+        }
+    }
+}
+@media (max-width: 460px){
+    .summaryPage{
+        &__payment{
+            .optionContent{
+                .morePayMethods{
+                    max-width: 276px;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }

@@ -291,3 +291,82 @@
         }
     }
 }
+
+/* ---- Reset password form ---- */
+.lostPassword{
+    min-height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    &__wrap{
+        max-width: 500px;
+        margin: 0 auto 50px;
+        text-align: center;
+    }
+    &__title{
+        font-size: 30px;
+        line-height: 41px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #4F4F4F;
+        margin: 0 0 10px;
+        text-align: center;
+    }
+    &__subtitle{
+        font-size: 14px;
+        line-height: 20px;
+        color: #4F4F4F;
+        margin: 0 0 30px;
+        text-align: center;
+    }
+    &__input{
+        text-align: center;
+        margin-bottom: 9px;
+
+        input{
+            height: 60px;
+            width: 100%;
+            max-width: 440px;
+            border: 2px solid #EC422B;
+            border-radius: 0;
+            text-align: center;
+            font-size: 15px;
+            line-height: 20px;
+            color: #4F4F4F;
+            outline: none !important;
+        }
+    }
+    .btn{
+        margin: 20px auto 0;
+    }
+}
+
+/* ---- lost password link confirmation ---- */
+body.woocommerce-lost-password{
+    .woocommerce-message{
+        display: none !important;
+    }
+}
+.lostConfirmation{
+    min-height: 50vh;
+    margin: 0 auto 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__wrap{
+        max-width: 500px;
+
+        h2{
+            margin: 0 0 20px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 20px;
+            color: #4F4F4F;
+            margin: 0 0 30px;
+            text-align: center;
+        }
+    }
+}

@@ -189,7 +189,7 @@ $(document).ready(function(){
 
     /* ---- Product image zoom ---- */
     $(document).ready(function(){
-        if($(screen).width() > 767){
+        if($(window).width() > 767){
             $('.woocommerce-product-gallery__image').each(function(){
                 var wooImage = $(this).find('a');
                 var wooImageSource = wooImage.attr('href');
@@ -199,6 +199,50 @@ $(document).ready(function(){
                 });
             });
         }
+    });
+
+    /* ---- Search bar show ---- */
+    $(document).ready(function(){
+        var searchModal = $('.searchModal');
+
+        $('.openSearchBar').on('click', function(){
+            var button = $(this);
+            button.addClass('notallowed');
+            setTimeout(function(){
+                button.removeClass('notallowed');
+            }, 1000);
+
+            if(searchModal.hasClass('searchModal--active')){
+                searchModal.find('form').removeClass('active');
+                setTimeout(function(){
+                    searchModal.removeClass('searchModal--active');
+                }, 300);
+            }else{
+                searchModal.addClass('searchModal--active');
+                setTimeout(function(){
+                    searchModal.find('form').addClass('active');
+                }, 1000);
+            }
+        });
+        $(document).mouseup(function(e){
+            var siteHeader = $('.lolosite__header');
+            if (!siteHeader.is(e.target) && siteHeader.has(e.target).length === 0) {
+                searchModal.find('form').removeClass('active');
+                setTimeout(function(){
+                    searchModal.removeClass('searchModal--active');
+                }, 300);
+            }
+        });
+
+        var formInput = searchModal.find('input[type="text"]');
+        var formSubmit = searchModal.find('input[type="submit"]');
+        $(formInput).on('keyup', function(){
+            if(formInput.val() !== ''){
+                formSubmit.removeClass('notallowed').attr('disabled', false);
+            }else{
+                formSubmit.addClass('notallowed').attr('disabled', true);;
+            }
+        });
     });
 
     /* ---- Header mobile menu ---- */
@@ -430,68 +474,67 @@ $(document).ready(function(){
         // Initialize form validation on the registration form.
         // It has the name attribute "registration"
         $('form[name="checkoutRegisterForm"]').validate({
-          // Specify validation rules
-          rules: {
+            // Specify validation rules
+            rules: {
             // The key name on the left side is the name attribute
             // of an input field. Validation rules are defined
             // on the right side
             registerUsername: "required",
             registerUseremail: {
-              required: true,
-              email: true
+                required: true,
+                email: true
             },
             registerUserpassword: {
-              required: true,
-              minlength: 8
+                required: true,
+                minlength: 8
             }
-          },
-          // Specify validation error messages
-          messages: {
+            },
+            // Specify validation error messages
+            messages: {
             registerUsername: "Wprowadź imię i nazwisko",
             registerUserpassword: {
-              required: "Wprowadź hasło",
-              minlength: "Twoje hasło musi posiadać przynajmniej 8 znaków"
+                required: "Wprowadź hasło",
+                minlength: "Twoje hasło musi posiadać przynajmniej 8 znaków"
             },
             email: "Wprowadź prawidłowy adres e-mail"
-          },
-          // Make sure the form is submitted to the destination defined
-          // in the "action" attribute of the form when valid
-          submitHandler: function(form) {
-            form.submit();
-          }
+            },
+            // Make sure the form is submitted to the destination defined
+            // in the "action" attribute of the form when valid
+            submitHandler: function(form) {
+                form.submit();
+            }
         });
-      });
-      $('input[name="registerUsername"]').keyup(function(e) {
+    });
+    $('input[name="registerUsername"]').keyup(function(e) {
         var regex = /^[a-zA-Z ]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^a-zA-Z ]+/, '');
         }
-      });
-      $('input[name="registerUseremail"]').keyup(function(e) {
+    });
+    $('input[name="registerUseremail"]').keyup(function(e) {
         var regex = /^[a-zA-Z@.]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^a-zA-Z@.]+/, '');
         }
-      });
-      $('input[name="registerUserpassword"]').keyup(function(e) {
+    });
+    $('input[name="registerUserpassword"]').keyup(function(e) {
         var regex = /^[a-zA-Z0-9!@#$%^&*()-_=+]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^a-zA-Z0-9!@#$%^&*()-_=+]+/, '');
         }
-      });
-      $('input[name="billing_username"]').keyup(function(e) {
+    });
+    $('input[name="billing_username"]').keyup(function(e) {
         var regex = /^[a-zA-Z ]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^a-zA-Z ]+/, '');
         }
-      });
-      $('input[name="billing_phone"]').keyup(function(e) {
+    });
+    $('input[name="billing_phone"]').keyup(function(e) {
         var regex = /^[0-9]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^0-9]+/, '');
         }
-      });
-
+    });
 
     /////////////  Select choosed shipment option //////////////
     $(document).ready(function(){
@@ -535,18 +578,10 @@ $(document).ready(function(){
 
     ///////////// Checkout form - nav ///////////////
     $(document).ready(function(){
-        var checkoutNext = $('.checkoutPage__nextstep').find('.nextStep');
+        var checkoutNext = $('.nextStep');
 
         $(checkoutNext).on('click', function(){
-            $('.cartProgress').find('.step-4').addClass('cartProgress__step--active').addClass('cartProgress__arrow--active');
-            $('.checkoutPage').removeClass('checkoutPage--visible');
-            setTimeout(function(){
-                $('.checkoutPage').removeClass('checkoutPage--ready');
-                $('.summaryPage').addClass('summaryPage--ready');
-            }, 300);
-            setTimeout(function(){
-                $('.summaryPage').addClass('summaryPage--visible');
-            }, 350);
+            $('#place_order').trigger('click');
         });
     });
 
@@ -583,19 +618,6 @@ $(document).ready(function(){
                 $('.checkoutPage').addClass('checkoutPage--visible');
             }, 350);
         }
-    });
-
-    //////// Payment method select ///////
-    $(document).ready(function(){
-        var option = $('.summaryPage__payment').find('.optionList__option');
-
-        $(option).on('click', function(){
-            var paymentmethod = $(this).attr('paymentmethod');
-            $('.optionList__option').removeClass('optionList__option--active');
-            $(this).addClass('optionList__option--active');
-
-            $('.wc_payment_methods').find('#' + paymentmethod).attr('checked', true).trigger('click');
-        });
     });
 
     /* ---- FAQ accordeon ---- */
@@ -643,7 +665,6 @@ $(document).ready(function(){
     /* ---- Thank you page review form ---- */
     $(document).ready(function(){
         var star = $('.form__stars').find('.star');
-        star.parent().attr('data-rating-value', '5');
 
         $(star).on('click', function(){
             var value = $(this).attr('value');
