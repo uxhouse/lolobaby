@@ -1044,6 +1044,7 @@ body.woocommerce-order-pay{
                 .morePayMethods{
                     display: flex;
                     flex-wrap: wrap;
+                    justify-content: center;
 
                     a{
                         width: 134px;

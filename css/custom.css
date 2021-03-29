@@ -5836,6 +5836,9 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .summaryPage__payment .optionContent ul .morePayMethods a {
