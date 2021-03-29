@@ -260,6 +260,6 @@ $name = explode(' ',trim($currentuserName));
 	 *
 	 * @deprecated 2.6.0
 	 */
-	do_action( 'woocommerce_after_my_account' );
+	// do_action( 'woocommerce_after_my_account' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
