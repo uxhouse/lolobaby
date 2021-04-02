@@ -28,7 +28,12 @@ $allowed_html = array(
 );
 $customer_user_id = get_current_user_id();
 $currentuserName = get_user_meta( $customer_user_id, 'billing_username', true );
-$name = explode(' ',trim($currentuserName));
+$currentuserNickname = get_user_meta( $customer_user_id, 'nickname', true );
+if($currentuserName){
+    $name = explode(' ', trim($currentuserName));
+}else{
+    $name = explode(' ', trim($currentuserNickname));
+}
 ?>
 <div class="accountPage">
     <?php include get_template_directory() . '/template-parts/_include_pageBreadcrumbs.php'; ?>
@@ -145,6 +150,7 @@ $name = explode(' ',trim($currentuserName));
     </div>
     <section class="userData container">
         <?php $username = get_user_meta( $customer_user_id, 'billing_username', true ); ?>
+        <?php $nickname = get_user_meta( $customer_user_id, 'nickname', true ); ?>
         <?php $email = get_user_meta( $customer_user_id, 'billing_email', true ); ?>
         <?php $phone = get_user_meta( $customer_user_id, 'billing_phone', true ); ?>
         <?php $address = get_user_meta( $customer_user_id, 'billing_address_1', true ); ?>
@@ -159,9 +165,11 @@ $name = explode(' ',trim($currentuserName));
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
-                <p>Imię i nazwisko: <?php echo $username; ?></p>
-                <p>E-mail: <?php echo $email; ?></p>
-                <p>Telefon: <?php echo $phone; ?></p>
+                <div class="wrap">
+                    <p>Imię i nazwisko: <?php if($username){echo $username;}else{echo $nickname;}; ?></p>
+                    <p>E-mail: <?php echo $email; ?></p>
+                    <p>Telefon: <?php echo $phone; ?></p>
+                </div>
                 <p class="btn btn--noarrow openForm"><span>Edytuj</span></p>
             </div>
             <div class="form">
@@ -179,9 +187,11 @@ $name = explode(' ',trim($currentuserName));
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
-                <p><?php echo $username; ?></p>
-                <p><?php echo $address; ?></p>
-                <p><?php echo $postcode . ' ' . $city; ?></p>
+                <div class="wrap">
+                    <p><?php echo $username; ?></p>
+                    <p><?php echo $address; ?></p>
+                    <p><?php echo $postcode . ' ' . $city; ?></p>
+                </div>
                 <p class="btn btn--noarrow openForm"><span>Zmień adres</span></p>
             </div>
             <div class="form">
@@ -203,10 +213,12 @@ $name = explode(' ',trim($currentuserName));
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
-                <p>Nazwa firmy: <?php echo $company; ?></p>
-                <p>NIP: <?php echo $nip; ?></p>
+                <div class="wrap">
+                    <p>Nazwa firmy: <?php echo $company; ?></p>
+                    <p>NIP: <?php echo $nip; ?></p>
+                </div>
+                <p class="btn btn--noarrow"><span>Zmień adres</span></p>
             </div>
-            <p class="btn btn--noarrow"><span>Zmień adres</span></p>
         </div>
         <?php endif; ?>
         <div class="userData__data">
@@ -215,7 +227,9 @@ $name = explode(' ',trim($currentuserName));
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
-                <p>Obecne hasło: ********</p>
+                <div class="wrap">
+                    <p>Obecne hasło: ********</p>
+                </div>
                 <p class="btn btn--noarrow openForm"><span>Zmień hasło</span></p>
             </div>
             <div class="form">
@@ -231,7 +245,9 @@ $name = explode(' ',trim($currentuserName));
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
-                <p>Status subskrypcji: włączona</p>
+                <div class="wrap">
+                    <p>Status subskrypcji: włączona</p>
+                </div>  
                 <p class="btn btn--noarrow"><span>Wypisz się</span></p>
             </div>
         </div>

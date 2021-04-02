@@ -118,12 +118,13 @@ get_header(); ?>
     <section class="homeCollections">
         <?php while(have_rows('homepage_collections')): the_row();
             $bg = get_sub_field('homepage_collections_image');
+            $subtitle = get_sub_field('homepage_collections_subtitle');
             $name = get_sub_field('homepage_collections_name');
             $term = get_sub_field('homepage_collections_link');
         ?>
-        <a href="<?php echo esc_url( get_term_link( $term ) ); ?>" class="homeCollections__box" style="background-image: url('<?php echo $bg; ?>');">
+        <a href="<?php echo $term; ?>" class="homeCollections__box" style="background-image: url('<?php echo $bg; ?>');">
             <div class="homeCollections__content">
-                <p>kolekcja</p>
+                <p><?php echo $subtitle; ?></p>
                 <h2><?php echo $name; ?></h2>
                 <span class="btn"><span>Sprawdź</span></span>
             </div>

@@ -52,7 +52,7 @@ if ( post_password_required() ) {
 
             <div class="productContent__summary">
                 <h1 class="product_title"><?php the_title(); ?></h1>
-                <p class="product_collection">Bambusowe</p>
+                <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
                 <?php if ($product->is_type('variable')): ?>
                     <p class="price price--variation"><?php echo wc_price($product->get_price()); ?></p>
                 <?php else: ?>
@@ -81,6 +81,7 @@ if ( post_password_required() ) {
                         <a href="/dostawa-i-platnosc" target="_blank">Dostawa i płatność</a>
                     </div>
                     <?php if(get_field('product_boxes')): ?>
+                    <h4 class="summary__boxesTitle"><span>Dlaczego bambus?</span></h4>
                     <div class="summary__boxes">
                         <?php while(have_rows('product_boxes')): the_row();
                             $icon = get_sub_field('product_boxes_icon');
@@ -130,6 +131,12 @@ if ( post_password_required() ) {
             <div class="content_tab">
                 <h4>Pielęgnacja:</h4>
                 <p><?php the_field('product_desc_pielegnacja'); ?></p>
+            </div>
+            <?php endif; ?>
+            <?php if(get_field('product_desc_certyfikat')): ?>
+            <div class="content_tab">
+                <h4>Certyfikat:</h4>
+                <p><?php the_field('product_desc_certyfikat'); ?></p>
             </div>
             <?php endif; ?>
             <div class="divider container">
