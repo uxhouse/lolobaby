@@ -21,93 +21,38 @@ get_header(); ?>
         </div>
         <div class="container">
             <div class="faq">
+                <?php if(get_field('faq')): ?>
                 <div class="faq__filtersList">
-                    <div class="faq__filter active" data-category="firstShopping"><p>Pierwsze zakupy</p></div>
-                    <div class="faq__filter" data-category="aboutProduct"><p>O produkcie</p></div>
-                    <div class="faq__filter" data-category="delivery"><p>Dostawa</p></div>
-                    <div class="faq__filter" data-category="complaints"><p>Reklamacje i zwroty</p></div>
+                    <?php while(have_rows('faq')): the_row();
+                        $title = get_sub_field('faq_category_name');
+                    ?>
+                    <div class="faq__filter" data-category="cat_<?php echo get_row_index(); ?>"><p><?php echo $title; ?></p></div>
+                    <?php endwhile; ?>
                 </div>
                 <div class="divider divider--filters">
                     <img class="divider__image" src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg' ?>" alt="" />
                 </div>
-                <div class="faq__list active" data-category="firstShopping">
+                <?php while(have_rows('faq')): the_row();
+                    $title = get_sub_field('faq_category_name');
+                ?>
+                <div class="faq__list" data-category="cat_<?php echo get_row_index(); ?>">
+                    <?php while(have_rows('faq_category')): the_row();
+                        $que = get_sub_field('faq_category_que');
+                        $ans = get_sub_field('faq_category_ans');
+                    ?>
                     <div class="faq__item">
                         <div class="faq__itemContent">
-                            <div class="faq__question"><p>Nie dostałem/am maila z potwierdzeniem zamówienia/płatności. Jak mam sprawdzić, czy zamówienie zostało złożone?</p></div>
-                            <div class="faq__answer"><p>Przetwarzanie płatności może trwać kilka minut. Jeżeli otrzymali Państwo potwierdzenie przelewu ze swojego banku, a mail z potwierdzeniem zamówienia wciąż nie dotarł, prosimy o kontakt: kontakt@lolobaby.pl</p></div>
+                            <div class="faq__question"><p><?php echo $que; ?></p></div>
+                            <div class="faq__answer">
+                                <?php echo $ans; ?>
+                            </div>
                         </div>
                         <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
                     </div>
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Nie wiem, jaki rozmiar wybrać.</p></div>
-                            <div class="faq__answer"><p>Przetwarzanie płatności może trwać kilka minut. Jeżeli otrzymali Państwo potwierdzenie przelewu ze swojego banku, a mail z potwierdzeniem zamówienia wciąż nie dotarł, prosimy o kontakt: kontakt@lolobaby.pl</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Rozmiar, który mnie interesuje jest niedostępny.</p></div>
-                            <div class="faq__answer"><p>Przetwarzanie płatności może trwać kilka minut. Jeżeli otrzymali Państwo potwierdzenie przelewu ze swojego banku, a mail z potwierdzeniem zamówienia wciąż nie dotarł, prosimy o kontakt: kontakt@lolobaby.pl</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
+                    <?php endwhile; ?>
                 </div>
-                <div class="faq__list" data-category="aboutProduct">
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus</p></div>
-                            <div class="faq__answer"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus, dictum pretium odio.</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-                            <div class="faq__answer"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus, dictum pretium odio.</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Lorem ipsum dolor sit amet, consectetur sodales nec dui cursus</p></div>
-                            <div class="faq__answer"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus, dictum pretium odio.</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                </div>
-                <div class="faq__list" data-category="delivery">
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus</p></div>
-                            <div class="faq__answer"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus, dictum pretium odio.</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-                            <div class="faq__answer"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus, dictum pretium odio.</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                </div>
-                <div class="faq__list" data-category="complaints">
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Nie wiem, jaki rozmiar wybrać.</p></div>
-                            <div class="faq__answer"><p>Przetwarzanie płatności może trwać kilka minut. Jeżeli otrzymali Państwo potwierdzenie przelewu ze swojego banku, a mail z potwierdzeniem zamówienia wciąż nie dotarł, prosimy o kontakt: kontakt@lolobaby.pl</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                    <div class="faq__item">
-                        <div class="faq__itemContent">
-                            <div class="faq__question"><p>Rozmiar, który mnie interesuje jest niedostępny.</p></div>
-                            <div class="faq__answer"><p>Przetwarzanie płatności może trwać kilka minut. Jeżeli otrzymali Państwo potwierdzenie przelewu ze swojego banku, a mail z potwierdzeniem zamówienia wciąż nie dotarł, prosimy o kontakt: kontakt@lolobaby.pl</p></div>
-                        </div>
-                        <img class="faq__arrow" src="<?php echo get_template_directory_uri() . '/images/icons/dropdown_arrow_ico.svg' ?>" alt="" />
-                    </div>
-                </div>
+                <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>

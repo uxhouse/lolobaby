@@ -1,5 +1,5 @@
 .section {
-    &--privacyPolicy {
+    &--regulamin {
         position: relative;
         text-align: justify;
 
@@ -11,12 +11,13 @@
     }
 }
 
-.privacyPolicy {
+.regulamin {
     &__content {
         max-width: 674px;
         margin: 30px auto;
 
-        ul{
+        ul,
+        ol{
             margin-left: 0;
 
             li{
@@ -25,12 +26,29 @@
                 color: $primary-text-color;
             }
         }
-        h3 {
+        h4 {
             font-size: 16px;
             font-weight: 800;
             color: $primary-text-color;
             text-transform: uppercase;
             margin: 25px 0;
+        }
+    }
+}
+.forms{
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    max-width: 674px;
+
+    li{
+        a{
+            color: $red-color;
+            transition: ease .3s;
+
+            &:hover{
+                opacity: .7;
+            }
         }
     }
 }

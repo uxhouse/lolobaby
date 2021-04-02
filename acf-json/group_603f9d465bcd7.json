@@ -237,6 +237,25 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_6067283ca24e7",
+                    "label": "Podtytuł",
+                    "name": "homepage_collections_subtitle",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_604a049c0f183",
                     "label": "Nazwa kolekcji",
                     "name": "homepage_collections_name",
@@ -259,7 +278,7 @@
                     "key": "field_604a04b20f184",
                     "label": "Kategoria z produktami wybranej kolekcji",
                     "name": "homepage_collections_link",
-                    "type": "taxonomy",
+                    "type": "link",
                     "instructions": "Wybierz kategorię z produktami wybranej kolekcji",
                     "required": 1,
                     "conditional_logic": 0,
@@ -268,14 +287,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "taxonomy": "product_cat",
-                    "field_type": "radio",
-                    "allow_null": 0,
-                    "add_term": 1,
-                    "save_terms": 0,
-                    "load_terms": 0,
-                    "return_format": "id",
-                    "multiple": 0
+                    "return_format": "url"
                 }
             ]
         },
@@ -457,5 +469,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1615478041
+    "modified": 1617373364
 }

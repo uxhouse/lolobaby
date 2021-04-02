@@ -1,0 +1,27 @@
+.pageReklamacje{
+    &__content{
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+
+        .wrap{
+            max-width: 500px;
+            text-align: center;
+            margin: 0 auto 20px;
+
+            h1{
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 16px;
+                line-height: 22px;
+                color: $primary-text-color;
+                margin: 0 0 15px;
+
+                &:last-of-type{
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}

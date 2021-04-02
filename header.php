@@ -148,12 +148,6 @@
 				</ul>
 			</div>
 			<div class="mobileMenu__position">
-				<a href="#" class="header">
-					<div class="name">Wyprzedaż</div>
-					<img src="<?php echo get_template_directory_uri() . '/images/icons/percent_white_ico.svg'; ?>"/>
-				</a>
-			</div>
-			<div class="mobileMenu__position">
 				<a href="<?php echo home_url('/blog'); ?>" class="header">
 					<div class="name">Blog</div>
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/book_white_ico.svg'; ?>"/>

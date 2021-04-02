@@ -15,6 +15,11 @@ $(document).ready(function(){
         return false;
     };
 
+    /* ---- Header dropdown ---- */
+    $(document).ready(function(){
+        $('.hasDropdown').find('a:not(.sub-menu a)').removeAttr('href');
+    });
+
     /* ---- Header actions tooltip ---- */
     $('.sortEngine__block').on('click', function(){
         $('.sortEngine__dropdown').addClass('sortEngine__dropdown--active');
@@ -727,7 +732,7 @@ $(document).ready(function(){
         $('.faq__answer').css("height", "auto");
         var initialHeight = $(list).find('.faq__item .faq__answer p').eq(0).outerHeight();
         $('.faq__answer').css("height", "0");
-        $(list).find('.faq__item .faq__answer').eq(0).css("height", initialHeight + 30);
+        $(list).find('.faq__item .faq__answer').eq(0).css("height", initialHeight + 102);
         $(list).find('.faq__item').eq(0).addClass('open');
     }
 
@@ -746,6 +751,11 @@ $(document).ready(function(){
                 $(this).find('.faq__answer').css("height", height + 30);
             };
         });
+    });
+
+    $(document).ready(function(){
+        $('.faq__filtersList').find('.faq__filter:first').addClass('active');
+        $('.faq__list:first').addClass('active');
     });
 
     /* ---- FAQ filters engine ---- */

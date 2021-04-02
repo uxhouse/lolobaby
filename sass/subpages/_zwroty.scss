@@ -1,0 +1,42 @@
+.pageZwroty{
+    &__content{
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+
+        .wrap{
+            max-width: 500px;
+            text-align: center;
+            margin: 0 auto 20px;
+
+            h1{
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 16px;
+                line-height: 22px;
+                color: $primary-text-color;
+                margin: 0 0 15px;
+            }
+            h3{
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 800;
+                color: $primary-text-color;
+                text-transform: uppercase;
+                margin: 50px 0 10px;
+            }
+            .forms{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                a{
+                    &:first-of-type{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

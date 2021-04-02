@@ -38,6 +38,25 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_60671986cd53e",
+            "label": "Podtytuł produktu",
+            "name": "product_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6050d0e056f53",
             "label": "Podsumowanie produktu",
             "name": "",
@@ -297,6 +316,42 @@
             "new_lines": "br"
         },
         {
+            "key": "field_60671d1c2573e",
+            "label": "Certyfikat",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_60671d252573f",
+            "label": "Certyfikat",
+            "name": "product_desc_certyfikat",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        },
+        {
             "key": "field_6050d7aa6798d",
             "label": "KONIEC",
             "name": "",
@@ -371,5 +426,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1615911117
+    "modified": 1617370423
 }

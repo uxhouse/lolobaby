@@ -150,12 +150,17 @@
             }
             .content{
                 margin: 20px 0 0;
+                position: relative;
                 transition: ease .3s;
 
                 &--hidden{
                     display: none;
                 }
 
+                .wrap{
+                    padding-bottom: 50px;
+                    min-height: 120px;
+                }
                 p{
                     font-size: 14px;
                     line-height: 19px;
@@ -166,6 +171,8 @@
                 }
                 .btn{
                     margin: 20px 0 0;
+                    position: absolute;
+                    bottom: 0;
                 }
             }
             .form{

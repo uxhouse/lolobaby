@@ -65,6 +65,23 @@ body.admin-bar{
                         font-weight: 800;
                     }
                 }
+
+                .sub-menu{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 15px 0 0;
+                    min-width: 100%;
+                    box-shadow: none;
+
+                    li{
+                        background-color: $red-color;
+                        padding: 10px 10px 5px;
+                        
+                        &:last-of-type{
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
             }
         }
     }

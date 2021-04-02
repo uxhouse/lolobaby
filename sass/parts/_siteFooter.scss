@@ -317,6 +317,8 @@
             &__info{
                 width: 100%;
                 margin-bottom: 50px;
+                position: relative;
+                z-index: 3;
 
                 &:after{
                     display: none;
