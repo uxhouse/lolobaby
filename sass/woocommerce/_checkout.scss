@@ -32,6 +32,35 @@ body[thankyoupage="true"]{
         text-align: center;
     }
 
+    .notices{
+        max-width: 440px;
+        margin: 0 auto;
+
+        p{
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            text-align: center;
+            margin: 0 0 5px;
+            border: 1px solid;
+
+            &:last-of-type{
+                margin: 0 0 20px;
+            }
+
+            &.error{
+                color: #721c24;
+                background-color: #f8d7da;
+                border-color: #f5c6cb;
+            }
+            &.success{
+                color: #155724;
+                background-color: #d4edda;
+                border-color: #c3e6cb;
+            }
+        }
+    }
+
     &__input{
         text-align: center;
         margin-bottom: 9px;
@@ -186,6 +215,35 @@ body[thankyoupage="true"]{
     &__form{
         margin-bottom: 40px;
         padding: 0 20px;
+
+        .notices{
+            max-width: 440px;
+            margin: 0 auto;
+
+            p{
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 13px;
+                text-align: center;
+                margin: 0 0 5px;
+
+                &:last-of-type{
+                    margin: 0 0 20px;
+                }
+
+                &.error{
+                    color: #721c24;
+                    background-color: #f8d7da;
+                    border-color: #f5c6cb;
+                }
+                &.success{
+                    color: #155724;
+                    background-color: #d4edda;
+                    border-color: #c3e6cb;
+                }
+            }
+        }
     }
     &__input{
         max-width: 440px;
@@ -205,6 +263,12 @@ body[thankyoupage="true"]{
             color: $primary-text-color;
             outline: none !important;
         }
+        .error{
+            color: #fb6779;
+            font-size: 13px;
+            margin: 0 0 5px;
+        }
+
     }
     &__checkbox{
         max-width: 440px;
@@ -260,6 +324,19 @@ body[thankyoupage="true"]{
                 &:hover{
                     opacity: .7;
                 }
+            }
+
+            &.error{
+                position: absolute;
+                top: -25px;
+                right: 0;
+                width: calc(440px);
+                text-align: center;
+                padding: 2px;
+                border-radius: 4px;
+                color: #721c24;
+                background-color: #f8d7da;
+                border: 1px solid #f5c6cb;
             }
         }
     }
@@ -383,7 +460,14 @@ body[thankyoupage="true"]{
                     font-size: 15px;
                     color: $primary-text-color;
                     transition: ease .3s;
+                    outline: none;
 
+                    &.inputSuccess{
+                        border-color: #27AE60;
+                    }
+                    &.inputError{
+                        background-color: #FFCAD4;
+                    }
                     &.comapnyField{
                         display: none;
                         opacity: 0;
@@ -520,10 +604,7 @@ body[thankyoupage="true"]{
                     display: inline-block;
                 }
 
-                &[methodid="1"],
-                &[methodid="2"],
-                &[methodid="7"],
-                &[methodid="6"]{
+                &[methodid="9"]{
                     &:before{
                         background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
                         background-size: 70px 50px;
@@ -531,15 +612,20 @@ body[thankyoupage="true"]{
                         height: 50px;
                     }
                 }
-                &[methodid="5"],
-                &[methodid="4"],
-                &[methodid="3"]{
+                &[methodid="8"]{
                     &:before{
                         background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
                         background-size: 50px 50px;
                         width: 50px;
                         height: 50px;
                     }
+                }
+            }
+            .pointname{
+                display: none;
+
+                &.visible{
+                    display: block;
                 }
             }
             .buttons{
@@ -550,6 +636,15 @@ body[thankyoupage="true"]{
 
                 p{
                     margin: 0;
+                }
+
+                .selectPoint{
+                    display: none;
+                    margin-left: 15px;
+
+                    &.visible{
+                        display: block;
+                    }
                 }
             }
         }
@@ -562,7 +657,7 @@ body[thankyoupage="true"]{
                 padding: 0;
                 margin: 0 auto;
                 list-style: none;
-                max-width: 800px;
+                max-width: 400px;
 
                 li{
                     width: 190px;
@@ -576,10 +671,7 @@ body[thankyoupage="true"]{
                         border: 2px solid $red-color;
                     }
 
-                    &[methodid="1"],
-                    &[methodid="2"],
-                    &[methodid="7"],
-                    &[methodid="6"]{
+                    &[methodid="9"]{
                         label{
                             &:before{
                                 background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
@@ -588,9 +680,7 @@ body[thankyoupage="true"]{
                             }
                         }
                     }
-                    &[methodid="5"],
-                    &[methodid="4"],
-                    &[methodid="3"]{
+                    &[methodid="8"]{
                         label{
                             &:before{
                                 background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
@@ -632,7 +722,15 @@ body[thankyoupage="true"]{
                         span{
                             display: block;
                             font-weight: 800;
+
+                            bdi{
+                                display: flex;
+                                justify-content: center;
+                            }
                         }
+                    }
+                    #select-point-container{
+                        display: none !important;
                     }
                 }
             }
@@ -990,6 +1088,12 @@ body.woocommerce-order-pay{
                     height: 50px;
                 }
             }
+        }
+        .deliveryAddress{
+            text-align: center;
+            margin: 10px 0 0;
+            font-size: 16px;
+            color: #4f4f4f;
         }
     }
     &__payment{

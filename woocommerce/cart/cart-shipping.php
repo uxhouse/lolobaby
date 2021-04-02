@@ -35,7 +35,7 @@ $calculator_text          = '';
                         $methodPrice = $method->cost;
                         $rate_table = array();
 
-                        if($mehtodPrice == 0.00){
+                        if($mehtodPrice == '0.00'){
                             $methodPrice = 'Za darmo!';
                         }else{
                             $methodPrice = wc_price($methodPrice);
@@ -47,9 +47,8 @@ $calculator_text          = '';
                             $shipping_methods = $shipping_zone->get_shipping_methods( true, 'values' );
 
                             foreach ( $shipping_methods as $instance_id => $shipping_method ){
-
                                 if($methodID == $shipping_method->instance_id){
-                                    $methodName = $shipping_method->instance_settings['method_title'];
+                                    $methodName = $shipping_method->title;
                                 }
                             }
                         }
@@ -61,9 +60,9 @@ $calculator_text          = '';
 						} else {
 							printf( '<input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method" />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ) ); // WPCS: XSS ok.
 						}
-                        ?>
-                        <label><?php echo $methodName; ?><span><?php echo $methodPrice; ?></span></label>
-						<?php do_action( 'woocommerce_after_shipping_rate', $method, $index ); ?>
+						printf( '<label for="shipping_method_%1$s_%2$s">%3$s</label>', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) ); // WPCS: XSS ok.
+                        do_action( 'woocommerce_after_shipping_rate', $method, $index );
+						?>
 					</li>
 				<?php endforeach; ?>
 			</ul>

@@ -33,7 +33,7 @@
 							<li><a href="<?php echo home_url('/reklamacje') ?>">Reklamacje</a></li>
 							<li><a href="<?php echo home_url('/faq') ?>">FAQ</a></li>
 							<li><a href="<?php echo home_url('/regulamin') ?>">Regulamin</a></li>
-							<li><a href="<?php echo home_url('/polityka-prywatnosci') ?>">Polityka prywatnosci</a></li>
+							<li><a href="<?php echo home_url('/polityka-prywatnosci') ?>">Polityka prywatności</a></li>
 						</ul>
 						<ul>
 							<li class="title">O nas:</li>

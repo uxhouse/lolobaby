@@ -289,21 +289,33 @@ function create_account(){
     $pass = ( isset($_POST['registerUserpassword']) ? $_POST['registerUserpassword'] : '' );
     $email = ( isset($_POST['registerUseremail']) ? $_POST['registerUseremail'] : '' );
 
-	if (!email_exists($email)){
-		$user_id = wp_create_user($user, $pass, $email);
-		if(!is_wp_error($user_id)){
-			//user has been created
-			$user = new WP_User($user_id);
-			$user->set_role('customer');
+	if($formID == 21){
+		if (!email_exists($email)){
+			$user_id = wp_create_user($user, $pass, $email);
+			if(!is_wp_error($user_id)){
+				$user = new WP_User($user_id);
+				$user->set_role('customer');
 
-			if($formID == 21){
 				wp_redirect(home_url('/zamowienie'));
-			}else{
-				wp_redirect(home_url('/moje-konto'));
+				exit;
 			}
-			exit;
 		}else{
-			
+			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
+			exit;
+		}
+	}else{
+		if (!email_exists($email)){
+			$user_id = wp_create_user($user, $pass, $email);
+			if(!is_wp_error($user_id)){
+				$user = new WP_User($user_id);
+				$user->set_role('customer');
+
+				wp_redirect(home_url('/moje-konto?registerstatus=success'));
+				exit;
+			}
+		}else{
+			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
+			exit;
 		}
 	}
 }
@@ -367,3 +379,7 @@ function user_change_pass(){
 		wc_add_notice( 'Hasło do Twojego konta zostało pomyślnie zmienione', 'success' );
 	}
 }
+
+
+/* remove add to cart message */
+add_filter( 'wc_add_to_cart_message_html', '__return_false' );

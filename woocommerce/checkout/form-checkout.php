@@ -76,8 +76,10 @@ $currentUserID = get_current_user_id();
         </div>
         <div class="checkoutDeliverySelected checkoutDeliverySelected--disable">
             <h3 class="name" methodid="0">Wczytywanie</h3>
+            <p class="pointname"></p>
             <div class="buttons">
                 <p class="btn btn--light changeShipmentMethod"><span>Zmień sposób dostawy</span></p>
+                <p class="btn btn--blue selectPoint"><span>Wybierz Paczkomat</span></p>
             </div>
         </div>
         <div class="checkoutDeliverySelect">
