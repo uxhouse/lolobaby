@@ -18,7 +18,7 @@
 	?>
 		<div class="cartHeader">
 			<div class="cartHeader__wrap container">
-				<h1>Twój koszyk <?php if($itemsCount > 0): ?>(<?php echo $itemsCount; ?>)<?php endif; ?></h1>
+				<h1>Twój koszyk <span><?php if($itemsCount > 0): ?>(<?php echo $itemsCount; ?>)<?php endif; ?></span></h1>
 				<a href="<?php echo home_url(); ?>" class="cartHeader__logo">
 					<img src="<?php echo get_template_directory_uri() . '/images/siteLogo_red.svg'; ?>"/>
 				</a>

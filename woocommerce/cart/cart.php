@@ -88,14 +88,12 @@ if($brand_terms): ?>
                     <div class="cartItem__color">
                         <p class="cartItem__title">Kolor:</p>
                         <?php
-                            $data = $cart_item['data'];
-                            $attributes = $data->get_attribute('pa_kolor');
-                            $productVariant = strtoupper($cart_item['data']->attributes['pa_kolor']);
-                            $allVariants = wc_get_product_terms( $product_id, 'pa_kolor', array( 'fields' => 'all' ) );
-                        
+                            $attributeName = $_product->get_attribute('pa_kolor');
+                            $allVariants = get_terms('pa_kolor');
+        
                         foreach($allVariants as $variant){
-                            $variantName = strtoupper($variant->name);
-                            if($variantName == $productVariant){
+                            $variantName = $variant->name;
+                            if($variantName == $attributeName){
                                 echo '<span style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
                             }
                         }
@@ -219,15 +217,14 @@ if($brand_terms): ?>
                     $shipping_zone = new WC_Shipping_Zone($zone_id);
                     $shipping_methods = $shipping_zone->get_shipping_methods( true, 'values' );
                 ?>
-
                     <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): ?>
-                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['method_rules'][0]['cost_per_order']; ?>">
+                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['cost']; ?>">
                             <div class="name">
                                 <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
-                                <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->instance_settings['method_title'];?></label>
+                                <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
                             </div>
                             <div class="amount">
-                                <?php echo '<span>' . wc_price($shipping_method->instance_settings['method_rules'][0]['cost_per_order']) . '</span>'; ?>
+                                <?php echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>'; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

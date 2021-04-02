@@ -26,7 +26,7 @@ $orderItemsQty = $orderItems['quantity'];
 $itemsCount = $order->get_item_count();
 ?>
 
-<div class="summaryPage container">
+<div class="summaryPage container" itemscount="<?php echo $itemsCount; ?>">
     <div class="summaryPage__cartItems">
         <h2 class="summaryPage__secTitle">Twój koszyk (<?php echo $itemsCount; ?>)</h2>
         <div class="wave wave--mobile">
@@ -86,7 +86,7 @@ $itemsCount = $order->get_item_count();
                 <p class="cartItem__selected"><?php echo $cart_item['quantity']; ?></p>
             </div>
             <div class="cartItem__price">
-                <p><?php echo wc_price($cart_item['quantity'] * $cart_item['data']->price); ?></p>
+                <p><?php echo wc_price($cart_item['total']); ?></p>
             </div>
         </div>
     </div>
@@ -105,6 +105,9 @@ $itemsCount = $order->get_item_count();
         ?>
         <p class="name" methodid="<?php echo $shipping_method_id; ?>"><?php echo $shipping_method_title; ?></p>
         <?php endforeach; ?>
+        <div class="deliveryAddress">
+            <?php echo $order->get_formatted_billing_address(); ?>
+        </div>
         <div class="wave">
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
