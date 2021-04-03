@@ -1643,6 +1643,10 @@ p {
   margin: 60px 0 30px;
 }
 
+.wishlistPage__products {
+  margin-bottom: 50px;
+}
+
 .wishlistPage__products form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3546,6 +3550,11 @@ body.single-product .woocommerce-breadcrumb {
   font-weight: 300;
   -webkit-transition: ease .3s;
   transition: ease .3s;
+}
+
+.productPage .productContent__summary .productActions .addwishlist a.tinvwl-product-make-remove:before {
+  background-image: url("/wp-content/themes/lolobaby/images/icons/wishlist_ico_red_full.svg");
+  background-size: 36px;
 }
 
 .productPage .productContent__summary .productActions .addwishlist a:hover {
@@ -8388,6 +8397,7 @@ body[thankyoupage="true"] .cartHeader {
 
 .productTile--wishlist .productTile__content {
   display: block;
+  padding: 20px 0;
 }
 
 .productTile__wrap {
@@ -8505,10 +8515,43 @@ body[thankyoupage="true"] .cartHeader {
 
 .productTile__wishlist {
   position: absolute;
-  left: 18px;
-  top: 15px;
+  left: 10px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
   -webkit-transition: ease .3s;
   transition: ease .3s;
+}
+
+.productTile__wishlist .tinvwl_add_to_wishlist_button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.productTile__wishlist .tinvwl_add_to_wishlist_button.tinvwl-product-make-remove:before {
+  background-image: url("/wp-content/themes/lolobaby/images/icons/wishlist_ico_red_full.svg");
+}
+
+.productTile__wishlist .tinvwl_add_to_wishlist_button:before {
+  content: '' !important;
+  background-image: url("/wp-content/themes/lolobaby/images/icons/wishlist_ico_red.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  margin: 0 auto !important;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.productTile__wishlist .tinvwl_add_to_wishlist_button span {
+  display: none !important;
+  font-size: 0;
 }
 
 .productTile__colors {
@@ -8639,6 +8682,12 @@ p {
   border-radius: 0;
   -webkit-transition: ease .3s;
   transition: ease .3s;
+}
+
+.btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none !important;
 }
 
 .btn span {

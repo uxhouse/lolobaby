@@ -294,6 +294,13 @@ body.single-product{
                         font-weight: 300;
                         transition: ease .3s;
 
+                        &.tinvwl-product-make-remove{
+                            &:before{
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/wishlist_ico_red_full.svg');
+                                background-size: 36px;
+                            }
+                        }
+
                         &:hover{
                             opacity: .7;
                         }

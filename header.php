@@ -52,7 +52,7 @@
 								<p>Szukaj</p>
 							</div>
 						</a>
-						<a href="<?php echo home_url('/wishlist'); ?>">
+						<a href="<?php echo home_url('/ulubione'); ?>">
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_white.svg' ?>"/>
 							<div class="actionsTooltip">
 								<p>Ulubione</p>

@@ -39,6 +39,6 @@ global $product;
         <input type="hidden" name="variation_id" class="variation_id" value="0" />
     </div>
     <div class="addwishlist">
-        <?php echo do_shortcode('[ti_wishlists_addtowishlist product_id="'. absint( $product->get_id() ) .'" variation_id="141"]'); ?>
+        <?php echo do_shortcode('[ti_wishlists_addtowishlist product_id="'. $product->get_id() .'"]'); ?>
     </div>
 </div>

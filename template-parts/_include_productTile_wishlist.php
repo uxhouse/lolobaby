@@ -23,9 +23,7 @@
         </a>
         <?php if(!is_front_page()): ?>
         <div class="productTile__wishlist">
-            <a href="#">
-                <img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_red_full.svg'; ?>"/>
-            </a>
+            <?php echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $thisProductID . '"]'); ?>
         </div>
         <?php endif; ?>
         <?php if(get_field('product_bestseller')): ?>

@@ -16,9 +16,10 @@
         </a>
         <?php if(!is_front_page()): ?>
         <div class="productTile__wishlist">
-            <a href="#">
+            <?php echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $thisProductID . '"]'); ?>
+            <!-- <a href="#">
                 <img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_red.svg'; ?>"/>
-            </a>
+            </a> -->
         </div>
         <?php endif; ?>
         <?php if(get_field('product_bestseller')): ?>
@@ -29,14 +30,18 @@
         <?php if(is_front_page()): ?>
         <a href="<?php the_permalink(); ?>" class="productTile__cover">
             <h3><?php the_title(); ?></h3>
-            <p class="price"><?php $price = get_post_meta( get_the_ID(), '_regular_price', true); echo woocommerce_price($price); ?></p>
+            <?php if ( $price_html = $product->get_price_html() ) : ?>
+                <p class="price"><?php echo $price_html; ?></p>
+            <?php endif; ?>
             <p href="<?php the_permalink(); ?>" class="btn"><span>Sprawdź</span></p>
         </a>
         <?php endif; ?>
         <?php if(!is_front_page()): ?>
             <a href="<?php the_permalink(); ?>" class="productTile__content">
                 <h3><?php the_title(); ?></h3>
-                <p class="price"><?php $price = get_post_meta( get_the_ID(), '_regular_price', true); echo woocommerce_price($price); ?></p>
+                <?php if ( $price_html = $product->get_price_html() ) : ?>
+                    <p class="price"><?php echo $price_html; ?></p>
+                <?php endif; ?>
                 <p href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></p>
             </a>
         <?php endif; ?>
