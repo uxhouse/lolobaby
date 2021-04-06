@@ -3631,6 +3631,8 @@ body.single-product .woocommerce-breadcrumb {
 
 .productPage .productContent__summary .woocommerce-variation-add-to-cart .button:hover {
   opacity: .8;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .productPage .productContent__summary .woocommerce-variation-add-to-cart .button:after {
