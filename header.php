@@ -19,8 +19,7 @@
 
 	<?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))){echo 'thankyoupage="true"';}; ?>>
+<body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))){echo 'thankyoupage="true"';}; ?> freeshipping="<?php echo $freeshippingamount; ?>">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'lolobaby' ); ?></a>
@@ -83,6 +82,9 @@
 			</svg>
 			<?php endif; ?>
 		</header><!-- #masthead -->
+		<?php if(!is_front_page() && !is_singular('post') && !is_cart() && !is_checkout()): ?>
+			<div class="headerClone"></div>
+		<?php endif; ?>
 		<div id="searchModal" class="searchModal">
 			<form role="search" method="get" id="searchform"
 			class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -109,7 +111,7 @@
 			<div class="mobileMenu__position">
 				<div class="header">
 					<p class="name">Produkty</p>
-					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
+					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/mobile_menu_arrow.svg'; ?>"/>
 				</div>
 				<ul>
 				<?php
@@ -135,7 +137,7 @@
 			<div class="mobileMenu__position">
 				<div class="header">
 					<div class="name">Kolekcje</div>
-					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/arrow_right_white.svg'; ?>"/>
+					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/mobile_menu_arrow.svg'; ?>"/>
 				</div>
 				<ul>
 					<?php

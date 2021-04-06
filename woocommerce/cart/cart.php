@@ -218,15 +218,17 @@ if($brand_terms): ?>
                     $shipping_methods = $shipping_zone->get_shipping_methods( true, 'values' );
                 ?>
                     <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): ?>
+                        <?php if($shipping_method->instance_id !== 10): ?>
                         <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['cost']; ?>">
                             <div class="name">
-                                <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
+                                <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
                                 <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
                             </div>
                             <div class="amount">
                                 <?php echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>'; ?>
                             </div>
                         </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
             </div>
@@ -244,7 +246,7 @@ if($brand_terms): ?>
         ?>
         </div>
     </div>
-    <div class="loloCart__afterCart container">
+    <div class="loloCart__afterCart container <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'shippingSelected' : 'notSelected'; ?>">
         <a href="<?php echo home_url(); ?>" class="continue">Kontynuuj zakupy</a>
         <a href="<?php echo home_url('/zamowienie'); ?>" class="tocheckout btn"><span>Przejdź dalej</span></a>
         <?php // do_action( 'woocommerce_proceed_to_checkout' ); ?>

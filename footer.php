@@ -63,6 +63,9 @@
 			</div>
 		</div>
 	</footer>
+	<div id="sizeModal" class="sizeModal">
+		<div class="sizeModal__wrap"></div>
+	</div>
 </div>
 
 <?php wp_footer(); ?>

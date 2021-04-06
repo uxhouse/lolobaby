@@ -94,6 +94,18 @@
     &__answer {
         transition: height .3s;
         overflow: hidden;
+
+        p{
+            a{
+                color: $red-color;
+                transition: ease .3s;
+                cursor: pointer;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
     }
 
     &__arrow {

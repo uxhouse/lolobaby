@@ -296,6 +296,8 @@ function create_account(){
 				$user = new WP_User($user_id);
 				$user->set_role('customer');
 
+				wp_set_current_user($user_id);
+				wp_set_auth_cookie($user_id);
 				wp_redirect(home_url('/zamowienie'));
 				exit;
 			}
@@ -310,7 +312,9 @@ function create_account(){
 				$user = new WP_User($user_id);
 				$user->set_role('customer');
 
-				wp_redirect(home_url('/moje-konto?registerstatus=success'));
+				wp_set_current_user($user_id);
+				wp_set_auth_cookie($user_id);
+				wp_redirect(home_url('/moje-konto'));
 				exit;
 			}
 		}else{
@@ -347,6 +351,7 @@ function user_edit_account_person(){
 	if (!empty($username) && !empty($email) && !empty($phone)) {
 		update_user_meta( $user_id, 'billing_username', $username );
 		update_user_meta( $user_id, 'billing_email', $email );
+		update_user_meta( $user_id, 'email', $email );
 		update_user_meta( $user_id, 'billing_phone', $phone );
 		wc_add_notice( 'Dane zostały pomyślnie zmienione', 'success' );
 	}
@@ -383,3 +388,23 @@ function user_change_pass(){
 
 /* remove add to cart message */
 add_filter( 'wc_add_to_cart_message_html', '__return_false' );
+
+
+/* Global free shipping amount */
+function freeshipping_amount() {
+	global $freeshippingamount;
+	$freeshippingamount = 299;
+}
+add_action( 'after_setup_theme', 'freeshipping_amount' );
+
+
+/* Orphans */
+function acf_orphans($value, $post_id, $field) {
+	if ( class_exists( 'iworks_orphan' ) ) {
+	  $orphan = new \iworks_orphan();
+	  $value = $orphan->replace( $value );
+	}
+	return $value;
+  }
+  add_filter('acf/format_value/type=textarea', 'acf_orphans', 10, 3);
+  add_filter('acf/format_value/type=wysiwyg', 'acf_orphans', 10, 3);

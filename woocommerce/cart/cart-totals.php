@@ -16,11 +16,30 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
 ?>
 <div class="cartTotals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
+    <div class="cartTotals__deliverySelect" style="display: none !important">
+        <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+        <?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
+
+        <?php wc_cart_totals_shipping_html(); ?>
+
+        <?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
+
+        <?php elseif ( WC()->cart->needs_shipping() && 'yes' === get_option( 'woocommerce_enable_shipping_calc' ) ) : ?>
+
+        <tr class="shipping">
+            <th><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></th>
+            <td data-title="<?php esc_attr_e( 'Shipping', 'woocommerce' ); ?>"><?php woocommerce_shipping_calculator(); ?></td>
+        </tr>
+
+        <?php endif; ?>
+    </div>
     <div class="cartTotals__sum">
         <div class="cartTotals__title">
             <p>Suma:</p>
@@ -57,11 +76,11 @@ defined( 'ABSPATH' ) || exit;
     </div>
     <div class="cartTotals__free">
         <?php
-            $min_amount = 200;
+            global $freeshippingamount;
             $cart = WC()->cart->subtotal;
-            $remaining = $min_amount - $cart;
+            $remaining = $freeshippingamount - $cart;
  
-            if( $min_amount > $cart ): ?>
+            if( $freeshippingamount > $cart ): ?>
                 <p>Do darmowej przesyłki brakuje Ci jeszcze <span><?php echo wc_price($remaining); ?></span></p>
             <?php endif; ?>
     </div>

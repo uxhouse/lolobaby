@@ -351,49 +351,6 @@ body[thankyoupage="true"]{
                     }
                 }
 
-                &[methodid="id_1"],
-                &[methodid="id_2"],
-                &[methodid="id_7"],
-                &[methodid="id_6"]{
-                    .name{
-                        label{
-                            &:after{
-                                content: '';
-                                background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
-                                background-repeat: no-repeat;
-                                background-size: 100% 20px;
-                                width: 60px;
-                                height: 20px;
-                                position: absolute;
-                                right: -60px;
-                                top: 0;
-                                display: block;
-                            }
-                        }
-                    }
-                }
-                
-                &[methodid="id_5"],
-                &[methodid="id_4"],
-                &[methodid="id_3"]{
-                    .name{
-                        label{
-                            &:after{
-                                content: '';
-                                background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
-                                background-repeat: no-repeat;
-                                background-size: 100% 20px;
-                                width: 60px;
-                                height: 20px;
-                                position: absolute;
-                                right: -60px;
-                                top: 0;
-                                display: block;
-                            }
-                        }
-                    }
-                }
-
                 .name{
                     padding-left: 25px;
 
@@ -459,6 +416,9 @@ body[thankyoupage="true"]{
         width: 50%;
 
         .cartTotals{
+            &__deliverySelect{
+                opacity: .2;
+            }
             &__title{
                 p{
                     font-size: 20px;
@@ -568,6 +528,35 @@ body[thankyoupage="true"]{
         align-items: center;
         justify-content: space-between;
         margin: 50px auto;
+
+        &.notSelected{
+            position: relative;
+
+            &:after{
+                content: 'Wybierz sposób dostawy aby przejść dalej';
+                height: auto;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: #ec422b;
+                position: absolute;
+                bottom: -40px;
+                right: 14px;
+                font-size: 14px;
+                color: #fff;
+                opacity: 0;
+                transition: ease .5s;
+            }
+
+            .tocheckout{
+                cursor: not-allowed;
+                filter: grayscale(1);
+            }
+        }
+        &.showError{
+            &:after{
+                opacity: 1;
+            }
+        }
 
         .continue{
             font-size: 16px;

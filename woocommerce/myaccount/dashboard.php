@@ -149,16 +149,18 @@ if($currentuserName){
         </div>
     </div>
     <section class="userData container">
-        <?php $username = get_user_meta( $customer_user_id, 'billing_username', true ); ?>
-        <?php $nickname = get_user_meta( $customer_user_id, 'nickname', true ); ?>
-        <?php $email = get_user_meta( $customer_user_id, 'billing_email', true ); ?>
-        <?php $phone = get_user_meta( $customer_user_id, 'billing_phone', true ); ?>
-        <?php $address = get_user_meta( $customer_user_id, 'billing_address_1', true ); ?>
-        <?php $postcode = get_user_meta( $customer_user_id, 'billing_postcode', true ); ?>
-        <?php $city = get_user_meta( $customer_user_id, 'billing_city', true ); ?>
-        <?php $company = get_user_meta( $customer_user_id, 'billing_company', true ); ?>
-        <?php $nip = get_user_meta( $customer_user_id, 'billing_company_nip', true ); ?>
-
+        <?php 
+            $userData = wp_get_current_user($customer_user_id);
+            $username = get_user_meta( $customer_user_id, 'billing_username', true );
+            $nickname = get_user_meta( $customer_user_id, 'nickname', true );
+            $email = get_user_meta( $customer_user_id, 'email', true );
+            $phone = get_user_meta( $customer_user_id, 'billing_phone', true );
+            $address = get_user_meta( $customer_user_id, 'billing_address_1', true );
+            $postcode = get_user_meta( $customer_user_id, 'billing_postcode', true );
+            $city = get_user_meta( $customer_user_id, 'billing_city', true );
+            $company = get_user_meta( $customer_user_id, 'billing_company', true );
+            $nip = get_user_meta( $customer_user_id, 'billing_company_nip', true );
+        ?>
         <div class="userData__data" type="">
             <h2 class="accountPage__title">Dane osobowe</h2>
             <div class="wave">
@@ -167,7 +169,7 @@ if($currentuserName){
             <div class="content">
                 <div class="wrap">
                     <p>Imię i nazwisko: <?php if($username){echo $username;}else{echo $nickname;}; ?></p>
-                    <p>E-mail: <?php echo $email; ?></p>
+                    <p>E-mail: <?php if ($email){echo $email;}else{echo $userData->user_email;}; ?></p>
                     <p>Telefon: <?php echo $phone; ?></p>
                 </div>
                 <p class="btn btn--noarrow openForm"><span>Edytuj</span></p>
