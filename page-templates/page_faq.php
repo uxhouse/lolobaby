@@ -12,7 +12,7 @@ get_header(); ?>
                 <span>Pytania i odpowiedzi</span>
             </h2>
             <div class="faqDescription">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus magna, sodales nec dui cursus, dictum pretium odio.</p>
+                <p>Poniżej przedstawiamy odpowiedzi na najczęściej zadawane pytania. Jeśli wciąż masz wątpliwości napisz do nas na: <a href="mailto:kontakt@lolobaby.pl">kontakt@lolobaby.pl</a></p>
                 <img class="drawing drawing--faq" src="<?php echo get_template_directory_uri() . '/images/question-marks.svg' ?>" alt="" />
             </div> 
         </div>

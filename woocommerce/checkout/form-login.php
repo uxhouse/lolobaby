@@ -43,7 +43,7 @@ woocommerce_login_form(
 			<input type="password" name="registerUserpassword" placeholder="Ustal hasło"/>	
 		</div>
 		<div class="checkoutRegister__checkbox top">
-			<input type="checkbox" class="engineCheckbox" name="register-consent"/>
+			<input type="checkbox" class="engineCheckbox" name="registerConsent"/>
 			<label for="register-consent">Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.</label>
 		</div>
 		<div class="checkoutRegister__checkbox bottom">

@@ -22,6 +22,10 @@ body[thankyoupage="true"]{
         opacity: 1;
     }
 
+    .woocommerce-notices-wrapper{
+        display: none !important;
+    }
+
     &__title{
         font-size: 30px;
         line-height: 41px;
@@ -35,6 +39,29 @@ body[thankyoupage="true"]{
     .notices{
         max-width: 440px;
         margin: 0 auto;
+
+        .woocommerce-error{
+            margin: 0;
+            padding: 0;
+            list-style: none;  
+            background-color: unset;
+
+            li{
+                background-color: #e2401c;
+                background: #e2401c;
+                padding: 5px 10px;
+                font-size: 14px;
+                line-height: 19px;
+                margin-bottom: 10px;
+                border-radius: 4px;
+                color: #fff;
+
+                a{
+                    color: #fff;
+                    text-decoration: underline !important;
+                }
+            }
+        }
 
         p{
             padding: 5px 10px;

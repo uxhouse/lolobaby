@@ -2,7 +2,7 @@
 
 body.admin-bar{
     .siteHeader{
-        top: 0 !important;
+        top: 32px;
     }
 }
 .siteHeader{
@@ -10,14 +10,16 @@ body.admin-bar{
     height: 107px;
     background-color: $blue-light-color;
     z-index: 100;
-    margin-bottom: 70px;
-    position: relative;
+    position: fixed;
+    top: 0;
 
     &--frontPage{
         height: 100px;
-        position: absolute;
-        top: 0;
-        background-color: transparent;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,0.7) -20%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,0.7) -20%, rgba(255,255,255,0) 100%);
+        background: linear-gradient(180deg, rgba(0,0,0,0.7) -20%, rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#ffffff",GradientType=1);
 
         .siteHeader__logo{
             .wrap{
@@ -179,6 +181,12 @@ body.admin-bar{
         z-index: 2;
     }
 }
+.headerClone{
+    width: 100%;
+    position: relative;
+    height: 107px;
+    margin-bottom: 70px;
+}
 @media (max-width: 991px){
     .siteHeader{
         height: 77px;
@@ -211,10 +219,10 @@ body.admin-bar{
         }
         &__actions{
             a{
-                margin-left: 15px;
+                margin-left: 18px;
 
                 img{
-                    max-width: 15px;
+                    max-width: 18px;
                 }
             }
         }
@@ -257,7 +265,7 @@ body.admin-bar{
             width: calc(100% - 60px);
 
             .wrap{
-                padding-right: 20px;
+                padding-right: 10px;
             }
 
             .menu-toggle{
@@ -299,7 +307,7 @@ body.admin-bar{
     align-items: flex-end;
     width: 100%;
     height: 230px;
-    position: absolute;
+    position: fixed;
     top: -100%;
     left: 0;
     z-index: 99;
@@ -467,7 +475,7 @@ body.admin-bar{
             .header{
                 img{
                     &.rotate{
-                        transform: rotate(270deg) !important;
+                        transform: rotate(180deg) !important;
                     }
                 }
             }
@@ -488,11 +496,11 @@ body.admin-bar{
                 text-transform: uppercase;
             }
             img{
-                max-width: 22px;
+                max-width: 20px;
                 transition: ease .3s;
 
                 &.rotate{
-                    transform: rotate(90deg);
+                    filter: brightness(15);
                 }
             }
         }

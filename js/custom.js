@@ -300,6 +300,13 @@ $(document).ready(function(){
         $('.mobileMenu').removeClass('mobileMenu--active');
     });
 
+    /* ---- Login form errors ---- */
+    $(document).ready(function(){
+        if ($('.woocommerce-form-login ul.woocommerce-error').length) {
+            $('ul.woocommerce-error').insertAfter('form.woocommerce-form-login .notices .wc-notices')//where you want to place it
+        };
+    });
+
     /* ---- Cart actions ---- */
 
     $(document).ready(function(){
@@ -353,11 +360,31 @@ $(document).ready(function(){
             $("[name='apply_coupon']").trigger('click');
         });
 
+        /* Cart continue error */
+        $(document).ready(function(){
+            var wrap = $('.loloCart__afterCart');
+            var continuebtn = $('.notSelected').find('.tocheckout');
+
+            $(continuebtn).on('mouseenter', function(){
+                wrap.addClass('showError');
+            });
+            $(continuebtn).on('mouseleave', function(){
+                setTimeout(function(){
+                    wrap.removeClass('showError');
+                }, 1000);
+            });
+
+            if(wrap.hasClass('notSelected')){
+                continuebtn.removeAttr('href');
+            }
+        });
+
         /* Delivery select */
 
         var deliverySelector = $('input[name="delivery_option"]');
         var deliveryAmount = $('.cartTotals__value[valuename="deliverycost"]');
-        var totalValue = $('.cartTotals__total').find('span.amount').find('bdi');
+        var totalValue = $('.cartTotals__sum').find('span.amount').find('bdi');
+        var carTotalValue = $('.cartTotals__total').find('span.amount').find('bdi');
         var currency = $('body').attr('currency');
         if($('body').hasClass('woocommerce-cart')){
             var currentTotal = totalValue[0].childNodes[0]['data'].replace(',', '.');
@@ -365,31 +392,40 @@ $(document).ready(function(){
 
         var selectedShipment = $('.loloCart').attr('selectedshipment');
         if(typeof selectedShipment !== typeof undefined && selectedShipment !== false){
-            $('.deliveryList').css('opacity', '.5');
-            $('.deliveryList').css('pointer-events', 'none');
             $('.deliveryList__option[methodid="' + selectedShipment + '"]').addClass('deliveryList__option--checked');
             var selectedOptionAmount = $('.deliveryList__option').attr('methodamount');
             deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
-        }else{
-            $(deliverySelector).on('click', function(){
-                var selectedAmount = $(this).parent().parent().attr('methodamount');
-                
-                $('.deliveryList__option').removeClass('deliveryList__option--checked');
-                var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
-                var totalAmount = updateTotal;
-                
-                if($(this).is(":checked")){
-                    $(this).parent().parent().addClass('deliveryList__option--checked');
-                }
-                else if($(this).is(":not(:checked)")){
-                    $(this).parent().parent().removeClass('deliveryList__option--checked');
-                }
-    
-                var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
-                deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
-                totalValue.html(totalAmountFormated + ' ' + currency);
-            });
+
+            var formaction = $('.woocommerce-cart-form').attr('action');
+            var buttonhref = formaction.replace('koszyk', 'zamowienie');
+            $('.loloCart__afterCart').removeClass('notSelected');
+            $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
         }
+        $(deliverySelector).on('click', function(){
+            var formaction = $('.woocommerce-cart-form').attr('action');
+            var buttonhref = formaction.replace('koszyk', 'zamowienie');
+            $('.loloCart__afterCart').removeClass('notSelected');
+            $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
+
+            var methodID = $(this).attr('methodid');
+            $('#shipping_method').find('li[methodid="' + methodID + '"]').find('input').trigger('click');
+
+            var selectedAmount = $(this).parent().parent().attr('methodamount');
+            $('.deliveryList__option').removeClass('deliveryList__option--checked');
+            var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
+            var totalAmount = updateTotal;
+            
+            if($(this).is(":checked")){
+                $(this).parent().parent().addClass('deliveryList__option--checked');
+            }
+            else if($(this).is(":not(:checked)")){
+                $(this).parent().parent().removeClass('deliveryList__option--checked');
+            }
+
+            var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
+            deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
+            carTotalValue.html(totalAmountFormated + ' ' + currency);
+        });
 
         /* Product page - variation update price */
 
@@ -559,6 +595,22 @@ $(document).ready(function(){
         });
     });
 
+    $('.checkoutForm').on('DOMNodeInserted', function(e) {
+        setTimeout(function(){
+            if($('#billing_phone_field').hasClass('woocommerce-invalid')){
+                $('.checkoutForm__billing').find('input[name="billing_phone"]').removeClass('inputSuccess').addClass('inputError');
+            }
+            if($('#billing_email_field').hasClass('woocommerce-invalid')){
+                $('.checkoutForm__billing').find('input[name="billing_email"]').removeClass('inputSuccess').addClass('inputError');
+            }
+        }, 500);
+    });
+    $(document.body).on('checkout_error', function(){
+        setTimeout(function(){
+            console.log('phone-error');
+        }, 1000);
+    });
+
     ///////////// Validate /////////////
     $(function() {
         // Initialize form validation on the registration form.
@@ -574,7 +626,10 @@ $(document).ready(function(){
                 registerUserpassword: {
                     required: true,
                     minlength: 8
-                }
+                },
+                registerConsent: {
+                    required: true,
+                },
             },
             messages: {
                 registerUsername: "Wprowadź imię i nazwisko",
@@ -582,7 +637,8 @@ $(document).ready(function(){
                     required: "Wprowadź hasło",
                     minlength: "Twoje hasło musi posiadać przynajmniej 8 znaków"
                 },
-                registerUseremail: "Wprowadź prawidłowy adres e-mail"
+                registerUseremail: "Wprowadź prawidłowy adres e-mail",
+                registerConsent: "Potwierdź zapoznanie z regulaminem sklepu",
             },
             
             submitHandler: function(form) {
@@ -641,7 +697,8 @@ $(document).ready(function(){
     $(document).ready(function(){
         var shipmentoption = $('#shipping_method').find('li');
         $(shipmentoption).on('click', function(){
-            var name = $(this).find('label')[0].childNodes[0].nodeValue;
+            var getname = $(this).find('label')[0].childNodes[0].nodeValue;
+            var name = getname.replace(':', '');
             var methodid = $(this).attr('methodid');
 
             $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
@@ -650,7 +707,9 @@ $(document).ready(function(){
 
             if(methodid == 8){
                 $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
-            }else if(methodid == 9){
+                $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
+            }
+            if(methodid == 9){
                 $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
                 $('.btn.selectPoint').addClass('visible');
             }

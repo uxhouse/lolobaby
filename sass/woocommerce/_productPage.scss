@@ -507,7 +507,7 @@ body.single-product{
             }
             .content_tab{
                 max-width: 220px;
-                margin: 0 auto 20px;
+                margin: 0 auto 15px;
                 text-align: center;
                 
                 h4{
@@ -516,13 +516,14 @@ body.single-product{
                     font-weight: 800;
                     text-transform: uppercase;
                     color: $primary-text-color;
-                    margin: 0 0 15px;
+                    margin: 0 0 5px;
                 }
                 p{
                     font-size: 14px;
                     line-height: 19px;
                     font-weight: 300;
                     color: $primary-text-color;
+                    margin: 0;
                 }
             }
         }

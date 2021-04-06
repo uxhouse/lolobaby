@@ -38,6 +38,10 @@ $currentUserID = get_current_user_id();
     <?php if ( $checkout->get_checkout_fields() ) : ?>
         <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
         <div class="checkoutForm__userdata" id="customer_details">
+            <div class="checkoutForm__shipping">
+                <h2>Dane adresowe:</h2>
+                <?php do_action( 'woocommerce_checkout_billing' ); ?>
+            </div>
             <div class="checkoutForm__billing">
                 <h2>Uzupełnij dane:</h2>
                 <div class="form">
@@ -56,10 +60,6 @@ $currentUserID = get_current_user_id();
                     <input type="text" name="billing_phone" placeholder="Numer telefonu" value="<?php echo get_user_meta( $currentUserID, 'billing_phone', true ); ?>"/>
                     <input type="text" name="billing_email" placeholder="Adres e-mail" value="<?php echo $currentUser->user_email; ?>"/>
                 </div>
-            </div>
-            <div class="checkoutForm__shipping">
-                <h2>Dane adresowe:</h2>
-                <?php do_action( 'woocommerce_checkout_billing' ); ?>
             </div>
         </div>
         <?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>

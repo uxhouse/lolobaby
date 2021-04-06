@@ -37,6 +37,7 @@
 @import 'parts/knowledgeZone';
 @import 'parts/postTile';
 @import 'parts/productTile';
+@import 'parts/sizeModal';
 
 /*  Global
 --------------- */
@@ -57,6 +58,18 @@
 body{
     &.noscroll{
         overflow-y: hidden;
+    }
+
+    p{
+        a{
+            color: $red-color;
+            cursor: pointer;
+            transition: ease .3s;
+
+            &:hover{
+                opacity: .7;
+            }
+        }
     }
 }
 
@@ -106,6 +119,7 @@ p {
     &:focus{
         box-shadow: none;
         outline: none !important;
+        transform: scale(.95);
     }
 
     span{
@@ -134,6 +148,7 @@ p {
     }
     &:hover{
         background-color: #f35a45;
+        transform: scale(.95);
 
         span{
             &:after{

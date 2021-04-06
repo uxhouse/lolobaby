@@ -138,7 +138,7 @@ $itemsCount = $order->get_item_count();
         <p>Gwarantujemy całkowite bezpieczeństwo Twoich danych. Wszystkie poufne informacje są wysyłane w zaszyfrowanej postaci, co zapewnia ich pełną ochronę. Więcej szczegółów znajdziesz w <a href="/polityka-prywatnosci">Polityce prywatności</a></p>
     </div>
     <div class="summaryPage__nextstep">
-        <p class="previousStep" style="opacity: 0; pointer-events: none;"><span>Powrót</span></p>
+        <a href="/moje-konto" class="previousStep"><span>Powrót</span></a>
         <p class="btn nextStep"><span>Złóż zamówienie</span></p>
     </div>
 </div>

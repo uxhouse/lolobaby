@@ -18,15 +18,17 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-do_action( 'woocommerce_before_customer_login_form' ); ?>
+?>
 
 
 
 <form class="woocommerce-form woocommerce-form-login login checkoutLogin checkoutLogin--ready checkoutLogin--visible" method="post">
+	<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
     <h2 class="checkoutLogin__title"><?php esc_html_e( 'Login', 'woocommerce' ); ?></h2>
     <?php do_action( 'woocommerce_login_form_start' ); ?>
-	<div class="notices"></div>
+	<div class="notices">
+		<div class="wc-notices"></div>
+	</div>
     <div class="checkoutLogin__input">
         <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="Wpisz adres e-mail" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
     </div>
@@ -63,7 +65,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 			<input type="password" name="registerUserpassword" placeholder="Ustal hasło"/>	
 		</div>
 		<div class="checkoutRegister__checkbox top">
-			<input type="checkbox" class="engineCheckbox" name="register-consent" required/>
+			<input type="checkbox" class="engineCheckbox" name="registerConsent"/>
 			<label for="register-consent">Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.</label>
 		</div>
 		<div class="checkoutRegister__checkbox bottom">
