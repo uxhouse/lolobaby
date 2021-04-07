@@ -432,6 +432,8 @@ $(document).ready(function(){
                 var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
                 deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
                 carTotalValue.html(totalAmountFormated + ' ' + currency);
+            }else{
+                deliveryAmount.find('p').text('ZA DARMO');
             }
         });
 
