@@ -59,6 +59,8 @@ $(document).ready(function(){
 
         if($('body').hasClass(termName)){
             $(this).addClass('categoryWrapper__cat--current');
+
+            $('.categoryWrapper__cat:not(.categoryWrapper__cat--current)').find('.thumb__icon').css('opacity', '0');
         }
     });
 
@@ -394,7 +396,11 @@ $(document).ready(function(){
         if(typeof selectedShipment !== typeof undefined && selectedShipment !== false){
             $('.deliveryList__option[methodid="' + selectedShipment + '"]').addClass('deliveryList__option--checked');
             var selectedOptionAmount = $('.deliveryList__option').attr('methodamount');
-            deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
+            if(deliveryAmount.hasClass('freeshipping')){
+                deliveryAmount.find('p').text('ZA DARMO')
+            }else{
+                deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
+            }
 
             var formaction = $('.woocommerce-cart-form').attr('action');
             var buttonhref = formaction.replace('koszyk', 'zamowienie');
@@ -422,9 +428,11 @@ $(document).ready(function(){
                 $(this).parent().parent().removeClass('deliveryList__option--checked');
             }
 
-            var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
-            deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
-            carTotalValue.html(totalAmountFormated + ' ' + currency);
+            if(!deliveryAmount.hasClass('freeshipping')){
+                var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
+                deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
+                carTotalValue.html(totalAmountFormated + ' ' + currency);
+            }
         });
 
         /* Product page - variation update price */

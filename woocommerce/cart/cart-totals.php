@@ -66,20 +66,21 @@ defined( 'ABSPATH' ) || exit;
 		<?php endforeach; ?>
         </div>
     </div>
+    <?php
+        global $freeshippingamount;
+        $cart = WC()->cart->subtotal;
+        $remaining = $freeshippingamount - $cart;
+    ?>
     <div class="cartTotals__delivery">
         <div class="cartTotals__title">
             <p>Koszt przesyłki:</p>
         </div>
-        <div class="cartTotals__value" valuename="deliverycost">
+        <div class="cartTotals__value<?php if( $freeshippingamount < $cart ){echo ' freeshipping';} ?>" valuename="deliverycost">
             <p>Nie wybrano</p>
         </div>
     </div>
     <div class="cartTotals__free">
-        <?php
-            global $freeshippingamount;
-            $cart = WC()->cart->subtotal;
-            $remaining = $freeshippingamount - $cart;
- 
+        <?php 
             if( $freeshippingamount > $cart ): ?>
                 <p>Do darmowej przesyłki brakuje Ci jeszcze <span><?php echo wc_price($remaining); ?></span></p>
             <?php endif; ?>

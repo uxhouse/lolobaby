@@ -225,7 +225,17 @@ if($brand_terms): ?>
                                 <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
                             </div>
                             <div class="amount">
-                                <?php echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>'; ?>
+                                <?php
+                                    global $freeshippingamount;
+                                    $cart = WC()->cart->subtotal;
+                                    $remaining = $freeshippingamount - $cart;
+                         
+                                    if( $freeshippingamount > $cart ){
+                                        echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>';
+                                    }else{
+                                        echo '<span>Za darmo</span>';
+                                    }
+                                ?>
                             </div>
                         </div>
                         <?php endif; ?>

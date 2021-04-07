@@ -89,7 +89,7 @@
 			<form role="search" method="get" id="searchform"
 			class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<img src="<?php echo get_template_directory_uri() . '/images/icons/search_bar_ico.svg'; ?>"/>
-				<input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Szukaj: np. sukienka beżowa..." />
+				<input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Szukaj: np. body niebieskie..." />
 				<input type="submit" id="searchsubmit" value="Znajdź" class="notallowed" disabled/>
 			</form>
 			<svg xmlns="http://www.w3.org/2000/svg" width="5469" height="34" viewBox="0 0 5469 34" fill="none">
