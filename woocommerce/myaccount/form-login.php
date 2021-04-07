@@ -66,11 +66,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="checkoutRegister__checkbox top">
 			<input type="checkbox" class="engineCheckbox" name="registerConsent"/>
-			<label for="register-consent">Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.</label>
+			<label for="registerConsent">Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.</label>
 		</div>
 		<div class="checkoutRegister__checkbox bottom">
-			<input type="checkbox" class="engineCheckbox" name="register-newsletter"/>
-			<label for="register-newsletter">Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)</label>
+			<input type="checkbox" class="engineCheckbox" name="mc4wp-subscribe" value="1" />
+			<label for="mc4wp-subscribe">Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)</label>
 		</div>
 		<div class="checkoutRegister__input">
 			<button type="submit" class="btn btn--button" value="Zarejestruj się">Zarejestruj się</button>

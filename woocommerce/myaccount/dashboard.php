@@ -160,6 +160,7 @@ if($currentuserName){
             $city = get_user_meta( $customer_user_id, 'billing_city', true );
             $company = get_user_meta( $customer_user_id, 'billing_company', true );
             $nip = get_user_meta( $customer_user_id, 'billing_company_nip', true );
+            $newsletter = get_user_meta( $customer_user_id, 'newsletterSubscribe', true );
         ?>
         <div class="userData__data" type="">
             <h2 class="accountPage__title">Dane osobowe</h2>
@@ -248,9 +249,27 @@ if($currentuserName){
             </div>
             <div class="content">
                 <div class="wrap">
-                    <p>Status subskrypcji: włączona</p>
-                </div>  
-                <p class="btn btn--noarrow"><span>Wypisz się</span></p>
+                    <p>Status subskrypcji: 
+                        <?php if($newsletter){
+                            echo 'włączona';
+                        }else{
+                            echo 'wyłączona';
+                        }
+                        ?>
+                    </p>
+                </div>
+                <form id="newsletter" method="POST">
+                    <input style="display: none !important" type="email" name="newsletterEmail" value="<?php if ($email){echo $email;}else{echo $userData->user_email;}; ?>"/>
+                    <?php if($newsletter): ?>
+                        <input style="display: none !important" type="checkbox" name="_mc4wp_action" value="unsubscribe" checked/>
+                        <input style="display: none !important" type="checkbox" name="newsletterSignout" value="1" checked/>
+                        <button type="submit" class="btn btn-button btn--noarrow"><span>Wypisz się</span></button>
+                    <?php else: ?>
+                        <input style="display: none !important" type="checkbox" name="mc4wp-subscribe" value="1" checked/>
+                        <input style="display: none !important" type="checkbox" name="newsletterSignin" value="1" checked/>
+                        <button type="submit" class="btn btn--button btn--noarrow"><span>Zapisz się</span></button>
+                    <?php endif; ?>
+                </form>
             </div>
         </div>
         <div class="userData__data" type="logout">

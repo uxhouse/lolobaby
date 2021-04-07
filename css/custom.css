@@ -7993,18 +7993,18 @@ body[thankyoupage="true"] .cartHeader {
   cursor: pointer;
 }
 
-.newsletter__checkbox .wpcf7-form-control-wrap {
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7 {
   display: block;
   max-width: 400px;
   margin-left: auto;
   position: relative;
 }
 
-.newsletter__checkbox .wpcf7-form-control-wrap.checked:after {
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7.checked:after {
   opacity: 1;
 }
 
-.newsletter__checkbox .wpcf7-form-control-wrap:before {
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7:before {
   content: '';
   width: 15px;
   height: 15px;
@@ -8017,7 +8017,7 @@ body[thankyoupage="true"] .cartHeader {
   z-index: 2;
 }
 
-.newsletter__checkbox .wpcf7-form-control-wrap:after {
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7:after {
   content: '';
   background-image: url("/wp-content/themes/lolobaby/images/icons/newsletter_checkbox_check.svg");
   background-repeat: no-repeat;
@@ -8032,6 +8032,38 @@ body[thankyoupage="true"] .cartHeader {
   cursor: pointer;
   -webkit-transition: ease .3s;
   transition: ease .3s;
+}
+
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7 label {
+  margin: 0;
+}
+
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7 label input {
+  position: absolute;
+  left: -45px;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7 label span {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+}
+
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7 label span a {
+  color: #fff;
+  text-decoration: underline;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.newsletter__checkbox .mc4wp-checkbox-contact-form-7 label span a:hover {
+  opacity: .7;
 }
 
 .newsletter__checkbox .wpcf7-list-item {

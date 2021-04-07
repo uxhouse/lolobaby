@@ -81,12 +81,12 @@ $(document).ready(function(){
         }
     });
 
-    $('input[name="acceptance-21"]').on('click', function(){
+    $('input[name="_mc4wp_subscribe_contact-form-7"]').on('click', function(){
         if($(this).is(":checked")){
-            $(this).parent().parent().parent().parent().addClass('checked');
+            $(this).parent().parent().addClass('checked');
         }
         else if($(this).is(":not(:checked)")){
-            $(this).parent().parent().parent().parent().removeClass('checked');
+            $(this).parent().parent().removeClass('checked');
         }
     });
 

@@ -162,7 +162,7 @@
         margin: 30px 0 20px;
         cursor: pointer;
 
-        .wpcf7-form-control-wrap{
+        .mc4wp-checkbox-contact-form-7{
             display: block;
             max-width: 400px;
             margin-left: auto;
@@ -200,6 +200,36 @@
                 opacity: 0;
                 cursor: pointer;
                 transition: ease .3s;
+            }
+
+            label{
+                margin: 0;
+
+                input{
+                    position: absolute;
+                    left: -45px;
+                    width: 40px;
+                    height: 40px;
+                    opacity: 0;
+                    cursor: pointer;
+                    z-index: 4;
+                }
+                span{
+                    display: block;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: #fff;
+
+                    a{
+                        color: #fff;
+                        text-decoration: underline;
+                        transition: ease .3s;
+
+                        &:hover{
+                            opacity: .7;
+                        }
+                    }
+                }
             }
         }
         .wpcf7-list-item{

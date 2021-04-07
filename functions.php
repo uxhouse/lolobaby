@@ -288,6 +288,7 @@ function create_account(){
     $user = ( isset($_POST['registerUsername']) ? $_POST['registerUsername'] : '' );
     $pass = ( isset($_POST['registerUserpassword']) ? $_POST['registerUserpassword'] : '' );
     $email = ( isset($_POST['registerUseremail']) ? $_POST['registerUseremail'] : '' );
+    $newsletter = ( isset($_POST['mc4wp-subscribe']) ? $_POST['mc4wp-subscribe'] : '' );
 
 	if($formID == 21){
 		if (!email_exists($email)){
@@ -295,6 +296,10 @@ function create_account(){
 			if(!is_wp_error($user_id)){
 				$user = new WP_User($user_id);
 				$user->set_role('customer');
+
+				if($newsletter){
+					update_user_meta($user_id, 'newsletterSubscribe', $newsletter);
+				}
 
 				wp_set_current_user($user_id);
 				wp_set_auth_cookie($user_id);
@@ -311,6 +316,10 @@ function create_account(){
 			if(!is_wp_error($user_id)){
 				$user = new WP_User($user_id);
 				$user->set_role('customer');
+
+				if($newsletter){
+					update_user_meta($user_id, 'newsletterSubscribe', $newsletter);
+				}
 
 				wp_set_current_user($user_id);
 				wp_set_auth_cookie($user_id);
@@ -338,6 +347,46 @@ function filter_woocommerce_process_login_errors($validation_error, $post_userna
 // add the filter 
 add_filter('woocommerce_process_login_errors', 'filter_woocommerce_process_login_errors', 10, 3);
 
+/* User extra newsletter field */
+function wporg_usermeta_form_field_newsletter($user)
+{
+?>
+	<h3>Subskrypcja newslettera</h3>
+	<table class="form-table">
+		<tr>
+			<th>
+				<label>Subskrypcja newslettera</label>
+			</th>
+			<td>
+				<input type="checkbox" class="regular-text ltr" id="newsletterSubscribe" name="newsletterSubscribe" <?php if(get_user_meta($user->ID, 'newsletterSubscribe', true)){echo 'checked="checked"'; }; ?>>
+				<label for="newsletterSubscribe">Zaznaczone jeśli klient subskrybuje newsletter</label>
+			</td>
+		</tr>
+	</table>
+<?php
+}
+
+
+/* Newsletter field user account */
+function wporg_usermeta_form_field_newsletter_update($user_id){
+	if (!current_user_can('edit_user', $user_id)) {
+		return false;
+	}
+
+	return update_user_meta($user_id, 'newsletterSubscribe', $_POST['newsletterSubscribe']);
+}
+
+// Add the field to user's own profile editing screen.
+add_action('show_user_profile', 'wporg_usermeta_form_field_newsletter');
+
+// Add the field to user profile editing screen.
+add_action('edit_user_profile', 'wporg_usermeta_form_field_newsletter');
+
+// Add the save action to user's own profile editing screen update.
+add_action('personal_options_update', 'wporg_usermeta_form_field_newsletter_update');
+
+// Add the save action to user profile editing screen update.
+add_action('edit_user_profile_update', 'wporg_usermeta_form_field_newsletter_update');
 
 /*** Custom edit form ***/
 
@@ -382,6 +431,19 @@ function user_change_pass(){
 	if (!empty($password)) {
 		wp_set_password( $password, $user_id );
 		wc_add_notice( 'Hasło do Twojego konta zostało pomyślnie zmienione', 'success' );
+	}
+}
+add_action('init', 'user_newsletter_subscription');
+function user_newsletter_subscription(){
+	$user_id = get_current_user_id();
+	$signin = ( isset($_POST['newsletterSignin']) ? $_POST['newsletterSignin'] : '' );
+	$signout = ( isset($_POST['newsletterSignout']) ? $_POST['newsletterSignout'] : '' );
+
+	if($signin){
+		update_user_meta($user_id, 'newsletterSubscribe', $signin);
+	}
+	if($signout){
+		delete_user_meta($user_id, 'newsletterSubscribe', $signin);
 	}
 }
 
