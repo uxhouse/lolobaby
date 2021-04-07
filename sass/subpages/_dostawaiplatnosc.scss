@@ -1,0 +1,27 @@
+.pageDostawaiplatnosc {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 50vh;
+        max-width: 674px;
+        margin: 30px auto;
+
+        .content{
+            ul,
+            ol{
+                margin-left: 0;
+
+                li{
+                    text-align: left;
+                    font-size: 14px;
+                    color: $primary-text-color;
+                }
+            }
+            p{
+                font-size: 14px;
+                color: $primary-text-color;
+            }
+        }
+    }
+}

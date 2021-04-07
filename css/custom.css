@@ -2192,6 +2192,39 @@ p {
   opacity: .7;
 }
 
+.pageDostawaiplatnosc__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 50vh;
+  max-width: 674px;
+  margin: 30px auto;
+}
+
+.pageDostawaiplatnosc__content .content ul,
+.pageDostawaiplatnosc__content .content ol {
+  margin-left: 0;
+}
+
+.pageDostawaiplatnosc__content .content ul li,
+.pageDostawaiplatnosc__content .content ol li {
+  text-align: left;
+  font-size: 14px;
+  color: #4F4F4F;
+}
+
+.pageDostawaiplatnosc__content .content p {
+  font-size: 14px;
+  color: #4F4F4F;
+}
+
 /*  WooCommerce
 --------------- */
 .archiveShop {
