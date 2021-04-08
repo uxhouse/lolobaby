@@ -180,6 +180,12 @@
             height: 15px;
             border-radius: 100%;
             margin: 0 7px;
+
+            &[termname="multikolor"]{
+                background-image: url('/wp-content/themes/lolobaby/images/yaro-tex_pattern.svg');
+                background-size: 100%;
+
+            }
         }
     }
     &__content{

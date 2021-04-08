@@ -14,7 +14,7 @@ get_header(); ?>
             <div class="regulamin__content">
                 <?php the_field('regulamin_content'); ?>
             </div>
-            <ul class="forms">
+            <ul id="forms" class="forms">
                 <li>
                     <a href="<?php the_field('formularz_konsument'); ?>" target="_blank">Formularz odstąpienia od umowy przez konsumenta</a>
                 </li>

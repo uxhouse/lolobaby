@@ -15,6 +15,14 @@ $(document).ready(function(){
         return false;
     };
 
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+    
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
+
     /* ---- Header dropdown ---- */
     $(document).ready(function(){
         $('.hasDropdown').find('a:not(.sub-menu a)').removeAttr('href');

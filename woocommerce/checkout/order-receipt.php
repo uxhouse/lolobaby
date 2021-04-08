@@ -67,7 +67,7 @@ $itemsCount = $order->get_item_count();
                 foreach($allVariants as $variant){
                     $variantName = $variant->name;
                     if($variantName == $attributeName){
-                        echo '<span style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
+                        echo '<span termname="' . $variant->slug . '" style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
                     }
                 }
                 ?>

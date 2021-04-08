@@ -277,6 +277,11 @@ body[thankyoupage="true"]{
                 width: 30px;
                 height: 30px;
                 border-radius: 100%;
+
+                &[termname="multikolor"]{
+                    background-image: url('/wp-content/themes/lolobaby/images/yaro-tex_pattern.svg');
+                    background-size: 100%;
+                }
             }
         }
         &__size{

@@ -39,7 +39,6 @@ get_header(); ?>
 
     <?php if (get_field('homepage_reassurance')): ?>
     <section class="homeReassurance">
-        <div class="homeReassurance__cover"></div>
         <div class="homeReassurance__wrap container">
             <?php while(have_rows('homepage_reassurance')): the_row();
                 $icon = get_sub_field('homepage_reassurance_icon');

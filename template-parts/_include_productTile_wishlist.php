@@ -8,7 +8,7 @@
                 if($color_terms): ?>
                     <div class="productTile__colors">
                         <?php foreach ($color_terms as $key => $object): ?>
-                            <span class="color" style="background-color: <?php echo get_term_meta($object->term_id)["product_attribute_color"][0];?>;"></span>
+                            <span class="color"  termname="<?php echo $object->slug; ?>" style="background-color: <?php echo get_term_meta($object->term_id)["product_attribute_color"][0];?>;"></span>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>

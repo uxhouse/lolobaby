@@ -9,7 +9,9 @@ get_header(); ?>
     <section class="pageZwroty__content">
         <div class="wrap">
             <h1 class="sectionHeading"><span><?php the_title(); ?></span></h1>
-            <p>Zamówiony artykuł okazał się jednak nietrafiony? Oferujemy możliwość bezpłatnego zwrotu do 14 dni.</p>
+            <div class="content">
+                <?php the_field('page_content'); ?>
+            </div>
             <h3>Pobierz i wypełnij odpowiedni dla siebie formularz</h3>
             <div class="forms">
                 <a href="<?php the_field('zwrot_firma'); ?>" target="_blank" class="btn btn--blue"><span>dla firmy</span></a>

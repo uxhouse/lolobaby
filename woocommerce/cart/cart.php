@@ -32,7 +32,7 @@ $brand_terms = get_terms(array(
 if($brand_terms): ?>
     <div class="colorsData">
         <?php foreach ($brand_terms as $key => $object): ?>
-            <span class="color" style="background-color: <?php echo get_term_meta($object->term_id)["product_attribute_color"][0];?>;"></span>
+            <span class="color" termname="<?php echo $object->slug; ?>" style="background-color: <?php echo get_term_meta($object->term_id)["product_attribute_color"][0];?>;"></span>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
@@ -94,7 +94,7 @@ if($brand_terms): ?>
                         foreach($allVariants as $variant){
                             $variantName = $variant->name;
                             if($variantName == $attributeName){
-                                echo '<span style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
+                                echo '<span termname="' . $variant->slug . '" style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
                             }
                         }
                         ?>
