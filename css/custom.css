@@ -8127,6 +8127,10 @@ body[thankyoupage="true"] .cartHeader {
   position: relative;
 }
 
+.newsletter__checkbox p {
+  display: none;
+}
+
 .newsletter__checkbox .mc4wp-checkbox-contact-form-7 {
   display: block;
   width: 100%;
