@@ -340,6 +340,7 @@ body.single-product{
                     color: #fff;
                     position: relative;
                     cursor: pointer;
+                    outline: none !important;
                     transition: ease .3s;
 
                     &:hover{
@@ -358,6 +359,9 @@ body.single-product{
                         right: 30px;
                         top: 22px;
                     }
+                }
+                .added_to_cart{
+                    display: none !important;
                 }
             }
             .summary{
