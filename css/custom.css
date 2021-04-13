@@ -8179,7 +8179,7 @@ body[thankyoupage="true"] .cartHeader {
 
 .newsletter__checkbox .mc4wp-checkbox-contact-form-7 label input {
   position: absolute;
-  left: -45px;
+  left: 0;
   width: 40px;
   height: 40px;
   opacity: 0;
