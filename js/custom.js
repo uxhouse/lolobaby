@@ -23,6 +23,20 @@ $(document).ready(function(){
         }, 500);
     });
 
+    /* ---- Header float class ---- */
+    $(document).ready(function(){
+        if ($(window).scrollTop() >= 50) {
+            $('.siteHeader--frontPage').addClass('siteHeader--float');
+        }
+    })
+    $(window).scroll(function(){
+        if ($(this).scrollTop() >= 50) {
+            $('.siteHeader--frontPage').addClass('siteHeader--float');
+        }else{
+            $('.siteHeader--frontPage').removeClass('siteHeader--float');
+        }
+    });
+
     /* ---- Header dropdown ---- */
     $(document).ready(function(){
         $('.hasDropdown').find('a:not(.sub-menu a)').removeAttr('href');
@@ -228,6 +242,30 @@ $(document).ready(function(){
                 });
             });
         }
+    });
+
+    /* ---- Size modal ---- */
+    $(document).ready(function(){
+        var openBtn = $('.openSizeModal');
+        var closeBtn = $('.closeModal');
+        var modal = $('#sizeModal');
+
+        $(openBtn).on('click', function(){
+            modal.addClass('sizeModal--ready');
+            $('body').addClass('noscroll')
+
+            setTimeout(function(){
+                modal.addClass('sizeModal--active');
+            }, 350);
+        });
+        $(closeBtn).on('click', function(){
+            modal.removeClass('sizeModal--active');
+            $('body').removeClass('noscroll')
+
+            setTimeout(function(){
+                modal.removeClass('sizeModal--ready');
+            }, 350);
+        });
     });
 
     /* ---- Search bar show ---- */
@@ -664,6 +702,46 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Validate newsletter
+    $(document).ready(function(){
+        var form = $('.newsletter').find('form');
+        var email = form.find('input[name="email-621"');
+        var button = form.find('input[type="submit"');
+        var acceptance = form.find('input[name="_mc4wp_subscribe_contact-form-7"]');
+        var acceptanceError = form.find('.acceptanceError');
+        var action = form.attr('action');
+        form.attr('action', '');
+        // button.prop('disabled' ,true);
+
+        $(acceptance).on('click', function(){
+            if(acceptance.is(":checked")){
+                acceptanceError.css('display', 'none');
+                button.prop('disabled', false);
+            }else if(acceptance.is(':not(:checked)')){
+                acceptanceError.css('display', 'block');
+                button.prop('disabled', true);
+            }
+        });
+
+        $(button).on('click', function(){
+            if(acceptance.is(":checked")){
+                form.removeAttr('action');
+                button.prop('disabled', false);
+            }else if(acceptance.is(":not(:checked)")){
+                form.attr('action', action);
+                button.prop('disabled', true);
+                acceptanceError.css('display', 'block');
+            }
+        });
+        $(email).on('keyup', function(){
+            if($(this).hasClass('wpcf7-not-valid')){
+                $(this).parent().find('.wpcf7-not-valid-tip').css('opacity', '0');
+                $(this).removeClass('wpcf7-not-valid');
+            }
+        });
+    });
+
     $('input[name="registerUsername"]').keyup(function(e) {
         var regex = /^[a-zA-Z ]+$/;
         if (regex.test(this.value) !== true){

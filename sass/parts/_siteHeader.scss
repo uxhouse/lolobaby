@@ -12,6 +12,7 @@ body.admin-bar{
     z-index: 100;
     position: fixed;
     top: 0;
+    transition: background ease .3s;
 
     &--frontPage{
         height: 100px;
@@ -23,11 +24,48 @@ body.admin-bar{
 
         .siteHeader__logo{
             .wrap{
-                background-color: $red-color;
+                overflow: hidden;
+                position: relative;
+                transition: ease .3s;
+
+                &:after{
+                    content: '';
+                    width: 100%;
+                    height: 200px;
+                    position: absolute;
+                    top: 0;
+                    background-color: $red-color;
+                    z-index: -1;
+                    transition: ease .5s;
+                }
+
                 &--transparent {
                     background-color: transparent;
                 }
             }
+        }
+        svg{
+            opacity: 0;
+            pointer-events: none;
+            transition: ease .3s;
+        }
+    }
+    &--float{
+        background: $blue-light-color;
+
+        .siteHeader__logo{
+            .wrap{
+                &:after{
+                    height: 0;
+                }
+            }
+        }
+        svg{
+            opacity: 1;
+            pointer-events: all;
+            position: relative;
+            top: -20px;
+            z-index: 2;
         }
     }
 
@@ -475,7 +513,7 @@ body.admin-bar{
             .header{
                 img{
                     &.rotate{
-                        transform: rotate(180deg) !important;
+                        transform: rotate(45deg) !important;
                     }
                 }
             }

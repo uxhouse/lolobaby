@@ -156,16 +156,48 @@
             text-align: center;
             font-size: 15px;
             color: #585858;
+            outline: none;
+            transition: ease .3s;
+
+            &.wpcf7-not-valid{
+                margin-bottom: 25px;
+            }
+        }
+        .wpcf7-not-valid-tip{
+            position: absolute;
+            bottom: -52px;
+            width: 100%;
+            background: $blue-light-color;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            padding: 7px 0;
+            z-index: 5;
+
+            &:before{
+                content: '';
+                width: 12px;
+                height: 12px;
+                background-color: $blue-light-color;
+                position: absolute;
+                top: -6px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                transform: rotate(45deg) skew(10deg, 10deg);
+            }
         }
     }
     &__checkbox{
         margin: 30px 0 20px;
         cursor: pointer;
+        position: relative;
 
         .mc4wp-checkbox-contact-form-7{
             display: block;
-            max-width: 400px;
-            margin-left: auto;
+            width: 100%;
+            margin: 0;
+            padding-left: 40px;
             position: relative;
 
             &.checked{
@@ -181,7 +213,7 @@
                 background-color: #fff;
                 border-radius: 100%;
                 position: absolute;
-                left: -45px;
+                left: 0;
                 top: 0;
                 cursor: pointer;
                 z-index: 2;
@@ -195,7 +227,7 @@
                 height: 15px;
                 z-index: 3;
                 position: absolute;
-                left: -42px;
+                left: 0;
                 top: -2px;
                 opacity: 0;
                 cursor: pointer;
@@ -265,6 +297,31 @@
                 }
             }
         }
+        .acceptanceError{
+            display: none;
+            position: absolute;
+            left: -165px;
+            top: 34px;
+            background: #405db8;
+            font-size: 12px;
+            line-height: 14px;
+            color: #fff;
+            padding: 7px 30px;
+            z-index: 5;
+
+            &:before{
+                content: '';
+                width: 12px;
+                height: 12px;
+                background-color: $blue-light-color;
+                position: absolute;
+                top: -6px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                transform: rotate(45deg) skew(10deg, 10deg);
+            }
+        }
     }
     form{
         &>p{
@@ -272,6 +329,7 @@
             flex-direction: column;
             text-align: center;
             position: relative;
+            margin: 0;
 
             &:after{
                 content: '';
@@ -301,10 +359,47 @@
         text-transform: uppercase;
         color: #fff;
         padding: 0 70px 0 30px;
+        cursor: pointer;
+        outline: none;
         transition: ease .3s;
+
+        &:disabled{
+            &:hover{
+                &:before{
+                    content: '';
+                    width: 440px;
+                    height: 32px;
+                    background-color: $blue-light-color;
+                }
+            }
+        }
 
         &:hover{
             opacity: .7;
+        }
+    }
+    .wpcf7-response-output{
+        background-color: $blue-light-color;
+        border: 0 !important;
+        padding: 9px 20px !important;
+        color: #fff;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        position: relative;
+        margin: 0 !important;
+
+        &:before{
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: $blue-light-color;
+            position: absolute;
+            top: -6px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg) skew(10deg, 10deg);
         }
     }
 }
@@ -360,6 +455,17 @@
                 .newsletter{
                     max-width: 445px;
                     margin: 0 auto;
+
+                    &__checkbox{
+                        .acceptanceError{
+                            left: 0;
+
+                            &:before{
+                                margin: 0;
+                                left: 4px;
+                            }
+                        }
+                    }
                 }
             }
             &__logo{
