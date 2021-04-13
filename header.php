@@ -63,13 +63,19 @@
 								<p>Mój profil</p>
 							</div>
 						</a>
-						<a href="<?php echo wc_get_cart_url(); ?>">
+						<a class="openMiniCart">
+							<div class="openMiniCart__count">
+								<p class="minicart-count<?php if(WC()->cart->get_cart_contents_count() < 1){echo ' empty'; }; ?>"></p>
+							</div>
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/cart_ico_white.svg' ?>"/>
 							<div class="actionsTooltip">
 								<p>Koszyk</p>
 								<span></span>
 							</div>
 						</a>
+						<div id="miniCart" class="miniCart miniCart--ready">
+							<?php woocommerce_mini_cart(); ?>
+						</div>
 					</div>
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 						<img src="<?php echo get_template_directory_uri() . '/images/icons/mobileMenu_btn_ico.svg' ?>"/>

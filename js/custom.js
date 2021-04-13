@@ -955,4 +955,38 @@ $(document).ready(function(){
             $(this).parent().addClass('content--hidden');
         });
     });
+
+    /* ---- MINI CART ---- */
+    function closeButton(){
+        $('.closeMiniCart').on('click', function(){
+            closeMiniCart();
+        });
+    }
+    function closeMiniCart(){
+        $('.miniCart').css('opacity', '0').css('pointer-events', 'none');
+        closeButton();
+    }
+    function openMiniCart(){
+        $('.miniCart').css('opacity', '1').css('pointer-events', 'all');
+        closeButton();
+    }
+    $('.openMiniCart').on('click', function(){
+        openMiniCart();
+    });
+    $('.closeMiniCart').on('click', function(){
+        closeMiniCart();
+    });
+    $(document).mouseup(function(e){
+        var miniCart = $('.miniCart');
+        if (!miniCart.is(e.target) && miniCart.has(e.target).length === 0) {
+            closeMiniCart();
+        }
+    });
+    $(document.body).on('updated_wc_div', closeButton);
+    $(document.body).on('updated_cart_totals', closeButton);
+
+    if($(window).width() < 767){
+        $('.openMiniCart').removeClass('openMiniCart').attr('href', '/koszyk');
+        $('.miniCart').remove();
+    }
 });

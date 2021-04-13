@@ -468,5 +468,41 @@ function acf_orphans($value, $post_id, $field) {
 	}
 	return $value;
   }
-  add_filter('acf/format_value/type=textarea', 'acf_orphans', 10, 3);
-  add_filter('acf/format_value/type=wysiwyg', 'acf_orphans', 10, 3);
+add_filter('acf/format_value/type=textarea', 'acf_orphans', 10, 3);
+add_filter('acf/format_value/type=wysiwyg', 'acf_orphans', 10, 3);
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'wc_mini_cart_ajax_refresh' );
+function wc_mini_cart_ajax_refresh( $fragments ){
+
+	if(WC()->cart->get_cart_contents_count() > 0){
+		$fragments['div.openMiniCart__count'] = '<div class="openMiniCart__count"><p class="minicart-count">' . WC()->cart->get_cart_contents_count() . '</p></div>';
+	}else{
+		$fragments['div.openMiniCart__count'] = '<div class="openMiniCart__count"></div>';
+	}
+
+    ob_start();
+    echo '<div id="miniCart" class="miniCart">';
+    woocommerce_mini_cart();
+    echo '</div>';
+	
+    $fragments['#miniCart'] = ob_get_clean();
+
+    return $fragments;
+
+}
+
+add_action( 'wp_footer', 'ajax_add_tocart_event' );
+function ajax_add_tocart_event() {
+?>
+	<script type="text/javascript">
+		jQuery('body').on( 'added_to_cart', function( e, fragments, cart_hash, this_button ) {
+			setTimeout(function(){
+				$('.miniCart').css('opacity', '1').css('pointer-events', 'all');
+				$('.closeMiniCart').on('click', function(){
+					$('.miniCart').css('opacity', '0').css('pointer-events', 'none');
+				});
+			}, 500);
+		});
+	</script>
+<?php
+}
