@@ -37,6 +37,17 @@ $(document).ready(function(){
         }
     });
 
+    /* ---- Header clone height ---- */
+    $(document).ready(function(){
+        var siteHeaderHeight = $('.siteHeader').height();
+        $('.headerClone').css('height', siteHeaderHeight);
+
+        $(window).resize(function(){
+            siteHeaderHeight = $('.siteHeader').height();
+            $('.headerClone').css('height', siteHeaderHeight);
+        });
+    });
+
     /* ---- Header dropdown ---- */
     $(document).ready(function(){
         $('.hasDropdown').find('a:not(.sub-menu a)').removeAttr('href');
@@ -989,4 +1000,16 @@ $(document).ready(function(){
         $('.openMiniCart').removeClass('openMiniCart').attr('href', '/koszyk');
         $('.miniCart').remove();
     }
+
+    /* Masonry gallery - collection */
+    var masonryGallery = Macy({
+        container: '.collectionGallery__images',
+        trueOrder: false,
+        waitForImages: false,
+        margin: 20,
+        columns: 2,
+        breakAt: {
+            767: 1,
+        }
+    });
 });

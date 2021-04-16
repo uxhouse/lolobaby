@@ -16,6 +16,7 @@
 @import 'subpages/faq';
 @import 'subpages/singlePost';
 @import 'subpages/wishlistpage';
+@import 'subpages/collection';
 @import 'subpages/search';
 @import 'subpages/reklamacje';
 @import 'subpages/zwroty';
@@ -155,6 +156,13 @@ p {
             &:after{
                 right: -3px;
             }
+        }
+    }
+    &--big{
+        height: 56px;
+
+        span{
+            line-height: 56px;
         }
     }
     &--archive{

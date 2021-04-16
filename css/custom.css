@@ -1764,6 +1764,85 @@ p {
   }
 }
 
+.lolobaby--kolekcja {
+  position: relative;
+}
+
+.lolobaby--kolekcja:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/archive_plane_ico.svg");
+  background-repeat: no-repeat;
+  background-size: 344px;
+  width: 344px;
+  height: 210px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.lolobaby--kolekcja .loloBreadcrumbs {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.collectionHeading__wrap {
+  margin: 0 0 50px;
+}
+
+.collectionHeading__wrap h1 {
+  margin: 0 0 20px;
+}
+
+.collectionHeading__wrap p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  text-align: center;
+  max-width: 530px;
+  margin: 0 auto 20px;
+}
+
+.collectionGallery__images {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.collectionLink {
+  margin: 60px 0 65px;
+  text-align: center;
+}
+
+@media (max-width: 1050px) {
+  .lolobaby--kolekcja:after {
+    background-size: 250px;
+    width: 250px;
+    height: 160px;
+  }
+  .collectionGallery__images {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .lolobaby--kolekcja:after {
+    display: none;
+  }
+  .lolobaby--kolekcja .loloBreadcrumbs {
+    position: relative;
+  }
+  .collectionHeading__wrap p {
+    max-width: 370px;
+  }
+  .collectionGallery__images {
+    max-width: 440px;
+    width: calc(100% - 40px);
+    padding: 0 20px;
+  }
+}
+
 .searchHeader h2 {
   margin: 0 0 20px;
 }
@@ -7493,6 +7572,9 @@ body.admin-bar .siteHeader {
   .siteHeader__actions .menu-toggle img {
     max-width: 20px;
   }
+  .headerClone {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -9506,6 +9588,14 @@ p {
 
 .btn:hover span:after {
   right: -3px;
+}
+
+.btn--big {
+  height: 56px;
+}
+
+.btn--big span {
+  line-height: 56px;
 }
 
 .btn--archive {
