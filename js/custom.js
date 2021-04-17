@@ -1,3 +1,13 @@
+/* ---- Page loader ---- */
+
+$(document).ready(function(){
+    var loader = $('.pageLoader');
+    loader.css('opacity', 0).css('pointer-events', 'none');
+    setTimeout(function(){
+        loader.css('display', 'none');
+    }, 1000);
+});
+
 $(document).ready(function(){
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
@@ -100,8 +110,11 @@ $(document).ready(function(){
     /* ---- Filter engine ---- */
     setTimeout(function(){
         $('.woof_container').each(function(){
-            var attributeName = $(this).find('.woof_checkboxBlock').attr('attrname').replace('Atrybut produktu: ', '');
-            $(this).find('.woof_checkboxBlock').find('p').text(attributeName);
+            var attributeName = $(this).find('.woof_checkboxBlock').attr('attrname')
+            if(attributeName){
+                var nameformated = attributeName.replace('Atrybut produktu: ', '');
+                $(this).find('.woof_checkboxBlock').find('p').text(nameformated);
+            }
         });
     }, 10);
 
@@ -507,6 +520,33 @@ $(document).ready(function(){
             });
         }, 200);
 
+        /* Product page - available alert */
+        $(document).ready(function(){
+            var form = $('form.availableForm');
+            var submit = form.find('input[type="button"]');
+            $(submit).on('click', function(){
+                form.trigger('submit');
+            });
+            $('input[name="availableAlert"]').on('click', function(){
+                if($(this).is(":checked")){
+                    $(this).parent().addClass('checked');
+                    submit.trigger('click');
+                }
+            });
+            $(form).submit(function(e){
+                var name = form.find('input[type="text"]').val();
+                $.ajax({ 
+                     data: {action: 'availableForm', name:name},
+                     type: 'post',
+                     url: ajaxurl,
+                     success: function(data) {
+                          console.log('done');
+                    }
+                });
+                return false;
+            });
+        });
+
         /* Checkout login - register forms */
 
         function openRegisterForm(){
@@ -620,6 +660,21 @@ $(document).ready(function(){
             var value = $(this).attr('value');
             var name = $(this).attr('forfield');
             $('input[name="' + name + '"][value="' + value + '"]').attr('checked', true).trigger('click');
+        });
+
+        $('.customCheckbox[name="billing_paperinvoice"]').on('click', function(){
+            if($(this).is(":checked")){
+                $(this).parent().addClass('checked');
+                if($('input#billing_paperinvoice_true').is(':not(:checked)')){
+                    $('input#billing_paperinvoice_true').trigger('click');
+                }
+            }
+            else if($(this).is(":not(:checked)")){
+                $(this).parent().removeClass('checked');
+                if($('input#billing_paperinvoice_false').is(':not(:checked)')){
+                    $('input#billing_paperinvoice_false').trigger('click');
+                }
+            }
         });
     });
 
@@ -1002,14 +1057,16 @@ $(document).ready(function(){
     }
 
     /* Masonry gallery - collection */
-    var masonryGallery = Macy({
-        container: '.collectionGallery__images',
-        trueOrder: false,
-        waitForImages: false,
-        margin: 20,
-        columns: 2,
-        breakAt: {
-            767: 1,
-        }
-    });
+    if($('.collectionGallery__images').length){
+        var masonryGallery = Macy({
+            container: '.collectionGallery__images',
+            trueOrder: false,
+            waitForImages: false,
+            margin: 20,
+            columns: 2,
+            breakAt: {
+                767: 1,
+            }
+        });
+    }
 });

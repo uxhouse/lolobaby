@@ -50,13 +50,16 @@ if ( post_password_required() ) {
                 ?>
             </div>
 
-            <div class="productContent__summary">
+            <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?><?php if ( empty( $available_variations ) && false !== $available_variations ) : ?> notavailable<?php endif; ?>">
                 <h1 class="product_title"><?php the_title(); ?></h1>
                 <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
                 <?php if ($product->is_type('variable')): ?>
                     <p class="price price--variation"><?php echo wc_price($product->get_price()); ?></p>
                 <?php else: ?>
                     <p class="price"><?php echo wc_price($product->get_price()); ?></p>
+                <?php endif; ?>
+                <?php if(get_field('product_zestaw')): ?>
+                    <p class="colorInfo">Chcesz zamówić różnokolorowy zestaw? <a href="<?php echo home_url('/kontakt'); ?>" target="_blank">Skontakuj się z nami.</a></p>
                 <?php endif; ?>
                 <?php
                 /**

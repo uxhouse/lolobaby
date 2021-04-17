@@ -38,6 +38,25 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_607a221119cc1",
+            "label": "Zestaw",
+            "name": "product_zestaw",
+            "type": "true_false",
+            "instructions": "Zaznaczenie tej opcji powoduje wyświetlenie informacji o konieczności kontaktu w przypadku chęci zakupu innej kolorystyki.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ten produkt jest zestawem produktów",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_60671986cd53e",
             "label": "Podtytuł produktu",
             "name": "product_subtitle",
@@ -813,5 +832,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618272999
+    "modified": 1618616960
 }

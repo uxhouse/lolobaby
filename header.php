@@ -118,6 +118,11 @@
 					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/>
 				</div>
 				<ul>
+					<li>
+						<a href="<?php echo home_url('/produkty') ?>">
+							<p class="name">Wszystkie</p>								
+						</a>
+					</li>
 				<?php
 					$args = array(
 						'taxonomy'   => "product_cat",
@@ -140,17 +145,26 @@
 			</div>
 			<div class="mobileMenu__position">
 				<div class="header">
-					<div class="name">Kolekcje</div>
+					<div class="name">Lookbook</div>
 					<img class="rotate" src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/>
 				</div>
 				<ul>
 					<?php
-						$allVariants = get_terms('pa_kolekcja', array(
-							'hide_empty' => false,
-						));
-                        foreach($allVariants as $variant):?>
-							<li><a href="<?php echo home_url('/produkty?swoof=1&pa_kolekcja=') . $variant->slug; ?>"><p class="name"><?php echo $variant->name; ?></p></a></li>
-                        <?php endforeach ?>
+					$kolekcje = get_posts(array(
+						'posts_per_page'	=> -1,
+						'post_type'			=> 'kolekcje'
+					));
+					if( $kolekcje ):
+					foreach( $kolekcje as $kolekcja ) :
+					setup_postdata( $kolekcja ); ?>
+						<li>
+							<a href="<?php echo get_permalink($kolekcja->ID); ?>">
+								<p class="name"><?php echo $kolekcja->post_title ?></p>								
+							</a>
+						</li>
+					<?php endforeach; ?>
+					<?php wp_reset_postdata(); ?>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div class="mobileMenu__position">

@@ -138,7 +138,11 @@
 		</div>
 	</div>
 </div>
-
+<div class="pageLoader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; z-index: 999999;">
+	<div class="pageLoader__image">
+		<img src="<?php echo get_template_directory_uri() . '/images/loader.svg'; ?>"/>
+	</div>
+</div>
 <?php wp_footer(); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 </body>

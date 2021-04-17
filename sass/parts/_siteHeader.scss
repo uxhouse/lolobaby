@@ -735,6 +735,8 @@ body.admin-bar{
 
     &__wrap{
         padding: 50px 20px 30px;
+        overflow: scroll;
+        max-height: calc(100% - 130px);
     }
     &__actionbtn{
         width: 100%;

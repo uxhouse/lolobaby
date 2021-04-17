@@ -257,7 +257,7 @@ if($brand_terms): ?>
         </div>
     </div>
     <div class="loloCart__afterCart container <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'shippingSelected' : 'notSelected'; ?>">
-        <a href="<?php echo home_url(); ?>" class="continue">Kontynuuj zakupy</a>
+        <a href="<?php echo home_url('/produkty'); ?>" class="continue">Kontynuuj zakupy</a>
         <a href="<?php echo home_url('/zamowienie'); ?>" class="tocheckout btn"><span>Przejdź dalej</span></a>
         <?php // do_action( 'woocommerce_proceed_to_checkout' ); ?>
     </div>

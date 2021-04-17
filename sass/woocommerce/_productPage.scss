@@ -113,6 +113,76 @@ body.single-product{
                 margin: 0;
                 text-transform: uppercase;
             }
+            .colorInfo{
+                font-size: 14px;
+                line-height: 16px;
+            }
+            .availableForm{
+                display: none !important;
+            }
+            .notAvailable{
+                display: flex;
+                align-items: center;
+
+                .checkbox{
+                    display: flex;
+                    position: relative;
+                    margin-left: 20px;
+
+                    &.checked{
+                        pointer-events: none;
+
+                        &:after{
+                            opacity: 1;
+                        }
+                    }
+        
+                    &:before{
+                        content: '';
+                        width: 15px;
+                        height: 15px;
+                        background-color: #ddd;
+                        border-radius: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 2px;
+                        cursor: pointer;
+                        z-index: 2;
+                        pointer-events: none;
+                    }
+                    &:after{
+                        content: '';
+                        background-image: url('/wp-content/themes/lolobaby/images/icons/newsletter_checkbox_check.svg');
+                        background-repeat: no-repeat;
+                        background-size: 16px;
+                        width: 16px;
+                        height: 15px;
+                        z-index: 3;
+                        position: absolute;
+                        left: 2px;
+                        top: 0;
+                        opacity: 0;
+                        cursor: pointer;
+                        filter: invert(33%) sepia(65%) saturate(1873%) hue-rotate(341deg) brightness(93%) contrast(99%);
+                        transition: ease .3s;
+                        pointer-events: none;
+                    }
+
+                    input{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+                    label{
+                        font-size: 14px;
+                        color: $primary-text-color;
+                        margin: 0;
+                        padding-left: 23px;
+                    }
+                }
+            }
             table.variations{
                 margin: 20px 0 0;
 
@@ -688,6 +758,20 @@ body.single-product{
                 width: 100%;
                 position: relative;
 
+                &.zestaw{
+                    .price--variation{
+                        top: 140px;
+                    }
+                }
+                &.notavailable{
+                    .colorInfo{
+                        display: none;
+                    }
+                    .price--variation{
+                        top: 23px;
+                    }
+                }
+
                 .product_title,
                 .product_collection{
                     display: none;
@@ -700,6 +784,21 @@ body.single-product{
                     margin: 0 auto;
                     max-width: fit-content;
                 }
+                .colorInfo{
+                    font-size: 12px;
+                    line-height: 14px;
+                    max-width: 200px;
+                    margin: 20px auto 0;
+                    text-align: center;
+                }
+                .notAvailable{
+                    flex-direction: column;
+                    margin: 80px 0 20px;
+
+                    a{
+                        margin: 0 0 10px;
+                    }
+                }
                 table.variations{
                     margin: 30px 0 0;
 
@@ -707,10 +806,6 @@ body.single-product{
                         &:first-of-type{
                             max-width: fit-content;
                             margin: 0 auto 80px;
-
-                            &:after{
-
-                            }
                         }
                     }
                 }
@@ -783,11 +878,29 @@ body.single-product{
             &__summary{
                 padding: 0 20px;
 
+                &.zestaw{
+                    .price--variation{
+                        top: 110px;
+                    }
+                }
+                &.notavailable{
+                    .price--variation{
+                        top: 4px;
+                    }
+                }
+
                 table.variations{
                     margin: 10px 0 0;
                 }
                 .price--variation{
                     top: 70px;
+                }
+                .colorInfo{
+                    margin: 0 auto 20px;
+                }
+                .notAvailable{
+                    flex-direction: column;
+                    margin: 60px 0 20px;
                 }
                 .summary{
                     &__boxes{

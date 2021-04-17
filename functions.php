@@ -136,6 +136,13 @@ function lolobaby_widgets_init() {
 }
 add_action( 'widgets_init', 'lolobaby_widgets_init' );
 
+add_action('wp_head', 'custom_ajaxurl');
+function custom_ajaxurl() {
+   echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+
 /**
  * Enqueue scripts and styles.
  */
@@ -508,4 +515,19 @@ function ajax_add_tocart_event() {
 		});
 	</script>
 <?php
+}
+
+/* Session start */
+
+add_action('wp_ajax_availableForm', 'availableForm');
+add_action('wp_ajax_nopriv_availableForm', 'availableForm');
+
+function availableForm(){
+	$_SESSION['availableAlert'];
+	$productName = $_POST['name'];
+	$to = 'piotrdevv@gmail.com';
+	$subject = '[Lolobaby] Zainteresowanie produktem ' . $productName;
+	$message = 'Witaj, jeden z uzytkowników zgłosił zainteresowanie produktem - ' . $productName;
+
+	wp_mail( $to, $subject, $message );
 }

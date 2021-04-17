@@ -59,6 +59,10 @@ $currentUserID = get_current_user_id();
                     <input type="text" class="comapnyField" name="billing_company_nip" placeholder="NIP" value="<?php echo get_user_meta( $currentUserID, 'billing_company_nip', true ); ?>"/>
                     <input type="text" name="billing_phone" placeholder="Numer telefonu" value="<?php echo get_user_meta( $currentUserID, 'billing_phone', true ); ?>"/>
                     <input type="text" name="billing_email" placeholder="Adres e-mail" value="<?php echo $currentUser->user_email; ?>"/>
+                    <div class="checkbox">
+                        <input type="checkbox" class="customCheckbox" name="billing_paperinvoice"/>
+                        <label for="billing_paperinvoice">Chcę otrzymać wersję papierową rachunku</label>
+                    </div>
                 </div>
             </div>
         </div>

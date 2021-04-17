@@ -476,6 +476,63 @@ body[thankyoupage="true"]{
                         }
                     }
                 }
+                .checkbox{
+                    width: 440px;
+                    margin: 15px auto 0;
+                    display: flex;
+                    position: relative;
+
+                    &.checked{
+                        &:after{
+                            opacity: 1;
+                        }
+                    }
+        
+                    &:before{
+                        content: '';
+                        width: 15px;
+                        height: 15px;
+                        background-color: #ddd;
+                        border-radius: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 2px;
+                        cursor: pointer;
+                        pointer-events: none;
+                        z-index: 2;
+                    }
+                    &:after{
+                        content: '';
+                        background-image: url('/wp-content/themes/lolobaby/images/icons/newsletter_checkbox_check.svg');
+                        background-repeat: no-repeat;
+                        background-size: 16px;
+                        width: 16px;
+                        height: 15px;
+                        z-index: 3;
+                        position: absolute;
+                        left: 2px;
+                        top: 0;
+                        opacity: 0;
+                        cursor: pointer;
+                        filter: grayscale(1);
+                        pointer-events: none;
+                        transition: ease .3s;
+                    }
+
+                    input{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+                    label{
+                        font-size: 14px;
+                        color: $primary-text-color;
+                        margin: 0;
+                        padding-left: 23px;
+                    }
+                }
                 input[type="text"]{
                     display: block;
                     height: 60px;
@@ -1179,6 +1236,10 @@ body.woocommerce-order-pay{
 
                     a{
                         width: 134px;
+
+                        &[data-id="2000"]{
+                            display: none !important;
+                        }
                     }
                 }
             }

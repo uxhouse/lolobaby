@@ -3508,6 +3508,89 @@ body.single-product .woocommerce-breadcrumb {
   text-transform: uppercase;
 }
 
+.productPage .productContent__summary .colorInfo {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.productPage .productContent__summary .availableForm {
+  display: none !important;
+}
+
+.productPage .productContent__summary .notAvailable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin-left: 20px;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox.checked {
+  pointer-events: none;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox.checked:after {
+  opacity: 1;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  cursor: pointer;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/newsletter_checkbox_check.svg");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px;
+  height: 15px;
+  z-index: 3;
+  position: absolute;
+  left: 2px;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-filter: invert(33%) sepia(65%) saturate(1873%) hue-rotate(341deg) brightness(93%) contrast(99%);
+          filter: invert(33%) sepia(65%) saturate(1873%) hue-rotate(341deg) brightness(93%) contrast(99%);
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+  pointer-events: none;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.productPage .productContent__summary .notAvailable .checkbox label {
+  font-size: 14px;
+  color: #4F4F4F;
+  margin: 0;
+  padding-left: 23px;
+}
+
 .productPage .productContent__summary table.variations {
   margin: 20px 0 0;
 }
@@ -4113,6 +4196,15 @@ body.single-product .woocommerce-breadcrumb {
     width: 100%;
     position: relative;
   }
+  .productPage .productContent__summary.zestaw .price--variation {
+    top: 140px;
+  }
+  .productPage .productContent__summary.notavailable .colorInfo {
+    display: none;
+  }
+  .productPage .productContent__summary.notavailable .price--variation {
+    top: 23px;
+  }
   .productPage .productContent__summary .product_title,
   .productPage .productContent__summary .product_collection {
     display: none;
@@ -4126,6 +4218,23 @@ body.single-product .woocommerce-breadcrumb {
     max-width: -webkit-fit-content;
     max-width: -moz-fit-content;
     max-width: fit-content;
+  }
+  .productPage .productContent__summary .colorInfo {
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 200px;
+    margin: 20px auto 0;
+    text-align: center;
+  }
+  .productPage .productContent__summary .notAvailable {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 80px 0 20px;
+  }
+  .productPage .productContent__summary .notAvailable a {
+    margin: 0 0 10px;
   }
   .productPage .productContent__summary table.variations {
     margin: 30px 0 0;
@@ -4189,11 +4298,27 @@ body.single-product .woocommerce-breadcrumb {
   .productPage .productContent__summary {
     padding: 0 20px;
   }
+  .productPage .productContent__summary.zestaw .price--variation {
+    top: 110px;
+  }
+  .productPage .productContent__summary.notavailable .price--variation {
+    top: 4px;
+  }
   .productPage .productContent__summary table.variations {
     margin: 10px 0 0;
   }
   .productPage .productContent__summary .price--variation {
     top: 70px;
+  }
+  .productPage .productContent__summary .colorInfo {
+    margin: 0 auto 20px;
+  }
+  .productPage .productContent__summary .notAvailable {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 60px 0 20px;
   }
   .productPage .productContent__summary .summary__boxes .box__thumb {
     width: 50px;
@@ -5657,6 +5782,68 @@ body[thankyoupage="true"] #masthead {
   margin: 0;
 }
 
+.checkoutPage .checkoutForm__billing .form .checkbox {
+  width: 440px;
+  margin: 15px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.checkoutPage .checkoutForm__billing .form .checkbox.checked:after {
+  opacity: 1;
+}
+
+.checkoutPage .checkoutForm__billing .form .checkbox:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  cursor: pointer;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.checkoutPage .checkoutForm__billing .form .checkbox:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/newsletter_checkbox_check.svg");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px;
+  height: 15px;
+  z-index: 3;
+  position: absolute;
+  left: 2px;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  pointer-events: none;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.checkoutPage .checkoutForm__billing .form .checkbox input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkoutPage .checkoutForm__billing .form .checkbox label {
+  font-size: 14px;
+  color: #4F4F4F;
+  margin: 0;
+  padding-left: 23px;
+}
+
 .checkoutPage .checkoutForm__billing .form input[type="text"] {
   display: block;
   height: 60px;
@@ -6405,6 +6592,10 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
 
 .summaryPage__payment .optionContent ul .morePayMethods a {
   width: 134px;
+}
+
+.summaryPage__payment .optionContent ul .morePayMethods a[data-id="2000"] {
+  display: none !important;
 }
 
 .summaryPage__payment .optionContent #payment {
@@ -8027,6 +8218,8 @@ body.admin-bar .siteHeader {
 
 .mobileMenu__wrap {
   padding: 50px 20px 30px;
+  overflow: scroll;
+  max-height: calc(100% - 130px);
 }
 
 .mobileMenu__actionbtn {
@@ -9621,6 +9814,23 @@ p {
   font-weight: 800;
 }
 
+.btn--notavailable {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  height: 54px;
+  opacity: .6;
+  cursor: not-allowed !important;
+}
+
+.btn--notavailable span {
+  line-height: 54px;
+}
+
+.btn--notavailable:hover {
+  -webkit-transform: none !important;
+          transform: none !important;
+}
+
 .btn--light {
   background-color: #fff;
   border: 2px solid #4F4F4F;
@@ -9878,6 +10088,47 @@ div.woocommerce-message[data-flexible_shipping_free_shipping_notice="yes"] {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+.pageLoader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: ease .5s;
+  transition: ease .5s;
+}
+
+.pageLoader__image {
+  width: 200px;
+  height: 60px;
+  -webkit-animation: rotate linear 2s infinite;
+          animation: rotate linear 2s infinite;
+}
+
+.pageLoader__image img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 /*# sourceMappingURL=custom.css.map */
