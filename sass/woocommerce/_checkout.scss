@@ -1224,6 +1224,21 @@ body.woocommerce-order-pay{
             }
         }
         .optionContent{
+            .wyroznione{
+                display: flex;
+                justify-content: center;
+                margin: 0 0 10px;
+            }
+            .moreStuff{
+                max-width: 100% !important;
+
+                &:before{
+                    content: 'więcej metod płatności';
+                    font-family: 'Nunito';
+                    padding: 0 15px;
+                    top: 12px;
+                }
+            }
             ul{
                 padding: 0;
                 margin: 30px 0;
@@ -1237,6 +1252,7 @@ body.woocommerce-order-pay{
                     a{
                         width: 134px;
 
+                        &[data-id="1000"],
                         &[data-id="2000"]{
                             display: none !important;
                         }

@@ -25,9 +25,16 @@ body.single-product{
                 }
 
                 &__image{
+                    user-select: none;
+                    outline: none;
+                    box-shadow: none;
+
                     a{
                         display: block;
                         width: 100%;
+                        user-select: none;
+                        outline: none;
+                        box-shadow: none;
 
                         img{
                             width: 100%;
@@ -460,17 +467,22 @@ body.single-product{
                             text-transform: uppercase;
                         }
                     }
-                    a{
+                    p{
                         font-size: 14px;
                         line-height: 19px;
                         color: $primary-text-color;
                         font-weight: 300;
-                        text-decoration: underline !important;
                         margin-left: 15px;
-                        transition: ease .3s;
 
-                        &:hover{
-                            opacity: .7;
+                        a{
+                            text-decoration: underline !important;
+                            color: $primary-text-color;
+                            transition: ease .3s;
+                            margin: 0;
+
+                            &:hover{
+                                opacity: .7;
+                            }
                         }
                     }
                 }
@@ -885,7 +897,7 @@ body.single-product{
                 }
                 &.notavailable{
                     .price--variation{
-                        top: 4px;
+                        top: 75px;
                     }
                 }
 
@@ -903,6 +915,9 @@ body.single-product{
                     margin: 60px 0 20px;
                 }
                 .summary{
+                    &__delivery{
+                        flex-direction: column;
+                    }
                     &__boxes{
                         .box{
                             &__thumb{

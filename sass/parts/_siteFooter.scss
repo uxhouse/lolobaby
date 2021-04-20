@@ -258,7 +258,7 @@
 
                     a{
                         color: #fff;
-                        text-decoration: underline;
+                        text-decoration: underline !important;
                         transition: ease .3s;
 
                         &:hover{

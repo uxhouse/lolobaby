@@ -75,6 +75,8 @@ p {
 .highQuality {
     &__image {
         width: 55%;
+        object-fit: contain;
+        
         @media (max-width: 991px) {
             width: 100%;
         }

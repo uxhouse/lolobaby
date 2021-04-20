@@ -531,3 +531,27 @@ function availableForm(){
 
 	wp_mail( $to, $subject, $message );
 }
+
+
+/* don't cache wishlist page */
+add_action('wp_ajax_wishlistDelete', 'wishlistDelete');
+add_action('wp_ajax_nopriv_wishlistDelete', 'wishlistDelete');
+
+function wishlistDelete(){
+	global $wpdb, $table_prefix;
+	$wishlistID = $_POST['id'];
+	$productAttr = $wpdb->get_var('SELECT variation_id FROM '. $table_prefix .'tinvwl_items WHERE ID = '. $wishlistID);
+	echo $wishlistID . ' ' . $productAttr;
+
+	$wpdb->delete(
+		$table_prefix . 'tinvwl_items',
+		array(
+			'ID' => $wishlistID,
+		),
+		array(
+			'%d'
+		)
+	);
+
+	die();
+}

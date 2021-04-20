@@ -36,7 +36,7 @@ if ( post_password_required() ) {
         <div class="productContent__top container">
             <div class="productContent__header" style="display: none;">
                 <h1 class="product_title"><?php the_title(); ?></h1>
-                <p class="product_collection">Bambusowe</p>
+                <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
             </div>
             <div class="productContent__gallery">
                 <?php
@@ -49,8 +49,7 @@ if ( post_password_required() ) {
                 do_action( 'woocommerce_before_single_product_summary' );
                 ?>
             </div>
-
-            <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?><?php if ( empty( $available_variations ) && false !== $available_variations ) : ?> notavailable<?php endif; ?>">
+            <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?>">
                 <h1 class="product_title"><?php the_title(); ?></h1>
                 <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
                 <?php if ($product->is_type('variable')): ?>
@@ -81,7 +80,7 @@ if ( post_password_required() ) {
                             <img src="<?php echo get_template_directory_uri() . '/images/icons/delivery_product_ico.svg' ?>"/>
                             <p>Wysyłka w 48h</p>
                         </div>
-                        <a href="/dostawa-i-platnosc" target="_blank">Dostawa i płatność</a>
+                        <p>Więcej o <a href="/dostawa" target="_blank">dostawie</a> i <a href="/platnosc" target="_blank">płatności</a></p>
                     </div>
                     <?php if(get_field('product_boxes')): ?>
                     <h4 class="summary__boxesTitle"><span>Dlaczego bambus?</span></h4>

@@ -93,3 +93,18 @@
         }
     }
 }
+@media (max-width: 450px){
+    .collectionLink{
+        a{
+            max-width: calc(100% - 40px);
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+
+            span{
+                white-space: normal;
+                line-height: 20px;
+            }
+        }
+    }
+}

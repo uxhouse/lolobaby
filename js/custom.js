@@ -545,6 +545,10 @@ $(document).ready(function(){
                 });
                 return false;
             });
+
+            if(form.length){
+                $('.productContent__summary').addClass('notavailable');
+            }
         });
 
         /* Checkout login - register forms */
@@ -635,6 +639,9 @@ $(document).ready(function(){
     /* Checkout form custom */
 
     $(document).ready(function(){
+        var clientname = $('.checkoutPage').attr('clientname');
+        $('input#billing_username').val(clientname);
+
         var formBillingInputs = $('.checkoutForm__billing').find('input[type="text"]');
         $(formBillingInputs).on('change keyup', function(){
             var value = $(this).val();
@@ -809,7 +816,7 @@ $(document).ready(function(){
     });
 
     $('input[name="registerUsername"]').keyup(function(e) {
-        var regex = /^[a-zA-Z ]+$/;
+        var regex = /^[a-zA-Zęóąśłźżćń- ]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^a-zA-Z ]+/, '');
         }
@@ -1069,4 +1076,32 @@ $(document).ready(function(){
             }
         });
     }
+
+    /* Wishlist remove items */
+    $(document).ready(function(){
+
+        $('.tinvwl-remove').on('click', function(){
+            var form = $(this).parent().find('form.productTile__form');
+            form.trigger('submit');
+        });
+        $('form.productTile__form').submit(function(e){
+            var wishlistID = $(this).find('input').attr('value');
+            $('.wishlistPage__form').css('opacity', '0.5');
+            
+            $.ajax({ 
+                data: {
+                    action: 'wishlistDelete',
+                    id: wishlistID,
+                },
+                type: 'post',
+                url: ajaxurl,
+                success: function(data) {
+                    setTimeout(function(){
+                        location.reload();
+                   }, 100); 
+                }
+            });
+            return false;
+        });
+    });
 });

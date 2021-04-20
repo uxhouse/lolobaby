@@ -33,16 +33,16 @@
     }
     &__products{
         margin-bottom: 50px;
-        
-        form{
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1040px;
-            margin: 0 auto;
+    }
+    &__form{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1040px;
+        margin: 0 auto;
+        transition: ease .3s;
 
-            .productTile{
-                margin: 0 10px;
-            }
+        .productTile{
+            margin: 0 10px;
         }
     }
 }

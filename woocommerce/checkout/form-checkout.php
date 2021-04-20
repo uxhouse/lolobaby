@@ -32,8 +32,10 @@ $shipmentID = (int) filter_var($chosen_shipping, FILTER_SANITIZE_NUMBER_INT);
 
 $currentUser = wp_get_current_user();
 $currentUserID = get_current_user_id();
+$username = get_user_meta( $currentUserID, 'billing_username', true );
+$nickname = get_user_meta( $currentUserID, 'nickname', true );
 ?>
-<div class="checkoutPage checkoutPage--ready checkoutPage--visible container" selectedshipment="<?php echo $shipmentID; ?>">
+<div class="checkoutPage checkoutPage--ready checkoutPage--visible container" selectedshipment="<?php echo $shipmentID; ?>" clientName="<?php if($username){echo $username;}else{echo $nickname;}; ?>">
     <form name="checkout" method="post" class="checkout checkoutForm woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
     <?php if ( $checkout->get_checkout_fields() ) : ?>
         <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>

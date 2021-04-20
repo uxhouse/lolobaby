@@ -14,16 +14,17 @@
                 <?php endif; ?>
             <?php endif; ?>
             <div class="productTile__remove">
-                <button type="submit" name="tinvwl-remove"
-                        value="<?php echo esc_attr( $wl_product['ID'] ); ?>"
-                        title="<?php _e( 'Remove', 'ti-woocommerce-wishlist' ) ?>">
-                        <img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_remove_ico.svg'; ?>"/>
-                </button>
+                <form action="<?php echo home_url('/ulubione'); ?>" method="post" class="productTile__form">
+                    <input type="hidden" value="<?php echo esc_attr( $wl_product['ID'] ); ?>"/>
+                </form>
+                <div class="tinvwl-remove" value="<?php echo esc_attr( $wl_product['ID'] ); ?>">
+                    <img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_remove_ico.svg'; ?>"/>
+                </div>
             </div>
         </a>
         <?php if(!is_front_page()): ?>
         <div class="productTile__wishlist">
-            <?php echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $thisProductID . '"]'); ?>
+            <img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_red_full.svg'; ?>"/>
         </div>
         <?php endif; ?>
         <?php if(get_field('product_bestseller')): ?>
