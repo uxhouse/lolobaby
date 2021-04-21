@@ -525,7 +525,7 @@ add_action('wp_ajax_nopriv_availableForm', 'availableForm');
 function availableForm(){
 	$_SESSION['availableAlert'];
 	$productName = $_POST['name'];
-	$to = 'piotrdevv@gmail.com';
+	$to = 'kontakt@lolobaby.pl';
 	$subject = '[Lolobaby] Zainteresowanie produktem ' . $productName;
 	$message = 'Witaj, jeden z uzytkowników zgłosił zainteresowanie produktem - ' . $productName;
 
