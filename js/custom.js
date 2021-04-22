@@ -1,11 +1,9 @@
 /* ---- Page loader ---- */
 
-$(document).ready(function(){
+$(window).load(function(){
     var loader = $('.pageLoader');
     loader.addClass('ready');
-    setTimeout(function(){
-        loader.addClass('disable');
-    }, 1000);
+    loader.addClass('disable');
 });
 
 $(document).ready(function(){
