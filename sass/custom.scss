@@ -456,6 +456,7 @@ div.woocommerce-message{
     align-items: center;
     justify-content: center;
     transition: ease .5s;
+    transition-delay: .3s;
 
     &.ready{
         opacity: 0 !important;

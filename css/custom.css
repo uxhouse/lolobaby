@@ -10273,6 +10273,8 @@ div.woocommerce-message[data-flexible_shipping_free_shipping_notice="yes"] {
           justify-content: center;
   -webkit-transition: ease .5s;
   transition: ease .5s;
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
 }
 
 .pageLoader.ready {
