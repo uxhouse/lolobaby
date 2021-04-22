@@ -816,7 +816,7 @@ $(document).ready(function(){
     });
 
     $('input[name="registerUsername"]').keyup(function(e) {
-        var regex = /^[a-zA-Zęóąśłźżćń- ]+$/;
+        var regex = /^[ a-zA-Zęóąśłźżćń-]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^a-zA-Z ]+/, '');
         }
