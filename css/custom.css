@@ -10276,8 +10276,8 @@ div.woocommerce-message[data-flexible_shipping_free_shipping_notice="yes"] {
 }
 
 .pageLoader.disable {
-  opacity: 0;
-  display: none;
+  opacity: 0 !important;
+  display: none !important;
   pointer-events: none !important;
 }
 

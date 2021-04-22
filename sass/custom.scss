@@ -458,8 +458,8 @@ div.woocommerce-message{
     transition: ease .5s;
 
     &.disable{
-        opacity: 0;
-        display: none;
+        opacity: 0 !important;
+        display: none !important;
         pointer-events: none !important;
     }
 
