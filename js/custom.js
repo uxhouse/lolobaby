@@ -460,6 +460,8 @@ $(document).ready(function(){
         var currency = $('body').attr('currency');
         if($('body').hasClass('woocommerce-cart')){
             var currentTotal = totalValue[0].childNodes[0]['data'].replace(',', '.');
+            var couponAmount = $('.couponList__coupon').find('.cartTotals__value').attr('amount');
+            var totalDiscount = $('.couponList').attr('totaldiscount');
         }
 
         var selectedShipment = $('.loloCart').attr('selectedshipment');
@@ -488,7 +490,12 @@ $(document).ready(function(){
 
             var selectedAmount = $(this).parent().parent().attr('methodamount');
             $('.deliveryList__option').removeClass('deliveryList__option--checked');
-            var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
+
+            if(couponAmount){
+                var updateTotal = parseFloat(totalDiscount) + parseFloat(selectedAmount);
+            }else{
+                var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
+            }
             var totalAmount = updateTotal;
             
             if($(this).is(":checked")){

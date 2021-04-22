@@ -4400,7 +4400,7 @@ body.single-product .woocommerce-breadcrumb {
     top: 110px;
   }
   .productPage .productContent__summary.notavailable.zestaw .price--variation {
-    top: 75px !important;
+    top: 5px !important;
   }
   .productPage .productContent__summary.notavailable .price--variation {
     top: 5px;

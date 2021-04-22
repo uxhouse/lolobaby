@@ -53,13 +53,18 @@ defined( 'ABSPATH' ) || exit;
             <input type="text" name="couponInput" id="couponInput" class="couponInput__input" placeholder="Masz kod rabatowy? Wpisz i zatwierdź..."/>
             <p class="couponInput__submit">Zatwierdź</p>
         </div>
-        <div class="couponList">
+        <?php
+            global $woocommerce;
+            $discountTotal = $woocommerce->cart->get_totals();
+            $totalDiscount = $discountTotal['cart_contents_total'];
+        ?>
+        <div class="couponList" totaldiscount="<?php echo $totalDiscount; ?>">
         <?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
 			<div class="couponList__coupon coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
 				<div class="cartTotals__title name">
                     <p>Zniżka:</p>
                 </div>
-                <div class="cartTotals__value amount">
+                <div class="cartTotals__value amount" amount="<?php echo $coupon->amount; ?>">
                     <p data-title="<?php echo esc_attr( wc_cart_totals_coupon_label( $coupon, false ) ); ?>"><?php wc_cart_totals_coupon_html( $coupon ); ?></p>
                 </div>
             </div>
