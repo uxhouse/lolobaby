@@ -5,6 +5,7 @@ $(document).ready(function(){
     loader.css('opacity', 0).css('pointer-events', 'none');
     setTimeout(function(){
         loader.css('display', 'none');
+        loader.addClass('disable');
     }, 1000);
 });
 
