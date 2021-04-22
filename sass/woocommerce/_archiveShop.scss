@@ -733,6 +733,9 @@
 .sortEngine{
     width: 150px;
 
+    .woocommerce-notices-wrapper{
+        display: none !important;
+    }
     .woof_products_top_panel{
         display: block;
         margin: 0;

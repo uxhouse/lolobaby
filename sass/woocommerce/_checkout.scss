@@ -762,6 +762,11 @@ body[thankyoupage="true"]{
                                 background-size: 100px 50px;
                                 width: 100px;
                             }
+                            &:after{
+                                display: block;
+                                content: '2-3 dni';
+                                margin-top: 5px;
+                            }
                         }
                     }
                     &[methodid="8"]{
@@ -770,6 +775,11 @@ body[thankyoupage="true"]{
                                 background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg');
                                 background-size: 80px 50px;
                                 width: 80px;
+                            }
+                            &:after{
+                                display: block;
+                                content: '1-2 dni';
+                                margin-top: 5px;
                             }
                         }
                     }
@@ -913,6 +923,18 @@ body[thankyoupage="true"]{
             }
         }
         &__delivery{
+            .checkoutDeliverySelected{
+                .buttons{
+                    flex-direction: column;
+
+                    .changeShipmentMethod{
+                        margin: 0 0 10px;
+                    }
+                    .selectPoint{
+                        margin: 0;
+                    }
+                }
+            }
             .checkoutDeliverySelect{
                 ul{
                     flex-wrap: wrap;
@@ -1378,6 +1400,21 @@ body.woocommerce-order-pay{
                 }
             }
             .optionContent{
+                .wyroznione{
+                    flex-wrap: wrap;
+                    max-width: 290px;
+                    margin: 0 auto 10px;
+
+                    .bank-item{
+                        &:first-of-type{
+                            width: 275px;
+
+                            .bank-logo{
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
                 .morePayMethods{
                     max-width: 414px;
                     margin: 0 auto;

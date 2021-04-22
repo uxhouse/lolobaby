@@ -1,4 +1,6 @@
 .loloTYP{
+    margin: 160px 0 0;
+
     &__heading{
         margin: 0 0 80px;
         position: relative;
@@ -223,8 +225,15 @@
         }
     }
 }
+@media (max-width: 991px){
+    .loloTYP{
+        margin: 120px 0 0;
+    }
+}
 @media (max-width: 767px){
     .loloTYP{
+        margin: 100px 0 0;
+        
         &__heading{
             &:before{
                 display: none;

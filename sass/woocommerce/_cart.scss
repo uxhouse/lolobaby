@@ -402,6 +402,17 @@ body[thankyoupage="true"]{
                         position: relative;
                         cursor: pointer;
                         user-select: none;
+
+                        &[for="method_9"]{
+                            &:after{
+                                content: ' - 2-3 dni';
+                            }
+                        }
+                        &[for="method_8"]{
+                            &:after{
+                                content: ' - 1-2 dni';
+                            }
+                        }
                     }
                 }
                 .amount{

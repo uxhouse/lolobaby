@@ -3167,6 +3167,10 @@ p {
   width: 150px;
 }
 
+.sortEngine .woocommerce-notices-wrapper {
+  display: none !important;
+}
+
 .sortEngine .woof_products_top_panel {
   display: block;
   margin: 0;
@@ -4965,6 +4969,14 @@ body[thankyoupage="true"] .cartProgress {
           user-select: none;
 }
 
+.loloCart__delivery .deliveryList__option .name label[for="method_9"]:after {
+  content: ' - 2-3 dni';
+}
+
+.loloCart__delivery .deliveryList__option .name label[for="method_8"]:after {
+  content: ' - 1-2 dni';
+}
+
 .loloCart__delivery .deliveryList__option .amount span {
   font-size: 15px;
   line-height: 20px;
@@ -6173,10 +6185,22 @@ body[thankyoupage="true"] #masthead {
   width: 100px;
 }
 
+.checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="9"] label:after {
+  display: block;
+  content: '2-3 dni';
+  margin-top: 5px;
+}
+
 .checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="8"] label:before {
   background-image: url("/wp-content/themes/lolobaby/images/icons/delivery_dpd_logo.svg");
   background-size: 80px 50px;
   width: 80px;
+}
+
+.checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="8"] label:after {
+  display: block;
+  content: '1-2 dni';
+  margin-top: 5px;
 }
 
 .checkoutPage__delivery .checkoutDeliverySelect ul li input {
@@ -6315,6 +6339,18 @@ body[thankyoupage="true"] #masthead {
   }
   .checkoutPage .checkoutForm__shipping > h2 {
     margin: 0 0 20px;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelected .buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelected .buttons .changeShipmentMethod {
+    margin: 0 0 10px;
+  }
+  .checkoutPage__delivery .checkoutDeliverySelected .buttons .selectPoint {
+    margin: 0;
   }
   .checkoutPage__delivery .checkoutDeliverySelect ul {
     -ms-flex-wrap: wrap;
@@ -6811,6 +6847,18 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   .summaryPage__payment .optionList__option .name {
     width: 100%;
   }
+  .summaryPage__payment .optionContent .wyroznione {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    max-width: 290px;
+    margin: 0 auto 10px;
+  }
+  .summaryPage__payment .optionContent .wyroznione .bank-item:first-of-type {
+    width: 275px;
+  }
+  .summaryPage__payment .optionContent .wyroznione .bank-item:first-of-type .bank-logo {
+    margin: 0 auto;
+  }
   .summaryPage__payment .optionContent .morePayMethods {
     max-width: 414px;
     margin: 0 auto;
@@ -6858,6 +6906,10 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
     max-width: 276px;
     margin: 0 auto;
   }
+}
+
+.loloTYP {
+  margin: 160px 0 0;
 }
 
 .loloTYP__heading {
@@ -7104,7 +7156,16 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   }
 }
 
+@media (max-width: 991px) {
+  .loloTYP {
+    margin: 120px 0 0;
+  }
+}
+
 @media (max-width: 767px) {
+  .loloTYP {
+    margin: 100px 0 0;
+  }
   .loloTYP__heading:before {
     display: none;
   }
