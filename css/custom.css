@@ -2564,10 +2564,35 @@ p {
     max-width: 300px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin: 30px auto 10px;
+    margin: 50px auto 10px;
   }
   .archiveShop__header .categoryWrapper__cat {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  .archiveShop__header .categoryWrapper__cat .thumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 40px;
+    margin: 0 auto 15px;
+  }
+  .archiveShop__header .categoryWrapper__cat .thumb:after {
+    top: -25px;
+  }
+  .archiveShop__header .categoryWrapper__cat .thumb__image {
+    display: none;
+  }
+  .archiveShop__header .categoryWrapper__cat .thumb__icon {
+    opacity: 1 !important;
+    position: relative;
+    left: auto;
+    bottom: auto;
   }
   .archiveShop__list {
     max-width: -webkit-fit-content;
@@ -4374,8 +4399,11 @@ body.single-product .woocommerce-breadcrumb {
   .productPage .productContent__summary.zestaw .price--variation {
     top: 110px;
   }
+  .productPage .productContent__summary.notavailable.zestaw .price--variation {
+    top: 75px !important;
+  }
   .productPage .productContent__summary.notavailable .price--variation {
-    top: 75px;
+    top: 5px;
   }
   .productPage .productContent__summary table.variations {
     margin: 10px 0 0;

@@ -895,9 +895,14 @@ body.single-product{
                         top: 110px;
                     }
                 }
+                &.notavailable.zestaw{
+                    .price--variation{
+                        top: 75px !important;
+                    }
+                }
                 &.notavailable{
                     .price--variation{
-                        top: 75px;
+                        top: 5px;
                     }
                 }
 

@@ -180,10 +180,31 @@
             .categoryWrapper{
                 max-width: 300px;
                 flex-wrap: wrap;
-                margin: 30px auto 10px;
+                margin: 50px auto 10px;
 
                 &__cat{
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
+
+                    .thumb{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 40px;
+                        margin: 0 auto 15px;
+
+                        &:after{
+                            top: -25px;
+                        }
+                        &__image{
+                            display: none;
+                        }
+                        &__icon{
+                            opacity: 1 !important;
+                            position: relative;
+                            left: auto;
+                            bottom: auto;
+                        }
+                    }
                 }
             }
         }
