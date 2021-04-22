@@ -137,6 +137,36 @@
         height: 40px;
         transition: ease .3s;
 
+        .tinvwl_add_to_wishlist_button{
+            width: 40px;
+            height: 40px;
+            position: relative;
+
+            &.tinvwl-product-make-remove{
+                &:before{
+                    background-image: url('/wp-content/themes/lolobaby/images/icons/wishlist_ico_red_full.svg'); 
+                }
+            }
+
+            &:before{
+                content: '' !important;
+                background-image: url('/wp-content/themes/lolobaby/images/icons/wishlist_ico_red.svg');
+                background-repeat: no-repeat;
+                background-size: 20px;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                margin: 0 auto !important;
+                left: 0;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+            span{
+                display: none !important;
+                font-size: 0;
+            }
+        }
         img{
             width: 23px;
         }

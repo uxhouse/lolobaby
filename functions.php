@@ -315,6 +315,12 @@ function create_account(){
 				wp_set_auth_cookie($user_id);
 				wp_redirect(home_url('/zamowienie'));
 				exit;
+
+				$to = $email;
+				$subject = '[Lolobaby] Twoje konto zostało zarejestrowane';
+				$message = '<center>Witaj ' . $user . '!<br/>Twoje konto zostało pomyślnie zarejestrowane.<br/>Teraz możesz się zalogować za pomocą danych podanych przy rejestracji.</center';
+
+				wp_mail( $to, $subject, $message );
 			}
 		}else{
 			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
@@ -335,6 +341,12 @@ function create_account(){
 				wp_set_auth_cookie($user_id);
 				wp_redirect(home_url('/moje-konto'));
 				exit;
+
+				$to = $email;
+				$subject = '[Lolobaby] Twoje konto zostało zarejestrowane';
+				$message = '<center>Witaj ' . $user . '!<br/>Twoje konto zostało pomyślnie zarejestrowane.<br/>Teraz możesz się zalogować za pomocą danych podanych przy rejestracji.</center';
+
+				wp_mail( $to, $subject, $message );
 			}
 		}else{
 			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
