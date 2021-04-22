@@ -457,10 +457,12 @@ div.woocommerce-message{
     justify-content: center;
     transition: ease .5s;
 
-    &.disable{
+    &.ready{
         opacity: 0 !important;
-        display: none !important;
         pointer-events: none !important;
+    }
+    &.disable{
+        display: none !important;
     }
 
     &__image{

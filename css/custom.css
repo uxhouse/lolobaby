@@ -10275,10 +10275,13 @@ div.woocommerce-message[data-flexible_shipping_free_shipping_notice="yes"] {
   transition: ease .5s;
 }
 
-.pageLoader.disable {
+.pageLoader.ready {
   opacity: 0 !important;
-  display: none !important;
   pointer-events: none !important;
+}
+
+.pageLoader.disable {
+  display: none !important;
 }
 
 .pageLoader__image {

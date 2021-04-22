@@ -2,9 +2,8 @@
 
 $(document).ready(function(){
     var loader = $('.pageLoader');
-    loader.css('opacity', 0).css('pointer-events', 'none');
+    loader.addClass('ready');
     setTimeout(function(){
-        loader.css('display', 'none');
         loader.addClass('disable');
     }, 1000);
 });
