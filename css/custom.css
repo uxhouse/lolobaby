@@ -2567,6 +2567,12 @@ p {
     margin: 50px auto 10px;
   }
   .archiveShop__header .categoryWrapper__cat {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 30px;
   }
   .archiveShop__header .categoryWrapper__cat .thumb {
@@ -2580,7 +2586,7 @@ p {
         -ms-flex-pack: center;
             justify-content: center;
     height: 40px;
-    margin: 0 auto 15px;
+    margin: 0 15px 0 0;
   }
   .archiveShop__header .categoryWrapper__cat .thumb:after {
     top: -25px;
@@ -2593,6 +2599,9 @@ p {
     position: relative;
     left: auto;
     bottom: auto;
+  }
+  .archiveShop__header .categoryWrapper__cat .thumb .name {
+    margin: 0;
   }
   .archiveShop__list {
     max-width: -webkit-fit-content;
@@ -2870,10 +2879,10 @@ p {
 
 .filterMobile {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 70px);
   z-index: 99;
   background: #fff;
   padding: 22px 40px 30px;

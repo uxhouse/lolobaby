@@ -60,8 +60,10 @@ get_header( 'shop' ); ?>
                             <img class="thumb__image" src="<?php echo $image; ?>"/>
                             <img class="thumb__icon" src="<?php echo $term_fields['categoryIcon']; ?>"/>
                         </div>
-                        <p class="name"><?php echo $cat->name; ?></p>
-                        <span>Wybierz</span>
+                        <div class="content">
+                            <p class="name"><?php echo $cat->name; ?></p>
+                            <span>Wybierz</span>
+                        </div>
                     </a>
                 <?php endif; ?>
             <?php endforeach; ?>
