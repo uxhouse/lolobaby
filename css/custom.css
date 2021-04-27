@@ -7627,6 +7627,58 @@ body.woocommerce-lost-password .woocommerce-message {
   text-align: center;
 }
 
+/* ---- lost password enter new pass ---- */
+.resetPassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 50vh;
+}
+
+.resetPassword__wrap {
+  text-align: center;
+  width: 100%;
+  margin-top: -50px;
+  padding: 0 20px;
+}
+
+.resetPassword__input {
+  max-width: 440px;
+  margin: 0 auto 10px;
+}
+
+.resetPassword__input input {
+  height: 60px;
+  width: 100%;
+  max-width: 440px;
+  border: 2px solid #EC422B;
+  border-radius: 0;
+  text-align: center;
+  font-size: 15px;
+  line-height: 20px;
+  color: #4F4F4F;
+  outline: none !important;
+}
+
+.resetPassword__input .woocommerce-password-strength {
+  text-align: center;
+  margin: 10px 0 0;
+}
+
+.resetPassword__input .woocommerce-password-hint {
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+  color: #4F4F4F;
+}
+
+.resetPassword .btn {
+  margin: 10px auto 0;
+}
+
 /*  Partials
 --------------- */
 /* ---- COLORS ---- */

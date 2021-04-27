@@ -595,6 +595,15 @@ $(document).ready(function(){
             }, 500);
         }
 
+        /* ---- Reset pass notices ---- */
+        $(document).ready(function(){
+            var resetStatus = getUrlParameter('password-reset');
+
+            if(resetStatus == 'true'){
+                $('.checkoutLogin').find('.notices').append('<p class="success">Twoje hasło zostało zmienione, zaloguj się za pomocą nowego hasła.</p>');
+            }
+        });
+
         /* ---- Register notices ---- */
 
         $(document).ready(function(){
