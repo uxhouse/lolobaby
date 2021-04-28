@@ -6945,6 +6945,23 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   }
 }
 
+@media (max-width: 420px) {
+  .summaryPage__nextstep .nextStep {
+    width: 100%;
+    height: auto;
+    padding: 5px 10px;
+  }
+  .summaryPage__nextstep .nextStep span {
+    line-height: 21px;
+    white-space: normal;
+    padding: 0;
+    text-align: center;
+  }
+  .summaryPage__nextstep .nextStep span::after {
+    display: none;
+  }
+}
+
 .loloTYP {
   margin: 160px 0 0;
 }
