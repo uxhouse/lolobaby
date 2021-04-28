@@ -139,6 +139,6 @@ $itemsCount = $order->get_item_count();
     </div>
     <div class="summaryPage__nextstep">
         <a href="/moje-konto" class="previousStep"><span>Powrót</span></a>
-        <p class="btn nextStep"><span>Złóż zamówienie</span></p>
+        <p class="btn nextStep"><span>Zamawiam z obowiązkiem zapłaty</span></p>
     </div>
 </div>
