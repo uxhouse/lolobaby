@@ -1475,3 +1475,25 @@ body.woocommerce-order-pay{
         }
     }
 }
+@media (max-width: 420px){
+    .summaryPage{
+        &__nextstep{
+            .nextStep{
+                width: 100%;
+                height: auto;
+                padding: 5px 10px;
+
+                span{
+                    line-height: 21px;
+                    white-space: normal;
+                    padding: 0;
+                    text-align: center;
+
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
