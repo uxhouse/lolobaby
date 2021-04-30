@@ -21,7 +21,6 @@
 </head>
 <body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))){echo 'thankyoupage="true"';}; ?> freeshipping="<?php echo $freeshippingamount; ?>">
 <?php wp_body_open(); ?>
-<h1>test</h1>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'lolobaby' ); ?></a>
 	<div class="lolosite__header">
