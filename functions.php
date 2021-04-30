@@ -291,6 +291,16 @@ add_filter( 'woocommerce_update_cart_action_cart_updated', 'filter_woocommerce_u
 
 /*** Custom register form ***/
 
+function get_custom_email_html($heading = false, $mailer ) {
+	$template = '/wp-content/themes/lolobaby/woocommerce/emails/customer-new-account.php';
+	return wc_get_template_html( $template, array(
+		'email_heading' => $heading,
+		'sent_to_admin' => false,
+		'plain_text'    => false,
+		'email'         => $mailer
+	));
+}
+
 add_action('init','create_account');
 function create_account(){
     //You may need some data validation here
@@ -307,6 +317,9 @@ function create_account(){
 				$user = new WP_User($user_id);
 				$user->set_role('customer');
 
+				$emails = WC()->mailer()->get_emails();
+				$emails['WC_Email_Customer_New_Account']->trigger( $user_id, $pass, false);
+
 				if($newsletter){
 					update_user_meta($user_id, 'newsletterSubscribe', $newsletter);
 				}
@@ -315,12 +328,6 @@ function create_account(){
 				wp_set_auth_cookie($user_id);
 				wp_redirect(home_url('/zamowienie'));
 				exit;
-
-				$to = $email;
-				$subject = '[Lolobaby] Twoje konto zostało zarejestrowane';
-				$message = '<center>Witaj ' . $user . '!<br/>Twoje konto zostało pomyślnie zarejestrowane.<br/>Teraz możesz się zalogować za pomocą danych podanych przy rejestracji.</center';
-
-				wp_mail( $to, $subject, $message );
 			}
 		}else{
 			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
@@ -333,6 +340,9 @@ function create_account(){
 				$user = new WP_User($user_id);
 				$user->set_role('customer');
 
+				$emails = WC()->mailer()->get_emails();
+				$emails['WC_Email_Customer_New_Account']->trigger( $user_id, $pass, false);
+
 				if($newsletter){
 					update_user_meta($user_id, 'newsletterSubscribe', $newsletter);
 				}
@@ -341,12 +351,6 @@ function create_account(){
 				wp_set_auth_cookie($user_id);
 				wp_redirect(home_url('/moje-konto'));
 				exit;
-
-				$to = $email;
-				$subject = '[Lolobaby] Twoje konto zostało zarejestrowane';
-				$message = '<center>Witaj ' . $user . '!<br/>Twoje konto zostało pomyślnie zarejestrowane.<br/>Teraz możesz się zalogować za pomocą danych podanych przy rejestracji.</center';
-
-				wp_mail( $to, $subject, $message );
 			}
 		}else{
 			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));

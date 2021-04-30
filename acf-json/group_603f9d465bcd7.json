@@ -217,7 +217,7 @@
                     "label": "Zdjęcie wyrózniające",
                     "name": "homepage_collections_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Minimalna rozdzielczość zdjęcia: 960x940 (szer. x wys.)",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -411,7 +411,7 @@
                     "label": "Zdjęcie",
                     "name": "homepage_instagram_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Minimalna rozdzielczość zdjęcia: 480x480",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -469,5 +469,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617373364
+    "modified": 1619789357
 }
