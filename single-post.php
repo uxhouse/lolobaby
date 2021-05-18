@@ -17,7 +17,7 @@ get_header();
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <!-- <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
         <header class="singlePost__header" style="background-image: url('<?php echo $url ?>');"> -->
-        <header class="singlePost__header">
+        <header class="singlePost__header" style="background-image: url('<?php echo the_field('singlePost_mainimage'); ?>');">
             <div class="singlePost__headerContent">
                 <p class="singlePost__date"><?php echo get_the_date( 'd.m.Y' ); ?></p>
                 <?php the_title( '<h1 class="singlePost__title">', '</h1>' ); ?>
