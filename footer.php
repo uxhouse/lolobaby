@@ -78,6 +78,7 @@
 				<div class="wrap">
 				<?php while(have_rows('product_sizeTable')): the_row();
 					$productName = get_sub_field('product_sizeTable_productName');
+					$productSizeImage = get_sub_field('product_sizeTable_image');
 				?>
 				<table>
 					<thead>
@@ -132,6 +133,9 @@
 						<?php endwhile; ?>
 					</tbody>
 				</table>
+				<div class="sizeModal__image">
+					<img src="<?php echo $productSizeImage; ?>"/>
+				</div>
 				<?php endwhile; ?>
 				</div>
 			</div>

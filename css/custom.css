@@ -8832,6 +8832,7 @@ body[thankyoupage="true"] .cartHeader {
   min-height: 100px;
   background-color: #fff;
   opacity: 0;
+  margin-top: 100px;
   pointer-events: none;
   transition: ease .3s;
 }
@@ -8885,6 +8886,8 @@ body[thankyoupage="true"] .cartHeader {
 
 .sizeModal__content .wrap {
   padding: 20px 20px 10px;
+  max-height: 60vh;
+  overflow-x: scroll;
 }
 
 .sizeModal__content .wrap table {
@@ -8924,6 +8927,13 @@ body[thankyoupage="true"] .cartHeader {
   text-transform: uppercase;
   font-weight: 400;
   border-bottom: 10px solid #fff;
+}
+
+.sizeModal__image img {
+  max-width: calc(100% - 20px);
+  width: 300px;
+  margin: 0 auto;
+  display: block;
 }
 
 @media (max-width: 767px) {
