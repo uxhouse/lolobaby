@@ -596,6 +596,27 @@ body[thankyoupage="true"]{
                             background-color: $pink-color;
                         }
                     }
+                    &#billing_country_field{
+                        .woocommerce-input-wrapper{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 60px;
+                            width: 440px;
+                            margin: 0 auto 9px;
+                            border: 2px solid $red-color;
+                            text-align: center;
+                            font-size: 15px;
+                            
+                            strong{
+                                font-weight: normal;
+                                color: #4f4f4f;
+                                font-size: 15px;
+                                text-align: center;
+                            }
+                        }
+                    }
+
                     input{
                         display: block;
                         height: 60px;
@@ -1113,6 +1134,10 @@ body.woocommerce-order-pay{
                 width: 30px;
                 height: 30px;
                 border-radius: 100%;
+
+                &[termname="kremowy"]{
+                    border: 1px solid #4f4f4f;
+                }
             }
         }
         &__size{

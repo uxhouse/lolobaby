@@ -481,7 +481,7 @@ add_filter( 'wc_add_to_cart_message_html', '__return_false' );
 /* Global free shipping amount */
 function freeshipping_amount() {
 	global $freeshippingamount;
-	$freeshippingamount = 299;
+	$freeshippingamount = 249;
 }
 add_action( 'after_setup_theme', 'freeshipping_amount' );
 

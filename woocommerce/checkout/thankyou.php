@@ -73,7 +73,6 @@ defined( 'ABSPATH' ) || exit;
                 <div class="wrap">
                     <h4>Dbajmy o produkty</h4>
                     <p>W Lolobaby przykładamy wielką uwagę do jakości oraz ponadczasowego stylu oferowanych produktów. Zależy nam na tym, by nasze ubranka były trwałe i służyły więcej niż jednemu Maluszkowi. Pomóż nam o nie zadbać!</p>
-                    <p>Więcej na temat pielęgnacji możesz przeczytać w tym artykule:</p>
                     <a href="#" class="btn btn--blue btn--noarrow"><span>Dowiedz się więcej</span></a>
                 </div>
             </section>

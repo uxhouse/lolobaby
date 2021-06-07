@@ -46,7 +46,7 @@
 						<p>Bądź na bieżąco</p>
 						<a href="https://www.instagram.com/lolo_baby_pl/" target="_blank" class="social">
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico_white.svg'; ?>"/>
-							<p>lolo_baby_pl</p>
+							<p>lolobaby_brand</p>
 						</a>
 					</div>
 				</div>

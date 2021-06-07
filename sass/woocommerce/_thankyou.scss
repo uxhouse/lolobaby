@@ -177,6 +177,14 @@
                     margin: 20px 0 0;
                 }
             }
+            form.sent{
+                .wpcf7-response-output{
+                    background: #46b450;
+                    text-align: center;
+                    color: #fff;
+                    border-radius: 5px;
+                }
+            }
         }
     }
     &__info{

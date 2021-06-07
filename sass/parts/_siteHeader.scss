@@ -12,6 +12,7 @@ body.admin-bar{
     z-index: 100;
     position: fixed;
     top: 0;
+    margin-top: 35px;
     transition: background ease .3s;
 
     &--frontPage{
@@ -66,6 +67,35 @@ body.admin-bar{
             position: relative;
             top: -20px;
             z-index: 2;
+        }
+    }
+
+    &__freedelivery{
+        margin: 0;
+        position: absolute;
+        top: -35px;
+        height: 35px;
+        background: $red-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        p{
+            margin: 0;
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            text-transform: uppercase;
+            align-items: center;
+            justify-content: center;
+
+            span{
+                font-size: 24px;
+                font-weight: 700;
+                padding-left: 8px;
+            }
         }
     }
 
@@ -232,6 +262,7 @@ body.admin-bar{
 @media (max-width: 991px){
     .siteHeader{
         height: 77px;
+        margin-top: 30px;
 
         &--frontPage{
             height: 70px;
@@ -247,6 +278,18 @@ body.admin-bar{
             }
         }
 
+        &__freedelivery{
+            top: -30px;
+            height: 30px;
+
+            p{
+                font-size: 14px;
+
+                span{
+                    font-size: 21px;
+                }
+            }
+        }
         &__menu{
             ul{
                 li{
