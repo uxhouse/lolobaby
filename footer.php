@@ -44,7 +44,7 @@
 					</div>
 					<div class="footerContent__social">
 						<p>Bądź na bieżąco</p>
-						<a href="https://www.instagram.com/lolo_baby_pl/" target="_blank" class="social">
+						<a href="https://www.instagram.com/lolobaby_brand/" target="_blank" class="social">
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico_white.svg'; ?>"/>
 							<p>lolobaby_brand</p>
 						</a>
