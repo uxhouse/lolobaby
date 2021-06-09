@@ -23,13 +23,14 @@ get_header(); ?>
                         <h3 class="contactContent__subheading">Adres:</h3>
                     </div>
                     <p>Lolo Baby<br>ul. Rynek Kosciuszki 8/1<br>15-426 Białystok<br>Polska</p>
+                    <p><b>Magazyn:</b><br/>Fabryczna 101<br/>15-119 Bialystok</p>
                 </li>
                 <li>
                     <div class="contactContent__subheadingWrapper">
                         <img src="<?php echo get_template_directory_uri() . '/images/icons/phone.svg' ?>" alt="" />
                         <h3 class="contactContent__subheading">Telefon:</h3>
                     </div>
-                    <p>TBC</p>
+                    <p>+48 506 496 731</p>
                 </li>
                 <li>
                     <div class="contactContent__subheadingWrapper">

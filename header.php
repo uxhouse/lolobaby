@@ -26,7 +26,7 @@
 	<div class="lolosite__header">
 		<header id="masthead" class="siteHeader<?php if(is_front_page() || is_singular('post')): ?> siteHeader--frontPage<?php endif; ?>">
 			<div class="siteHeader__freedelivery">
-				<p>Darmowa wysyłka od <span>249zł</span></p>
+				<p>Darmowa wysyłka od <span>250zł</span></p>
 			</div>
 			<div class="siteHeader__wrap container">
 				<div class="siteHeader__menu">

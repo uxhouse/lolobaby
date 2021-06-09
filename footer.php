@@ -37,7 +37,7 @@
 						</ul>
 						<ul>
 							<li class="title">O nas:</li>
-							<li><a href="<?php echo home_url('/o-nas') ?>">LoloBaby</a></li>
+							<li><a href="<?php echo home_url('/o-nas') ?>">Lolobaby</a></li>
 							<li><a href="<?php echo home_url('/kontakt') ?>">Kontakt</a></li>
 							<li><a href="<?php echo home_url('/blog') ?>">Blog</a></li>
 						</ul>
