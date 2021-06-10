@@ -17,7 +17,7 @@
         <h2 class="sectionHeading"><span>Odwiedź nas</span></h2>
         <?php endif; ?>
         <a href="https://www.instagram.com/lolo_baby_pl/" target="_blank" class="hash">
-            <p><img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico.svg'; ?>"/>lolobaby</p>
+            <p><img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico.svg'; ?>"/>lolobaby_brand</p>
             <p><img src="<?php echo get_template_directory_uri() . '/images/icons/hash_ico.svg'; ?>"/>lolobaby</p>
             <p><img src="<?php echo get_template_directory_uri() . '/images/icons/hash_ico.svg'; ?>"/>pulltofly</p>
         </a>
