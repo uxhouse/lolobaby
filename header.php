@@ -18,6 +18,19 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<?php if($_SERVER['SERVER_NAME'] == 'lolobaby.pl'): ?>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G2506DKCBV"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-G2506DKCBV');
+	</script>
+	<?php endif; ?>
+
 </head>
 <body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))){echo 'thankyoupage="true"';}; ?> freeshipping="<?php echo $freeshippingamount; ?>">
 <?php wp_body_open(); ?>
