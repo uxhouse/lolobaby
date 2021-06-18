@@ -674,7 +674,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 430px;
+  max-width: 480px;
   margin: 0 auto;
 }
 
@@ -8958,19 +8958,60 @@ body[thankyoupage="true"] .cartHeader {
   overflow-x: scroll;
 }
 
-.sizeModal__content .wrap table {
-  margin: 0 0 10px;
+.sizeModal__content .wrap .productSizeTable {
+  display: flex;
+  align-items: flex-start;
 }
 
-.sizeModal__content .wrap table:last-of-type {
+.sizeModal__content .wrap .productSizeTable .productInfo {
+  max-width: 170px;
+}
+
+.sizeModal__content .wrap .productSizeTable .productInfo__heading {
+  margin: 0 0 11px;
+  background: #f5f5f5;
+  padding: 10px 5px;
+}
+
+.sizeModal__content .wrap .productSizeTable .productInfo__heading p {
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
   margin: 0;
 }
 
-.sizeModal__content .wrap table thead {
+.sizeModal__content .wrap .productSizeTable .productInfo__content {
+  text-align: center;
+}
+
+.sizeModal__content .wrap .productSizeTable .productInfo__content p {
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px;
+}
+
+.sizeModal__content .wrap .productSizeTable .productInfo__content img {
+  max-width: calc(100% - 10px);
+  padding-bottom: 5px;
+}
+
+.sizeModal__content .wrap .productSizeTable table {
+  margin: 0 0 10px;
+}
+
+.sizeModal__content .wrap .productSizeTable table:last-of-type {
+  margin: 0;
+}
+
+.sizeModal__content .wrap .productSizeTable table thead {
   border-bottom: 10px solid #fff;
 }
 
-.sizeModal__content .wrap table thead tr th {
+.sizeModal__content .wrap .productSizeTable table thead tr th {
   background-color: #f5f5f5;
   border: 1px solid #fff;
   text-align: center;
@@ -8981,11 +9022,11 @@ body[thankyoupage="true"] .cartHeader {
   font-weight: 400;
 }
 
-.sizeModal__content .wrap table tbody tr:first-of-type td:not([rowspan]) {
+.sizeModal__content .wrap .productSizeTable table tbody tr:first-of-type td:not([rowspan]) {
   display: none;
 }
 
-.sizeModal__content .wrap table tbody tr td {
+.sizeModal__content .wrap .productSizeTable table tbody tr td {
   background-color: #f5f5f5;
   border: 1px solid #fff;
   text-align: center;

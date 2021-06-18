@@ -885,7 +885,9 @@ $(document).ready(function(){
             var getname = $(this).find('label')[0].childNodes[0].nodeValue;
             var name = getname.replace(':', '');
             var methodid = $(this).attr('methodid');
+            var input = $(this).find('input');
 
+            input.trigger('click');
             $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
             $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
             $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
@@ -902,6 +904,10 @@ $(document).ready(function(){
             setTimeout(function(){
                 $('.checkoutDeliverySelect').slideUp();
             }, 200);
+            
+            // setTimeout(function(){
+            //     location.reload();
+            // }, 400);
         });
     });
 

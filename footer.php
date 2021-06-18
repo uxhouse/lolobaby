@@ -80,62 +80,66 @@
 					$productName = get_sub_field('product_sizeTable_productName');
 					$productSizeImage = get_sub_field('product_sizeTable_image');
 				?>
-				<table>
-					<thead>
-						<tr>
-							<th>Produkt</th>
-							<?php while(have_rows('product_sizeTable_columns')): the_row();
-								$name = get_sub_field('product_sizeTable_columns_name');
+				<div class="productSizeTable">
+					<div class="productInfo">
+						<div class="productInfo__heading">
+							<p>Produkt</p>
+						</div>
+						<div class="productInfo__content">
+							<p><?php echo $productName; ?></p>
+							<img src="<?php echo $productSizeImage; ?>"/>
+						</div>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<?php while(have_rows('product_sizeTable_columns')): the_row();
+									$name = get_sub_field('product_sizeTable_columns_name');
+								?>
+								<th><?php echo $name; ?></th>
+								<?php endwhile; ?>
+							</tr>
+						</thead>
+						<tbody>
+							<?php while(have_rows('product_sizeTable_sizes')): the_row(); 
+								$column1 = get_sub_field('product_sizeTable_sizes_column1');
+								$column2 = get_sub_field('product_sizeTable_sizes_column2');
+								$column3 = get_sub_field('product_sizeTable_sizes_column3');
+								$column4 = get_sub_field('product_sizeTable_sizes_column4');
+								$column5 = get_sub_field('product_sizeTable_sizes_column5');
+								$column6 = get_sub_field('product_sizeTable_sizes_column6');
+								$column7 = get_sub_field('product_sizeTable_sizes_column7');
 							?>
-							<th><?php echo $name; ?></th>
-							<?php endwhile; ?>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td rowspan="99"><?php echo $productName; ?></td>
-							<?php while(have_rows('product_sizeTable_columns')): the_row(); ?>
-							<td></td>
-							<?php endwhile; ?>
-						</tr>
-						<?php while(have_rows('product_sizeTable_sizes')): the_row(); 
-							$column1 = get_sub_field('product_sizeTable_sizes_column1');
-							$column2 = get_sub_field('product_sizeTable_sizes_column2');
-							$column3 = get_sub_field('product_sizeTable_sizes_column3');
-							$column4 = get_sub_field('product_sizeTable_sizes_column4');
-							$column5 = get_sub_field('product_sizeTable_sizes_column5');
-							$column6 = get_sub_field('product_sizeTable_sizes_column6');
-							$column7 = get_sub_field('product_sizeTable_sizes_column7');
-						?>
-						<tr>
-							<?php if($column1): ?>
-								<td><?php echo $column1; ?></td>
-							<?php endif; ?>
-							<?php if($column2): ?>
-								<td><?php echo $column2; ?></td>
-							<?php endif; ?>
-							<?php if($column3): ?>
-								<td><?php echo $column3; ?></td>
-							<?php endif; ?>
-								<?php if($column4): ?>
-							<td><?php echo $column4; ?></td>
+							<tr>
+								<?php if($column1): ?>
+									<td><?php echo $column1; ?></td>
 								<?php endif; ?>
-							<?php if($column5): ?>
-								<td><?php echo $column5; ?></td>
-							<?php endif; ?>
-							<?php if($column6): ?>
-								<td><?php echo $column6; ?></td>
-							<?php endif; ?>
-							<?php if($column7): ?>
-								<td><?php echo $column7; ?></td>
-							<?php endif; ?>
-						</tr>
-						<?php endwhile; ?>
-					</tbody>
-				</table>
-				<div class="sizeModal__image">
-					<img src="<?php echo $productSizeImage; ?>"/>
+								<?php if($column2): ?>
+									<td><?php echo $column2; ?></td>
+								<?php endif; ?>
+								<?php if($column3): ?>
+									<td><?php echo $column3; ?></td>
+								<?php endif; ?>
+									<?php if($column4): ?>
+								<td><?php echo $column4; ?></td>
+									<?php endif; ?>
+								<?php if($column5): ?>
+									<td><?php echo $column5; ?></td>
+								<?php endif; ?>
+								<?php if($column6): ?>
+									<td><?php echo $column6; ?></td>
+								<?php endif; ?>
+								<?php if($column7): ?>
+									<td><?php echo $column7; ?></td>
+								<?php endif; ?>
+							</tr>
+							<?php endwhile; ?>
+						</tbody>
+					</table>
 				</div>
+				<!-- <div class="sizeModal__image">
+					<img src=""/>
+				</div> -->
 				<?php endwhile; ?>
 				</div>
 			</div>
