@@ -905,9 +905,9 @@ $(document).ready(function(){
                 $('.checkoutDeliverySelect').slideUp();
             }, 200);
             
-            // setTimeout(function(){
-            //     location.reload();
-            // }, 400);
+            setTimeout(function(){
+                location.reload();
+            }, 400);
         });
     });
 
