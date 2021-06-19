@@ -151,6 +151,44 @@
 		<img src="<?php echo get_template_directory_uri() . '/images/loader.svg'; ?>"/>
 	</div>
 </div>
+<script type="text/javascript">
+(function($){
+	/////////////  Hide shipment options on select - and clone data //////////////
+	$(document).ready(function(){
+        if($('body').hasClass('woocommerce-checkout')){
+            var shipmentoption = $('#shipping_method').find('li');
+            $(shipmentoption).on('click', function(){
+                var getname = $(this).find('label')[0].childNodes[0].nodeValue;
+                var name = getname.replace(':', '');
+                var methodid = $(this).attr('methodid');
+
+                $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
+                $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
+                $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
+
+                if(methodid == 8){
+                    $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
+                    $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
+                }
+                if(methodid == 9){
+                    $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
+                    $('.btn.selectPoint').addClass('visible');
+                }
+
+				$('.checkoutPage__delivery').addClass('loading');
+
+                setTimeout(function(){
+                    $('.checkoutDeliverySelect').slideUp();
+                }, 200);
+                
+				$(document.body).on('updated_checkout', function(){
+					location.reload();
+				});
+            });
+        }
+    });
+}(jQuery));
+</script>
 <?php wp_footer(); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 </body>

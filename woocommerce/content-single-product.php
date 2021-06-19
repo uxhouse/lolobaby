@@ -30,6 +30,10 @@ if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+function cleanArray($array){
+    
+    return $array;
+}
 ?>
 <section class="productPage">
     <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'productContent', $product ); ?>>
@@ -39,15 +43,12 @@ if ( post_password_required() ) {
                 <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
             </div>
             <div class="productContent__gallery">
-                <?php
-                /**
-                 * Hook: woocommerce_before_single_product_summary.
-                 *
-                 * @hooked woocommerce_show_product_sale_flash - 10
-                 * @hooked woocommerce_show_product_images - 20
-                 */
-                do_action( 'woocommerce_before_single_product_summary' );
-                ?>
+                <div class="galleryMain">
+                    <?php include get_template_directory() . '/template-parts/_productGallery-images.php'; ?>
+                </div>
+                <div class="galleryNav">
+                    <?php include get_template_directory() . '/template-parts/_productGallery-images.php'; ?>
+                </div>
             </div>
             <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?>">
                 <h1 class="product_title"><?php the_title(); ?></h1>

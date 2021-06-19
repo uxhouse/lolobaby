@@ -1,4 +1,7 @@
 body.single-product{
+    .site-main{
+        padding-top: 40px;
+    }
     .woocommerce-breadcrumb{
         display: none !important;
     }
@@ -17,78 +20,71 @@ body.single-product{
         &__gallery{
             width: 50%;
             
-            .woocommerce-product-gallery{
-                width: calc(100% - 130px);
+            .galleryMain{
+                max-width: calc(100% - 120px);
 
-                &__trigger{
-                    display: none !important;
-                }
-
-                &__image{
-                    user-select: none;
-                    outline: none;
-                    box-shadow: none;
-
-                    a{
-                        display: block;
+                .galleryImage{
+                    img{
                         width: 100%;
-                        user-select: none;
-                        outline: none;
-                        box-shadow: none;
-
-                        img{
-                            width: 100%;
-                        }
+                        height: 100%;
+                        object-fit: contain;
                     }
                 }
+            }
+            .galleryNav{
+                max-width: calc(100% - 120px);
+                margin-top: 20px;
 
-                .flex-control-nav{
-                    max-width: 325px;
-                    margin: 0 auto !important;
+                .slick-list{
+                    margin: 0 55px;
+                }
+                .slick-prev{
+                    width: 28px;
+                    left: 0;
 
-                    .slick-prev{
+                    &:before{
+                        content: '';
+                        background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_left_red.svg');
+                        background-size: 28px;
                         width: 28px;
-                        left: -48px;
-
-                        &:before{
-                            content: '';
-                            background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_left_red.svg');
-                            background-size: 28px;
-                            width: 28px;
-                            height: 20px;
-                            display: block;
-                            transition: ease .3s;
-                        }
+                        height: 20px;
+                        display: block;
+                        transition: ease .3s;
                     }
-                    .slick-next{
+                }
+                .slick-next{
+                    width: 28px;
+                    right: 0;
+
+                    &:before{
+                        content: '';
+                        background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_right_red.svg');
+                        background-size: 28px;
                         width: 28px;
-                        right: -48px;
+                        height: 20px;
+                        display: block;
+                        transition: ease .3s;
+                    }
+                }
+                .galleryImage{
+                    width: 95px;
+                    height: 95px;
+                    margin: 0 10px;
+                    cursor: pointer;
+                    transition: ease .3s;
 
-                        &:before{
-                            content: '';
-                            background-image: url('/wp-content/themes/lolobaby/images/icons/arrow_right_red.svg');
-                            background-size: 28px;
-                            width: 28px;
-                            height: 20px;
-                            display: block;
-                            transition: ease .3s;
-                        }
+                    &:hover{
+                        opacity: .8;
+                    }
+                    &__wrap{
+                        height: inherit;
+                        width: inherit;
                     }
 
-                    .slick-track{
-                        display: flex;
-                    }
-                    li{
-                        width: 95px !important;
-                        height: 95px;
-                        margin: 0 10px !important;
-                        outline: none;
-
-                        img{
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
             }
@@ -692,8 +688,15 @@ body.single-product{
     .productPage{
         .productContent{
             &__gallery{
-                .woocommerce-product-gallery{
-                    width: calc(100% - 80px)
+                .galleryMain{
+                    max-width: calc(100% - 80px);
+                }
+                .galleryNav{
+                    max-width: calc(100% - 80px);
+
+                    .slick-list{
+                        margin: 0 86px;
+                    }
                 }
             }
             &__summary{
@@ -761,9 +764,12 @@ body.single-product{
             &__gallery{
                 width: 100%;
 
-                .woocommerce-product-gallery{
-                    margin: 0 auto;
-                    float: none !important;
+                .galleryMain{
+                    max-width: none;
+                }
+                .galleryNav{
+                    max-width: 500px;
+                    margin: 20px auto 0;
                 }
             }
             &__summary{
@@ -879,12 +885,8 @@ body.single-product{
                 padding: 0;
             }
             &__gallery{
-                .woocommerce-product-gallery{
-                    width: 100%;
-
-                    .flex-control-nav{
-                        display: none;
-                    }
+                .galleryNav{
+                    display: none;
                 }
             }
             &__summary{

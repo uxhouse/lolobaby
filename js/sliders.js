@@ -102,13 +102,26 @@ $(document).ready(function(){
 });
 
 /* ---- Product page ---- */
+
 $(document).ready(function(){
-    var productGalleryNav = $('.woocommerce-product-gallery').find('.flex-control-nav');
-    $(productGalleryNav).slick({
+    var galleryMain = $('.productContent__gallery').find('.galleryMain');
+    var galleryNav = $('.productContent__gallery').find('.galleryNav');
+
+    $(galleryMain).slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        adaptiveHeight: true,
+        asNavFor: galleryNav,
+    });
+    $(galleryNav).slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         infinite: false,
         variableWidth: true,
+        arrows: true,
+        focusOnSelect: true,
+        asNavFor: galleryMain,
     });
 });
 

@@ -257,13 +257,33 @@ $(document).ready(function(){
     /* ---- Product image zoom ---- */
     $(document).ready(function(){
         if($(window).width() > 767){
-            $('.woocommerce-product-gallery__image').each(function(){
-                var wooImage = $(this).find('a');
-                var wooImageSource = wooImage.attr('href');
+            var gallery = $('.galleryMain').find('.galleryImage');
+            $(gallery).each(function(){
+                var wooImage = $(this).find('.galleryImage__wrap');
+                var wooImageSource = wooImage.attr('src');
                 $(wooImage).zoom({
                     url: wooImageSource,
                     magnify: 2,
                 });
+            });
+        }
+    });
+
+    /* ---- Product color variable ---- */
+    $(document).ready(function(){
+        var attr = $('.color-variable-wrapper').find('.rtwpvs-term');
+        
+        if($(window).width() < 767){
+            $(attr).on('click', function(){
+                var color = $(this).attr('data-term');
+                var slideno = $('.galleryMain').find('.galleryImage[data-name="' + color + '"]').attr('data-slick-index');
+                $('.galleryMain').slick('slickGoTo', slideno);
+            });
+        }else{
+            $(attr).on('click', function(){
+                var color = $(this).attr('data-term');
+                var slideno = $('.galleryNav').find('.galleryImage[data-name="' + color + '"]').attr('data-slick-index');
+                $('.galleryNav').slick('slickGoTo', slideno);
             });
         }
     });
@@ -864,52 +884,70 @@ $(document).ready(function(){
 
     /////////////  Select choosed shipment option //////////////
     $(document).ready(function(){
-        var shipmentID = $('.checkoutPage').attr('selectedshipment');
-        $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
-        setTimeout(function(){
-            $('li[methodid="' + shipmentID + '"]').find('input').trigger('click');
-        }, 100);
+        if($('body').hasClass('woocommerce-checkout')){
+            var shipmentID = $('.checkoutPage').attr('selectedshipment');
+            $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
+            setTimeout(function(){
+                $('li[methodid="' + shipmentID + '"]').each(function(){
+                    var getname = $(this).find('label')[0].childNodes[0].nodeValue;
+                    var name = getname.replace(':', '');
+                    var methodid = $(this).attr('methodid');
 
-        if(shipmentID > 0){
-            $('.checkoutDeliverySelect').slideUp();
-            $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
-        }else{
-            $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
+                    $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
+                    $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
+                    $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
+
+                    if(methodid == 8){
+                        $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
+                        $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
+                    }
+                    if(methodid == 9){
+                        $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
+                        $('.btn.selectPoint').addClass('visible');
+                    }
+                });
+            }, 100);
+
+            if(shipmentID > 0){
+                $('.checkoutDeliverySelect').slideUp();
+                $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
+            }else{
+                $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
+            }
         }
     });
 
-    /////////////  Hide shipment options on select - and clone data //////////////
-    $(document).ready(function(){
-        var shipmentoption = $('#shipping_method').find('li');
-        $(shipmentoption).on('click', function(){
-            var getname = $(this).find('label')[0].childNodes[0].nodeValue;
-            var name = getname.replace(':', '');
-            var methodid = $(this).attr('methodid');
-            var input = $(this).find('input');
+    // /////////////  Hide shipment options on select - and clone data //////////////
+    // $(document).ready(function(){
+    //     if($('body').hasClass('woocommerce-checkout')){
+    //         var shipmentoption = $('#shipping_method').find('li');
+    //         $(shipmentoption).on('click', function(){
+    //             var getname = $(this).find('label')[0].childNodes[0].nodeValue;
+    //             var name = getname.replace(':', '');
+    //             var methodid = $(this).attr('methodid');
 
-            input.trigger('click');
-            $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
-            $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
-            $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
+    //             $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
+    //             $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
+    //             $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
 
-            if(methodid == 8){
-                $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
-                $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
-            }
-            if(methodid == 9){
-                $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
-                $('.btn.selectPoint').addClass('visible');
-            }
+    //             if(methodid == 8){
+    //                 $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
+    //                 $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
+    //             }
+    //             if(methodid == 9){
+    //                 $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
+    //                 $('.btn.selectPoint').addClass('visible');
+    //             }
 
-            setTimeout(function(){
-                $('.checkoutDeliverySelect').slideUp();
-            }, 200);
-            
-            setTimeout(function(){
-                location.reload();
-            }, 400);
-        });
-    });
+    //             setTimeout(function(){
+    //                 $('.checkoutDeliverySelect').slideUp();
+    //             }, 200);
+    //             setTimeout(function(){
+    //                 location.reload();
+    //             }, 300);
+    //         });
+    //     }
+    // });
 
     /////////////  Open shipment methods on click  //////////////
     $(document).ready(function(){
