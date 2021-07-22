@@ -126,6 +126,65 @@
         }
     }
 }
+
+.newsletterPopup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    background-color: #0000006b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: ease .3s;
+
+    &--ready{
+        opacity: 1;
+        pointer-events: all;
+    }
+    &--active{
+        .newsletterPopup__wrap{
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &__wrap{
+        background-color: $red-color;
+        max-width: 600px;
+        padding: 50px;
+        position: relative;
+        opacity: 0;
+        pointer-events: none;
+        transition: ease .3s;
+    }
+    &__close{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        transition: ease .3s;
+
+        &:hover{
+            opacity: .7;
+
+            img{
+                transform: rotate(0);
+            }
+        }
+
+        img{
+            filter: contrast(0) brightness(20);
+            width: 20px;
+            transform: rotate(-45deg);
+            transition: ease .3s;
+        }
+    }
+}
 .newsletter{
     &__heading{
         text-align: center;

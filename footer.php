@@ -9,7 +9,25 @@
  * @package Lolobaby
  */
 
+	$user_id = get_current_user_id();
+	$subscribeStatus = get_user_meta($user_id, 'newsletterSubscribe', true);
 ?>
+
+	<?php if(!is_user_logged_in() || is_user_logged_in() && $subscribeStatus !== 'on'): ?>
+	<div class="newsletterPopup">
+		<div class="newsletterPopup__wrap">
+			<div class="newsletterPopup__close"><img src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/></div>
+			<div class="newsletter">
+				<div class="newsletter__heading">
+					<img src="<?php echo get_template_directory_uri() . '/images/icons/newsletter_heading_ico.svg'; ?>"/>
+					<h2>Otrzymaj 10% zniżki</h2>
+					<p>Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera:</p>
+				</div>
+				<?php echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]') ?>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
 
 	<footer id="colophon" class="siteFooter">
 		<svg xmlns="http://www.w3.org/2000/svg" width="5469" height="34" viewBox="0 0 5469 34" fill="none">

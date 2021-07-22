@@ -571,3 +571,54 @@ function wishlistDelete(){
 
 	die();
 }
+
+/* Check user newsletter subscription status */
+function get_subscriber_mailchimp_status() {
+	$user = wp_get_current_user();
+	$api_key = 'xxx-us1';
+	$list_id = '474dd832c9';
+	$us = 'us1';
+	$args = array(
+		'headers'     => array(
+			'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
+			'Access-Control-Allow-Origin' => '*',
+		),
+	);
+
+	$email_address = $user->user_email;
+	$email_formatted = md5(strtolower($email_address));
+	$response = wp_remote_get( 'https://'. $us  .'.api.mailchimp.com/3.0/lists/'. $list_id . '/members/' . $email_formatted, $args );
+	$body = json_decode( wp_remote_retrieve_body( $response ) );
+	$mailchimp_status = $body->status;
+	if($mailchimp_status == 'subscribed'){
+		update_user_meta($user->ID, 'newsletterSubscribe', 'on');
+	}else{
+		delete_user_meta($user->ID, 'newsletterSubscribe', 'on');
+	}
+}
+add_action('wp_head', 'get_subscriber_mailchimp_status', 10, 2);
+
+/* Newsletter popup */
+
+function delete_newsletter_cookies(){
+	setcookie('newsletterPopup', 'false', strtotime('-1 day'));
+}
+add_action('init', 'delete_newsletter_cookies');
+
+add_action('wp_ajax_newsletter_get_cookie', 'newsletter_get_cookie');
+add_action('wp_ajax_nopriv_newsletter_get_cookie', 'newsletter_get_cookie');
+function newsletter_get_cookie(){
+	echo $_COOKIE['newsletterPopup'];
+	wp_die();
+}
+
+add_action('wp_ajax_newsletter_set_cookie', 'newsletter_set_cookie');
+add_action('wp_ajax_nopriv_newsletter_set_cookie', 'newsletter_set_cookie');
+function newsletter_set_cookie(){
+	$expiry = strtotime('+1 day');
+	setcookie('newsletterPopup', 'true', $expiry);
+
+	echo 'cookie set';
+
+	wp_die();
+}

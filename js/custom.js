@@ -1164,4 +1164,57 @@ $(document).ready(function(){
             return false;
         });
     });
+
+    /* Newsletter popup */
+    function openNewsletterPopup(){
+        var popup = $('.newsletterPopup');
+        popup.addClass('newsletterPopup--ready');
+        setTimeout(function(){
+            popup.addClass('newsletterPopup--active');
+        }, 300);
+    }
+    function closeNewsletterPopup(){
+        var popup = $('.newsletterPopup');
+        popup.removeClass('newsletterPopup--active');
+        setTimeout(function(){
+            popup.removeClass('newsletterPopup--ready');
+        }, 300);
+    }
+
+    $(document).ready(function(){
+        if($('.newsletterPopup').length){
+            setTimeout(function(){
+                $.ajax({
+                    type: 'POST', 
+                    url: ajaxurl,
+                    data: {
+                        action: 'newsletter_get_cookie',
+                    },
+                    success: function(data) {
+                        if(data !== 'true'){
+                            console.log('Newsletter popup cookie is NOT active - popup showed');
+                            openNewsletterPopup();
+                        }else{
+                            console.log('Newsletter popup cookie active');
+                        }
+                    }
+                })
+            }, 5000);
+            $('.newsletterPopup__close').on('click', function(){
+                closeNewsletterPopup();
+                $.ajax({
+                    type: 'POST',
+                    url: ajaxurl,
+                    data: {
+                        action: 'newsletter_set_cookie',
+                    },
+                    success: function(data) {
+                        console.log(data);
+                    }
+                });
+            });
+        }else{
+            console.log('Current user subscribe newsletter');
+        }
+    });
 });
