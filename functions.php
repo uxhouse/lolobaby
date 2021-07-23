@@ -575,7 +575,7 @@ function wishlistDelete(){
 /* Check user newsletter subscription status */
 function get_subscriber_mailchimp_status() {
 	$user = wp_get_current_user();
-	$api_key = 'xxx-us1';
+	$api_key = '44790bf7d89d21841f3fdb902a309152-us1';
 	$list_id = '474dd832c9';
 	$us = 'us1';
 	$args = array(
@@ -600,10 +600,10 @@ add_action('wp_head', 'get_subscriber_mailchimp_status', 10, 2);
 
 /* Newsletter popup */
 
-function delete_newsletter_cookies(){
-	setcookie('newsletterPopup', 'false', strtotime('-1 day'));
-}
-add_action('init', 'delete_newsletter_cookies');
+// function delete_newsletter_cookies(){
+// 	setcookie('newsletterPopup', 'false', strtotime('-1 day'));
+// }
+// add_action('init', 'delete_newsletter_cookies');
 
 add_action('wp_ajax_newsletter_get_cookie', 'newsletter_get_cookie');
 add_action('wp_ajax_nopriv_newsletter_get_cookie', 'newsletter_get_cookie');
