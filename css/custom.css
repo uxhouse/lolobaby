@@ -8144,6 +8144,54 @@ body[thankyoupage="true"] .cartHeader {
   transition: ease .3s;
 }
 
+@media (max-width: 767px) {
+  .newsletterPopup__wrap {
+    max-width: 300px;
+    padding: 20px 20px 0;
+  }
+  .newsletterPopup__wrap .newsletter__heading:before {
+    background-size: 180px;
+    width: 180px;
+    height: 110px;
+    top: -52px;
+  }
+  .newsletterPopup__wrap .newsletter__heading h2 {
+    font-size: 21px;
+    line-height: 28px;
+  }
+  .newsletterPopup__wrap .newsletter__heading p {
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0 0 15px;
+  }
+  .newsletterPopup__wrap .newsletter__mailinput input {
+    height: 44px;
+    font-size: 12px;
+  }
+  .newsletterPopup__wrap .newsletter__checkbox {
+    margin: 15px 0 10px;
+  }
+  .newsletterPopup__wrap .newsletter__checkbox .mc4wp-checkbox-contact-form-7 {
+    padding-left: 25px;
+  }
+  .newsletterPopup__wrap .newsletter__checkbox .mc4wp-checkbox-contact-form-7 label span {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .newsletterPopup__wrap .newsletter .wpcf7-submit {
+    font-size: 12px;
+    line-height: 35px;
+    padding: 0 40px 0 20px;
+  }
+  .newsletterPopup__wrap .newsletter form > p:after {
+    background-size: 15px;
+    width: 15px;
+    height: 11px;
+    top: 12px;
+    right: -84px;
+  }
+}
+
 .newsletter__heading {
   text-align: center;
 }
