@@ -21,7 +21,7 @@
         {
             "key": "field_611183adacfc9",
             "label": "Tekst belki informacyjnej",
-            "name": "Infobar_text",
+            "name": "infobar_text",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -504,5 +504,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628537915
+    "modified": 1628537994
 }
