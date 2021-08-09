@@ -19,12 +19,12 @@
             "endpoint": 0
         },
         {
-            "key": "field_611183adacfc9",
+            "key": "field_611185a9c6598",
             "label": "Tekst belki informacyjnej",
-            "name": "infobar_text",
+            "name": "infobar",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -504,5 +504,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628537994
+    "modified": 1628538309
 }

@@ -56,7 +56,7 @@
 		<div class="lolosite__header">
 			<header id="masthead" class="siteHeader<?php if (is_front_page() || is_singular('post')) : ?> siteHeader--frontPage<?php endif; ?>">
 				<div class="siteHeader__freedelivery">
-					<p><?php the_field('infobar_text', 20); ?></p>
+					<p><?php the_field('infobar', 20); ?></p>
 				</div>
 				<div class="siteHeader__wrap container">
 					<div class="siteHeader__menu">
