@@ -655,13 +655,18 @@ $sliderHeight: 85vh;
             max-width: 480px;
             margin: 0 auto;
 
-            p{
+            a{
                 font-size: 16px;
                 line-height: 22px;
                 font-weight: 800;
                 color: #4F4F4F;
                 text-transform: uppercase;
                 margin: 0;
+                transition: ease .3s;
+
+                &:hover{
+                    opacity: .7;
+                }
 
                 img{
                     max-width: 20px;
@@ -767,7 +772,7 @@ $sliderHeight: 85vh;
                 max-width: 250px;
                 margin: 10px auto 0;
 
-                p{
+                a{
                     text-align: center;
 
                     &:first-of-type{
