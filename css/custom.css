@@ -2240,31 +2240,30 @@ p {
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 10px;
+  top: -20px;
   z-index: 3;
 }
 
 .archiveShop__header .categoryWrapper__cat .thumb {
   width: 110px;
-  height: 110px;
+  height: 50px;
   border-radius: 100%;
   margin: 0 auto 25px;
   position: relative;
 }
 
 .archiveShop__header .categoryWrapper__cat .thumb__image {
+  display: none;
   width: 100%;
   height: 100%;
   border-radius: 100%;
 }
 
 .archiveShop__header .categoryWrapper__cat .thumb__icon {
-  position: absolute;
-  left: -15px;
-  bottom: -5px;
-  max-width: 60px;
-  max-height: 45px;
+  position: relative;
+  max-width: 70px;
+  max-height: 50px;
 }
 
 .archiveShop__header .categoryWrapper__cat .name {
@@ -4606,7 +4605,7 @@ body[thankyoupage="true"] .cartProgress {
   outline: none;
 }
 
-.loloCart__summary .cartTotals__coupon .couponInput__submit {
+.loloCart__summary .cartTotals__coupon .couponInput__submit, .loloCart__summary .cartTotals__coupon .couponInput__delete {
   margin-left: 30px;
   font-size: 15px;
   line-height: 20px;
@@ -4617,7 +4616,7 @@ body[thankyoupage="true"] .cartProgress {
   transition: ease .3s;
 }
 
-.loloCart__summary .cartTotals__coupon .couponInput__submit:hover {
+.loloCart__summary .cartTotals__coupon .couponInput__submit:hover, .loloCart__summary .cartTotals__coupon .couponInput__delete:hover {
   opacity: .7;
 }
 
@@ -6018,6 +6017,25 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   opacity: .7;
 }
 
+.summaryPage .cartSummary p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #4F4F4F;
+  text-align: right;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.summaryPage .cartSummary p:last-of-type {
+  margin: 0;
+}
+
+.summaryPage .cartSummary p span {
+  font-size: 20px;
+  color: #EC422B;
+  font-weight: 800;
+}
+
 .summaryPage__shipping .wave {
   margin: 30px 0;
 }
@@ -6225,6 +6243,7 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   }
   .summaryPage .cartItem__bottom {
     width: 100%;
+    flex-wrap: wrap;
   }
   .summaryPage .cartItem__title {
     font-size: 12px;
@@ -6237,6 +6256,18 @@ body.woocommerce-order-pay .cartProgress__arrow.step-4 .name p, body.woocommerce
   .summaryPage .cartItem__price span {
     font-size: 12px;
     line-height: 16px;
+  }
+  .summaryPage .cartSummary p {
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 0 5px;
+  }
+  .summaryPage .cartSummary p:last-of-type {
+    margin: 0;
+  }
+  .summaryPage .cartSummary p span {
+    font-size: 14px;
   }
   .summaryPage__payment .optionList {
     max-width: 360px;
@@ -9142,10 +9173,6 @@ body[thankyoupage="true"] .cartHeader {
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 400;
-}
-
-.sizeModal__content .wrap .productSizeTable table tbody tr:first-of-type td:not([rowspan]) {
-  display: none;
 }
 
 .sizeModal__content .wrap .productSizeTable table tbody tr td {

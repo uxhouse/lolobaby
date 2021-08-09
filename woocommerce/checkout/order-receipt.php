@@ -24,11 +24,14 @@ $orderData = wc_get_order($orderID);
 $orderItems = $orderData->get_items();
 $orderItemsQty = $orderItems['quantity'];
 $itemsCount = $order->get_item_count();
+$shippingTotal = $order->get_shipping_total();
+$cartTotal = $order->get_total();
+
 ?>
 
 <div class="summaryPage container" itemscount="<?php echo $itemsCount; ?>">
     <div class="summaryPage__cartItems">
-        <h2 class="summaryPage__secTitle">Twój koszyk (<?php echo $itemsCount; ?>)</h2>
+        <h2 class="summaryPage__secTitle"><?php _e('Twój koszyk', 'lolobaby'); ?> (<?php echo $itemsCount; ?>)</h2>
         <div class="wave wave--mobile">
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
@@ -59,7 +62,7 @@ $itemsCount = $order->get_item_count();
         </div>
         <div class="cartItem__bottom">
             <div class="cartItem__color">
-                <p class="cartItem__title">Kolor:</p>
+                <p class="cartItem__title"><?php _e('Kolor', 'lolobaby'); ?>:</p>
                 <?php
                     $attributeName = $_product->get_attribute('pa_kolor');
                     $allVariants = get_terms('pa_kolor');
@@ -77,12 +80,12 @@ $itemsCount = $order->get_item_count();
                     $attributeSize = $_product->get_attribute('pa_rozmiar');
                     if($attributeSize):
                 ?>
-                <p class="cartItem__title">Rozmiar:</p>
+                <p class="cartItem__title"><?php _e('Rozmiar', 'lolobaby'); ?>:</p>
                 <p class="cartItem__selected"><?php echo $attributeSize; ?></p>
                 <?php endif; ?>
             </div>
             <div class="cartItem__quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-                <p class="cartItem__title">Ilość:</p>
+                <p class="cartItem__title"><?php _e('Ilość', 'lolobaby'); ?>:</p>
                 <p class="cartItem__selected"><?php echo $cart_item['quantity']; ?></p>
             </div>
             <div class="cartItem__price">
@@ -92,12 +95,21 @@ $itemsCount = $order->get_item_count();
     </div>
     <?php endif; ?>
     <?php endforeach; ?>
+    <div class="cartSummary">
+        <p><?php _e('Wysyłka', 'lolobaby'); ?>: 
+        <?php if($shippingTotal > 0): ?>
+            <span><?php echo wc_price($shippingTotal); ?></span>
+        <?php else: ?>
+            <span><?php _e('Za darmo', 'lolobaby'); ?></span>
+        <?php endif; ?>
+        <p><?php _e('Suma', 'lolobaby'); ?>: <?php echo wc_price($cartTotal); ?></p>
+    </div>
     </div>
     <div class="summaryPage__shipping">
         <div class="wave">
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
-        <h2 class="summaryPage__secTitle">Wybrany sposób dostawy:</h2>
+        <h2 class="summaryPage__secTitle"><?php _e('Wybrany sposób dostawy', 'lolobaby'); ?>:</h2>
         <?php
         foreach( $orderData->get_items( 'shipping' ) as $item_id => $item ):
             $shipping_method_title       = $item['name'];
@@ -113,7 +125,7 @@ $itemsCount = $order->get_item_count();
         </div>
     </div>
     <div class="summaryPage__payment">
-        <h2 class="summaryPage__secTitle">Wybierz sposób płatności:</h2>
+        <h2 class="summaryPage__secTitle"><?php _e('Wybierz sposób płatności', 'lolobaby'); ?>:</h2>
         <div class="optionList">
         <?php
         $gateways = WC()->payment_gateways->get_available_payment_gateways();
@@ -138,7 +150,7 @@ $itemsCount = $order->get_item_count();
         <p>Gwarantujemy całkowite bezpieczeństwo Twoich danych. Wszystkie poufne informacje są wysyłane w zaszyfrowanej postaci, co zapewnia ich pełną ochronę. Więcej szczegółów znajdziesz w <a href="/polityka-prywatnosci">Polityce prywatności</a></p>
     </div>
     <div class="summaryPage__nextstep">
-        <a href="/moje-konto" class="previousStep"><span>Powrót</span></a>
-        <p class="btn nextStep"><span>Zamawiam z obowiązkiem zapłaty</span></p>
+        <a href="/moje-konto" class="previousStep" style="opacity: 0; pointer-events: none;"><span><?php _e('Powrót', 'lolobaby'); ?></span></a>
+        <p class="btn nextStep"><span><?php _e('Zamawiam z obowiązkiem zapłaty', 'lolobaby'); ?></span></p>
     </div>
 </div>

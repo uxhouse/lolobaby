@@ -103,7 +103,7 @@ $(document).ready(function(){
         if($('body').hasClass(termName)){
             $(this).addClass('categoryWrapper__cat--current');
 
-            $('.categoryWrapper__cat:not(.categoryWrapper__cat--current)').find('.thumb__icon').css('opacity', '0');
+            // $('.categoryWrapper__cat:not(.categoryWrapper__cat--current)').find('.thumb__icon').css('opacity', '0');
         }
     });
 
@@ -263,7 +263,7 @@ $(document).ready(function(){
                 var wooImageSource = wooImage.attr('src');
                 $(wooImage).zoom({
                     url: wooImageSource,
-                    magnify: 2,
+                    magnify: 1,
                 });
             });
         }
@@ -450,6 +450,10 @@ $(document).ready(function(){
         });
         $('.couponInput__submit').on('click', function(){
             $("[name='apply_coupon']").trigger('click');
+        });
+        $(document).ready(function(){
+            var couponRemove = $('a.woocommerce-remove-coupon').attr('href');
+            $('.couponInput__delete').attr('href', couponRemove);
         });
 
         /* Cart continue error */
@@ -716,6 +720,20 @@ $(document).ready(function(){
                 $(this).parent().removeClass('checked');
                 if($('input#billing_paperinvoice_false').is(':not(:checked)')){
                     $('input#billing_paperinvoice_false').trigger('click');
+                }
+            }
+        });
+        $('.customCheckbox[name="billing_gift"]').on('click', function(){
+            if($(this).is(":checked")){
+                $(this).parent().addClass('checked');
+                if($('input#billing_gift_true').is(':not(:checked)')){
+                    $('input#billing_gift_true').trigger('click');
+                }
+            }
+            else if($(this).is(":not(:checked)")){
+                $(this).parent().removeClass('checked');
+                if($('input#billing_gift_false').is(':not(:checked)')){
+                    $('input#billing_gift_false').trigger('click');
                 }
             }
         });

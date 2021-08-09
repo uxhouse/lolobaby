@@ -49,9 +49,17 @@ defined( 'ABSPATH' ) || exit;
         </div>
     </div>
     <div class="cartTotals__coupon">
+        <?php foreach (WC()->cart->get_coupons() as $code => $coupon){
+			$currentCoupon = $coupon->code;
+		}
+		?>
         <div class="couponInput">
-            <input type="text" name="couponInput" id="couponInput" class="couponInput__input" placeholder="Masz kod rabatowy? Wpisz i zatwierdź..."/>
-            <p class="couponInput__submit">Zatwierdź</p>
+            <input type="text" name="couponInput" id="couponInput" class="couponInput__input" value="<?php echo $currentCoupon; ?>" placeholder="Masz kod rabatowy? Wpisz i zatwierdź..."/>
+            <?php if($currentCoupon): ?>
+                <a href="" class="couponInput__delete" data-coupon="<?php echo $currentCoupon; ?>">Usuń</a>
+            <?php else: ?>
+                <p class="couponInput__submit">Zatwierdź</p>
+            <?php endif; ?>
         </div>
         <?php
             global $woocommerce;

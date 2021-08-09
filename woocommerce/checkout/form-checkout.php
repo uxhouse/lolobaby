@@ -61,6 +61,10 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
                     <input type="text" class="comapnyField" name="billing_company_nip" placeholder="NIP" value="<?php echo get_user_meta( $currentUserID, 'billing_company_nip', true ); ?>"/>
                     <input type="text" name="billing_phone" placeholder="Numer telefonu" value="<?php echo get_user_meta( $currentUserID, 'billing_phone', true ); ?>"/>
                     <input type="text" name="billing_email" placeholder="Adres e-mail" value="<?php echo $currentUser->user_email; ?>"/>
+                    <div class="checkbox gift">
+                        <input type="checkbox" class="customCheckbox" name="billing_gift"/>
+                        <label for="billing_gift">Wyślij paragon na inny adres</label>
+                    </div>
                 </div>
             </div>
         </div>

@@ -485,7 +485,8 @@ body[thankyoupage="true"]{
                         color: $primary-text-color;
                         outline: none;
                     }
-                    &__submit{
+                    &__submit,
+                    &__delete{
                         margin-left: 30px;
                         font-size: 15px;
                         line-height: 20px;

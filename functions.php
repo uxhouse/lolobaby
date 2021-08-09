@@ -622,3 +622,31 @@ function newsletter_set_cookie(){
 
 	wp_die();
 }
+
+// Insert name to fields
+
+// add_action( 'woocommerce_checkout_order_processed', 'cloneName',  1, 1  );
+// function cloneName($order_id){
+// 	$order = new WC_Order($order_id);
+// 	$userID = $order->get_user_id();
+
+// 	$getname = get_user_meta($userID, 'billing_username', true);
+// 	$username = explode(' ', $getname);
+
+// 	update_user_meta($userID, 'billing_first_name', $username[0]);
+// 	update_user_meta($userID, 'billing_last_name', $username[1]);
+// }
+
+add_action('woocommerce_checkout_create_order', 'before_checkout_create_order', 10, 2);
+function before_checkout_create_order($order) {
+	$getname = $order->get_meta('_billing_username');
+	$username = explode(' ', $getname);
+
+	$order->update_meta_data('_billing_first_name', $username[0]);
+	$order->update_meta_data('_shipping_first_name', $username[0]);
+
+	$order->update_meta_data('_billing_last_name', $username[1]);
+	$order->update_meta_data('_shipping_last_name', $username[1]);
+	
+	$order->save();
+}

@@ -1181,6 +1181,26 @@ body.woocommerce-order-pay{
             }
         }
     }
+    .cartSummary{
+        p{
+            font-size: 16px;
+            line-height: 26px;
+            color: $primary-text-color;
+            text-align: right;
+            text-transform: uppercase;
+            margin: 0 0 20px;
+
+            &:last-of-type{
+                margin: 0;
+            }
+
+            span{
+                font-size: 20px;
+                color: $red-color;
+                font-weight: 800;
+            }
+        }
+    }
     &__shipping{
         .wave{
             margin: 30px 0;
@@ -1399,6 +1419,7 @@ body.woocommerce-order-pay{
             }
             &__bottom{
                 width: 100%;
+                flex-wrap: wrap;
             }
             &__title{
                 font-size: 12px;
@@ -1414,6 +1435,22 @@ body.woocommerce-order-pay{
                 span{
                     font-size: 12px;
                     line-height: 16px;
+                }
+            }
+        }
+        .cartSummary{
+            p{
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                margin: 0 0 5px;
+    
+                &:last-of-type{
+                    margin: 0;
+                }
+    
+                span{
+                    font-size: 14px;
                 }
             }
         }
