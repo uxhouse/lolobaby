@@ -55,11 +55,9 @@
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'lolobaby'); ?></a>
 		<div class="lolosite__header">
 			<header id="masthead" class="siteHeader<?php if (is_front_page() || is_singular('post')) : ?> siteHeader--frontPage<?php endif; ?>">
-				<?php if(get_field('infobar_text', 20)): ?>
-					<div class="siteHeader__freedelivery">
-						<p><?php the_field('infobar_text', 20); ?></p>
-					</div>
-				<?php endif; ?>
+				<div class="siteHeader__freedelivery">
+					<p><?php the_field('infobar_text', 20); ?></p>
+				</div>
 				<div class="siteHeader__wrap container">
 					<div class="siteHeader__menu">
 						<nav id="site-navigation" class="main-navigation">
