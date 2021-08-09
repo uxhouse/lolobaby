@@ -3,6 +3,41 @@
     "title": "Strona główna",
     "fields": [
         {
+            "key": "field_611183a3acfc8",
+            "label": "Info bar",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_611183adacfc9",
+            "label": "Tekst belki informacyjnej",
+            "name": "Infobar_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_604926e2d42fc",
             "label": "Slider",
             "name": "",
@@ -469,5 +504,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619789357
+    "modified": 1628537915
 }
