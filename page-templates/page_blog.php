@@ -19,7 +19,7 @@ get_header(); ?>
                 <span>Blog</span>
             </h2>
             <div class="blog__description">
-                <p>To miejsce stworzone z myślą o świecie dziecięcej mody. Znajdziesz tu mnóstwo inspiracji na temat aktualnych trendów, ale nie tylko. Nie zabraknie też ważnych porad i wskazówek dla młodych rodziców, którzy chcą dowiedzieć się więcej na temat tajemniczego, dziecięcego świata. Blog LoloBaby cały czas zapełnia się ciekawą i ważną treścią, dlatego warto być na bieżąco z pojawiającymi się tutaj tekstami. Serdecznie zapraszamy do lektury.</p>
+                <p><?php the_field('blogpage_desc'); ?></p>
                 <div class="blog__descriptionLayer">
                     <div class="blog__dropdownButton">Rozwiń</div>
                 </div>
