@@ -61,6 +61,27 @@ function cleanArray($array){
                 <?php if(get_field('product_zestaw')): ?>
                     <p class="colorInfo"><?php _e('Chcesz zamówić różnokolorowy zestaw?', 'lolobaby'); ?> <a href="<?php echo home_url('/kontakt'); ?>" target="_blank"><?php _e('Skontakuj się z nami', 'lolobaby'); ?>.</a></p>
                 <?php endif; ?>
+                <?php if(get_field('productColors')): ?>
+                <div class="productColors">
+                    <?php while(have_rows('productColors')): the_row();
+                        $name = get_sub_field('productColors_name');
+                        $type = get_sub_field('productColors_type');
+                        $color = get_sub_field('productColors_color');
+                        $image = get_sub_field('productColors_material');
+                        $link = get_sub_field('productColors_link');
+                    ?>
+                    <a href="<?php the_permalink($link[0]->ID); ?>" class="productColors__color" data-tooltip="<?php echo $name; ?>">
+                        <?php if($type == 'color'): ?>
+                            <div class="data data--color" style="background-color: <?php echo $color; ?>"></div>
+                        <?php else: ?>
+                            <div class="data data--material">
+                                <img src="<?php echo $image; ?>"/>
+                            </div>
+                        <?php endif; ?>
+                    </a>
+                    <?php endwhile; ?>
+                </div>
+                <?php endif; ?>
                 <?php
                 /**
                  * Hook: woocommerce_single_product_summary.

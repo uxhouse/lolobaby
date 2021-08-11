@@ -1235,4 +1235,14 @@ $(document).ready(function(){
             console.log('Current user subscribe newsletter');
         }
     });
+
+    /*
+     *  Product page color variant select
+     */
+    $(document).ready(function(){
+        $('.productColors__color').on('click', function(){
+            $('.productColors__color').removeClass('productColors__color--active');
+            $(this).addClass('productColors__color--active');
+        });
+    });
 });

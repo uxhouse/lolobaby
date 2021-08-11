@@ -3293,6 +3293,99 @@ body.single-product .woocommerce-breadcrumb {
   text-transform: uppercase;
 }
 
+.productPage .productContent__summary .productColors {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 0;
+}
+
+.productPage .productContent__summary .productColors__color {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-right: 20px;
+  position: relative;
+}
+
+.productPage .productContent__summary .productColors__color:last-of-type {
+  margin-right: 0;
+}
+
+.productPage .productContent__summary .productColors__color:hover .data {
+  box-shadow: 0 0 0 5px #EC422B;
+}
+
+.productPage .productContent__summary .productColors__color:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.productPage .productContent__summary .productColors__color:before {
+  content: attr(data-tooltip);
+  pointer-events: none;
+  box-sizing: inherit;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  z-index: 999;
+  margin-bottom: 5px;
+  margin-left: -50px;
+  font-size: 14px;
+  padding: 4px;
+  min-width: 100px;
+  border-radius: 3px;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #fff;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.productPage .productContent__summary .productColors__color .data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  box-shadow: 0 0 0 0 #EC422B;
+  transition: ease .3s;
+  position: relative;
+}
+
+.productPage .productContent__summary .productColors__color .data:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/variation_check_ico.svg");
+  background-size: 16px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  top: 50%;
+  transform: translate(0, -50%);
+  opacity: 0;
+  transition: ease .3s;
+}
+
+.productPage .productContent__summary .productColors__color .data--material img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.productPage .productContent__summary .productColors__color--active .data {
+  box-shadow: 0 0 0 5px #EC422B;
+}
+
+.productPage .productContent__summary .productColors__color--active .data:after {
+  opacity: 1;
+}
+
 .productPage .productContent__summary .colorInfo {
   font-size: 14px;
   line-height: 16px;
