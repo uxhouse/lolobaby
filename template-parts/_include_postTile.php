@@ -18,6 +18,6 @@
                 ?>
             </p>
         </div>
-        <div class="postTile__readMore">Czytaj więcej</div>
+        <div class="postTile__readMore"><?php _e('Czytaj więcej', 'lolobaby'); ?></div>
     </div>
 </a>

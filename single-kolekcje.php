@@ -32,7 +32,7 @@ get_header();
         </div>
     </section>
     <section class="collectionLink">
-        <a href="<?php the_field('collection_link'); ?>" class="btn btn--noarrow btn--big"><span>Zobacz produkty z kolekcji <?php echo the_title(); ?></span></a>
+        <a href="<?php the_field('collection_link'); ?>" class="btn btn--noarrow btn--big"><span><?php _e('Zobacz produkty z kolekcji', 'lolobaby'); ?> <?php echo the_title(); ?></span></a>
     </section>
 </main>
 

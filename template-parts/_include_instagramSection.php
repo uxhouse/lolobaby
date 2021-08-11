@@ -12,9 +12,9 @@
     <?php endif; ?>
     <div class="homeInstagram__heading">
         <?php if(is_front_page()): ?>
-        <h2 class="homeSectionHeading"><span>odwiedź nas</span></h2>
+        <h2 class="homeSectionHeading"><span><?php _e('odwiedź nas', 'lolobaby'); ?></span></h2>
         <?php else: ?>
-        <h2 class="sectionHeading"><span>Odwiedź nas</span></h2>
+        <h2 class="sectionHeading"><span><?php _e('Odwiedź nas', 'lolobaby'); ?></span></h2>
         <?php endif; ?>
         <div class="hash">
             <a href="https://www.instagram.com/lolobaby_brand/" target="_blank"><img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico.svg'; ?>"/>lolobaby_brand</a>

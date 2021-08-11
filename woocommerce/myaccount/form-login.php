@@ -30,10 +30,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wc-notices"></div>
 	</div>
     <div class="checkoutLogin__input">
-        <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="Wpisz adres e-mail" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+        <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" placeholder="<?php _e('Wpisz adres e-mail', 'lolobaby'); ?>" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
     </div>
     <div class="checkoutLogin__input">
-        <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="Wpisz swoje hasło" autocomplete="current-password" />
+        <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="<?php _e('Wpisz swoje hasło', 'lolobaby'); ?>" autocomplete="current-password" />
     </div>
     <?php do_action( 'woocommerce_login_form' ); ?>
     <div class="checkoutLogin__actions">
@@ -51,45 +51,45 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php do_action( 'woocommerce_login_form_end' ); ?>
 </form>
 <div class="checkoutRegister">
-	<h2>Zarejestruj się</h2>
+	<h2><?php _e('Zarejestruj się', 'lolobaby'); ?></h2>
 	<form class="checkoutRegister__form" id="checkoutRegisterForm" name="checkoutRegisterForm" method="post" action="/">
 		<div class="notices"></div>
 		<input type="hidden" name="register-formid" value="20"/>
 		<div class="checkoutRegister__input">
-			<input type="text" name="registerUsername" placeholder="Wpisz imię i nazwisko"/>
+			<input type="text" name="registerUsername" placeholder="<?php _e('Wpisz imię i nazwisko', 'lolobaby'); ?>"/>
 		</div>
 		<div class="checkoutRegister__input">
-			<input type="email" name="registerUseremail" placeholder="Wpisz adres e-mail"/>
+			<input type="email" name="registerUseremail" placeholder="<?php _e('Wpisz adres e-mail', 'lolobaby'); ?>"/>
 		</div>
 		<div class="checkoutRegister__input">
-			<input type="password" name="registerUserpassword" placeholder="Ustal hasło"/>	
+			<input type="password" name="registerUserpassword" placeholder="<?php _e('Ustal hasło', 'lolobaby'); ?>"/>	
 		</div>
 		<div class="checkoutRegister__checkbox top">
 			<input type="checkbox" class="engineCheckbox" name="registerConsent"/>
-			<label for="registerConsent">Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.</label>
+			<label for="registerConsent"><?php _e('Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.', 'lolobaby'); ?></label>
 		</div>
 		<div class="checkoutRegister__checkbox bottom">
 			<input type="checkbox" class="engineCheckbox" name="mc4wp-subscribe" value="1" />
-			<label for="mc4wp-subscribe">Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)</label>
+			<label for="mc4wp-subscribe"><?php _e('Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)', 'lolobaby'); ?></label>
 		</div>
 		<div class="checkoutRegister__input">
-			<button type="submit" class="btn btn--button" value="Zarejestruj się">Zarejestruj się</button>
+			<button type="submit" class="btn btn--button" value="<?php _e('Zarejestruj się', 'lolobaby'); ?>"><?php _e('Zarejestruj się', 'lolobaby'); ?></button>
 		</div>
 	</form>
 	<div class="checkoutLogin__gotoOtherForm">
 		<div class="wave">
 			<img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
 		</div>
-		<h3>Jeśli masz już konto:</h3>
-		<p class="btn openLogin"><span>Zaloguj się</span></p>
+		<h3><?php _e('Jeśli masz już konto', 'lolobaby'); ?>:</h3>
+		<p class="btn openLogin"><span><?php _e('Zaloguj się', 'lolobaby'); ?></span></p>
 	</div>
 </div>
 <div class="checkoutLogin__gotoOtherForm gotoRegister gotoRegister--ready gotoRegister--visible">
 	<div class="wave">
 		<img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
 	</div>
-	<h3>Nie masz jeszcze konta?</h3>
-	<p class="btn openRegister"><span>Zarejestruj się</span></p>
+	<h3><?php _e('Nie masz jeszcze konta?', 'lolobaby'); ?></h3>
+	<p class="btn openRegister"><span><?php _e('Zarejestruj się', 'lolobaby'); ?></span></p>
 </div>
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>

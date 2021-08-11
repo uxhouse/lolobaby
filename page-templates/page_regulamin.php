@@ -9,20 +9,20 @@ get_header(); ?>
     <section class="section section--regulamin">
         <div class="container">
             <h2 class="sectionHeading">
-                <span>Regulamin</span>
+                <span><?php _e('Regulamin', 'lolobaby'); ?></span>
             </h2>
             <div class="regulamin__content">
                 <?php the_field('regulamin_content'); ?>
             </div>
             <ul id="forms" class="forms">
                 <li>
-                    <a href="<?php the_field('formularz_konsument'); ?>" target="_blank">Formularz odstąpienia od umowy przez konsumenta</a>
+                    <a href="<?php the_field('formularz_konsument'); ?>" target="_blank"><?php _e('Formularz odstąpienia od umowy przez konsumenta', 'lolobaby'); ?></a>
                 </li>
                 <li>
-                    <a href="<?php the_field('formularz_firma'); ?>" target="_blank">Formularz odstąpienia od umowy przez przedsiębiorce na prawach konsumenta</a>
+                    <a href="<?php the_field('formularz_firma'); ?>" target="_blank"><?php _e('Formularz odstąpienia od umowy przez przedsiębiorce na prawach konsumenta', 'lolobaby'); ?></a>
                 </li>
                 <li>
-                    <a href="<?php the_field('formularz_reklamacja'); ?>" target="_blank">Formularz reklamacji produktu</a>
+                    <a href="<?php the_field('formularz_reklamacja'); ?>" target="_blank"><?php _e('Formularz reklamacji produktu', 'lolobaby'); ?></a>
                 </li>
             </ul>
         </div>

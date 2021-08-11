@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 ?>
-<p class="openSizeModal">Przewodnik po rozmiarach</p>
+<p class="openSizeModal"><?php _e('Przewodnik po rozmiarach', 'lolobaby'); ?></p>
 <div class="productActions">
     <div class="woocommerce-variation-add-to-cart variations_button">
         <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>

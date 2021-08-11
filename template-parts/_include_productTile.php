@@ -17,9 +17,6 @@
         <?php if(!is_front_page()): ?>
         <div class="productTile__wishlist">
             <?php echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . $thisProductID . '"]'); ?>
-            <!-- <a href="#">
-                <img src="<?php echo get_template_directory_uri() . '/images/icons/wishlist_ico_red.svg'; ?>"/>
-            </a> -->
         </div>
         <?php endif; ?>
         <?php if(get_field('product_bestseller')): ?>
@@ -33,7 +30,7 @@
             <?php if ( $price_html = $product->get_price_html() ) : ?>
                 <p class="price"><?php echo $price_html; ?></p>
             <?php endif; ?>
-            <p href="<?php the_permalink(); ?>" class="btn"><span>Sprawdź</span></p>
+            <p href="<?php the_permalink(); ?>" class="btn"><span><?php _e('Sprawdź', 'lolobaby'); ?></span></p>
         </a>
         <?php endif; ?>
         <?php if(!is_front_page()): ?>
@@ -42,7 +39,7 @@
                 <?php if ( $price_html = $product->get_price_html() ) : ?>
                     <p class="price"><?php echo $price_html; ?></p>
                 <?php endif; ?>
-                <p href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></p>
+                <p href="<?php the_permalink(); ?>" class="btn btn--archive"><span><?php _e('Zobacz', 'lolobaby'); ?></span></p>
             </a>
         <?php endif; ?>
     </div>

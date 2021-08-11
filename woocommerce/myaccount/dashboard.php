@@ -39,13 +39,13 @@ if($currentuserName){
     <?php include get_template_directory() . '/template-parts/_include_pageBreadcrumbs.php'; ?>
     <div class="accountPage__heading">
         <div class="wrap">
-            <h2 class="sectionHeading"><span>Witaj <?php echo $name[0]; ?>!</span></h2>
-            <p>W tym miejscu możesz zarządzać informacjami osobistymi oraz zamówieniami.</p>
+            <h2 class="sectionHeading"><span><?php _e('Witaj', 'lolobaby'); ?> <?php echo $name[0]; ?>!</span></h2>
+            <p><?php _e('W tym miejscu możesz zarządzać informacjami osobistymi oraz zamówieniami.', 'lolobaby'); ?></p>
         </div>
     </div>
     <div class="accountPage__orders container">
         <div class="heading">
-            <h3 class="accountPage__title">Historia zamówień</h3>
+            <h3 class="accountPage__title"><?php _e('Historia zamówień', 'lolobaby'); ?></h3>
             <div class="wave">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
@@ -53,11 +53,11 @@ if($currentuserName){
         <table>
             <thead>
                 <tr>
-                    <td>Nr zamówienia</td>
-                    <td>Data</td>
-                    <td>Wartość</td>
-                    <td>Status</td>
-                    <td>Faktura</td>
+                    <td><?php _e('Nr zamówienia', 'lolobaby'); ?></td>
+                    <td><?php _e('Data', 'lolobaby'); ?></td>
+                    <td><?php _e('Wartość', 'lolobaby'); ?></td>
+                    <td><?php _e('Status', 'lolobaby'); ?></td>
+                    <td><?php _e('Faktura', 'lolobaby'); ?></td>
                 </tr>
             </thead>
             <tbody>
@@ -116,19 +116,19 @@ if($currentuserName){
                 ?>
                 <div class="tableMobile__row">
                     <div class="tableMobile__pos orderid">
-                        <p>Numer zamówienia</p>
+                        <p><?php _e('Numer zamówienia', 'lolobaby'); ?></p>
                         <span><?php echo $order->get_id(); ?></span>
                     </div>
                     <div class="tableMobile__pos">
-                        <p>Data</p>
+                        <p><?php _e('Data', 'lolobaby'); ?></p>
                         <span><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></span>
                     </div>
                     <div class="tableMobile__pos">
-                        <p>Wartość</p>
+                        <p><?php _e('Wartość', 'lolobaby'); ?></p>
                         <span><?php echo wc_price($order->get_subtotal()); ?></span>
                     </div>
                     <div class="tableMobile__pos">
-                        <p>Status</p>
+                        <p><?php _e('Status', 'lolobaby'); ?></p>
                         <span><?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?></span>
                     </div>
                     <?php
@@ -137,8 +137,8 @@ if($currentuserName){
                         <?php foreach ( $actions as $key => $action ) :
                             if($action['name'] == 'Faktura'):?>
                             <div class="tableMobile__pos invoice">
-                                <p>Faktura</p>
-                                <a href="<?php echo $action['url']; ?>" target="_blank">Pobierz fakturę</a>
+                                <p><?php _e('Faktura', 'lolobaby'); ?></p>
+                                <a href="<?php echo $action['url']; ?>" target="_blank"><?php _e('Pobierz fakturę', 'lolobaby'); ?></a>
                             </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -163,29 +163,29 @@ if($currentuserName){
             $newsletter = get_user_meta( $customer_user_id, 'newsletterSubscribe', true );
         ?>
         <div class="userData__data" type="">
-            <h2 class="accountPage__title">Dane osobowe</h2>
+            <h2 class="accountPage__title"><?php _e('Dane osobowe', 'lolobaby'); ?></h2>
             <div class="wave">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
                 <div class="wrap">
-                    <p>Imię i nazwisko: <?php if($username){echo $username;}else{echo $nickname;}; ?></p>
-                    <p>E-mail: <?php if ($email){echo $email;}else{echo $userData->user_email;}; ?></p>
-                    <p>Telefon: <?php echo $phone; ?></p>
+                    <p><?php _e('Imię i nazwisko', 'lolobaby'); ?>: <?php if($username){echo $username;}else{echo $nickname;}; ?></p>
+                    <p><?php _e('E-mail', 'lolobaby'); ?>: <?php if ($email){echo $email;}else{echo $userData->user_email;}; ?></p>
+                    <p><?php _e('Telefon', 'lolobaby'); ?>: <?php echo $phone; ?></p>
                 </div>
-                <p class="btn btn--noarrow openForm"><span>Edytuj</span></p>
+                <p class="btn btn--noarrow openForm"><span><?php _e('Edytuj', 'lolobaby'); ?></span></p>
             </div>
             <div class="form">
                 <form id="person" method="POST">
-                    <input type="text" name="person_name" placeholder="Wpisz imię i nazwisko"/>
-                    <input type="text" name="person_email" placeholder="Wpisz adres e-mail"/>
-                    <input type="text" name="person_phone" placeholder="Wpisz numer telefonu"/>
-                    <button type="submit" class="btn btn--button" value="send">Zapisz</button>
+                    <input type="text" name="person_name" placeholder="<?php _e('Wpisz imię i nazwisko', 'lolobaby'); ?>"/>
+                    <input type="text" name="person_email" placeholder="<?php _e('Wpisz adres e-mail', 'lolobaby'); ?>"/>
+                    <input type="text" name="person_phone" placeholder="<?php _e('Wpisz numer telefonu', 'lolobaby'); ?>"/>
+                    <button type="submit" class="btn btn--button" value="send"><?php _e('Zapisz', 'lolobaby'); ?></button>
                 </form>
             </div>
         </div>
         <div class="userData__data">
-            <h2 class="accountPage__title">Adres dostawy</h2>
+            <h2 class="accountPage__title"><?php _e('Adres dostawy', 'lolobaby'); ?></h2>
             <div class="wave">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
@@ -195,65 +195,65 @@ if($currentuserName){
                     <p><?php echo $address; ?></p>
                     <p><?php echo $postcode . ' ' . $city; ?></p>
                 </div>
-                <p class="btn btn--noarrow openForm"><span>Zmień adres</span></p>
+                <p class="btn btn--noarrow openForm"><span><?php _e('Zmień adres', 'lolobaby'); ?></span></p>
             </div>
             <div class="form">
                 <form id="delivery" method="POST">
-                    <input type="text" name="delivery_name" placeholder="Wpisz imię i nazwisko"/>
-                    <input type="text" name="delivery_address" placeholder="Wpisz adres"/>
+                    <input type="text" name="delivery_name" placeholder="<?php _e('Wpisz imię i nazwisko', 'lolobaby'); ?>"/>
+                    <input type="text" name="delivery_address" placeholder="<?php _e('Wpisz adres', 'lolobaby'); ?>"/>
                     <div class="flex">
-                        <input type="text" name="delivery_postcode" placeholder="Kod pocztowy"/>
-                        <input type="text" name="delivery_city" placeholder="Miasto"/>
+                        <input type="text" name="delivery_postcode" placeholder="<?php _e('Kod pocztowy', 'lolobaby'); ?>"/>
+                        <input type="text" name="delivery_city" placeholder="<?php _e('Miasto', 'lolobaby'); ?>"/>
                     </div>
-                    <button type="submit" class="btn btn--button" value="send">Zapisz</button>
+                    <button type="submit" class="btn btn--button" value="send"><?php _e('Zapisz', 'lolobaby'); ?></button>
                 </form>
             </div>
         </div>
         <?php if($nip): ?>
         <div class="userData__data">
-            <h2 class="accountPage__title">Dane do faktury</h2>
+            <h2 class="accountPage__title"><?php _e('Dane do faktury', 'lolobaby'); ?></h2>
             <div class="wave">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
                 <div class="wrap">
-                    <p>Nazwa firmy: <?php echo $company; ?></p>
-                    <p>NIP: <?php echo $nip; ?></p>
+                    <p><?php _e('Nazwa firmy', 'lolobaby'); ?>: <?php echo $company; ?></p>
+                    <p><?php _e('NIP', 'lolobaby'); ?>: <?php echo $nip; ?></p>
                 </div>
-                <p class="btn btn--noarrow"><span>Zmień adres</span></p>
+                <p class="btn btn--noarrow"><span><?php _e('Zmień adres', 'lolobaby'); ?></span></p>
             </div>
         </div>
         <?php endif; ?>
         <div class="userData__data">
-            <h2 class="accountPage__title">Moje hasło</h2>
+            <h2 class="accountPage__title"><?php _e('Moje hasło', 'lolobaby'); ?></h2>
             <div class="wave">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
                 <div class="wrap">
-                    <p>Obecne hasło: ********</p>
+                    <p><?php _e('Obecne hasło', 'lolobaby'); ?>: ********</p>
                 </div>
-                <p class="btn btn--noarrow openForm"><span>Zmień hasło</span></p>
+                <p class="btn btn--noarrow openForm"><span><?php _e('Zmień hasło', 'lolobaby'); ?></span></p>
             </div>
             <div class="form">
                 <form id="password" method="POST">
-                    <input type="password" name="user_password_change" placeholder="Wpisz nowe hasło"/>
-                    <button type="submit" class="btn btn--button" value="send">Zapisz</button>
+                    <input type="password" name="user_password_change" placeholder="<?php _e('Wpisz nowe hasło', 'lolobaby'); ?>"/>
+                    <button type="submit" class="btn btn--button" value="send"><?php _e('Zapisz', 'lolobaby'); ?></button>
                 </form>
             </div>
         </div>
         <div class="userData__data">
-            <h2 class="accountPage__title">Newsletter</h2>
+            <h2 class="accountPage__title"><?php _e('Newsletter', 'lolobaby'); ?></h2>
             <div class="wave">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
             <div class="content">
                 <div class="wrap">
-                    <p>Status subskrypcji: 
+                    <p><?php _e('Status subskrypcji', 'lolobaby'); ?>: 
                         <?php if($newsletter){
-                            echo 'włączona';
+                            echo __('włączona', 'lolobaby');
                         }else{
-                            echo 'wyłączona';
+                            echo __('wyłączona', 'lolobaby');
                         }
                         ?>
                     </p>
@@ -263,17 +263,17 @@ if($currentuserName){
                     <?php if($newsletter): ?>
                         <input style="display: none !important" type="checkbox" name="_mc4wp_action" value="unsubscribe" checked/>
                         <input style="display: none !important" type="checkbox" name="newsletterSignout" value="1" checked/>
-                        <button type="submit" class="btn btn-button btn--noarrow"><span>Wypisz się</span></button>
+                        <button type="submit" class="btn btn-button btn--noarrow"><span><?php _e('Wypisz się', 'lolobaby'); ?></span></button>
                     <?php else: ?>
                         <input style="display: none !important" type="checkbox" name="mc4wp-subscribe" value="1" checked/>
                         <input style="display: none !important" type="checkbox" name="newsletterSignin" value="1" checked/>
-                        <button type="submit" class="btn btn--button btn--noarrow"><span>Zapisz się</span></button>
+                        <button type="submit" class="btn btn--button btn--noarrow"><span><?php _e('Zapisz się', 'lolobaby'); ?></span></button>
                     <?php endif; ?>
                 </form>
             </div>
         </div>
         <div class="userData__data" type="logout">
-            <a href="<?php echo wc_logout_url(); ?>" class="btn btn--blue btn--noarrow"><span>Wyloguj się</span></a>
+            <a href="<?php echo wc_logout_url(); ?>" class="btn btn--blue btn--noarrow"><span><?php _e('Wyloguj się', 'lolobaby'); ?></span></a>
         </div>
     </section>
 </div>

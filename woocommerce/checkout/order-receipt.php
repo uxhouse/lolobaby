@@ -147,7 +147,7 @@ $cartTotal = $order->get_total();
         </div>
     </div>
     <div class="summaryPage__secureInfo">
-        <p>Gwarantujemy całkowite bezpieczeństwo Twoich danych. Wszystkie poufne informacje są wysyłane w zaszyfrowanej postaci, co zapewnia ich pełną ochronę. Więcej szczegółów znajdziesz w <a href="/polityka-prywatnosci">Polityce prywatności</a></p>
+        <p><?php _e('Gwarantujemy całkowite bezpieczeństwo Twoich danych. Wszystkie poufne informacje są wysyłane w zaszyfrowanej postaci, co zapewnia ich pełną ochronę. Więcej szczegółów znajdziesz w <a href="/polityka-prywatnosci">Polityce prywatności</a>', 'lolobaby'); ?></p>
     </div>
     <div class="summaryPage__nextstep">
         <a href="/moje-konto" class="previousStep" style="opacity: 0; pointer-events: none;"><span><?php _e('Powrót', 'lolobaby'); ?></span></a>

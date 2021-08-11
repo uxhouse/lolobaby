@@ -59,7 +59,7 @@ function cleanArray($array){
                     <p class="price"><?php echo wc_price($product->get_price()); ?></p>
                 <?php endif; ?>
                 <?php if(get_field('product_zestaw')): ?>
-                    <p class="colorInfo">Chcesz zamówić różnokolorowy zestaw? <a href="<?php echo home_url('/kontakt'); ?>" target="_blank">Skontakuj się z nami.</a></p>
+                    <p class="colorInfo"><?php _e('Chcesz zamówić różnokolorowy zestaw?', 'lolobaby'); ?> <a href="<?php echo home_url('/kontakt'); ?>" target="_blank"><?php _e('Skontakuj się z nami', 'lolobaby'); ?>.</a></p>
                 <?php endif; ?>
                 <?php
                 /**
@@ -79,12 +79,12 @@ function cleanArray($array){
                     <div class="summary__delivery">
                         <div class="info">
                             <img src="<?php echo get_template_directory_uri() . '/images/icons/delivery_product_ico.svg' ?>"/>
-                            <p>Wysyłka w 48h</p>
+                            <p><?php _e('Wysyłka w 48h', 'lolobaby'); ?></p>
                         </div>
-                        <p>Więcej o <a href="/dostawa" target="_blank">dostawie</a> i <a href="/platnosc" target="_blank">płatności</a></p>
+                        <p><?php _e('Więcej o <a href="/dostawa" target="_blank">dostawie</a> i <a href="/platnosc" target="_blank">płatności', 'lolobaby'); ?></a></p>
                     </div>
                     <?php if(get_field('product_boxes')): ?>
-                    <h4 class="summary__boxesTitle"><span>Dlaczego bambus?</span></h4>
+                    <h4 class="summary__boxesTitle"><span><?php _e('Dlaczego bambus?', 'lolobaby'); ?></span></h4>
                     <div class="summary__boxes">
                         <?php while(have_rows('product_boxes')): the_row();
                             $icon = get_sub_field('product_boxes_icon');
@@ -106,39 +106,39 @@ function cleanArray($array){
             <div class="divider container">
                 <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
             </div>
-            <h2 class="content_title">Szczegółowy opis</h2>
+            <h2 class="content_title"><?php _e('Szczegółowy opis', 'lolobaby'); ?></h2>
             <p class="main_text"><?php the_field('product_desc'); ?></p>
 
             <?php if(get_field('product_desc_cechy')): ?>
             <div class="content_tab">
-                <h4>Cechy:</h4>
+                <h4><?php _e('Cechy', 'lolobaby'); ?>:</h4>
                 <p><?php the_field('product_desc_cechy'); ?></p>
             </div>
             <?php endif; ?>
 
             <?php if(get_field('product_desc_sklad')): ?>
             <div class="content_tab">
-                <h4>Skład:</h4>
+                <h4><?php _e('Skład', 'lolobaby'); ?>:</h4>
                 <p><?php the_field('product_desc_sklad'); ?></p>
             </div>
             <?php endif; ?>
 
             <?php if(get_field('product_desc_gramatura')): ?>
             <div class="content_tab">
-                <h4>Gramatura:</h4>
+                <h4><?php _e('Gramatura', 'lolobaby'); ?>:</h4>
                 <p><?php the_field('product_desc_gramatura'); ?></p>
             </div>
             <?php endif; ?>
 
             <?php if(get_field('product_desc_pielegnacja')): ?>
             <div class="content_tab">
-                <h4>Pielęgnacja:</h4>
+                <h4><?php _e('Pielęgnacja', 'lolobaby'); ?>:</h4>
                 <p><?php the_field('product_desc_pielegnacja'); ?></p>
             </div>
             <?php endif; ?>
             <?php if(get_field('product_desc_certyfikat')): ?>
             <div class="content_tab">
-                <h4>Certyfikat:</h4>
+                <h4><?php _e('Certyfikat', 'lolobaby'); ?>:</h4>
                 <p><?php the_field('product_desc_certyfikat'); ?></p>
             </div>
             <?php endif; ?>
@@ -151,7 +151,7 @@ function cleanArray($array){
     $related_posts = get_field('product_related');
     if( $related_posts ): ?>
     <div class="productPage__related">
-        <h2>Pasujące produkty</h2>
+        <h2><?php _e('Pasujące produkty', 'lolobaby'); ?></h2>
         <div class="relatedList">
             <?php foreach( $related_posts as $post ): 
                 setup_postdata($post); ?>

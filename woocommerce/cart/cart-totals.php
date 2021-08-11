@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
     </div>
     <div class="cartTotals__sum">
         <div class="cartTotals__title">
-            <p>Suma:</p>
+            <p><?php _e('Suma', 'lolobaby'); ?>:</p>
         </div>
         <div class="cartTotals__value">
             <?php wc_cart_totals_subtotal_html(); ?>
@@ -54,11 +54,11 @@ defined( 'ABSPATH' ) || exit;
 		}
 		?>
         <div class="couponInput">
-            <input type="text" name="couponInput" id="couponInput" class="couponInput__input" value="<?php echo $currentCoupon; ?>" placeholder="Masz kod rabatowy? Wpisz i zatwierdź..."/>
+            <input type="text" name="couponInput" id="couponInput" class="couponInput__input" value="<?php echo $currentCoupon; ?>" placeholder="<?php _e('Masz kod rabatowy? Wpisz i zatwierdź...', 'lolobaby'); ?>"/>
             <?php if($currentCoupon): ?>
-                <a href="" class="couponInput__delete" data-coupon="<?php echo $currentCoupon; ?>">Usuń</a>
+                <a href="" class="couponInput__delete" data-coupon="<?php echo $currentCoupon; ?>"><?php _e('Usuń', 'lolobaby'); ?></a>
             <?php else: ?>
-                <p class="couponInput__submit">Zatwierdź</p>
+                <p class="couponInput__submit"><?php _e('Zatwierdź', 'lolobaby'); ?></p>
             <?php endif; ?>
         </div>
         <?php
@@ -70,7 +70,7 @@ defined( 'ABSPATH' ) || exit;
         <?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
 			<div class="couponList__coupon coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
 				<div class="cartTotals__title name">
-                    <p>Zniżka:</p>
+                    <p><?php _e('Zniżka', 'lolobaby'); ?>:</p>
                 </div>
                 <div class="cartTotals__value amount" amount="<?php echo $coupon->amount; ?>">
                     <p data-title="<?php echo esc_attr( wc_cart_totals_coupon_label( $coupon, false ) ); ?>"><?php wc_cart_totals_coupon_html( $coupon ); ?></p>
@@ -86,22 +86,22 @@ defined( 'ABSPATH' ) || exit;
     ?>
     <div class="cartTotals__delivery">
         <div class="cartTotals__title">
-            <p>Koszt przesyłki:</p>
+            <p><?php _e('Koszt przesyłki', 'lolobaby'); ?>:</p>
         </div>
         <div class="cartTotals__value<?php if( $freeshippingamount < $cart ){echo ' freeshipping';} ?>" valuename="deliverycost">
-            <p>Nie wybrano</p>
+            <p><?php _e('Nie wybrano', 'lolobaby'); ?></p>
         </div>
     </div>
     <div class="cartTotals__free">
         <?php 
             if( $freeshippingamount > $cart ): ?>
-                <p>Do darmowej przesyłki brakuje Ci jeszcze <span><?php echo wc_price($remaining); ?></span></p>
+                <p><?php _e('Do darmowej przesyłki brakuje Ci jeszcze', 'lolobaby'); ?> <span><?php echo wc_price($remaining); ?></span></p>
             <?php endif; ?>
     </div>
     <?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
     <div class="cartTotals__total">
         <div class="cartTotals__title">
-            <p>Cena razem:</p>
+            <p><?php _e('Cena razem', 'lolobaby'); ?>:</p>
         </div>
         <div class="cartTotals__value">
             <p><?php wc_cart_totals_order_total_html(); ?></p>

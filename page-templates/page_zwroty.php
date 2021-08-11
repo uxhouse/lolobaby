@@ -12,10 +12,10 @@ get_header(); ?>
             <div class="content">
                 <?php the_field('page_content'); ?>
             </div>
-            <h3>Pobierz i wypełnij odpowiedni dla siebie formularz</h3>
+            <h3><?php _e('Pobierz i wypełnij odpowiedni dla siebie formularz', 'lolobaby'); ?></h3>
             <div class="forms">
-                <a href="<?php the_field('zwrot_firma'); ?>" target="_blank" class="btn btn--blue"><span>dla firmy</span></a>
-                <a href="<?php the_field('zwrot_prywatna'); ?>" target="_blank" class="btn btn--blue"><span>dla osoby prywatnej</span></a>
+                <a href="<?php the_field('zwrot_firma'); ?>" target="_blank" class="btn btn--blue"><span><?php _e('dla firmy', 'lolobaby'); ?></span></a>
+                <a href="<?php the_field('zwrot_prywatna'); ?>" target="_blank" class="btn btn--blue"><span><?php _e('dla osoby prywatnej', 'lolobaby'); ?></span></a>
             </div>
         </div>
     </section>

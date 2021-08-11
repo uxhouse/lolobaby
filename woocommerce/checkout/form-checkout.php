@@ -41,20 +41,20 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
         <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
         <div class="checkoutForm__userdata" id="customer_details">
             <div class="checkoutForm__shipping">
-                <h2>Dane adresowe:</h2>
+                <h2><?php _e('Dane adresowe', 'lolobaby'); ?>:</h2>
                 <?php do_action( 'woocommerce_checkout_billing' ); ?>
             </div>
             <div class="checkoutForm__billing">
-                <h2>Uzupełnij dane:</h2>
+                <h2><?php _e('Uzupełnij dane', 'lolobaby'); ?>:</h2>
                 <div class="form">
                     <div class="radio">
                         <div class="radio__option radio-selected">
                             <input type="radio" name="checkoutPersonType" forfield="billing_persontype" id="selectTypePrivate" class="engineRadio" value="private" checked/>
-                            <label for="selectTypePrivate">Osoba prywatna</label>
+                            <label for="selectTypePrivate"><?php _e('Osoba prywatna', 'lolobaby'); ?></label>
                         </div>
                         <div class="radio__option">
                             <input type="radio" name="checkoutPersonType" forfield="billing_persontype" id="selectTypeBusiness" class="engineRadio" value="business"/>
-                            <label for="selectTypeBusiness">Firma</label>
+                            <label for="selectTypeBusiness"><?php _e('Firma', 'lolobaby'); ?></label>
                         </div>
                     </div>
                     <input type="text" class="comapnyField" name="billing_company" placeholder="Nazwa firmy" value="<?php echo get_user_meta( $currentUserID, 'billing_company', true ); ?>"/>
@@ -63,7 +63,7 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
                     <input type="text" name="billing_email" placeholder="Adres e-mail" value="<?php echo $currentUser->user_email; ?>"/>
                     <div class="checkbox gift">
                         <input type="checkbox" class="customCheckbox" name="billing_gift"/>
-                        <label for="billing_gift">Wyślij paragon na inny adres</label>
+                        <label for="billing_gift"><?php _e('Wyślij paragon na inny adres', 'lolobaby'); ?></label>
                     </div>
                 </div>
             </div>
@@ -78,14 +78,14 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
         <div class="heading">
-            <h3>Wczytywanie</h3>
+            <h3><?php _e('Wczytywanie', 'lolobaby'); ?></h3>
         </div>
         <div class="checkoutDeliverySelected checkoutDeliverySelected--disable">
-            <h3 class="name" methodid="0">Wczytywanie</h3>
+            <h3 class="name" methodid="0"><?php _e('Wczytywanie', 'lolobaby'); ?></h3>
             <p class="pointname"></p>
             <div class="buttons">
-                <p class="btn btn--light changeShipmentMethod"><span>Zmień sposób dostawy</span></p>
-                <p class="btn btn--blue selectPoint"><span>Wybierz Paczkomat</span></p>
+                <p class="btn btn--light changeShipmentMethod"><span><?php _e('Zmień sposób dostawy', 'lolobaby'); ?></span></p>
+                <p class="btn btn--blue selectPoint"><span><?php _e('Wybierz Paczkomat', 'lolobaby'); ?></span></p>
             </div>
         </div>
         <div class="checkoutDeliverySelect">
@@ -97,8 +97,8 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
         </div>
     </div>
     <div class="checkoutPage__nextstep">
-        <a href="<?php echo home_url('/koszyk'); ?>" class="previousStep"><span>Powrót</span></a>
-        <p class="btn nextStep"><span>Przejdź dalej</span></p>
+        <a href="<?php echo home_url('/koszyk'); ?>" class="previousStep"><span><?php _e('Powrót', 'lolobaby'); ?></span></a>
+        <p class="btn nextStep"><span><?php _e('Przejdź dalej', 'lolobaby'); ?></span></p>
     </div>
     <div class="checkoutPage__payment">
         <?php

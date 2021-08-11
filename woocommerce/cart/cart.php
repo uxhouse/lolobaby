@@ -86,7 +86,7 @@ if($brand_terms): ?>
                 </div>
                 <div class="cartItem__bottom">
                     <div class="cartItem__color">
-                        <p class="cartItem__title">Kolor:</p>
+                        <p class="cartItem__title"><?php _e('Kolor', 'lolobaby'); ?>:</p>
                         <?php
                             $attributeName = $_product->get_attribute('pa_kolor');
                             $allVariants = get_terms('pa_kolor');
@@ -106,7 +106,7 @@ if($brand_terms): ?>
                             $size_term = wc_get_product_terms( $product_id, 'pa_rozmiar', array( 'fields' => 'all' ) );
                             if($size_term):
                         ?>
-                        <p class="cartItem__title">Rozmiar:</p>
+                        <p class="cartItem__title"><?php _e('Rozmiar', 'lolobaby'); ?>:</p>
                         <div class="dropdownInput">
                             <input style="display: none !important;" type="text" name="cart[<?php echo $cart_item_key; ?>][pa_rozmiar]" id="select_size" class="select_size" value="<?php echo $attributeSize; ?>"/>
                             <div class="dropdownInput__select selectTrigger">
@@ -121,7 +121,7 @@ if($brand_terms): ?>
                         <?php endif; ?>
                     </div>
                     <div class="cartItem__quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-                    <p class="cartItem__title">Ilość:</p>
+                    <p class="cartItem__title"><?php _e('Ilość', 'lolobaby'); ?>:</p>
                     <div class="dropdownInput">
                         <div class="dropdownInput__select selectTrigger">
                             <p class="dropdownInput__current"><?php echo $cart_item['quantity']; ?></p>
@@ -209,7 +209,7 @@ if($brand_terms): ?>
     </form>
     <div class="loloCart__bottom container">
         <div class="loloCart__delivery">
-            <h2>Wybierz sposób dostawy</h2>
+            <h2><?php _e('Wybierz sposób dostawy', 'lolobaby'); ?></h2>
             <div class="deliveryList">
             <?php
                 $zone_ids = array_keys( array('') + WC_Shipping_Zones::get_zones() );
@@ -233,7 +233,7 @@ if($brand_terms): ?>
                                     if( $freeshippingamount > $cart ){
                                         echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>';
                                     }else{
-                                        echo '<span>Za darmo</span>';
+                                        echo '<span>' . __('Za darmo!', 'lolobaby') . '</span>';
                                     }
                                 ?>
                             </div>
@@ -257,8 +257,8 @@ if($brand_terms): ?>
         </div>
     </div>
     <div class="loloCart__afterCart container <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'shippingSelected' : 'notSelected'; ?>">
-        <a href="<?php echo home_url('/produkty'); ?>" class="continue">Kontynuuj zakupy</a>
-        <a href="<?php echo home_url('/zamowienie'); ?>" class="tocheckout btn"><span>Przejdź dalej</span></a>
+        <a href="<?php echo home_url('/produkty'); ?>" class="continue"><?php _e('Kontynuuj zakupy', 'lolobaby'); ?></a>
+        <a href="<?php echo home_url('/zamowienie'); ?>" class="tocheckout btn"><span><?php _e('Przejdź dalej', 'lolobaby'); ?></span></a>
         <?php // do_action( 'woocommerce_proceed_to_checkout' ); ?>
     </div>
 </div>

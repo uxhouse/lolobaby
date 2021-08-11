@@ -9,7 +9,7 @@ get_header(); ?>
     <section class="section section--privacyPolicy">
         <div class="container">
             <h2 class="sectionHeading">
-                <span>Polityka prywatności</span>
+                <span><?php _e('Polityka prywatności', 'lolobaby'); ?></span>
             </h2>
             <div class="privacyPolicy__content">
                 <?php the_field('privacy_policy_content'); ?>

@@ -44,7 +44,7 @@ get_header(); ?>
     <?php include get_template_directory() . '/template-parts/_include_strefaWiedzy.php'; ?>
     
     <div class="container container--min blogLink">
-        <a href="/blog" class="btn"><span>Zobacz wszystkie artykuły</span></a>
+        <a href="/blog" class="btn"><span><?php _e('Zobacz wszystkie artykuły', 'lolobaby'); ?></span></a>
     </div>
 </main>
 

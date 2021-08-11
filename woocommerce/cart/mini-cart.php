@@ -24,7 +24,7 @@ $activeItems = WC()->cart->get_cart_contents_count();
 ?>
 
 	<div class="miniCart__heading">
-		<h2>Twój koszyk<?php if($activeItems > 0): ?> <span>(<?php echo $activeItems; ?>)</span><?php endif; ?></h2>
+		<h2><?php _e('Twój koszyk', 'lolobaby'); ?><?php if($activeItems > 0): ?> <span>(<?php echo $activeItems; ?>)</span><?php endif; ?></h2>
 		<img class="closeMiniCart" src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/>
 	</div>
 <?php if ( ! WC()->cart->is_empty() ) : ?>
@@ -53,8 +53,8 @@ $activeItems = WC()->cart->get_cart_contents_count();
 							<div class="info">
 								<h3 class="info__name"><?php echo $_product->get_title(); ?></h3>
 								<div class="info__content">
-									<p>Rozmiar: <?php echo $cart_item['variation']['attribute_pa_rozmiar']; ?></p>
-									<p>Kolor: 
+									<p><?php _e('Rozmiar', 'lolobaby'); ?>: <?php echo $cart_item['variation']['attribute_pa_rozmiar']; ?></p>
+									<p><?php _e('Kolor', 'lolobaby'); ?>: 
 									<?php
 										$attributeName = $_product->get_attribute('pa_kolor');
 										$allVariants = get_terms('pa_kolor');
@@ -69,7 +69,7 @@ $activeItems = WC()->cart->get_cart_contents_count();
 									</p>
 								</div>
 								<div class="info__qty">
-									<p>Liczba: <?php echo $cart_item['quantity']; ?></p>
+									<p><?php _e('Liczba', 'lolobaby'); ?>: <?php echo $cart_item['quantity']; ?></p>
 								</div>
 							</div>
 						</a>
@@ -120,7 +120,7 @@ $activeItems = WC()->cart->get_cart_contents_count();
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-	<a class="btn" href="<?php echo wc_get_cart_url(); ?>"><span>Koszyk</span></a>
+	<a class="btn" href="<?php echo wc_get_cart_url(); ?>"><span><?php _e('Koszyk', 'lolobaby'); ?></span></a>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
 

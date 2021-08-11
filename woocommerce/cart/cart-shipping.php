@@ -36,7 +36,7 @@ $calculator_text          = '';
                         $rate_table = array();
 
                         if($mehtodPrice == '0.00'){
-                            $methodPrice = 'Za darmo!';
+                            $methodPrice = __('Za darmo!', 'lolobaby');
                         }else{
                             $methodPrice = wc_price($methodPrice);
                         }

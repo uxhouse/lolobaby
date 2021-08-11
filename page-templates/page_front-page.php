@@ -76,7 +76,7 @@ get_header(); ?>
     if( $the_query->have_posts() ): ?>
     <section class="homeBestsellers">
         <div class="homeBestsellers__heading">
-            <h2 class="homeSectionHeading"><span>bestsellery</span></h2>
+            <h2 class="homeSectionHeading"><span><?php _e('bestsellery', 'lolobaby'); ?></span></h2>
         </div>
         <div class="homeBestsellers__wrap">
             <div class="homeBestsellers__arrow homeBestsellers__arrow--left homeBestsellers__arrow--desktop">
@@ -125,7 +125,7 @@ get_header(); ?>
             <div class="homeCollections__content">
                 <p><?php echo $subtitle; ?></p>
                 <h2><?php echo $name; ?></h2>
-                <span class="btn"><span>Sprawdź</span></span>
+                <span class="btn"><span><?php _e('Sprawdź', 'lolobaby'); ?></span></span>
             </div>
         </a>
         <?php endwhile; ?>

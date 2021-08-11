@@ -11,7 +11,7 @@ $the_query = new WP_Query($args); ?>
                 <h2 class="sectionHeading sectionHeading--withImage">
                     <span>
                         <img src="<?php echo get_template_directory_uri() . '/images/icons/book.svg' ?>" alt="" />
-                        <span>Strefa wiedzy </span>  
+                        <span><?php _e('Strefa wiedzy', 'lolobaby'); ?> </span>  
                     </span>
                 </h2>
             </div>

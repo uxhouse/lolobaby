@@ -38,7 +38,7 @@
                 <p class="price"><?php
             echo apply_filters( 'tinvwl_wishlist_item_price', $product->get_price_html(), $wl_product, $product ); // WPCS: xss ok.
             ?></p>
-                <a href="<?php the_permalink(); ?>" class="btn btn--archive"><span>Zobacz</span></a>
+                <a href="<?php the_permalink(); ?>" class="btn btn--archive"><span><?php _e('Zobacz', 'lolobaby'); ?></span></a>
             </a>
         <?php endif; ?>
     </div>

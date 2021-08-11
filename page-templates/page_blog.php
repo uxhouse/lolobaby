@@ -16,12 +16,12 @@ get_header(); ?>
     <section class="section section--blog">
         <div class="container container--min">
             <h2 class="sectionHeading">
-                <span>Blog</span>
+                <span><?php _e('Blog', 'lolobaby'); ?></span>
             </h2>
             <div class="blog__description">
                 <p><?php the_field('blogpage_desc'); ?></p>
                 <div class="blog__descriptionLayer">
-                    <div class="blog__dropdownButton">Rozwiń</div>
+                    <div class="blog__dropdownButton"><?php _e('Rozwiń', 'lolobaby'); ?></div>
                 </div>
             </div>
         </div>

@@ -35,10 +35,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
 		<div class="notAvailable">
-			<a href class="btn btn--notavailable btn--noarrow"><span>Produkt niedostępny</span></a>
+			<a href class="btn btn--notavailable btn--noarrow"><span><?php _e('Produkt niedostępny', 'lolobaby'); ?></span></a>
 			<div class="checkbox">
 				<input type="checkbox" name="availableAlert"/>
-				<label for="availableAlert">Jestem zainteresowana/ny produktem.</label>
+				<label for="availableAlert"><?php _e('Jestem zainteresowana/ny produktem.', 'lolobaby'); ?></label>
 			</div>
 		</div>
 	<?php else : ?>

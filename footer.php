@@ -20,8 +20,8 @@
 			<div class="newsletter">
 				<div class="newsletter__heading">
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/newsletter_heading_ico.svg'; ?>"/>
-					<h2>Otrzymaj 10% zniżki</h2>
-					<p>Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera:</p>
+					<h2><?php _e('Otrzymaj 10% zniżki', 'lolobaby'); ?></h2>
+					<p><?php _e('Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera', 'lolobaby'); ?>:</p>
 				</div>
 				<?php echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]') ?>
 			</div>
@@ -40,28 +40,28 @@
 						<div class="footerContent__logo">
 							<img src="<?php echo get_template_directory_uri() . '/images/siteLogo_white.svg'; ?>"/>
 						</div>
-						<h3>Wszystko,<br/>co musisz wiedzieć:</h3>
+						<h3><?php _e('Wszystko,<br/>co musisz wiedzieć:', 'lolobaby'); ?></h3>
 					</div>
 					<div class="footerContent__links">
 						<ul>
-							<li class="title">O zakupach:</li>
-							<li><a href="<?php echo home_url('/dostawa') ?>">Dostawa</a></li>
-							<li><a href="<?php echo home_url('/platnosci') ?>">Płatności</a></li>
-							<li><a href="<?php echo home_url('/zwroty') ?>">Zwroty</a></li>
-							<li><a href="<?php echo home_url('/reklamacje') ?>">Reklamacje</a></li>
-							<li><a href="<?php echo home_url('/faq') ?>">FAQ</a></li>
-							<li><a href="<?php echo home_url('/regulamin') ?>">Regulamin</a></li>
-							<li><a href="<?php echo home_url('/polityka-prywatnosci') ?>">Polityka prywatności</a></li>
+							<li class="title"><?php _e('O zakupach', 'lolobaby'); ?>:</li>
+							<li><a href="<?php echo home_url('/dostawa') ?>"><?php _e('Dostawa', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/platnosci') ?>"><?php _e('Płatności', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/zwroty') ?>"><?php _e('Zwroty', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/reklamacje') ?>"><?php _e('Reklamacje', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/faq') ?>"><?php _e('FAQ', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/regulamin') ?>"><?php _e('Regulamin', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/polityka-prywatnosci') ?>"><?php _e('Polityka prywatności', 'lolobaby'); ?></a></li>
 						</ul>
 						<ul>
-							<li class="title">O nas:</li>
+							<li class="title"><?php _e('O nas', 'lolobaby'); ?>:</li>
 							<li><a href="<?php echo home_url('/o-nas') ?>">Lolobaby</a></li>
-							<li><a href="<?php echo home_url('/kontakt') ?>">Kontakt</a></li>
-							<li><a href="<?php echo home_url('/blog') ?>">Blog</a></li>
+							<li><a href="<?php echo home_url('/kontakt') ?>"><?php _e('Kontakt', 'lolobaby'); ?></a></li>
+							<li><a href="<?php echo home_url('/blog') ?>"><?php _e('Blog', 'lolobaby'); ?></a></li>
 						</ul>
 					</div>
 					<div class="footerContent__social">
-						<p>Bądź na bieżąco</p>
+						<p><?php _e('Bądź na bieżąco', 'lolobaby'); ?></p>
 						<a href="https://www.instagram.com/lolobaby_brand/" target="_blank" class="social">
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/instagram_ico_white.svg'; ?>"/>
 							<p>lolobaby_brand</p>
@@ -72,8 +72,8 @@
 					<div class="newsletter">
 						<div class="newsletter__heading">
 							<img src="<?php echo get_template_directory_uri() . '/images/icons/newsletter_heading_ico.svg'; ?>"/>
-							<h2>Otrzymaj 10% zniżki</h2>
-							<p>Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera:</p>
+							<h2><?php _e('Otrzymaj 10% zniżki', 'lolobaby'); ?></h2>
+							<p><?php _e('Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera', 'lolobaby'); ?>:</p>
 						</div>
 						<?php echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]') ?>
 					</div>
@@ -84,7 +84,7 @@
 	<div id="sizeModal" class="sizeModal">
 		<div class="sizeModal__wrap">
 			<div class="sizeModal__header">
-				<h2>Tabela rozmiarów</h2>
+				<h2><?php _e('Tabela rozmiarów', 'lolobaby'); ?></h2>
 				<img class="closeModal" src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/>
 				<div class="wave">
 					<svg xmlns="http://www.w3.org/2000/svg" width="5469" height="34" viewBox="0 0 5469 34" fill="none">
@@ -101,7 +101,7 @@
 				<div class="productSizeTable">
 					<div class="productInfo">
 						<div class="productInfo__heading">
-							<p>Produkt</p>
+							<p><?php _e('Produkt', 'lolobaby'); ?></p>
 						</div>
 						<div class="productInfo__content">
 							<p><?php echo $productName; ?></p>
@@ -155,9 +155,6 @@
 						</tbody>
 					</table>
 				</div>
-				<!-- <div class="sizeModal__image">
-					<img src=""/>
-				</div> -->
 				<?php endwhile; ?>
 				</div>
 			</div>

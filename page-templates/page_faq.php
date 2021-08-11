@@ -9,10 +9,10 @@ get_header(); ?>
     <section class="section section--faq">
         <div class="container">
             <h2 class="sectionHeading">
-                <span>Pytania i odpowiedzi</span>
+                <span><?php _e('Pytania i odpowiedzi', 'lolobaby'); ?></span>
             </h2>
             <div class="faqDescription">
-                <p>Poniżej przedstawiamy odpowiedzi na najczęściej zadawane pytania. Jeśli wciąż masz wątpliwości napisz do nas na: <a href="mailto:kontakt@lolobaby.pl">kontakt@lolobaby.pl</a></p>
+                <p><?php _e('Poniżej przedstawiamy odpowiedzi na najczęściej zadawane pytania. Jeśli wciąż masz wątpliwości napisz do nas na', 'lolobaby'); ?>: <a href="mailto:kontakt@lolobaby.pl">kontakt@lolobaby.pl</a></p>
                 <img class="drawing drawing--faq" src="<?php echo get_template_directory_uri() . '/images/question-marks.svg' ?>" alt="" />
             </div> 
         </div>

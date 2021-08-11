@@ -24,8 +24,8 @@ wc_print_notice( esc_html__( 'Password reset email has been sent.', 'woocommerce
 
 <div class="lostConfirmation">
     <div class="lostConfirmation__wrap">
-        <h2 class="sectionHeading"><span>Gotowe!</span></h2>
-        <p>E-mail z linkiem do zresetowania hasła został wysłany na adres przypisany do Twojego konta, może minąć kilka minut zanim pojawi się on w Twojej skrzynce.</p>
+        <h2 class="sectionHeading"><span><?php _e('Gotowe!', 'lolobaby'); ?></span></h2>
+        <p><?php _e('E-mail z linkiem do zresetowania hasła został wysłany na adres przypisany do Twojego konta, może minąć kilka minut zanim pojawi się on w Twojej skrzynce.', 'lolobaby'); ?></p>
     </div>
 </div>
 

@@ -5,7 +5,7 @@
         </div>
         <?php if(get_field('product_bestseller')): ?>
         <div class="productTile__bestseller">
-            <p>Bestseller</p>
+            <p><?php _e('Bestseller', 'lolobaby'); ?></p>
         </div>
         <?php endif; ?>
         <a href="<?php the_permalink(); ?>" class="productTile__cover">
@@ -13,14 +13,14 @@
             <?php if ( $price_html = $product->get_price_html() ) : ?>
                 <p class="price"><?php echo $price_html; ?></p>
             <?php endif; ?>
-            <p href="<?php the_permalink(); ?>" class="btn"><span>Sprawdź</span></p>
+            <p href="<?php the_permalink(); ?>" class="btn"><span><?php _e('Sprawdź', 'lolobaby'); ?></span></p>
         </a>
         <a href="<?php the_permalink(); ?>" class="productTile__content">
             <h3><?php the_title(); ?></h3>
             <?php if ( $price_html = $product->get_price_html() ) : ?>
                 <p class="price"><?php echo $price_html; ?></p>
             <?php endif; ?>
-            <p href="<?php the_permalink(); ?>" class="btn"><span>Zobacz</span></p>
+            <p href="<?php the_permalink(); ?>" class="btn"><span><?php _e('Zobacz', 'lolobaby'); ?></span></p>
         </a>
     </div>
 </article>

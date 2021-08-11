@@ -30,42 +30,42 @@ woocommerce_login_form(
 );
 ?>
 <div class="checkoutRegister">
-	<h2>Zarejestruj się</h2>
+	<h2><?php _e('Zarejestruj się', 'lolobaby'); ?></h2>
 	<form class="checkoutRegister__form" id="checkoutRegisterForm" name="checkoutRegisterForm" method="post" action="/">
 		<input type="hidden" name="register-formid" value="21"/>
 		<div class="checkoutRegister__input">
-			<input type="text" name="registerUsername" placeholder="Wpisz imię i nazwisko"/>
+			<input type="text" name="registerUsername" placeholder="<?php _e('Wpisz imię i nazwisko', 'lolobaby'); ?>"/>
 		</div>
 		<div class="checkoutRegister__input">
-			<input type="email" name="registerUseremail" placeholder="Wpisz adres e-mail"/>
+			<input type="email" name="registerUseremail" placeholder="<?php _e('Wpisz adres e-mail', 'lolobaby'); ?>"/>
 		</div>
 		<div class="checkoutRegister__input">
-			<input type="password" name="registerUserpassword" placeholder="Ustal hasło"/>	
+			<input type="password" name="registerUserpassword" placeholder="<?php _e('Ustal hasło', 'lolobaby'); ?>"/>	
 		</div>
 		<div class="checkoutRegister__checkbox top">
 			<input type="checkbox" class="engineCheckbox" name="registerConsent"/>
-			<label for="register-consent">Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.</label>
+			<label for="register-consent"><?php _e('Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.', 'lolobaby'); ?></label>
 		</div>
 		<div class="checkoutRegister__checkbox bottom">
 			<input type="checkbox" class="engineCheckbox" name="register-newsletter"/>
-			<label for="register-newsletter">Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)</label>
+			<label for="register-newsletter"><?php _e('Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)', 'lolobaby'); ?></label>
 		</div>
 		<div class="checkoutRegister__input">
-			<button type="submit" class="btn btn--button" value="Zarejestruj się">Zarejestruj się</button>
+			<button type="submit" class="btn btn--button" value="Zarejestruj się"><?php _e('Zarejestruj się', 'lolobaby'); ?></button>
 		</div>
 	</form>
 	<div class="checkoutLogin__gotoOtherForm">
 		<div class="wave">
 			<img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
 		</div>
-		<h3>Jeśli masz już konto:</h3>
-		<p class="btn openLogin"><span>Zaloguj się</span></p>
+		<h3><?php _e('Jeśli masz już konto', 'lolobaby'); ?>:</h3>
+		<p class="btn openLogin"><span><?php _e('Zaloguj się', 'lolobaby'); ?></span></p>
 	</div>
 </div>
 <div class="checkoutLogin__gotoOtherForm gotoRegister gotoRegister--ready gotoRegister--visible">
 	<div class="wave">
 		<img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
 	</div>
-	<h3>Nie masz jeszcze konta?</h3>
-	<p class="btn openRegister"><span>Zarejestruj się</span></p>
+	<h3><?php _e('Nie masz jeszcze konta?', 'lolobaby'); ?></h3>
+	<p class="btn openRegister"><span><?php _e('Zarejestruj się', 'lolobaby'); ?></span></p>
 </div>

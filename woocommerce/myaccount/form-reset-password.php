@@ -22,14 +22,14 @@ do_action( 'woocommerce_before_reset_password_form' );
 
 <form method="post" class="woocommerce-ResetPassword resetPassword lost_reset_password" autocomplete="off">
     <div class="resetPassword__wrap">
-        <h1 class="sectionHeading"><span>Nowe hasło</span></h1>
+        <h1 class="sectionHeading"><span><?php _e('Nowe hasło', 'lolobaby'); ?></span></h1>
         <p><?php echo apply_filters( 'woocommerce_reset_password_message', esc_html__( 'Enter a new password below.', 'woocommerce' ) ); ?></p>
         
         <div class="resetPassword__input">
-            <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" placeholder="Nowe hasło" name="password_1" id="password_1" autocomplete="off" />
+            <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" placeholder="<?php _e('Nowe hasło', 'lolobaby'); ?>" name="password_1" id="password_1" autocomplete="off" />
         </div>
         <div class="resetPassword__input">
-            <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" placeholder="Powtórz nowe hasło" name="password_2" id="password_2" autocomplete="off" />
+            <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" placeholder="<?php _e('Powtórz nowe hasło', 'lolobaby'); ?>" name="password_2" id="password_2" autocomplete="off" />
         </div>
 
         <input type="hidden" name="reset_key" value="<?php echo esc_attr( $args['key'] ); ?>" />

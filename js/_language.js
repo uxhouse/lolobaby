@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var langs = $('#lang_sel_list').find('li');
+    
     $(langs).each(function(){
         var lang = $(this).attr('class').replace('icl-', '');
         var status = $(this).find('a').attr('class');

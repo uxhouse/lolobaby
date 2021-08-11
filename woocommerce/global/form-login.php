@@ -26,12 +26,12 @@ if ( is_user_logged_in() ) {
 ?>
 <form class="woocommerce-form woocommerce-form-login loloCheckout__loginForm checkoutLogin checkoutLogin--ready checkoutLogin--visible login" method="post">
 	<?php do_action( 'woocommerce_login_form_start' ); ?>
-    <h1 class="checkoutLogin__title">Zaloguj się</h1>
+    <h1 class="checkoutLogin__title"><?php _e('Zaloguj się', 'lolobaby'); ?></h1>
 	<div class="checkoutLogin__input">
-		<input type="text" class="input-text" name="username" id="username" placeholder="Wpisz adres e-mail" autocomplete="username" />
+		<input type="text" class="input-text" name="username" id="username" placeholder="<?php _e('Wpisz adres e-mail', 'lolobaby'); ?>" autocomplete="username" />
     </div>
 	<div class="checkoutLogin__input">
-		<input class="input-text" type="password" name="password" id="password" placeholder="Wpisz swoje hasło" autocomplete="current-password" />
+		<input class="input-text" type="password" name="password" id="password" placeholder="<?php _e('Wpisz swoje hasło', 'lolobaby'); ?>" autocomplete="current-password" />
     </div>
 
 	<?php do_action( 'woocommerce_login_form' ); ?>

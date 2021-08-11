@@ -22,10 +22,10 @@ do_action( 'woocommerce_before_lost_password_form' );
 
 <form method="post" class="woocommerce-ResetPassword lost_reset_password lostPassword">
     <div class="lostPassword__wrap">
-        <h2 class="lostPassword__title">Resetowanie hasła</h2>
-        <p class="lostPassword__subtitle">Wpisz adres e-mail przypisany do Twojego konta. Na podany adres zostanie wysłany link do resetowania hasła.</p>
+        <h2 class="lostPassword__title"><?php _e('Resetowanie hasła', 'lolobaby'); ?></h2>
+        <p class="lostPassword__subtitle"><?php _e('Wpisz adres e-mail przypisany do Twojego konta. Na podany adres zostanie wysłany link do resetowania hasła.', 'lolobaby'); ?></p>
         <div class="lostPassword__input">
-            <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" placeholder="Wpisz adres e-mail" autocomplete="username" />
+            <input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" placeholder="<?php _e('Wpisz adres e-mail', 'lolobaby'); ?>" autocomplete="username" />
         </div>
         <?php do_action( 'woocommerce_lostpassword_form' ); ?>
         <input type="hidden" name="wc_reset_password" value="true" />

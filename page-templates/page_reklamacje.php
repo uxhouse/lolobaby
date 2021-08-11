@@ -12,7 +12,7 @@ get_header(); ?>
             <div class="content">
                 <?php the_field('page_content'); ?>
             </div>
-            <a href="<?php the_field('formularz_reklamacyjny'); ?>" target="_blank" class="btn btn--blue"><span>Pobierz formularz</span></a>
+            <a href="<?php the_field('formularz_reklamacyjny'); ?>" target="_blank" class="btn btn--blue"><span><?php _e('Pobierz formularz', 'lolobaby'); ?></span></a>
         </div>
     </section>
 </main>
