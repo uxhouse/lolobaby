@@ -173,6 +173,7 @@ function lolobaby_scripts() {
 
 	/* Custom js */
 	wp_enqueue_script( 'lolobaby-custom-js', get_template_directory_uri() . '/js/custom.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'lolobaby-language-js', get_template_directory_uri() . '/js/_language.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'lolobaby-sliders-js', get_template_directory_uri() . '/js/sliders.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'lolobaby-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
