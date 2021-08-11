@@ -143,11 +143,29 @@ function custom_ajaxurl() {
          </script>';
 }
 
+/*
+ *	Versioning
+ */
+function wpmix_get_version() {
+	$theme_data = wp_get_theme();
+	return $theme_data->Version;
+}
+$theme_version = wpmix_get_version();
+global $theme_version;
+
+function wpmix_get_random() {
+	$randomizr = '-' . rand(100,999);
+	return $randomizr;
+}
+$random_number = wpmix_get_random();
+global $random_number;
+
 /**
  * Enqueue scripts and styles.
  */
 function lolobaby_scripts() {
-	wp_enqueue_style( 'lolobaby-style', get_stylesheet_uri(), array(), _S_VERSION );
+	global $theme_version, $random_number;
+	wp_enqueue_style( 'lolobaby-style', get_stylesheet_uri(), array(), $theme_version . $random_number );
 	wp_style_add_data( 'lolobaby-style', 'rtl', 'replace' );
 
 	/* jQuery */
@@ -169,13 +187,13 @@ function lolobaby_scripts() {
 	wp_enqueue_script( 'lolobaby-macy', get_template_directory_uri() . '/plugins/macy/dist/macy.js', array(), _S_VERSION, true );
 
 	/* Custom CSS */
-	wp_enqueue_style( 'lolobaby-custom', get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION );
+	wp_enqueue_style( 'lolobaby-custom', get_template_directory_uri() . '/css/custom.css', array(), $theme_version . $random_number);
 
 	/* Custom js */
-	wp_enqueue_script( 'lolobaby-custom-js', get_template_directory_uri() . '/js/custom.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'lolobaby-language-js', get_template_directory_uri() . '/js/_language.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'lolobaby-sliders-js', get_template_directory_uri() . '/js/sliders.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'lolobaby-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'lolobaby-custom-js', get_template_directory_uri() . '/js/custom.js', array(), $theme_version . $random_number, true );
+	wp_enqueue_script( 'lolobaby-language-js', get_template_directory_uri() . '/js/_language.js', array(), $theme_version . $random_number, true );
+	wp_enqueue_script( 'lolobaby-sliders-js', get_template_directory_uri() . '/js/sliders.js', array(), $theme_version . $random_number, true );
+	wp_enqueue_script( 'lolobaby-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version . $random_number, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

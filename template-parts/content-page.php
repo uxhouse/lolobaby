@@ -18,7 +18,7 @@
 	?>
 		<div class="cartHeader">
 			<div class="cartHeader__wrap container">
-				<h1>Twój koszyk <span><?php if($itemsCount > 0): ?>(<?php echo $itemsCount; ?>)<?php endif; ?></span></h1>
+				<h1><?php _e('Twój koszyk', 'lolobaby'); ?> <span><?php if($itemsCount > 0): ?>(<?php echo $itemsCount; ?>)<?php endif; ?></span></h1>
 				<a href="<?php echo home_url(); ?>" class="cartHeader__logo">
 					<img src="<?php echo get_template_directory_uri() . '/images/siteLogo_red.svg'; ?>"/>
 				</a>
@@ -33,7 +33,7 @@
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_1.svg'; ?>"/>
 				</div>
 				<div class="name">
-					<p>Koszyk</p>
+					<p><?php _e('Koszyk', 'lolobaby'); ?></p>
 				</div>
 			</div>
 			<div class="cartProgress__arrow step-2">
@@ -44,7 +44,7 @@
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_2.svg'; ?>"/>
 				</div>
 				<div class="name">
-					<p>Logowanie</p>
+					<p><?php _e('Logowanie', 'lolobaby'); ?></p>
 				</div>
 			</div>
 			<div class="cartProgress__arrow step-3">
@@ -55,7 +55,7 @@
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_3.svg'; ?>"/>
 				</div>
 				<div class="name">
-					<p>Dostawa</p>
+					<p><?php _e('Dostawa', 'lolobaby'); ?></p>
 				</div>
 			</div>
 			<div class="cartProgress__arrow step-4">
@@ -66,7 +66,7 @@
 					<img src="<?php echo get_template_directory_uri() . '/images/icons/cartSteps/step_4.svg'; ?>"/>
 				</div>
 				<div class="name">
-					<p>Podsumowanie i płatność</p>
+					<p><?php _e('Podsumowanie i płatność', 'lolobaby'); ?></p>
 				</div>
 			</div>
 		</div>
