@@ -314,7 +314,8 @@ body.single-product{
                                 margin: 4px 20px 4px 0;
                                 box-shadow: unset;
 
-                                &.color-variable-term-multikolor{
+                                &.color-variable-term-multikolor,
+                                &.color-variable-term-multicolor{
                                     .rtwpvs-term-span{
                                         background-image: url('/wp-content/themes/lolobaby/images/yaro-tex_pattern.svg');
                                         background-size: 100%;
