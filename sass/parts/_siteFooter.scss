@@ -167,6 +167,7 @@
         top: 20px;
         right: 20px;
         cursor: pointer;
+        z-index: 9;
         transition: ease .3s;
 
         &:hover{
@@ -653,6 +654,7 @@
                 right: 0;
                 margin: 0 auto;
                 z-index: 2;
+                pointer-events: none;
             }
             img{
                 width: 48px;

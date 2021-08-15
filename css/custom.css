@@ -3493,7 +3493,7 @@ body.single-product .woocommerce-breadcrumb {
   box-shadow: unset;
 }
 
-.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term.color-variable-term-multikolor .rtwpvs-term-span {
+.productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term.color-variable-term-multikolor .rtwpvs-term-span, .productPage .productContent__summary table.variations tr td .color-variable-wrapper .rtwpvs-term.color-variable-term-multicolor .rtwpvs-term-span {
   background-image: url("/wp-content/themes/lolobaby/images/yaro-tex_pattern.svg");
   background-size: 100%;
 }
@@ -4506,7 +4506,7 @@ body[thankyoupage="true"] .cartProgress {
   border-radius: 100%;
 }
 
-.loloCart .cartItem__color span[termname="multikolor"] {
+.loloCart .cartItem__color span[termname="multikolor"], .loloCart .cartItem__color span[termname="multicolor"] {
   background-image: url("/wp-content/themes/lolobaby/images/yaro-tex_pattern.svg");
   background-size: 100%;
 }
@@ -8292,6 +8292,7 @@ body[thankyoupage="true"] .cartHeader {
   top: 20px;
   right: 20px;
   cursor: pointer;
+  z-index: 9;
   transition: ease .3s;
 }
 
@@ -8742,6 +8743,7 @@ body[thankyoupage="true"] .cartHeader {
     right: 0;
     margin: 0 auto;
     z-index: 2;
+    pointer-events: none;
   }
   .newsletter__heading img {
     width: 48px;
@@ -9123,7 +9125,7 @@ body[thankyoupage="true"] .cartHeader {
   margin: 0 7px;
 }
 
-.productTile__colors span[termname="multikolor"] {
+.productTile__colors span[termname="multikolor"], .productTile__colors span[termname="multicolor"] {
   background-image: url("/wp-content/themes/lolobaby/images/yaro-tex_pattern.svg");
   background-size: 100%;
 }
