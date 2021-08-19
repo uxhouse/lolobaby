@@ -672,3 +672,7 @@ function before_checkout_create_order($order) {
 
 // Remove archive pagination
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+// Display all products
+add_filter( 'loop_shop_per_page', function ( $cols ) {
+    return - 1;
+} );
