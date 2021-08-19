@@ -671,4 +671,4 @@ function before_checkout_create_order($order) {
 }
 
 // Remove archive pagination
-remove_action( 'woocommerce_before_shop_loop', 'storefront_woocommerce_pagination', 30 );
+remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
