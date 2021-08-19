@@ -99,14 +99,14 @@
 									<span></span>
 								</div>
 							</a>
-							<?php if(current_user_can('administrator')): ?>
+							<?php // if(current_user_can('administrator')): ?>
 							<div class="language">
 								<div class="language__select">
 
 								</div>
 								<?php do_action('wpml_add_language_selector'); ?>
 							</div>
-							<?php endif; ?>
+							<?php //endif; ?>
 							<div id="miniCart" class="miniCart miniCart--ready">
 								<?php woocommerce_mini_cart(); ?>
 							</div>
