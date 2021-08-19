@@ -80,7 +80,11 @@
 							<h2><?php _e('Otrzymaj 10% zniżki', 'lolobaby'); ?></h2>
 							<p><?php _e('Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera', 'lolobaby'); ?>:</p>
 						</div>
-						<?php echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]') ?>
+						<?php if($lang == 'pl-PL'){
+							echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]');
+						}else{
+							echo do_shortcode('[contact-form-7 id="2350" title="Newsletter EN"]');
+						} ?>
 					</div>
 				</div>
 			</div>
