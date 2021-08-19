@@ -11,6 +11,7 @@
 
 	$user_id = get_current_user_id();
 	$subscribeStatus = get_user_meta($user_id, 'newsletterSubscribe', true);
+	$lang = get_bloginfo('language');
 ?>
 
 	<?php if(!is_user_logged_in() || is_user_logged_in() && $subscribeStatus !== 'on'): ?>
@@ -23,7 +24,11 @@
 					<h2><?php _e('Otrzymaj 10% zniżki', 'lolobaby'); ?></h2>
 					<p><?php _e('Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera', 'lolobaby'); ?>:</p>
 				</div>
-				<?php echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]') ?>
+				<?php if($lang == 'pl-PL'){
+					echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]');
+				}else{
+					echo do_shortcode('[contact-form-7 id="2350" title="Newsletter EN"]');
+				} ?>
 			</div>
 		</div>
 	</div>
