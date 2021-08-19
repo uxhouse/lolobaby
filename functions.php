@@ -669,3 +669,6 @@ function before_checkout_create_order($order) {
 	
 	$order->save();
 }
+
+// Remove archive pagination
+remove_action( 'woocommerce_before_shop_loop', 'storefront_woocommerce_pagination', 30 );
