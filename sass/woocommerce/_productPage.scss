@@ -891,7 +891,7 @@ body.single-product{
                 }
                 .price--variation{
                     position: absolute;
-                    top: 90px;
+                    top: 75px;
                     left: 0;
                     right: 0;
                     margin: 0 auto;
@@ -921,6 +921,10 @@ body.single-product{
                             margin: 0 auto 80px;
                         }
                     }
+                }
+                .productColors{
+                    justify-content: center;
+                    margin: 20px 0 80px;
                 }
                 .productActions{
                     .addwishlist{

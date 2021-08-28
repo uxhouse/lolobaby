@@ -4041,7 +4041,7 @@ body.single-product .woocommerce-breadcrumb {
   }
   .productPage .productContent__summary .price--variation {
     position: absolute;
-    top: 90px;
+    top: 75px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -4067,6 +4067,10 @@ body.single-product .woocommerce-breadcrumb {
   .productPage .productContent__summary table.variations tr:first-of-type {
     max-width: fit-content;
     margin: 0 auto 80px;
+  }
+  .productPage .productContent__summary .productColors {
+    justify-content: center;
+    margin: 20px 0 80px;
   }
   .productPage .productContent__summary .productActions .addwishlist a:before {
     background-size: 39px;
