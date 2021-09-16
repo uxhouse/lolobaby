@@ -33,7 +33,11 @@ get_header( 'shop' ); ?>
     </div> -->
     <?php include get_template_directory() . '/template-parts/_include_archiveBreadcrumbs.php'; ?>
     <header class="archiveShop__header container">
-        <h1 class="sectionHeading"><span><?php woocommerce_page_title(); ?></span></h1>
+        <?php if(is_shop()): ?>
+            <h1 class="sectionHeading"><span><?php _e('Produkty', 'lolobaby'); ?></span></h1>
+        <?php else: ?>
+            <h1 class="sectionHeading"><span><?php woocommerce_page_title(); ?></span></h1>
+        <?php endif; ?>
         <div class="catDesc">
             <?php if(is_shop()): ?>
                 <p><?php the_field('archiveShop_description', 7); ?></p>
