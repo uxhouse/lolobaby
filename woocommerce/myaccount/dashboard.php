@@ -62,7 +62,7 @@ if($currentuserName){
             </thead>
             <tbody>
             <?php 
-            $order_statuses = array('wc-on-hold', 'wc-processing', 'wc-completed', 'processing-p24');
+            $order_statuses = array('wc-on-hold', 'wc-processing', 'wc-completed', 'processing-p24', 'pending-p24');
             $customer_orders = wc_get_orders( array(
                 'meta_key' => '_customer_user',
                 'meta_value' => $customer_user_id,
@@ -100,7 +100,7 @@ if($currentuserName){
         </table>
         <div class="tableMobile">
         <?php 
-            $order_statuses = array('wc-on-hold', 'wc-processing', 'wc-completed');
+            $order_statuses = array('wc-on-hold', 'wc-processing', 'wc-completed', 'processing-p24', 'pending-p24');
             $customer_orders = wc_get_orders( array(
                 'meta_key' => '_customer_user',
                 'meta_value' => $customer_user_id,
