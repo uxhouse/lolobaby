@@ -112,7 +112,11 @@ $(document).ready(function(){
         $('.woof_container').each(function(){
             var attributeName = $(this).find('.woof_checkboxBlock').attr('attrname')
             if(attributeName){
-                var nameformated = attributeName.replace('Atrybut produktu: ', '');
+                if($('html').attr('lang') == 'en-US'){
+                    var nameformated = attributeName.replace('Product ', '');
+                }else{
+                    var nameformated = attributeName.replace('Atrybut produktu: ', '');
+                }
                 $(this).find('.woof_checkboxBlock').find('p').text(nameformated);
             }
         });
