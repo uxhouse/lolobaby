@@ -15,7 +15,7 @@
 ?>
 
 	<?php if(!is_user_logged_in() || is_user_logged_in() && $subscribeStatus !== 'on'): ?>
-		<?php if(current_user_can('administrator')): ?>
+		<?php if(!current_user_can('administrator')): ?>
 			<div class="newsletterPopup">
 				<div class="newsletterPopup__wrap">
 					<div class="newsletterPopup__close"><img src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/></div>
