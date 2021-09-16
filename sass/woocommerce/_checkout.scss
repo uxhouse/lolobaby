@@ -842,7 +842,9 @@ body[thankyoupage="true"]{
                         }
 
                         span{
-                            display: block;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
                             font-weight: 800;
 
                             bdi{

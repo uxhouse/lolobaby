@@ -62,7 +62,7 @@ if($currentuserName){
             </thead>
             <tbody>
             <?php 
-            $order_statuses = array('wc-on-hold', 'wc-processing', 'wc-completed');
+            $order_statuses = array('wc-on-hold', 'wc-processing', 'wc-completed', 'processing-p24');
             $customer_orders = wc_get_orders( array(
                 'meta_key' => '_customer_user',
                 'meta_value' => $customer_user_id,
@@ -83,14 +83,14 @@ if($currentuserName){
                     <td><?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?></td>
                     <td>
                         <?php
-                            $actions = wc_get_account_orders_actions( $order );
-                            if ( ! empty( $actions ) ) :
-                                foreach ( $actions as $key => $action ) :
-                                    if($action['name'] == 'Faktura'):?>
-                                        <a href="<?php echo $action['url']; ?>" target="_blank"><img src="<?php echo get_template_directory_uri() . '/images/icons/get_pdf_file_ico.svg'; ?>"/></a>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                        $actions = wc_get_account_orders_actions( $order );
+                        if ( ! empty( $actions ) ) :
+                            foreach ( $actions as $key => $action ) :
+                                if($action['name'] == 'Faktura'):?>
+                                    <a href="<?php echo $action['url']; ?>" target="_blank"><img src="<?php echo get_template_directory_uri() . '/images/icons/get_pdf_file_ico.svg'; ?>"/></a>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </td>
                 </tr>
                     

@@ -5845,7 +5845,9 @@ body[thankyoupage="true"] #masthead {
 }
 
 .checkoutPage__delivery .checkoutDeliverySelect ul li label span {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 800;
 }
 
