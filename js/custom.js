@@ -926,7 +926,7 @@ $(document).ready(function(){
                     $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
                     $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
 
-                    if(methodid == 8 && methodid == 12){
+                    if(methodid == 8 && methodid == 11){
                         $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
                         $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
                     }
