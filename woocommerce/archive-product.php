@@ -40,7 +40,7 @@ get_header( 'shop' ); ?>
         <?php endif; ?>
         <div class="catDesc">
             <?php if(is_shop()): ?>
-                <p><?php the_field('archiveShop_description', 7); ?></p>
+                <p><?php the_field('archiveShop_description', 2567); ?></p>
             <?php else: ?>
                 <?php do_action( 'woocommerce_archive_description' ); ?>
             <?php endif; ?>
