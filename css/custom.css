@@ -7437,6 +7437,7 @@ body.admin-bar .siteHeader {
   max-width: none !important;
   margin-left: 16px !important;
   background-color: unset !important;
+  margin-top: 5px;
 }
 
 .siteHeader__actions .currency .wmc-currency.wmc-active {

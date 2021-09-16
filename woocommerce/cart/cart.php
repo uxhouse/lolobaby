@@ -222,7 +222,7 @@ if($brand_terms): ?>
                     $shipping_methods = $shipping_zone->get_shipping_methods( true, 'values' );
                 ?>
                     <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): ?>
-                        <?php if($shipping_method->instance_id !== 10 && $shipping_method->instance_id !== 12): ?>
+                        <?php if($shipping_method->instance_id !== 10 && $shipping_method->instance_id !== 11): ?>
                         <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php
                                 if( $freeshippingamount > $cart ){
                                     echo $shipping_method->instance_settings['cost'];
@@ -249,7 +249,7 @@ if($brand_terms): ?>
 
                     <?php // Wysyłka międzynarodowa
                         foreach($shipping_methods as $instance_id => $shipping_method): ?>
-                        <?php if($shipping_method->instance_id == 12): ?>
+                        <?php if($shipping_method->instance_id == 11): ?>
                         <h3><?php _e('Wysyłka międzynarodowa', 'lolobaby'); ?></h3>
                         <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['cost']; ?>">
                             <div class="name">
