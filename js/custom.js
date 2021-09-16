@@ -483,8 +483,8 @@ $(document).ready(function(){
 
         var deliverySelector = $('input[name="delivery_option"]');
         var deliveryAmount = $('.cartTotals__value[valuename="deliverycost"]');
-        var totalValue = $('.cartTotals__sum').find('span.amount').find('bdi');
-        var carTotalValue = $('.cartTotals__total').find('span.amount').find('bdi');
+        var totalValue = $('.cartTotals__sum').find('span.amount');
+        var carTotalValue = $('.cartTotals__total').find('span.amount');
         var currency = $('body').attr('currency');
         if($('body').hasClass('woocommerce-cart')){
             console.log(totalValue[0].childNodes[0]['data']);
