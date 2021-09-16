@@ -487,6 +487,7 @@ $(document).ready(function(){
         var carTotalValue = $('.cartTotals__total').find('span.amount').find('bdi');
         var currency = $('body').attr('currency');
         if($('body').hasClass('woocommerce-cart')){
+            console.log(totalValue[0].childNodes[0]['data']);
             var currentTotal = totalValue[0].childNodes[0]['data'].replace(',', '.');
             var couponAmount = $('.couponList__coupon').find('.cartTotals__value').attr('amount');
             var totalDiscount = $('.couponList').attr('totaldiscount');
