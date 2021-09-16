@@ -7432,6 +7432,22 @@ body.admin-bar .siteHeader {
   display: none !important;
 }
 
+.siteHeader__actions .currency .wmc-currency {
+  padding: 0 !important;
+  max-width: none !important;
+  margin-left: 16px !important;
+  background-color: unset !important;
+}
+
+.siteHeader__actions .currency .wmc-currency.wmc-active {
+  display: none;
+}
+
+.siteHeader__actions .currency .wmc-currency a {
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
 .siteHeader svg {
   position: relative;
   top: -20px;

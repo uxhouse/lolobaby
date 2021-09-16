@@ -288,6 +288,23 @@ body.admin-bar{
                 display: none !important;
             }
         }
+        .currency{
+            .wmc-currency{
+                padding: 0 !important;
+                max-width: none !important;
+                margin-left: 16px !important;
+                background-color: unset !important;
+
+                &.wmc-active{
+                    display: none;
+                }
+
+                a{
+                    font-weight: 700 !important;
+                    color: #fff !important;
+                }
+            }
+        }
     }
     svg{
         position: relative;
