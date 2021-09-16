@@ -45,8 +45,8 @@ get_header( 'shop' ); ?>
             <?php
                 // since wordpress 4.5.0
                 $args = array(
-                    'taxonomy'   => "product_cat",
-                    'orderby'      => 'name',
+                    'taxonomy'   => 'product_cat',
+                    'orderby'    => 'name',
                 );
                 $product_categories = get_terms($args);
             foreach( $product_categories as $cat ) : 

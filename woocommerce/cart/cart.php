@@ -214,22 +214,28 @@ if($brand_terms): ?>
             <?php
                 $zone_ids = array_keys( array('') + WC_Shipping_Zones::get_zones() );
                 foreach ( $zone_ids as $zone_id ):
+                    global $freeshippingamount;
+                    $cart = WC()->cart->subtotal;
+                    $remaining = $freeshippingamount - $cart;
+
                     $shipping_zone = new WC_Shipping_Zone($zone_id);
                     $shipping_methods = $shipping_zone->get_shipping_methods( true, 'values' );
                 ?>
                     <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): ?>
-                        <?php if($shipping_method->instance_id !== 10): ?>
-                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['cost']; ?>">
+                        <?php if($shipping_method->instance_id !== 10 && $shipping_method->instance_id !== 12): ?>
+                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php
+                                if( $freeshippingamount > $cart ){
+                                    echo $shipping_method->instance_settings['cost'];
+                                }else{
+                                    echo '0';
+                                }
+                            ?>">
                             <div class="name">
                                 <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
                                 <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
                             </div>
                             <div class="amount">
-                                <?php
-                                    global $freeshippingamount;
-                                    $cart = WC()->cart->subtotal;
-                                    $remaining = $freeshippingamount - $cart;
-                         
+                                <?php                    
                                     if( $freeshippingamount > $cart ){
                                         echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>';
                                     }else{
@@ -240,6 +246,23 @@ if($brand_terms): ?>
                         </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
+
+                    <?php // Wysyłka międzynarodowa
+                        foreach($shipping_methods as $instance_id => $shipping_method): ?>
+                        <?php if($shipping_method->instance_id == 12): ?>
+                        <h3><?php _e('Wysyłka międzynarodowa', 'lolobaby'); ?></h3>
+                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['cost']; ?>">
+                            <div class="name">
+                                <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
+                                <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
+                            </div>
+                            <div class="amount">
+                                <?php echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>'; ?>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
                 <?php endforeach; ?>
             </div>
         </div>

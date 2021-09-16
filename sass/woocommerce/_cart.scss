@@ -339,6 +339,14 @@ body[thankyoupage="true"]{
         }
 
         .deliveryList{
+            &>h3{
+                font-size: 16px;
+                line-height: 21px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin: 35px 0 10px;
+                color: $primary-text-color;
+            }
             &__option{
                 display: flex;
                 justify-content: space-between;

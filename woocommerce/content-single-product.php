@@ -31,7 +31,6 @@ if ( post_password_required() ) {
 	return;
 }
 function cleanArray($array){
-    
     return $array;
 }
 ?>

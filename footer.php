@@ -15,23 +15,25 @@
 ?>
 
 	<?php if(!is_user_logged_in() || is_user_logged_in() && $subscribeStatus !== 'on'): ?>
-	<div class="newsletterPopup">
-		<div class="newsletterPopup__wrap">
-			<div class="newsletterPopup__close"><img src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/></div>
-			<div class="newsletter">
-				<div class="newsletter__heading">
-					<img src="<?php echo get_template_directory_uri() . '/images/icons/newsletter_heading_ico.svg'; ?>"/>
-					<h2><?php _e('Otrzymaj 10% zniżki', 'lolobaby'); ?></h2>
-					<p><?php _e('Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera', 'lolobaby'); ?>:</p>
+		<?php if(current_user_can('administrator')): ?>
+			<div class="newsletterPopup">
+				<div class="newsletterPopup__wrap">
+					<div class="newsletterPopup__close"><img src="<?php echo get_template_directory_uri() . '/images/icons/plus_ico.svg'; ?>"/></div>
+					<div class="newsletter">
+						<div class="newsletter__heading">
+							<img src="<?php echo get_template_directory_uri() . '/images/icons/newsletter_heading_ico.svg'; ?>"/>
+							<h2><?php _e('Otrzymaj 10% zniżki', 'lolobaby'); ?></h2>
+							<p><?php _e('Chcesz otrzymać od nas prezent na pierwsze zamówienie? Zapisz się do newslettera', 'lolobaby'); ?>:</p>
+						</div>
+						<?php if($lang == 'pl-PL'){
+							echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]');
+						}else{
+							echo do_shortcode('[contact-form-7 id="2350" title="Newsletter EN"]');
+						} ?>
+					</div>
 				</div>
-				<?php if($lang == 'pl-PL'){
-					echo do_shortcode('[contact-form-7 id="161" title="Newsletter"]');
-				}else{
-					echo do_shortcode('[contact-form-7 id="2350" title="Newsletter EN"]');
-				} ?>
 			</div>
-		</div>
-	</div>
+		<?php endif; ?>
 	<?php endif; ?>
 
 	<footer id="colophon" class="siteFooter">

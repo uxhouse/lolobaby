@@ -28,7 +28,7 @@ $calculator_text          = '';
 	<div data-title="<?php echo esc_attr( $package_name ); ?>">
 		<?php if ( $available_methods ) : ?>
 			<ul id="shipping_method" class="woocommerce-shipping-methods">
-				<?php foreach ( $available_methods as $method ) :
+				<?php foreach ( $available_methods as $method ):
 
                         $getMethodID = $method->id;
                         $methodID = (int) filter_var($getMethodID, FILTER_SANITIZE_NUMBER_INT);

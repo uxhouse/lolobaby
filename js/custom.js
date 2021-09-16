@@ -492,7 +492,8 @@ $(document).ready(function(){
         if(typeof selectedShipment !== typeof undefined && selectedShipment !== false){
             $('.deliveryList__option[methodid="' + selectedShipment + '"]').addClass('deliveryList__option--checked');
             var selectedOptionAmount = $('.deliveryList__option').attr('methodamount');
-            if(deliveryAmount.hasClass('freeshipping')){
+
+            if(selectedOptionAmount == '0'){
                 deliveryAmount.find('p').text('ZA DARMO')
             }else{
                 deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
@@ -529,12 +530,14 @@ $(document).ready(function(){
                 $(this).parent().parent().removeClass('deliveryList__option--checked');
             }
 
-            if(!deliveryAmount.hasClass('freeshipping')){
+            if(selectedAmount !== '0'){
                 var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
                 deliveryAmount.find('p').text(selectedAmount + ' ' + currency);
                 carTotalValue.html(totalAmountFormated + ' ' + currency);
             }else{
+                var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
                 deliveryAmount.find('p').text('ZA DARMO');
+                carTotalValue.html(totalAmountFormated + ' ' + currency);
             }
         });
 
@@ -904,6 +907,10 @@ $(document).ready(function(){
     $(document).ready(function(){
         if($('body').hasClass('woocommerce-checkout')){
             var shipmentID = $('.checkoutPage').attr('selectedshipment');
+            console.log(shipmentID);
+            if(shipmentID !== '12'){
+                $('#billing_country_field').css('pointer-events', 'none');
+            }
             $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
             setTimeout(function(){
                 $('li[methodid="' + shipmentID + '"]').each(function(){
@@ -915,7 +922,7 @@ $(document).ready(function(){
                     $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
                     $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
 
-                    if(methodid == 8){
+                    if(methodid == 8 && methodid == 12){
                         $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
                         $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
                     }

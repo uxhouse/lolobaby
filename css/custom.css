@@ -4564,6 +4564,15 @@ body[thankyoupage="true"] .cartProgress {
   color: #4F4F4F;
 }
 
+.loloCart__delivery .deliveryList > h3 {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 35px 0 10px;
+  color: #4F4F4F;
+}
+
 .loloCart__delivery .deliveryList__option {
   display: flex;
   justify-content: space-between;
@@ -5592,7 +5601,7 @@ body[thankyoupage="true"] #masthead {
   height: 60px;
   width: 440px;
   margin: 0 auto 9px;
-  border: 2px solid #EC422B;
+  border: 0;
   text-align: center;
   font-size: 15px;
 }
@@ -5627,7 +5636,7 @@ body[thankyoupage="true"] #masthead {
 .checkoutPage .checkoutForm__shipping .woocommerce-billing-fields__field-wrapper p .woocommerce-input-wrapper .select2 {
   display: block;
   max-width: 440px;
-  margin: 0 auto;
+  margin: 8px auto 0;
 }
 
 .checkoutPage .checkoutForm__shipping .woocommerce-billing-fields__field-wrapper p .woocommerce-input-wrapper .select2-selection {
@@ -5756,7 +5765,7 @@ body[thankyoupage="true"] #masthead {
   padding: 0;
   margin: 0 auto;
   list-style: none;
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .checkoutPage__delivery .checkoutDeliverySelect ul li {

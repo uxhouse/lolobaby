@@ -2,17 +2,6 @@
     <div class="productTile__wrap">
         <a href="<?php the_permalink() ?>" class="productTile__thumb">
             <img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
-            <?php if(!is_front_page()):
-                $thisProductID = get_the_ID();
-                $color_terms = get_the_terms($thisProductID, 'pa_kolor');
-                if($color_terms): ?>
-                    <div class="productTile__colors">
-                        <?php foreach ($color_terms as $key => $object): ?>
-                            <span class="color" termname="<?php echo $object->slug; ?>" style="background-color: <?php echo get_term_meta($object->term_id)["product_attribute_color"][0];?>;"></span>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            <?php endif; ?>
         </a>
         <?php if(!is_front_page()): ?>
         <div class="productTile__wishlist">

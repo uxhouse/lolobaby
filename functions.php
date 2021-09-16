@@ -261,6 +261,49 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 add_filter( 'pre_option_woocommerce_default_gateway' . '__return_false', 99 );
 add_filter( 'woocommerce_shipping_chosen_method', '__return_false', 99);
 
+/* Remove Poland if user select specific shipping method */
+// add_action( 'woocommerce_cart_calculate_fees','woocommerce_custom_surcharge' );
+// function woocommerce_custom_surcharge() {
+// 	global $woocommerce;
+	
+// 	$chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+// 	$chosen_shipping = $chosen_methods[0]; 
+
+// 	$country = $woocommerce->countries;
+
+// 	// $min_spend = 25;
+// 	// $cart_total = $woocommerce->cart->cart_contents_total;
+// 	// if (($cart_total < 25) AND ($chosen_shipping == 'local_delivery')) {   
+// 	// 	$surcharge = $min_spend-$cart_total;    
+// 	// 	$woocommerce->cart->add_fee( 'Delivery Surchage', $surcharge, true, 'standard' );
+// 	// }
+// }
+// function wc_remove_specific_country( $country ) {
+// 	if (is_admin()){
+// 		return $country;
+// 	}else{
+// 		$chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+// 		$chosen_shipping = $chosen_methods[0]; 
+
+// 		if($chosen_shipping == 'flat_rate:12'){
+// 			unset($country['PL']);
+// 		}
+// 		echo $chosen_shipping;
+// 		return $country; 
+// 	}
+// }
+// add_filter( 'woocommerce_countries', 'wc_remove_specific_country', 10, 1 );
+
+add_filter( 'default_checkout_billing_country', 'change_default_checkout_country' );
+function change_default_checkout_country() {
+	$chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+	$chosen_shipping = $chosen_methods[0]; 
+
+	if($chosen_shipping !== 'flat_rate:12'){
+		return 'PL';
+	}
+}
+
 /* Woocommerce cart size attribute update */
 function filter_woocommerce_update_cart_action_cart_updated( $cart_updated ) {
     $cart_updated = false;
