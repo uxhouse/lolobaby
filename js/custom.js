@@ -913,7 +913,9 @@ $(document).ready(function(){
         if($('body').hasClass('woocommerce-checkout')){
             var shipmentID = $('.checkoutPage').attr('selectedshipment');
             console.log(shipmentID);
-            if(shipmentID !== '11'){
+            if(shipmentID == '11'){
+                $('#billing_country_field').css('pointer-events', 'all');
+            }else{
                 $('#billing_country_field').css('pointer-events', 'none');
             }
             $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
