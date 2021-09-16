@@ -106,6 +106,9 @@
 								</div>
 								<?php do_action('wpml_add_language_selector'); ?>
 							</div>
+							<div class="currency">
+								<?php echo do_shortcode('[woo_multi_currency_plain_horizontal]'); ?>
+							</div>
 							<?php //endif; ?>
 							<div id="miniCart" class="miniCart miniCart--ready">
 								<?php woocommerce_mini_cart(); ?>

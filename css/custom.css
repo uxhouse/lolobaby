@@ -3386,6 +3386,10 @@ body.single-product .woocommerce-breadcrumb {
   opacity: 1;
 }
 
+.productPage .productContent__summary .woo-multi-currency {
+  display: none !important;
+}
+
 .productPage .productContent__summary .colorInfo {
   font-size: 14px;
   line-height: 16px;
