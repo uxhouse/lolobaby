@@ -3906,7 +3906,7 @@ body.single-product .woocommerce-breadcrumb {
 }
 
 .productPage__related {
-  margin: 30px 0 50px;
+  margin: 30px 0 -25px;
 }
 
 .productPage__related > h2 {
@@ -4063,6 +4063,8 @@ body.single-product .woocommerce-breadcrumb {
     right: 0;
     margin: 0 auto;
     max-width: fit-content;
+    max-width: -moz-max-content;
+    max-width: -webkit-fit-content;
   }
   .productPage .productContent__summary .colorInfo {
     font-size: 12px;
@@ -4083,7 +4085,9 @@ body.single-product .woocommerce-breadcrumb {
   }
   .productPage .productContent__summary table.variations tr:first-of-type {
     max-width: fit-content;
-    margin: 0 auto 80px;
+    max-width: -moz-max-content;
+    max-width: -webkit-fit-content;
+    margin: 0 auto 20px;
   }
   .productPage .productContent__summary .productColors {
     justify-content: center;
@@ -4104,6 +4108,17 @@ body.single-product .woocommerce-breadcrumb {
   .productPage .productContent__summary .summary__boxes {
     max-width: 550px;
     margin: 0 auto;
+  }
+  .productPage .productContent__summary--discount .productColors {
+    margin: 20px 0 110px;
+  }
+  .productPage .productContent__summary--discount .priceDiscounted {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
   }
   .productPage .productContent__content:before {
     display: none;
@@ -4169,6 +4184,9 @@ body.single-product .woocommerce-breadcrumb {
   .productPage .productContent__summary .summary__boxes .box p {
     font-size: 12px;
     line-height: 16px;
+  }
+  .productPage .productContent__summary--discount .price--variation {
+    top: 95px;
   }
   .productPage .productContent__content {
     padding: 0 20px;
@@ -9081,11 +9099,14 @@ body[thankyoupage="true"] .cartHeader {
 }
 
 .productTile__cover .price del {
+  display: block;
+  text-align: center;
   font-weight: 400;
-  color: #8e8e8e;
+  color: #fff;
 }
 
 .productTile__cover .price ins {
+  font-size: 20px;
   background-color: unset;
 }
 

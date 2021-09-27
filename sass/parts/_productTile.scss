@@ -97,10 +97,13 @@
             text-decoration: none;
 
             del{
+                display: block;
+                text-align: center;
                 font-weight: 400;
-                color: #8e8e8e;
+                color: #fff;
             }
             ins{
+                font-size: 20px;
                 background-color: unset;
             }
         }

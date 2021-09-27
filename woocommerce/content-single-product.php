@@ -49,7 +49,7 @@ function cleanArray($array){
                     <?php include get_template_directory() . '/template-parts/_productGallery-images.php'; ?>
                 </div>
             </div>
-            <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?>">
+            <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?><?php if($product->is_on_sale()): ?> productContent__summary--discount<?php endif; ?>">
                 <h1 class="product_title"><?php the_title(); ?></h1>
                 <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
                 <?php if ($product->is_type('variable')): ?>
