@@ -231,23 +231,23 @@ $(document).ready(function(){
 
     /* ---- Products filter checkboxes ---- */
     $(document).ready(function(){
-        var stock = getUrlParameter('stock');
+        var order = getUrlParameter('orderby');
         var onsales = getUrlParameter('onsales');
 
-        if(stock == 'instock'){
-            $('input[name="onlyAvailable"]').trigger('click');
+        if(order == 'date'){
+            $('input[name="newestProducts"]').parent().addClass('checkbox--checked');
         }
         if(onsales == 'salesonly'){
             $('input[name="priceDrop"]').trigger('click');
         }
     });
-    $('input[name="onlyAvailable"]').on('click', function(){
+    $('input[name="newestProducts"]').on('click', function(){
         if($(this).is(":checked")){
-            $('input#woof_checkbox_instock').trigger('click');
+            $('.sortEngine__select[sortname="date"]').trigger('click');
         }
-        else if($(this).is(":not(:checked)")){
-            $('input#woof_checkbox_instock').trigger('click');
-        }
+        // else if($(this).is(":not(:checked)")){
+        //     $('.woof_reset_search_form').trigger('click');
+        // }
     });
     $('input[name="priceDrop"]').on('click', function(){
         if($(this).is(":checked")){

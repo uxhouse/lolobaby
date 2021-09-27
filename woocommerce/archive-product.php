@@ -92,8 +92,8 @@ $lang = get_bloginfo('language'); ?>
                 </div>
                 <div class="filterEngine__checkboxes">
                     <div class="checkbox">
-                        <label for="onlyAvailable"><?php _e('Tylko dostępne', 'lolobaby'); ?></label>
-                        <input type="checkbox" name="onlyAvailable" class="engineCheckbox" />
+                        <label for="newestProducts"><?php _e('Nowości', 'lolobaby'); ?></label>
+                        <input type="checkbox" name="newestProducts" class="engineCheckbox" />
                     </div>
                     <div class="checkbox">
                         <label for="priceDrop"><?php _e('Przecena', 'lolobaby'); ?></label>
