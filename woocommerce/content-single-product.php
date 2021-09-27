@@ -183,8 +183,8 @@ function cleanArray($array){
     <div class="productPage__related">
         <h2><?php _e('Pasujące produkty', 'lolobaby'); ?></h2>
         <div class="relatedList">
-            <?php foreach( $related_posts as $product ): 
-                setup_postdata($product); ?>
+            <?php foreach( $related_posts as $post ): 
+                setup_postdata($post); ?>
             <?php include get_template_directory() . '/template-parts/_include_productTile-related.php'; ?>
             <?php endforeach; ?>
         </div>
@@ -193,8 +193,8 @@ function cleanArray($array){
                     <img src="<?php echo get_template_directory_uri() . '/images/icons/arrow_left_white.svg'; ?>"/>
                 </div>
                 <div class="relatedList__dots">
-                    <?php foreach( $related_posts as $product ): 
-                    setup_postdata($product); ?>
+                    <?php foreach( $related_posts as $post ): 
+                    setup_postdata($post); ?>
                         <span productID="<?php echo get_the_ID($post); ?>"></span>
                     <?php endforeach; ?>
                 </div>
