@@ -549,15 +549,17 @@ $(document).ready(function(){
         /* Product page - variation update price */
 
         setTimeout(function(){
-            $('.variations_form').each( function() {
-                $(this).on('found_variation', function( event, variation ) {
-                    var currency = $('body').attr('currency');
-                    var price = parseFloat(variation.display_price);
-                    var priceFormated = price.toFixed(2).toString().replace(".", ",");
-                    $('.price--variation').html('<span>' + priceFormated + ' ' + currency + '</span>');
+            if($('.variations_form').length){
+                $('.variations_form').each( function() {
+                    $(this).on('found_variation', function( event, variation ) {
+                        var currency = $('body').attr('currency');
+                        var price = parseFloat(variation.display_price);
+                        var priceFormated = price.toFixed(2).toString().replace(".", ",");
+                        $('.price--variation').html('<span>' + priceFormated + ' ' + currency + '</span>');
+                    });
                 });
-            });
-        }, 200);
+            }
+        }, 500);
 
         /* Product page - available alert */
         $(document).ready(function(){
