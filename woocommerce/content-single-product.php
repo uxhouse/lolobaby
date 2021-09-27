@@ -52,20 +52,17 @@ function cleanArray($array){
             <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?>">
                 <h1 class="product_title"><?php the_title(); ?></h1>
                 <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
-                <?php $product->get_regular_price();
-                        $product->get_sale_price();
-                        $product->get_price(); ?>
                 <?php if ($product->is_type('variable')): ?>
                     <?php if($product->is_on_sale()): ?>
                         <p class="priceDiscounted"><?php echo wc_price($product->get_variation_regular_price()); ?></p>
-                        <p class="price price--variation price--discount"><span><?php echo wc_price($product->get_price()); ?></span></p>
+                        <p class="price price--variation price--discount"><span><?php echo wc_price($product->get_variation_sale_price()); ?></span></p>
                     <?php else: ?>
                         <p class="price price--variation"><?php echo wc_price($product->get_price()); ?></p>
                     <?php endif; ?>
                 <?php else: ?>
                     <?php if($product->is_on_sale()): ?>
                         <p class="priceDiscounted"><?php echo wc_price($product->get_regular_price()); ?></p>
-                        <p class="price price--discount"><span><?php echo wc_price($product->get_price()); ?></span></p>
+                        <p class="price price--discount"><span><?php echo wc_price($product->get_sale_price()); ?></span></p>
                     <?php else: ?>
                         <p class="price"><?php echo wc_price($product->get_price()); ?></p>
                     <?php endif; ?>
