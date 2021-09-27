@@ -3284,6 +3284,12 @@ body.single-product .woocommerce-breadcrumb {
   text-transform: uppercase;
 }
 
+.productPage .productContent__summary .priceDiscounted {
+  margin: 15px 0 5px;
+  text-decoration: line-through;
+  color: #a2a2a2;
+}
+
 .productPage .productContent__summary .price {
   font-size: 30px;
   line-height: 40px;
@@ -3291,6 +3297,13 @@ body.single-product .woocommerce-breadcrumb {
   color: #4F4F4F;
   margin: 0;
   text-transform: uppercase;
+}
+
+.productPage .productContent__summary .price--discount > span {
+  background-color: #EC422B;
+  color: #fff;
+  font-weight: 500;
+  padding: 2px 10px 0;
 }
 
 .productPage .productContent__summary .productColors {
@@ -9067,6 +9080,15 @@ body[thankyoupage="true"] .cartHeader {
   text-decoration: none;
 }
 
+.productTile__cover .price del {
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.productTile__cover .price ins {
+  background-color: unset;
+}
+
 .productTile__bestseller {
   position: absolute;
   right: 18px;
@@ -9188,6 +9210,17 @@ body[thankyoupage="true"] .cartHeader {
   font-weight: 800;
   text-align: center;
   margin: 0 0 20px;
+}
+
+.productTile__content .price del {
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.productTile__content .price ins {
+  background-color: #EC422B;
+  color: #fff;
+  padding: 0 4px;
 }
 
 .productTile__content .btn {

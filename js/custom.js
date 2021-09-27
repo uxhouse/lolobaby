@@ -554,7 +554,7 @@ $(document).ready(function(){
                     var currency = $('body').attr('currency');
                     var price = parseFloat(variation.display_price);
                     var priceFormated = price.toFixed(2).toString().replace(".", ",");
-                    $('.price--variation').html(priceFormated + ' ' + currency);
+                    $('.price--variation').html('<span>' + priceFormated + ' ' + currency + '</span>');
                 });
             });
         }, 200);

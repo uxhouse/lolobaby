@@ -108,6 +108,11 @@ body.single-product{
                 margin: 0 0 15px;
                 text-transform: uppercase;
             }
+            .priceDiscounted{
+                margin: 15px 0 5px;
+                text-decoration: line-through;
+                color: #a2a2a2;
+            }
             .price{
                 font-size: 30px;
                 line-height: 40px;
@@ -115,6 +120,15 @@ body.single-product{
                 color: $primary-text-color;
                 margin: 0;
                 text-transform: uppercase;
+
+                &--discount{
+                    &>span{
+                        background-color: $red-color;
+                        color: #fff;
+                        font-weight: 500;
+                        padding: 2px 10px 0;
+                    }
+                }
             }
             .productColors{
                 display: flex;

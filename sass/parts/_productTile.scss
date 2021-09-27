@@ -95,6 +95,14 @@
             color: #fff;
             margin: 0 0 16px;
             text-decoration: none;
+
+            del{
+                font-weight: 400;
+                color: #8e8e8e;
+            }
+            ins{
+                background-color: unset;
+            }
         }
     }
     &__bestseller{
@@ -215,6 +223,17 @@
             font-weight: 800;
             text-align: center;
             margin: 0 0 20px;
+        }
+        .price{
+            del{
+                font-weight: 400;
+                color: #8e8e8e;
+            }
+            ins{
+                background-color: $red-color;
+                color: #fff;
+                padding: 0 4px;
+            }
         }
         .btn{
             margin: 0;
