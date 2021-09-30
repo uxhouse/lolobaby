@@ -722,6 +722,23 @@
         }
     }
 }
+@media (max-width: 450px){
+    .filterMobile{
+        &__summary{
+            flex-direction: column;
+            bottom: 20px;
+
+            &:before{
+                top: -25px;
+            }
+            p{
+                &.delete{
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}
 
 .filterOpen{
     display: none;

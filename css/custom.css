@@ -2882,6 +2882,19 @@ p {
   top: 6px;
 }
 
+@media (max-width: 450px) {
+  .filterMobile__summary {
+    flex-direction: column;
+    bottom: 20px;
+  }
+  .filterMobile__summary:before {
+    top: -25px;
+  }
+  .filterMobile__summary p.delete {
+    margin-bottom: 12px;
+  }
+}
+
 .filterOpen {
   display: none;
 }
@@ -9078,11 +9091,11 @@ body[thankyoupage="true"] .cartHeader {
 }
 
 .productTile__cover h3 {
-  font-size: 30px;
-  line-height: 41px;
+  font-size: 26px;
+  line-height: 32px;
   font-weight: 600;
   color: #fff;
-  max-width: 200px;
+  max-width: calc(100% - 20px);
   text-align: center;
   margin: 0 auto 10px;
   text-transform: uppercase;
