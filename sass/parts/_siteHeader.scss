@@ -807,6 +807,10 @@ body.admin-bar{
 /* ---- Mobile menu ---- */ 
 
 .mobileMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: scroll;
     position: fixed;
     right: -330px;
     top: 0;
@@ -834,8 +838,7 @@ body.admin-bar{
 
     &__wrap{
         padding: 50px 20px 30px;
-        overflow: scroll;
-        max-height: calc(100% - 130px);
+
     }
     &__actionbtn{
         width: 100%;
@@ -925,10 +928,6 @@ body.admin-bar{
     }
     &__footer{
         width: 100%;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 2;
         background-color: $red-color;
 
         .wave{
