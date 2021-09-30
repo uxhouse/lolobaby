@@ -81,7 +81,7 @@ body {
 }
 
 .homeSlider__wrap {
-  max-width: 650px;
+  max-width: 750px;
   text-align: center;
 }
 
@@ -156,7 +156,7 @@ body {
 
 @media (max-width: 767px) {
   .homeSlider__wrap {
-    max-width: 340px;
+    max-width: 350px;
   }
   .homeSlider__wrap h2 {
     font-size: 60px;
@@ -3267,11 +3267,11 @@ body.single-product .woocommerce-breadcrumb {
 }
 
 .productPage .productContent__summary .product_title {
-  font-size: 50px;
-  line-height: 60px;
+  font-size: 36px;
+  line-height: 46px;
   font-weight: 800;
   color: #4F4F4F;
-  margin: 0 0 15px;
+  margin: 0 0 10px;
   text-transform: uppercase;
 }
 

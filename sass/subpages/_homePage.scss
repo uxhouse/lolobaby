@@ -19,7 +19,7 @@ $sliderHeight: 85vh;
         outline: none;
     }
     &__wrap{
-        max-width: 650px;
+        max-width: 750px;
         text-align: center;
 
         h2{
@@ -93,7 +93,7 @@ $sliderHeight: 85vh;
 @media (max-width: 767px){
     .homeSlider{
         &__wrap{
-            max-width: 340px;
+            max-width: 350px;
 
             h2{
                 font-size: 60px;

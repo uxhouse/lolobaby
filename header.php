@@ -161,8 +161,8 @@
 						</li>
 						<?php
 						$args = array(
-							'taxonomy'   => "product_cat",
-							'orderby'      => 'name',
+							'taxonomy'   		=> 'product_cat',
+							'orderby'    		=> 'name',
 						);
 						$product_categories = get_terms($args);
 						foreach ($product_categories as $cat) :
@@ -188,7 +188,8 @@
 						<?php
 						$kolekcje = get_posts(array(
 							'posts_per_page'	=> -1,
-							'post_type'			=> 'kolekcje'
+							'post_type'			=> 'kolekcje',
+							'suppress_filters'	=> false,
 						));
 						if ($kolekcje) :
 							foreach ($kolekcje as $kolekcja) :
