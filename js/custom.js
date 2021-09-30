@@ -214,10 +214,10 @@ $(document).ready(function(){
 
     $('.engineCheckbox').on('click', function(){
         if($(this).is(":checked")){
-            $(this).parent().addClass('checkbox--checked');
+            $(this).parent().addClass('checkbox--checked checked');
         }
         else if($(this).is(":not(:checked)")){
-            $(this).parent().removeClass('checkbox--checked');
+            $(this).parent().removeClass('checkbox--checked checked');
         }
     });
 
@@ -597,10 +597,10 @@ $(document).ready(function(){
         function openRegisterForm(){
             /* Hide login form */
             $('.checkoutLogin').removeClass('checkoutLogin--visible');
-            $('.gotoRegister').removeClass('gotoRegister--visible');
+            $('.checkoutUser__change').find('.toRegister').removeClass('changeBox--ready');
+            $('.checkoutUser__change').find('.toLogin').addClass('changeBox--ready');
             setTimeout(function(){
                 $('.checkoutLogin').removeClass('checkoutLogin--ready');
-                $('.gotoRegister').removeClass('gotoRegister--ready');
             }, 200);
 
             /* Open register form */
@@ -614,6 +614,8 @@ $(document).ready(function(){
         function openLoginForm(){
             /* Hide register form */
             $('.checkoutRegister').removeClass('checkoutRegister--visible');
+            $('.checkoutUser__change').find('.toLogin').removeClass('changeBox--ready');
+            $('.checkoutUser__change').find('.toRegister').addClass('changeBox--ready');
             setTimeout(function(){
                 $('.checkoutRegister').removeClass('checkoutRegister--ready');
             }, 200);
@@ -621,11 +623,9 @@ $(document).ready(function(){
             /* Open login form */
             setTimeout(function(){
                 $('.checkoutLogin').addClass('checkoutLogin--ready');
-                $('.gotoRegister').addClass('gotoRegister--ready');
             }, 200);
             setTimeout(function(){
                 $('.checkoutLogin').addClass('checkoutLogin--visible');
-                $('.gotoRegister').addClass('gotoRegister--visible');
             }, 500);
         }
 
@@ -675,15 +675,92 @@ $(document).ready(function(){
             }
         });
 
-        var openRegister = $('.checkoutLogin__gotoOtherForm').find('.openRegister');
-        var openLogin = $('.checkoutLogin__gotoOtherForm').find('.openLogin');
+        var openRegister = $('.checkoutUser__change').find('.openRegister');
+        var openLogin = $('.checkoutUser__change').find('.openLogin');
 
         $(openRegister).on('click', function(){
             openRegisterForm();
+
         });
         $(openLogin).on('click', function(){
             openLoginForm();
         });
+    });
+
+    /**
+     *  Guest checkout
+     */
+    $(document).ready(function(){
+        var createAccount = true;
+
+        function checkStatus(){
+            if(createAccount == true){
+                var acceptance = $('.accountCreator__acceptance').find('.checkbox.top');
+                if(!acceptance.hasClass('checked')){
+                    $('.checkoutPage__nextstep').find('.nextStep').css('filter', 'grayscale(1)');
+                    $('.checkoutPage__nextstep').find('.nextStep').css('pointer-events', 'none');
+                }else{
+                    $('.checkoutPage__nextstep').find('.nextStep').css('filter', 'grayscale(0)');
+                    $('.checkoutPage__nextstep').find('.nextStep').css('pointer-events', 'all');
+                }
+            }else{
+                $('.checkoutPage__nextstep').find('.nextStep').css('filter', 'grayscale(0)');
+                $('.checkoutPage__nextstep').find('.nextStep').css('pointer-events', 'all');
+            }
+        }
+        // Open checkout guest
+        $('.continueGuest').on('click', function(){
+            // Close login
+            $('.checkoutUser').removeClass('checkoutUser--visible');
+            setTimeout(function(){
+                $('.checkoutUser').removeClass('checkoutUser--ready');
+            }, 300);
+
+            // Change step
+            $('body').removeClass('checkout-step2');
+            $('body').addClass('checkout-step3');
+            $('.cartProgress').find('.step-3').addClass('cartProgress__step--active').addClass('cartProgress__arrow--active');
+
+            // Open checkout
+            setTimeout(function(){
+                $('.checkoutPage').addClass('checkoutPage--ready')
+            }, 300);
+            setTimeout(function(){
+                $('.checkoutPage').addClass('checkoutPage--visible');
+            }, 500);
+        });
+
+        // Create account guest
+        $('input[name="checkout_create_account"]').on('click', function(){
+            if($(this).is(":checked")){
+                $(this).parent().addClass('checked');
+
+                createAccount = true;
+                $('#createaccount').trigger('click');
+                $('.accountCreator').slideDown();
+
+                checkStatus();
+            }else if($(this).is(":not(:checked)")){
+                $(this).parent().removeClass('checked');
+
+                createAccount = false;
+                $('#createaccount').trigger('click');
+                $('.accountCreator').slideUp();
+
+                checkStatus();
+            }
+        });
+        $('input[name="checkoutUserPass"]').on('keyup paste', function(){
+            var val = $(this).val();
+            $('#account_password').val(val);
+        });
+        $('.changeVisibility').on('click', function(){
+            $(this).toggleClass('enable');
+            $('input[name="checkoutUserPass"]').attr('type', function(index, attr){
+                return attr == 'text' ? 'password' : 'text';
+            });
+        });
+        $('input[name="registerConsent"]').on('click', checkStatus);
     });
 
     /* Checkout form custom */
@@ -710,6 +787,13 @@ $(document).ready(function(){
                 inputMail.removeClass('inputSuccess').addClass('inputError');
             }else{
                 inputMail.removeClass('inputError').addClass('inputSuccess');
+            }
+        });
+        $('input[name="checkoutUserPass"]').on('change keyup', function(){
+            if($(this).val() == ''){
+                $(this).removeClass('inputSuccess').addClass('inputError');
+            }else{
+                $(this).removeClass('inputError').addClass('inputSuccess');
             }
         });
         var formBillingInputs = $('.checkoutForm__billing').find('input.engineRadio');
@@ -795,6 +879,9 @@ $(document).ready(function(){
             }
             if($('#billing_email_field').hasClass('woocommerce-invalid')){
                 $('.checkoutForm__billing').find('input[name="billing_email"]').removeClass('inputSuccess').addClass('inputError');
+            }
+            if($('#account_password_field').hasClass('woocommerce-invalid')){
+                $('input[name="checkoutUserPass"]').removeClass('inputSuccess').addClass('inputError');
             }
         }, 500);
     });

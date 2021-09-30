@@ -9,6 +9,83 @@ body[thankyoupage="true"]{
     }
 }
 
+.checkoutUser{
+    display: none;
+    padding: 0 15px 50px;
+    transition: ease .3s;
+
+    &--ready{
+        display: flex;
+    }
+    &--visible{
+        opacity: 1;
+    }
+
+    &__login{
+        width: calc(100% / 2);
+    }
+    &__options{
+        width: calc(100% / 2);
+
+        .wave{
+            overflow: hidden;
+            max-width: 400px;
+            margin: 35px auto;
+
+            img{
+                width: 1000px;
+                max-width: none;
+            }
+        }
+    }
+    &__change{
+        .changeBox{
+            display: none;
+            text-align: center;
+
+            &--ready{
+                display: block;
+            }
+
+            h2{
+                font-size: 30px;
+                line-height: 41px;
+                font-weight: 800;
+                color: $primary-text-color;
+                text-align: center;
+                margin: 0 0 20px;
+                text-transform: uppercase;
+            }
+            p{
+                font-size: 16px;
+                line-height: 22px;
+                color: $primary-text-color;
+                text-align: center;
+                margin: 0 0 20px;
+            }
+            .btn{
+                margin: 0;
+            }
+        }
+    }
+    &__guest{
+        text-align: center;
+
+        h2{
+            font-size: 30px;
+            line-height: 41px;
+            font-weight: 800;
+            color: $primary-text-color;
+            text-align: center;
+            margin: 0 0 20px;
+            text-transform: uppercase;
+        }
+        .btn{
+            margin: 0;
+        }
+    }
+}
+
 .checkoutLogin{
     display: none;
     opacity: 0;
@@ -482,6 +559,11 @@ body[thankyoupage="true"]{
                     display: flex;
                     position: relative;
 
+                    &--checked{
+                        &:after{
+                            opacity: 1;
+                        }
+                    }
                     &.checked{
                         &:after{
                             opacity: 1;
@@ -561,6 +643,91 @@ body[thankyoupage="true"]{
                         }
                         &.visible{
                             opacity: 1;
+                        }
+                    }
+                }
+                .accountCreator{
+                    display: none;
+                    margin: 6px 0 0;
+
+                    &__pass{
+                        display: block;
+                        max-width: calc(100% - 20px);
+                        margin: 0 auto;
+                        position: relative;
+
+                        input{
+                            width: 100%;
+                            display: block;
+                            height: 60px;
+                            font-size: 15px;
+                            padding: 0 15px;
+                            text-align: center;
+                            border: 2px solid $red-color;
+                            border-radius: 0;
+                            color: $primary-text-color;
+                            outline: none;
+                            position: relative;
+                            z-index: 1;
+
+                            &.inputSuccess{
+                                border-color: #27AE60;
+                            }
+                            &.inputError{
+                                background-color: #FFCAD4;
+                            }
+                        }
+                        .changeVisibility{
+                            width: 20px;
+                            height: 20px;
+                            position: absolute;
+                            top: 50%;
+                            transform: translate(0, -50%);
+                            right: 20px;
+                            z-index: 2;
+                            cursor: pointer;
+                            transition: ease .3s;
+
+                            &:after{
+                                content: '';
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/passwordView.svg');
+                                background-size: 20px;
+                                width: 20px;
+                                height: 20px;
+                                display: block;
+                                transition: ease .3s;
+                            }
+
+                            &.enable{
+                                &:after{
+                                    opacity: .5;
+                                }
+                            }
+
+                            &:hover{
+                                opacity: .8;
+                            }
+                        }
+                    }
+                    &__acceptance{
+                        .checkbox{
+                            label{
+                                font-size: 12px;
+                                line-height: 16px;
+                                color: $primary-text-color;
+
+                                a{
+                                    color: $primary-text-color;
+                                    text-decoration: underline !important;
+                                    transition: ease .3s;
+                                    position: relative;
+                                    z-index: 2;
+
+                                    &:hover{
+                                        opacity: .7;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -662,6 +829,9 @@ body[thankyoupage="true"]{
                     }
                 }
             }
+        }
+        .woocommerce-account-fields{
+            display: none !important;
         }
     }
     &__delivery{

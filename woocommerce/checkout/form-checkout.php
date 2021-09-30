@@ -35,7 +35,7 @@ $currentUserID = get_current_user_id();
 $username = get_user_meta( $currentUserID, 'billing_username', true );
 $nickname = get_user_meta( $currentUserID, 'nickname', true );
 ?>
-<div class="checkoutPage checkoutPage--ready checkoutPage--visible container" selectedshipment="<?php echo $shipmentID; ?>" clientName="<?php if($username){echo $username;}else{echo $nickname;}; ?>">
+<div class="checkoutPage<?php if(is_user_logged_in() || !$checkout->is_registration_enabled()): ?> checkoutPage--ready checkoutPage--visible<?php endif; ?> container" selectedshipment="<?php echo $shipmentID; ?>" clientName="<?php if($username){echo $username;}else{echo $nickname;}; ?>">
     <form name="checkout" method="post" class="checkout checkoutForm woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
     <?php if ( $checkout->get_checkout_fields() ) : ?>
         <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
@@ -65,6 +65,30 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
                         <input type="checkbox" class="customCheckbox" name="billing_gift"/>
                         <label for="billing_gift"><?php _e('Wyślij paragon na inny adres', 'lolobaby'); ?></label>
                     </div>
+
+                    <?php if(!is_user_logged_in()): ?>
+                    <div class="checkbox account">
+                        <input type="checkbox" class="customCheckbox" name="checkout_create_account"/>
+                        <label for="checkout_create_account"><?php _e('Chcę założyć konto', 'lolobaby'); ?></label>
+                    </div>
+                    <div class="accountCreator">
+                        <div class="accountCreator__pass">
+                            <input type="password" name="checkoutUserPass" placeholder="Ustal hasło"/>
+                            <div class="changeVisibility"></div>
+                        </div>
+                        <div class="accountCreator__acceptance">
+                            <div class="checkbox top">
+                                <input type="checkbox" class="engineCheckbox" name="registerConsent" required/>
+                                <label for="register-consent"><?php _e('Zapoznałam/em się z <a href="/regulamin" target="_blank">regulaminem sklepu internetowego</a> i akceptuję jego treść.', 'lolobaby'); ?></label>
+                            </div>
+                            <div class="checkbox bottom">
+                                <input type="checkbox" class="engineCheckbox" name="register-newsletter"/>
+                                <label for="register-newsletter"><?php _e('Chcę otrzymywać newsletter z aktualnościami oraz miec dostęp do ofert specjalnych i kuponów rabatowych (możesz zrezygnować z newslettera w kązdej chwili)', 'lolobaby'); ?></label>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>

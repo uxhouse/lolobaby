@@ -5041,6 +5041,88 @@ body[thankyoupage="true"] #masthead {
   display: block !important;
 }
 
+.checkoutUser {
+  display: none;
+  padding: 0 15px 50px;
+  transition: ease .3s;
+}
+
+.checkoutUser--ready {
+  display: flex;
+}
+
+.checkoutUser--visible {
+  opacity: 1;
+}
+
+.checkoutUser__login {
+  width: calc(100% / 2);
+}
+
+.checkoutUser__options {
+  width: calc(100% / 2);
+}
+
+.checkoutUser__options .wave {
+  overflow: hidden;
+  max-width: 400px;
+  margin: 35px auto;
+}
+
+.checkoutUser__options .wave img {
+  width: 1000px;
+  max-width: none;
+}
+
+.checkoutUser__change .changeBox {
+  display: none;
+  text-align: center;
+}
+
+.checkoutUser__change .changeBox--ready {
+  display: block;
+}
+
+.checkoutUser__change .changeBox h2 {
+  font-size: 30px;
+  line-height: 41px;
+  font-weight: 800;
+  color: #4F4F4F;
+  text-align: center;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+.checkoutUser__change .changeBox p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4F4F4F;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.checkoutUser__change .changeBox .btn {
+  margin: 0;
+}
+
+.checkoutUser__guest {
+  text-align: center;
+}
+
+.checkoutUser__guest h2 {
+  font-size: 30px;
+  line-height: 41px;
+  font-weight: 800;
+  color: #4F4F4F;
+  text-align: center;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+.checkoutUser__guest .btn {
+  margin: 0;
+}
+
 .checkoutLogin {
   display: none;
   opacity: 0;
@@ -5525,6 +5607,10 @@ body[thankyoupage="true"] #masthead {
   position: relative;
 }
 
+.checkoutPage .checkoutForm__billing .form .checkbox--checked:after {
+  opacity: 1;
+}
+
 .checkoutPage .checkoutForm__billing .form .checkbox.checked:after {
   opacity: 1;
 }
@@ -5609,6 +5695,89 @@ body[thankyoupage="true"] #masthead {
 
 .checkoutPage .checkoutForm__billing .form input[type="text"].comapnyField.visible {
   opacity: 1;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator {
+  display: none;
+  margin: 6px 0 0;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass {
+  display: block;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  position: relative;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass input {
+  width: 100%;
+  display: block;
+  height: 60px;
+  font-size: 15px;
+  padding: 0 15px;
+  text-align: center;
+  border: 2px solid #EC422B;
+  border-radius: 0;
+  color: #4F4F4F;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass input.inputSuccess {
+  border-color: #27AE60;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass input.inputError {
+  background-color: #FFCAD4;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass .changeVisibility {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 20px;
+  z-index: 2;
+  cursor: pointer;
+  transition: ease .3s;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass .changeVisibility:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/icons/passwordView.svg");
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: ease .3s;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass .changeVisibility.enable:after {
+  opacity: .5;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__pass .changeVisibility:hover {
+  opacity: .8;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__acceptance .checkbox label {
+  font-size: 12px;
+  line-height: 16px;
+  color: #4F4F4F;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__acceptance .checkbox label a {
+  color: #4F4F4F;
+  text-decoration: underline !important;
+  transition: ease .3s;
+  position: relative;
+  z-index: 2;
+}
+
+.checkoutPage .checkoutForm__billing .form .accountCreator__acceptance .checkbox label a:hover {
+  opacity: .7;
 }
 
 .checkoutPage .checkoutForm__shipping {
@@ -5705,6 +5874,10 @@ body[thankyoupage="true"] #masthead {
 
 .checkoutPage .checkoutForm__shipping .woocommerce-billing-fields__field-wrapper p .woocommerce-input-wrapper .select2-selection__arrow {
   display: none;
+}
+
+.checkoutPage .checkoutForm .woocommerce-account-fields {
+  display: none !important;
 }
 
 .checkoutPage__delivery {
@@ -8097,7 +8270,7 @@ body.admin-bar .siteHeader {
 }
 
 .mobileMenu__footer .content {
-  padding: 35px 40px;
+  padding: 20px 40px;
 }
 
 .mobileMenu__footer .content p {
