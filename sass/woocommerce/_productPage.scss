@@ -983,6 +983,11 @@ body.single-product{
                         margin: 0 auto;
                         text-align: center;
                     }
+                    .price{
+                        &--variation{
+                            top: 95px;
+                        }
+                    }
                 }
             }
             &__content{

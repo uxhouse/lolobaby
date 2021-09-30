@@ -52,25 +52,26 @@ function cleanArray($array){
             <div class="productContent__summary<?php if(get_field('product_zestaw')): ?> zestaw<?php endif; ?><?php if($product->is_on_sale()): ?> productContent__summary--discount<?php endif; ?>">
                 <h1 class="product_title"><?php the_title(); ?></h1>
                 <p class="product_collection"><?php the_field('product_subtitle'); ?></p>
-                <?php if ($product->is_type('variable')): ?>
-                    <?php if($product->is_on_sale()): ?>
-                        <p class="priceDiscounted"><?php echo wc_price($product->get_variation_regular_price()); ?></p>
-                        <p class="price price--variation price--discount"><span><?php echo wc_price($product->get_variation_sale_price()); ?></span></p>
+                <div class="priceWrap">
+                    <?php if ($product->is_type('variable')): ?>
+                        <?php if($product->is_on_sale()): ?>
+                            <p class="priceDiscounted"><?php echo wc_price($product->get_variation_regular_price()); ?></p>
+                            <p class="price price--variation price--discount"><span><?php echo wc_price($product->get_variation_sale_price()); ?></span></p>
+                        <?php else: ?>
+                            <p class="price price--variation"><?php echo wc_price($product->get_price()); ?></p>
+                        <?php endif; ?>
                     <?php else: ?>
-                        <p class="price price--variation"><?php echo wc_price($product->get_price()); ?></p>
+                        <?php if($product->is_on_sale()): ?>
+                            <p class="priceDiscounted"><?php echo wc_price($product->get_regular_price()); ?></p>
+                            <p class="price price--discount"><span><?php echo wc_price($product->get_sale_price()); ?></span></p>
+                        <?php else: ?>
+                            <p class="price"><?php echo wc_price($product->get_price()); ?></p>
+                        <?php endif; ?>
                     <?php endif; ?>
-                <?php else: ?>
-                    <?php if($product->is_on_sale()): ?>
-                        <p class="priceDiscounted"><?php echo wc_price($product->get_regular_price()); ?></p>
-                        <p class="price price--discount"><span><?php echo wc_price($product->get_sale_price()); ?></span></p>
-                    <?php else: ?>
-                        <p class="price"><?php echo wc_price($product->get_price()); ?></p>
-                    <?php endif; ?>
-                <?php endif; ?>
+                </div>
                 <?php if(get_field('product_zestaw')): ?>
                     <p class="colorInfo"><?php _e('Chcesz zamówić różnokolorowy zestaw?', 'lolobaby'); ?> <a href="<?php echo home_url('/kontakt'); ?>" target="_blank"><?php _e('Skontakuj się z nami', 'lolobaby'); ?>.</a></p>
                 <?php endif; ?>
-                <?php if(get_field('productColors')): ?>
                 <div class="productColors">
                     <?php while(have_rows('productColors')): the_row();
                         $name = get_sub_field('productColors_name');
@@ -90,7 +91,6 @@ function cleanArray($array){
                     </a>
                     <?php endwhile; ?>
                 </div>
-                <?php endif; ?>
                 <?php
                 /**
                  * Hook: woocommerce_single_product_summary.
