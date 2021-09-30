@@ -56,6 +56,12 @@ $lang = get_bloginfo('language'); ?>
                 $args = array(
                     'taxonomy'   => 'product_cat',
                     'orderby'    => 'name',
+                    'meta_query' => array(
+                        array(
+                            'key'       => 'categoryVisibility',
+                            'value'     => '1',
+                        )
+                    )
                 );
                 $product_categories = get_terms($args);
             foreach( $product_categories as $cat ) : 

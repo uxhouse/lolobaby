@@ -172,7 +172,9 @@
 						?>
 							<li>
 								<a href="<?php echo get_category_link($cat->term_id); ?>">
-									<img class="icon" src="<?php echo $term_fields['categoryIcon']; ?>" />
+									<?php if($term_fields['categoryIcon']): ?>
+										<img class="icon" src="<?php echo $term_fields['categoryIcon']; ?>" />
+									<?php endif; ?>
 									<p class="name"><?php echo $cat->name; ?></p>
 								</a>
 							</li>
