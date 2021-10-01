@@ -85,6 +85,24 @@ body[thankyoupage="true"]{
         }
     }
 }
+@media (max-width: 991px){
+    .checkoutUser{
+        flex-direction: column;
+
+        &__login{
+            width: 100%;
+        }
+        &__options{
+            width: 100%;
+
+            .btn{
+                span{
+                    font-size: 13px !important
+                }
+            }
+        }
+    }
+}
 
 .checkoutLogin{
     display: none;
