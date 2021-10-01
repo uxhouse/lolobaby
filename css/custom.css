@@ -5623,6 +5623,7 @@ body[thankyoupage="true"] #masthead {
   margin: 15px auto 0;
   display: flex;
   position: relative;
+  max-width: 100%;
 }
 
 .checkoutPage .checkoutForm__billing .form .checkbox--checked:after {
@@ -5722,7 +5723,7 @@ body[thankyoupage="true"] #masthead {
 
 .checkoutPage .checkoutForm__billing .form .accountCreator__pass {
   display: block;
-  max-width: calc(100% - 20px);
+  max-width: 440px;
   margin: 0 auto;
   position: relative;
 }

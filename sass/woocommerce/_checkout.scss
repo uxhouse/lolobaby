@@ -576,6 +576,7 @@ body[thankyoupage="true"]{
                     margin: 15px auto 0;
                     display: flex;
                     position: relative;
+                    max-width: 100%;
 
                     &--checked{
                         &:after{
@@ -670,7 +671,7 @@ body[thankyoupage="true"]{
 
                     &__pass{
                         display: block;
-                        max-width: calc(100% - 20px);
+                        max-width: 440px;
                         margin: 0 auto;
                         position: relative;
 
