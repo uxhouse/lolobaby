@@ -63,7 +63,7 @@ $nickname = get_user_meta( $currentUserID, 'nickname', true );
                     <input type="text" name="billing_email" placeholder="Adres e-mail" value="<?php echo $currentUser->user_email; ?>"/>
                     <div class="checkbox gift">
                         <input type="checkbox" class="customCheckbox" name="billing_gift"/>
-                        <label for="billing_gift"><?php _e('Wyślij paragon na inny adres', 'lolobaby'); ?></label>
+                        <label for="billing_gift"><?php _e('Chcę otrzymać paragon tylko drogą mailową', 'lolobaby'); ?></label>
                     </div>
 
                     <?php if(!is_user_logged_in()): ?>

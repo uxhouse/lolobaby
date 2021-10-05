@@ -16,6 +16,8 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$lang = get_bloginfo('language');
 ?>
 
 <div class="loloTYP">
@@ -70,10 +72,17 @@ defined( 'ABSPATH' ) || exit;
             </svg>
             </section>
             <section class="loloTYP__info">
+                <?php
+                    if($lang == 'en_US'){
+                        $link = '/en/how-to-take-care-of-bamboo-clothes';
+                    }else{
+                        $link = '/jak-dbac-o-ubranka-z-bambusa';
+                    }
+                ?>
                 <div class="wrap">
                     <h4><?php _e('Dbajmy o produkty', 'lolobaby'); ?></h4>
                     <p><?php _e('W Lolobaby przykładamy wielką uwagę do jakości oraz ponadczasowego stylu oferowanych produktów. Zależy nam na tym, by nasze ubranka były trwałe i służyły więcej niż jednemu Maluszkowi. Pomóż nam o nie zadbać!', 'lolobaby'); ?></p>
-                    <a href="#" class="btn btn--blue btn--noarrow"><span><?php _e('Dowiedz się więcej', 'lolobaby'); ?></span></a>
+                    <a href="<?php echo $link; ?>" class="btn btn--blue btn--noarrow"><span><?php _e('Dowiedz się więcej', 'lolobaby'); ?></span></a>
                 </div>
             </section>
 
