@@ -238,22 +238,16 @@ $(document).ready(function(){
             $('input[name="newestProducts"]').parent().addClass('checkbox--checked');
         }
         if(onsales == 'salesonly'){
-            $('input[name="priceDrop"]').trigger('click');
+            $('input[name="priceDrop"]').parent().addClass('checkbox--checked');
         }
     });
     $('input[name="newestProducts"]').on('click', function(){
         if($(this).is(":checked")){
             $('.sortEngine__select[sortname="date"]').trigger('click');
         }
-        // else if($(this).is(":not(:checked)")){
-        //     $('.woof_reset_search_form').trigger('click');
-        // }
     });
     $('input[name="priceDrop"]').on('click', function(){
         if($(this).is(":checked")){
-            $('input#woof_checkbox_sales').trigger('click');
-        }
-        else if($(this).is(":not(:checked)")){
             $('input#woof_checkbox_sales').trigger('click');
         }
     });
