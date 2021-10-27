@@ -192,6 +192,7 @@ function lolobaby_scripts() {
 	/* Custom js */
 	wp_enqueue_script( 'lolobaby-custom-js', get_template_directory_uri() . '/js/custom.js', array(), $theme_version . $random_number, true );
 	wp_enqueue_script( 'lolobaby-language-js', get_template_directory_uri() . '/js/_language.js', array(), $theme_version . $random_number, true );
+	wp_enqueue_script( 'lolobaby-checkout-js', get_template_directory_uri() . '/js/_checkout.js', array(), $theme_version . $random_number, true );
 	wp_enqueue_script( 'lolobaby-sliders-js', get_template_directory_uri() . '/js/sliders.js', array(), $theme_version . $random_number, true );
 	wp_enqueue_script( 'lolobaby-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version . $random_number, true );
 
@@ -719,3 +720,14 @@ remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 add_filter( 'loop_shop_per_page', function ( $cols ) {
     return - 1;
 } );
+
+
+/**
+ *	Custom checkout validate - error
+ */
+function add_fake_error($posted) {
+    if ($_POST['confirm-order-flag'] == "1") {
+        wc_add_notice( __( "custom_notice", 'fake_error' ), 'error');
+    } 
+}
+add_action('woocommerce_after_checkout_validation', 'add_fake_error');

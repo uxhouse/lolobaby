@@ -35,75 +35,75 @@ $cartTotal = $order->get_total();
         <div class="wave wave--mobile">
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
-    <?php
-        foreach ( $orderData->get_items() as $cart_item_key => $cart_item ):
-        $_product   = $cart_item->get_product();
-        $product_id = $cart_item->get_id();
-        
-        if ( $_product && $cart_item['quantity'] > 0 ):
-        $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-    ?>
-    <div class="cartItem <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-        <div class="cartItem__top">
-            <div class="cartItem__thumb">
-            <?php
-                $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-
-                if ( ! $product_permalink ) {
-                    echo $thumbnail; // PHPCS: XSS ok.
-                } else {
-                    printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
-                }
-            ?>
-            </div>
-            <div class="cartItem__name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
-                <h3><?php echo $_product->get_title(); ?></h3>
-            </div>
-        </div>
-        <div class="cartItem__bottom">
-            <div class="cartItem__color">
-                <p class="cartItem__title"><?php _e('Kolor', 'lolobaby'); ?>:</p>
+        <?php
+            foreach ( $orderData->get_items() as $cart_item_key => $cart_item ):
+            $_product   = $cart_item->get_product();
+            $product_id = $cart_item->get_id();
+            
+            if ( $_product && $cart_item['quantity'] > 0 ):
+            $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+        ?>
+        <div class="cartItem <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+            <div class="cartItem__top">
+                <div class="cartItem__thumb">
                 <?php
-                    $attributeName = $_product->get_attribute('pa_kolor');
-                    $allVariants = get_terms('pa_kolor');
+                    $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
-                foreach($allVariants as $variant){
-                    $variantName = $variant->name;
-                    if($variantName == $attributeName){
-                        echo '<span termname="' . $variant->slug . '" style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
+                    if ( ! $product_permalink ) {
+                        echo $thumbnail; // PHPCS: XSS ok.
+                    } else {
+                        printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
                     }
-                }
                 ?>
+                </div>
+                <div class="cartItem__name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+                    <h3><?php echo $_product->get_title(); ?></h3>
+                </div>
             </div>
-            <div class="cartItem__size">
-                <?php
-                    $attributeSize = $_product->get_attribute('pa_rozmiar');
-                    if($attributeSize):
-                ?>
-                <p class="cartItem__title"><?php _e('Rozmiar', 'lolobaby'); ?>:</p>
-                <p class="cartItem__selected"><?php echo $attributeSize; ?></p>
-                <?php endif; ?>
-            </div>
-            <div class="cartItem__quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-                <p class="cartItem__title"><?php _e('Ilość', 'lolobaby'); ?>:</p>
-                <p class="cartItem__selected"><?php echo $cart_item['quantity']; ?></p>
-            </div>
-            <div class="cartItem__price">
-                <p><?php echo wc_price($cart_item['total']); ?></p>
+            <div class="cartItem__bottom">
+                <div class="cartItem__color">
+                    <p class="cartItem__title"><?php _e('Kolor', 'lolobaby'); ?>:</p>
+                    <?php
+                        $attributeName = $_product->get_attribute('pa_kolor');
+                        $allVariants = get_terms('pa_kolor');
+
+                    foreach($allVariants as $variant){
+                        $variantName = $variant->name;
+                        if($variantName == $attributeName){
+                            echo '<span termname="' . $variant->slug . '" style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="cartItem__size">
+                    <?php
+                        $attributeSize = $_product->get_attribute('pa_rozmiar');
+                        if($attributeSize):
+                    ?>
+                    <p class="cartItem__title"><?php _e('Rozmiar', 'lolobaby'); ?>:</p>
+                    <p class="cartItem__selected"><?php echo $attributeSize; ?></p>
+                    <?php endif; ?>
+                </div>
+                <div class="cartItem__quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
+                    <p class="cartItem__title"><?php _e('Ilość', 'lolobaby'); ?>:</p>
+                    <p class="cartItem__selected"><?php echo $cart_item['quantity']; ?></p>
+                </div>
+                <div class="cartItem__price">
+                    <p><?php echo wc_price($cart_item['total']); ?></p>
+                </div>
             </div>
         </div>
-    </div>
-    <?php endif; ?>
-    <?php endforeach; ?>
-    <div class="cartSummary">
-        <p><?php _e('Wysyłka', 'lolobaby'); ?>: 
-        <?php if($shippingTotal > 0): ?>
-            <span><?php echo wc_price($shippingTotal); ?></span>
-        <?php else: ?>
-            <span><?php _e('Za darmo', 'lolobaby'); ?></span>
         <?php endif; ?>
-        <p><?php _e('Suma', 'lolobaby'); ?>: <?php echo wc_price($cartTotal); ?></p>
-    </div>
+        <?php endforeach; ?>
+        <div class="cartSummary">
+            <p><?php _e('Wysyłka', 'lolobaby'); ?>: 
+            <?php if($shippingTotal > 0): ?>
+                <span><?php echo wc_price($shippingTotal); ?></span>
+            <?php else: ?>
+                <span><?php _e('Za darmo', 'lolobaby'); ?></span>
+            <?php endif; ?>
+            <p><?php _e('Suma', 'lolobaby'); ?>: <?php echo wc_price($cartTotal); ?></p>
+        </div>
     </div>
     <div class="summaryPage__shipping">
         <div class="wave">

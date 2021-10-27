@@ -1018,6 +1018,7 @@ $(document).ready(function(){
                     }
                     if(methodid == 9){
                         $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
+                        $('.checkoutDeliverySelected').find('.pointname').text($('#selected-point').text());
                         $('.btn.selectPoint').addClass('visible');
                     }
                 });
@@ -1066,32 +1067,55 @@ $(document).ready(function(){
 
     /////////////  Open shipment methods on click  //////////////
     $(document).ready(function(){
-        var selectedPoint = $('#selected-point').text();
+        var selectedPoint = $('#furgonetkaPointName').val();
         if(selectedPoint){
             $('.checkoutDeliverySelected').find('.pointname').text(selectedPoint);
             $('.btn.selectPoint').addClass('visible');
         }
+        $('#select-point').removeAttr('href');
 
         $('.changeShipmentMethod').on('click', function(){
             $('.checkoutDeliverySelect').slideDown();
         });
+
         $('.selectPoint').on('click', function(){
+            if($('#furgonetkaPointName').length){
+                console.log('jest');
+                console.log($('#furgonetkaPointName').attr('value'));
+            }
             $('#select-point').trigger('click');
         });
-        $('#selected-point').on('change', function(){
-            var text = $(this).text();
-            $('.checkoutDeliverySelected').find('.pointname').text(text);
+        $('#furgonetkaPointName').on('change', function(){
+            console.log('changed');
+            var val = $(this).attr('value');
+            $('.checkoutDeliverySelected').find('.pointname').text(val);
         });
+        
+        var updatePointName;
+        if($('.checkoutPage').hasClass('checkoutPage--ready')){
+            updatePointName = setInterval(function(){
+                var pointName;
+                var currentPoint = $('.checkoutDeliverySelected').find('.pointname').text();
+                if($('#furgonetkaPointName').length){
+                    pointName = $('#furgonetkaPointName').attr('value');
+                    if(pointName !== currentPoint){
+                        $('.checkoutDeliverySelected').find('.pointname').text(pointName);
+                    }
+                }
+            }, 100);
+        }else{
+            clearInterval(updatePointName);
+        }
     });
 
     ///////////// Checkout form - nav ///////////////
-    $(document).ready(function(){
-        var checkoutNext = $('.nextStep');
+    // $(document).ready(function(){
+    //     var checkoutNext = $('.nextStep');
 
-        $(checkoutNext).on('click', function(){
-            $('#place_order').trigger('click');
-        });
-    });
+    //     $(checkoutNext).on('click', function(){
+    //         $('#place_order').trigger('click');
+    //     });
+    // });
 
     ///////////// Summary page - nav ///////////////
     $(document).ready(function(){
