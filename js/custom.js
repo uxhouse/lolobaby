@@ -1019,6 +1019,7 @@ $(document).ready(function(){
     /////////////  Select choosed shipment option //////////////
     $(document).ready(function(){
         if($('body').hasClass('woocommerce-checkout')){
+            var lang = $('body').attr('lang');
             var shipmentID = $('.checkoutPage').attr('selectedshipment');
             console.log(shipmentID);
             if(shipmentID == '11'){
@@ -1051,9 +1052,17 @@ $(document).ready(function(){
 
             if(shipmentID > 0){
                 $('.checkoutDeliverySelect').slideUp();
-                $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
+                if($lang == 'pl-PL'){
+                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
+                }else{
+                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Selected delivery method');
+                }
             }else{
-                $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
+                if($lang == 'pl-PL'){
+                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
+                }else{
+                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Select delivery method');
+                }
             }
         }
     });
