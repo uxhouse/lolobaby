@@ -5530,6 +5530,11 @@ body[thankyoupage="true"] #masthead {
   opacity: 1;
 }
 
+.checkoutPage #wc-stripe-payment-request-wrapper,
+.checkoutPage #wc-stripe-payment-request-button-separator {
+  display: none !important;
+}
+
 .checkoutPage .checkoutForm .woocommerce-NoticeGroup ul {
   padding: 0;
   margin: 0;
