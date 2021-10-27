@@ -542,9 +542,16 @@ $(document).ready(function(){
 
         /* Product page - variation update price */
 
+        $(document).on('found_variation.first', function(event, variation) {
+            var currency = $('body').attr('currency');
+            var price = parseFloat(variation.display_price);
+            var priceFormated = price.toFixed(2).toString().replace(".", ",");
+            $('.price--variation').html('<span>' + priceFormated + ' ' + currency + '</span>');
+        });
+
         setTimeout(function(){
             if($('.variations_form').length){
-                $('.variations_form').each( function() {
+                $('.variations_form').each(function() {
                     $(this).on('found_variation', function( event, variation ) {
                         var currency = $('body').attr('currency');
                         var price = parseFloat(variation.display_price);

@@ -101,13 +101,7 @@
 							</a>
 							<?php // if(current_user_can('administrator')): ?>
 							<div class="language">
-								<div class="language__select">
-
-								</div>
-								<?php do_action('wpml_add_language_selector'); ?>
-							</div>
-							<div class="currency">
-								<?php echo do_shortcode('[woo_multi_currency_plain_horizontal]'); ?>
+								<?php echo do_shortcode('[wpml_language_switcher flags=1 native=1 translated=0 link_current=0]'); ?>
 							</div>
 							<?php //endif; ?>
 							<div id="miniCart" class="miniCart miniCart--ready">

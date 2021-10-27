@@ -7739,55 +7739,31 @@ body.admin-bar .siteHeader {
   margin: 0;
 }
 
-.siteHeader__actions .language__select .lang {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 21px;
-  height: 21px;
-  background-color: #fff;
+.siteHeader__actions .language {
+  margin: 4px 0 0 20px;
+}
+
+.siteHeader__actions .language .lang_sel_list_vertical {
+  background: unset;
+  border: 0;
+}
+
+.siteHeader__actions .language .lang_sel_list_vertical li a {
+  padding: 0;
+  margin: 0;
+  background: unset;
+  width: 22px;
+  height: 22px;
+  border: 0;
   border-radius: 100%;
-  margin-left: 20px;
-  position: relative;
-  top: 2px;
-  cursor: pointer;
   overflow: hidden;
 }
 
-.siteHeader__actions .language__select .lang img {
+.siteHeader__actions .language .lang_sel_list_vertical li a img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: ease .3s;
-}
-
-.siteHeader__actions .language__select .lang:hover img {
-  opacity: .7;
-}
-
-.siteHeader__actions .language__select .lang--active {
-  display: none;
-}
-
-.siteHeader__actions .language #lang_sel_list {
-  display: none !important;
-}
-
-.siteHeader__actions .currency .wmc-currency {
-  padding: 0 !important;
-  max-width: none !important;
-  margin-left: 16px !important;
-  background-color: unset !important;
-  margin-top: 5px;
-}
-
-.siteHeader__actions .currency .wmc-currency.wmc-active {
-  display: none;
-}
-
-.siteHeader__actions .currency .wmc-currency a {
-  font-weight: 700 !important;
-  color: #fff !important;
+  max-width: none;
 }
 
 .siteHeader svg {
@@ -7837,6 +7813,9 @@ body.admin-bar .siteHeader {
   .siteHeader__actions a img {
     max-width: 18px;
   }
+  .siteHeader__actions .language {
+    margin: 4px 0 0 15px;
+  }
   .siteHeader svg {
     width: 2800px;
   }
@@ -7866,9 +7845,6 @@ body.admin-bar .siteHeader {
     display: flex;
     justify-content: flex-end;
     width: calc(100% - 60px);
-  }
-  .siteHeader__actions .wrap {
-    padding-right: 10px;
   }
   .siteHeader__actions .menu-toggle {
     width: 30px;
