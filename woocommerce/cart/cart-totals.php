@@ -16,8 +16,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
-?>
+$lang = get_bloginfo('language'); ?>
 <div class="cartTotals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
@@ -44,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
         <div class="cartTotals__title">
             <p><?php _e('Suma', 'lolobaby'); ?>:</p>
         </div>
-        <div class="cartTotals__value">
+        <div class="cartTotals__value" value="<?php echo WC()->cart->get_subtotal(); ?>">
             <?php wc_cart_totals_subtotal_html(); ?>
         </div>
     </div>
@@ -92,12 +91,14 @@ defined( 'ABSPATH' ) || exit;
             <p><?php _e('Nie wybrano', 'lolobaby'); ?></p>
         </div>
     </div>
+    <?php if($lang == 'pl-PL'): ?>
     <div class="cartTotals__free">
         <?php 
             if( $freeshippingamount > $cart ): ?>
                 <p><?php _e('Do darmowej przesyłki brakuje Ci jeszcze', 'lolobaby'); ?> <span><?php echo wc_price($remaining); ?></span></p>
             <?php endif; ?>
     </div>
+    <?php endif; ?>
     <?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
     <div class="cartTotals__total">
         <div class="cartTotals__title">
