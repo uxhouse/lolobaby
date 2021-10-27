@@ -424,8 +424,7 @@ $(document).ready(function(){
         setTimeout(function(){
             $("[name='update_cart']").attr('aria-disabled', 'false').removeAttr("disabled");
         }, 500);
-        var quantitySelect = $('.cartItem__quantity').find('.dropdownInput__dropdown').find('span');
-        var sizeSelect = $('.cartItem__size').find('.dropdownInput__dropdown').find('span');
+        var quantitySelect = $('.dropdownInput__dropdown').find('span');
 
         $(quantitySelect).on('click', function(){
             var value = $(this).text();
@@ -433,23 +432,14 @@ $(document).ready(function(){
             $(this).parent().parent().find('.dropdownInput__current').text(value);
     
             var qtyInput = $(this).parent().parent().parent().find('input.qty');
-            qtyInput.attr('value', value).trigger('change');
+            var sizeInput = $(this).parent().parent().find('input.select_size');
+            qtyInput.val(value).trigger('change');
+            sizeInput.val(value).trigger('change');
             setTimeout(function(){
                 $("[name='update_cart']").trigger('click').trigger('click');
-            }, 500);
+                console.log('clicked');
+            }, 1000);
         });
-        $(sizeSelect).on('click', function(){
-            var value = $(this).text();
-            $(this).parent().removeClass('selectDropdown--active');
-            $(this).parent().parent().find('.dropdownInput__current').text(value);
-    
-            var sizeInput = $(this).parent().parent().find('input.select_size');
-            sizeInput.attr('value', value).trigger('change');
-            setTimeout(function(){
-                $("[name='update_cart']").trigger('click');
-            }, 500);
-        });
-        
 
         /* Coupon actions */
 
@@ -485,14 +475,14 @@ $(document).ready(function(){
 
         /* Delivery select */
 
-        var lang = $('body').attr('lang');
         var deliverySelector = $('input[name="delivery_option"]');
         var deliveryAmount = $('.cartTotals__value[valuename="deliverycost"]');
-        var totalValue = $('.cartTotals__sum').find('.cartTotals__value').attr('value');
+        var totalValue = $('.cartTotals__sum').find('span.amount');
         var carTotalValue = $('.cartTotals__total').find('span.amount');
         var currency = $('body').attr('currency');
         if($('body').hasClass('woocommerce-cart')){
-            var currentTotal = totalValue;
+            console.log(totalValue[0].childNodes[0]['data']);
+            var currentTotal = totalValue[0].childNodes[0]['data'].replace(',', '.');
             var couponAmount = $('.couponList__coupon').find('.cartTotals__value').attr('amount');
             var totalDiscount = $('.couponList').attr('totaldiscount');
         }
@@ -500,14 +490,10 @@ $(document).ready(function(){
         var selectedShipment = $('.loloCart').attr('selectedshipment');
         if(typeof selectedShipment !== typeof undefined && selectedShipment !== false){
             $('.deliveryList__option[methodid="' + selectedShipment + '"]').addClass('deliveryList__option--checked');
-            var selectedOptionAmount = $('.deliveryList__option[methodid="' + selectedShipment + '"]').attr('methodamount');
+            var selectedOptionAmount = $('.deliveryList__option').attr('methodamount');
 
             if(selectedOptionAmount == '0'){
-                if(lang == 'pl-PL'){
-                    deliveryAmount.find('p').text('ZA DARMO');
-                }else{
-                    deliveryAmount.find('p').text('FREE');
-                }
+                deliveryAmount.find('p').text('ZA DARMO')
             }else{
                 deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
             }
@@ -532,7 +518,6 @@ $(document).ready(function(){
             if(couponAmount){
                 var updateTotal = parseFloat(totalDiscount) + parseFloat(selectedAmount);
             }else{
-                console.log(totalValue);
                 var updateTotal = parseFloat(currentTotal) + parseFloat(selectedAmount);
             }
             var totalAmount = updateTotal;
@@ -550,11 +535,7 @@ $(document).ready(function(){
                 carTotalValue.html(totalAmountFormated + ' ' + currency);
             }else{
                 var totalAmountFormated = totalAmount.toFixed(2).toString().replace(".", ",");
-                if(lang == 'pl-PL'){
-                    deliveryAmount.find('p').text('ZA DARMO');
-                }else{
-                    deliveryAmount.find('p').text('FREE');
-                }
+                deliveryAmount.find('p').text('ZA DARMO');
                 carTotalValue.html(totalAmountFormated + ' ' + currency);
             }
         });

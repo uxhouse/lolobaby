@@ -46,8 +46,10 @@
 	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=333972665048254&ev=PageView&noscript=1" /></noscript>
 	<!-- End Facebook Pixel Code -->
 </head>
-<?php $lang = get_bloginfo('language'); ?>
-<body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))) {echo 'thankyoupage="true"';}; ?> freeshipping="<?php echo $freeshippingamount; ?>" lang="<?php echo $lang; ?>">
+
+<body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))) {
+																								echo 'thankyoupage="true"';
+																							}; ?> freeshipping="<?php echo $freeshippingamount; ?>">
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'lolobaby'); ?></a>

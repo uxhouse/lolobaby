@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_cart' );
     $chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
     $chosen_shipping = $chosen_methods[0];
     $shipmentID = (int) filter_var($chosen_shipping, FILTER_SANITIZE_NUMBER_INT);
-    $lang = get_bloginfo('language'); ?>
+?>
 <?php 
 $brand_terms = get_terms(array(
     'taxonomy'      => 'pa_kolor',
@@ -103,26 +103,14 @@ if($brand_terms): ?>
                         <?php
                             $data = $cart_item['data'];
                             $attributeSize = $cart_item['variation']['attribute_pa_rozmiar'];
-                            if($lang == 'pl-PL'){
-                                $attributeSizeFormat = $attributeSize;
-                            }else{
-                                $attributeSizeFormat = str_replace('-en', '', $attributeSize);
-                            }
                             $size_term = wc_get_product_terms( $product_id, 'pa_rozmiar', array( 'fields' => 'all' ) );
                             if($size_term):
                         ?>
                         <p class="cartItem__title"><?php _e('Rozmiar', 'lolobaby'); ?>:</p>
                         <div class="dropdownInput">
-                            <?php 
-                                if($lang == 'pl-PL'){
-                                    $inputName = 'cart[' . $cart_item_key . '][pa_rozmiar]';
-                                }else{
-                                    $inputName = 'cart[' . $cart_item_key . '][pa_rozmiar]';
-                                }
-                            ?>
-                            <input style="display: none !important;" type="text" name="<?php echo $inputName; ?>" id="select_size" class="select_size" value="<?php echo $attributeSizeFormat; ?>"/>
+                            <input style="display: none !important;" type="text" name="cart[<?php echo $cart_item_key; ?>][pa_rozmiar]" id="select_size" class="select_size" value="<?php echo $attributeSize; ?>"/>
                             <div class="dropdownInput__select selectTrigger">
-                                <p class="dropdownInput__current"><?php echo $attributeSizeFormat; ?></p>
+                                <p class="dropdownInput__current"><?php echo $attributeSize; ?></p>
                             </div>
                             <div class="dropdownInput__dropdown selectDropdown">
                                 <?php foreach ($size_term as $size){
@@ -233,18 +221,12 @@ if($brand_terms): ?>
                     $shipping_zone = new WC_Shipping_Zone($zone_id);
                     $shipping_methods = $shipping_zone->get_shipping_methods( true, 'values' );
                 ?>
-                    <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): 
-                        if($lang == 'pl-PL'){
-                            $price = $shipping_method->instance_settings['cost'];
-                        }else{
-                            $price = $shipping_method->instance_settings['cost_EUR'];
-                        }
-                        ?>
+                    <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): ?>
                         <?php if($shipping_method->instance_id !== 10 && $shipping_method->instance_id !== 11): ?>
                         <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php
                                 if( $freeshippingamount > $cart ){
-                                    echo $price;
-                                }else if($freeshippingamount <= $cart && $lang == 'pl-PL'){
+                                    echo $shipping_method->instance_settings['cost'];
+                                }else{
                                     echo '0';
                                 }
                             ?>">
@@ -255,7 +237,7 @@ if($brand_terms): ?>
                             <div class="amount">
                                 <?php                    
                                     if( $freeshippingamount > $cart ){
-                                        echo '<span>' . wc_price($price) . '</span>';
+                                        echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>';
                                     }else{
                                         echo '<span>' . __('Za darmo!', 'lolobaby') . '</span>';
                                     }
@@ -266,22 +248,16 @@ if($brand_terms): ?>
                     <?php endforeach; ?>
 
                     <?php // Wysyłka międzynarodowa
-                        foreach($shipping_methods as $instance_id => $shipping_method):
-                            if($lang == 'pl-PL'){
-                                $price = $shipping_method->instance_settings['cost'];
-                            }else{
-                                $price = $shipping_method->instance_settings['cost_EUR'];
-                            }
-                        ?>
+                        foreach($shipping_methods as $instance_id => $shipping_method): ?>
                         <?php if($shipping_method->instance_id == 11): ?>
                         <h3><?php _e('Wysyłka międzynarodowa', 'lolobaby'); ?></h3>
-                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $price; ?>">
+                        <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $shipping_method->instance_settings['cost']; ?>">
                             <div class="name">
                                 <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
                                 <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
                             </div>
                             <div class="amount">
-                                <?php echo '<span>' . wc_price($price) . '</span>'; ?>
+                                <?php echo '<span>' . wc_price($shipping_method->instance_settings['cost']) . '</span>'; ?>
                             </div>
                         </div>
                         <?php endif; ?>
