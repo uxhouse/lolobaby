@@ -4692,11 +4692,11 @@ body[thankyoupage="true"] .cartProgress {
 }
 
 .loloCart__delivery .deliveryList__option .name label[for="method_9"]:after {
-  content: ' - 2-3 dni';
+  content: " - " attr(delivery-time);
 }
 
 .loloCart__delivery .deliveryList__option .name label[for="method_8"]:after {
-  content: ' - 1-2 dni';
+  content: " - " attr(delivery-time);
 }
 
 .loloCart__delivery .deliveryList__option .amount span {
@@ -4826,7 +4826,7 @@ body[thankyoupage="true"] .cartProgress {
 }
 
 .loloCart__afterCart.notSelected:after {
-  content: 'Wybierz sposób dostawy aby przejść dalej';
+  content: attr(data-error);
   height: auto;
   padding: 5px 10px;
   border-radius: 5px;

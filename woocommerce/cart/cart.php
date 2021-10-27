@@ -37,7 +37,7 @@ if($brand_terms): ?>
     </div>
 <?php endif; ?>
 <div class="loloCart"<?php if($shipmentID): ?> selectedShipment="id_<?php echo $shipmentID; ?>"<?php endif; ?>>
-    <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+    <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post" checkout="<?php echo get_permalink(icl_object_id(9, 'page', false, ICL_LANGUAGE_CODE)); ?>">
         <div class="loloCart__wave container">
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
         </div>
@@ -236,8 +236,18 @@ if($brand_terms): ?>
                     <?php foreach ( $shipping_methods as $instance_id => $shipping_method ): 
                         if($lang == 'pl-PL'){
                             $price = $shipping_method->instance_settings['cost'];
+                            if($shipping_method->instance_id == 8){
+                                $deliveryTime = '1-2 dni';
+                            }else{
+                                $deliveryTime = '2-3 dni';
+                            }
                         }else{
                             $price = $shipping_method->instance_settings['cost_EUR'];
+                            if($shipping_method->instance_id == 8){
+                                $deliveryTime = '1-2 days';
+                            }else{
+                                $deliveryTime = '2-3 days';
+                            }
                         }
                         ?>
                         <?php if($shipping_method->instance_id !== 10 && $shipping_method->instance_id !== 11): ?>
@@ -250,7 +260,7 @@ if($brand_terms): ?>
                             ?>">
                             <div class="name">
                                 <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
-                                <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
+                                <label for="method_<?php echo $shipping_method->instance_id; ?>" delivery-time="<?php echo $deliveryTime; ?>"><?php echo $shipping_method->title;?></label>
                             </div>
                             <div class="amount">
                                 <?php                    
@@ -303,9 +313,9 @@ if($brand_terms): ?>
         ?>
         </div>
     </div>
-    <div class="loloCart__afterCart container <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'shippingSelected' : 'notSelected'; ?>">
-        <a href="<?php echo home_url('/produkty'); ?>" class="continue"><?php _e('Kontynuuj zakupy', 'lolobaby'); ?></a>
-        <a href="<?php echo home_url('/zamowienie'); ?>" class="tocheckout btn"><span><?php _e('Przejdź dalej', 'lolobaby'); ?></span></a>
+    <div class="loloCart__afterCart container <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'shippingSelected' : 'notSelected'; ?>" data-error="<?php _e('Wybierz sposób dostawy aby przejść dalej', 'lolobaby'); ?>">
+        <a href="<?php echo get_permalink(icl_object_id(2567, 'page', false, ICL_LANGUAGE_CODE)); ?>" class="continue"><?php _e('Kontynuuj zakupy', 'lolobaby'); ?></a>
+        <a href="<?php echo get_permalink(icl_object_id(9, 'page', false, ICL_LANGUAGE_CODE)); ?>" class="tocheckout btn"><span><?php _e('Przejdź dalej', 'lolobaby'); ?></span></a>
         <?php // do_action( 'woocommerce_proceed_to_checkout' ); ?>
     </div>
 </div>

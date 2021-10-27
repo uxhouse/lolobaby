@@ -512,14 +512,13 @@ $(document).ready(function(){
                 deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
             }
 
-            var formaction = $('.woocommerce-cart-form').attr('action');
-            var buttonhref = formaction.replace('koszyk', 'zamowienie');
-            $('.loloCart__afterCart').removeClass('notSelected');
-            $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
+            // var formaction = $('.woocommerce-cart-form').attr('action');
+            // var buttonhref = formaction.replace('koszyk', 'zamowienie');
+            // $('.loloCart__afterCart').removeClass('notSelected');
+            // $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
         }
         $(deliverySelector).on('click', function(){
-            var formaction = $('.woocommerce-cart-form').attr('action');
-            var buttonhref = formaction.replace('koszyk', 'zamowienie');
+            var buttonhref = $('.woocommerce-cart-form').attr('checkout');
             $('.loloCart__afterCart').removeClass('notSelected');
             $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
 

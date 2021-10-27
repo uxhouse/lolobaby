@@ -414,12 +414,12 @@ body[thankyoupage="true"]{
 
                         &[for="method_9"]{
                             &:after{
-                                content: ' - 2-3 dni';
+                                content: ' - ' attr(delivery-time);
                             }
                         }
                         &[for="method_8"]{
                             &:after{
-                                content: ' - 1-2 dni';
+                                content: ' - ' attr(delivery-time);
                             }
                         }
                     }
@@ -559,7 +559,7 @@ body[thankyoupage="true"]{
             position: relative;
 
             &:after{
-                content: 'Wybierz sposób dostawy aby przejść dalej';
+                content: attr(data-error);
                 height: auto;
                 padding: 5px 10px;
                 border-radius: 5px;
