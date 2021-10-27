@@ -1052,13 +1052,13 @@ $(document).ready(function(){
 
             if(shipmentID > 0){
                 $('.checkoutDeliverySelect').slideUp();
-                if($lang == 'pl-PL'){
+                if(lang == 'pl-PL'){
                     $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
                 }else{
                     $('.checkoutPage__delivery').find('.heading').find('h3').text('Selected delivery method');
                 }
             }else{
-                if($lang == 'pl-PL'){
+                if(lang == 'pl-PL'){
                     $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
                 }else{
                     $('.checkoutPage__delivery').find('.heading').find('h3').text('Select delivery method');
