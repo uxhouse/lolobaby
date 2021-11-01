@@ -399,8 +399,16 @@ $(document).ready(function(){
 
     /* ---- Cart actions ---- */
 
+    /**
+     * Set container to cart page
+     */
     $(document).ready(function(){
+        if($('body').hasClass('woocommerce-cart')){
+            $('.woocommerce-notices-wrapper').addClass('container');
+        }
+    });
 
+    $(document).ready(function(){
         var cartheader = $('.cartHeader__wrap')
         var cartheaderValue = cartheader.find('span');
         var cartItems = $('.summaryPage').attr('itemscount');
@@ -458,6 +466,10 @@ $(document).ready(function(){
         });
         $('.couponInput__submit').on('click', function(){
             $("[name='apply_coupon']").trigger('click');
+            $(this).parents('.couponInput').addClass('loading');
+        });
+        $('.couponInput__delete').on('click', function(){
+            $(this).parents('.couponInput').addClass('loading');
         });
         $(document).ready(function(){
             var couponRemove = $('a.woocommerce-remove-coupon').attr('href');

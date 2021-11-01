@@ -4751,20 +4751,59 @@ body[thankyoupage="true"] .cartProgress {
   display: flex;
   align-items: center;
   margin: 0 0 20px;
+  transition: ease .3s;
+}
+
+.loloCart__summary .cartTotals__coupon .couponInput.loading {
+  background: none;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.loloCart__summary .cartTotals__coupon .couponInput.loading .couponInput__wrap {
+  position: relative;
+}
+
+.loloCart__summary .cartTotals__coupon .couponInput.loading .couponInput__wrap input {
+  opacity: .4;
+}
+
+.loloCart__summary .cartTotals__coupon .couponInput.loading .couponInput__wrap:after {
+  content: '';
+  background-image: url("/wp-content/themes/lolobaby/images/loading_gif.gif");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: 0 auto;
+}
+
+.loloCart__summary .cartTotals__coupon .couponInput.loading .couponInput__submit {
+  opacity: .4;
+}
+
+.loloCart__summary .cartTotals__coupon .couponInput__wrap {
+  max-width: 392px;
+  width: 100%;
+  margin-right: 30px;
 }
 
 .loloCart__summary .cartTotals__coupon .couponInput__input {
   background-color: #fff;
   border: 2px solid #FFCAD4;
   border-radius: 0;
-  max-width: 392px;
   width: 100%;
   height: 42px;
-  margin-right: 30px;
   text-align: center;
   font-size: 15px;
   color: #4F4F4F;
   outline: none;
+  transition: ease .3s;
 }
 
 .loloCart__summary .cartTotals__coupon .couponInput__submit, .loloCart__summary .cartTotals__coupon .couponInput__delete {

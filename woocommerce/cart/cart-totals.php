@@ -53,7 +53,9 @@ $lang = get_bloginfo('language'); ?>
 		}
 		?>
         <div class="couponInput">
-            <input type="text" name="couponInput" id="couponInput" class="couponInput__input" value="<?php echo $currentCoupon; ?>" placeholder="<?php _e('Masz kod rabatowy? Wpisz i zatwierdź...', 'lolobaby'); ?>"/>
+            <div class="couponInput__wrap">
+                <input type="text" name="couponInput" id="couponInput" class="couponInput__input" value="<?php echo $currentCoupon; ?>" placeholder="<?php _e('Masz kod rabatowy? Wpisz i zatwierdź...', 'lolobaby'); ?>"/>
+            </div>
             <?php if($currentCoupon): ?>
                 <a href="" class="couponInput__delete" data-coupon="<?php echo $currentCoupon; ?>"><?php _e('Usuń', 'lolobaby'); ?></a>
             <?php else: ?>
