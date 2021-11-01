@@ -32,7 +32,11 @@ get_header();
         </div>
     </section>
     <section class="collectionLink">
-        <a href="<?php the_field('collection_link'); ?>" class="btn btn--noarrow btn--big"><span><?php _e('Zobacz produkty z kolekcji', 'lolobaby'); ?> <?php echo the_title(); ?></span></a>
+        <?php
+            $title = get_the_title();
+            $btnTitle = sprintf( __('Zobacz produkty z kolekcji %s','lolobaby'), $title);
+        ?>
+        <a href="<?php the_field('collection_link'); ?>" class="btn btn--noarrow btn--big"><span><?php echo $btnTitle; ?></span></a>
     </section>
 </main>
 
