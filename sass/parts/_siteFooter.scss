@@ -103,24 +103,33 @@
                 color: #fff;
                 margin: 0 0 15px;
             }
-            .social{
+            .wrap{
                 display: flex;
                 align-items: center;
-                transition: ease .3s;
 
-                &:hover{
-                    opacity: .7;
-                }
+                .social{
+                    display: flex;
+                    align-items: center;
+                    transition: ease .3s;
 
-                img{
-                    width: 20px;
-                    margin-right: 10px;
-                }
-                p{
-                    font-size: 16px;
-                    line-height: 20px;
-                    margin: 0;
-                    color: #fff;
+                    &:first-of-type{
+                        margin-right: 20px;
+                    }
+    
+                    &:hover{
+                        opacity: .7;
+                    }
+    
+                    img{
+                        width: 20px;
+                        margin-right: 10px;
+                    }
+                    p{
+                        font-size: 16px;
+                        line-height: 20px;
+                        margin: 0;
+                        color: #fff;
+                    }
                 }
             }
         }
@@ -619,6 +628,9 @@
         .footerContent{
             padding: 0 15px;
 
+            &__info{
+                margin-bottom: 100px;
+            }
             &__logoMobile{
                 display: flex;
                 align-items: center;
@@ -650,7 +662,7 @@
                 height: 160px;
                 position: absolute;
                 top: -130px;
-                left: 60px;
+                left: 20px;
                 right: 0;
                 margin: 0 auto;
                 z-index: 2;
@@ -670,6 +682,24 @@
         &__checkbox{
             .wpcf7-form-control-wrap{
                 max-width: calc(100% - 45px);
+            }
+        }
+    }
+}
+@media (max-width: 575px){
+    .siteFooter{
+        .footerContent{
+            &__social{
+                .wrap{
+                    flex-direction: column;
+    
+                    .social{
+                        &:first-of-type{
+                            margin-right: 0;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
             }
         }
     }

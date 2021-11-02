@@ -8405,7 +8405,7 @@ body.admin-bar .siteHeader {
 }
 
 .mobileMenu__footer .content {
-  padding: 20px 40px;
+  padding: 20px 25px;
 }
 
 .mobileMenu__footer .content p {
@@ -8416,19 +8416,26 @@ body.admin-bar .siteHeader {
   margin: 0 0 10px;
 }
 
-.mobileMenu__footer .content a {
+.mobileMenu__footer .content__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileMenu__footer .content__wrap .social {
   display: flex;
   align-items: center;
 }
 
-.mobileMenu__footer .content a p {
-  font-size: 16px;
+.mobileMenu__footer .content__wrap .social p {
+  font-size: 14px;
   font-weight: normal;
   margin: 0;
 }
 
-.mobileMenu__footer .content a img {
+.mobileMenu__footer .content__wrap .social img {
   margin-right: 5px;
+  max-width: 20px;
 }
 
 /* ---- Cart header ---- */
@@ -8617,22 +8624,31 @@ body[thankyoupage="true"] .cartHeader {
   margin: 0 0 15px;
 }
 
-.siteFooter .footerContent__social .social {
+.siteFooter .footerContent__social .wrap {
+  display: flex;
+  align-items: center;
+}
+
+.siteFooter .footerContent__social .wrap .social {
   display: flex;
   align-items: center;
   transition: ease .3s;
 }
 
-.siteFooter .footerContent__social .social:hover {
+.siteFooter .footerContent__social .wrap .social:first-of-type {
+  margin-right: 20px;
+}
+
+.siteFooter .footerContent__social .wrap .social:hover {
   opacity: .7;
 }
 
-.siteFooter .footerContent__social .social img {
+.siteFooter .footerContent__social .wrap .social img {
   width: 20px;
   margin-right: 10px;
 }
 
-.siteFooter .footerContent__social .social p {
+.siteFooter .footerContent__social .wrap .social p {
   font-size: 16px;
   line-height: 20px;
   margin: 0;
@@ -9099,6 +9115,9 @@ body[thankyoupage="true"] .cartHeader {
   .siteFooter .footerContent {
     padding: 0 15px;
   }
+  .siteFooter .footerContent__info {
+    margin-bottom: 100px;
+  }
   .siteFooter .footerContent__logoMobile {
     display: flex;
     align-items: center;
@@ -9127,7 +9146,7 @@ body[thankyoupage="true"] .cartHeader {
     height: 160px;
     position: absolute;
     top: -130px;
-    left: 60px;
+    left: 20px;
     right: 0;
     margin: 0 auto;
     z-index: 2;
@@ -9145,6 +9164,16 @@ body[thankyoupage="true"] .cartHeader {
   }
   .newsletter__checkbox .wpcf7-form-control-wrap {
     max-width: calc(100% - 45px);
+  }
+}
+
+@media (max-width: 575px) {
+  .siteFooter .footerContent__social .wrap {
+    flex-direction: column;
+  }
+  .siteFooter .footerContent__social .wrap .social:first-of-type {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
 
