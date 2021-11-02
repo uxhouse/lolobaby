@@ -1407,6 +1407,13 @@ $(document).ready(function(){
      *  Product page color variant select
      */
     $(document).ready(function(){
+        $('.productColors__color').each(function(){
+            var href = $(this).attr('href');
+            var curr = window.location.href;
+            if(href == curr){
+                $(this).addClass('productColors__color--active');
+            }
+        });
         $('.productColors__color').on('click', function(){
             $('.productColors__color').removeClass('productColors__color--active');
             $(this).addClass('productColors__color--active');
