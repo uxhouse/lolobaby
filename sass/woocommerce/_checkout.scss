@@ -769,6 +769,9 @@ body[thankyoupage="true"]{
                 margin: 0 0 64px;
                 text-align: center;
             }
+            .woocommerce-account-fields{
+                display: none;
+            }
             .woocommerce-billing-fields__field-wrapper{
                 p{
                     display: block;

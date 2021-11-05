@@ -26,6 +26,34 @@ $calculator_text          = '';
 ?>
 <div class="woocommerce-shipping-totals shipping">
 	<div data-title="<?php echo esc_attr( $package_name ); ?>">
+		<ul id="shipping_method" class="woocommerce-shipping-methods">
+		<?php
+			// Loop through shipping packages from WC_Session (They can be multiple in some cases)
+			foreach ( WC()->cart->get_shipping_packages() as $package_id => $package ) {
+				// Check if a shipping for the current package exist
+				if ( WC()->session->__isset( 'shipping_for_package_'.$package_id ) ) {
+					// Loop through shipping rates for the current package
+					foreach ( WC()->session->get( 'shipping_for_package_'.$package_id )['rates'] as $shipping_rate_id => $shipping_rate ) {
+						$rate_id     = $shipping_rate->get_id(); // same thing that $shipping_rate_id variable (combination of the shipping method and instance ID)
+						$method_id   = $shipping_rate->get_method_id(); // The shipping method slug
+						$instance_id = $shipping_rate->get_instance_id(); // The instance ID
+						$label_name  = $shipping_rate->get_label(); // The label name of the method
+						$cost        = $shipping_rate->get_cost(); // The cost without tax
+						$tax_cost    = $shipping_rate->get_shipping_tax(); // The tax cost
+						$taxes       = $shipping_rate->get_taxes(); // The taxes details (array)
+
+						echo '<li methodid="' . $instance_id . '">';
+						echo '<input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_' . $method_id . $instance_id . '" value="' . $rate_id . '" class="shipping_method engineRadio" />';
+						echo '<label for="shipping_method_0_' . $method_id . $instance_id . '">' . $label_name . '</label>';
+						echo '</li>';
+					}
+				}
+			}
+		?>
+		</ul>
+	</div>
+	<?php if($temporaryDeactivate): ?>
+	<div data-title="<?php echo esc_attr( $package_name ); ?>">
 		<?php if ( $available_methods ) : ?>
 			<ul id="shipping_method" class="woocommerce-shipping-methods">
 				<?php foreach ( $available_methods as $method ):
@@ -103,4 +131,5 @@ $calculator_text          = '';
 			<?php woocommerce_shipping_calculator( $calculator_text ); ?>
 		<?php endif; ?>
     </div>
+	<?php endif; ?>
 </div>

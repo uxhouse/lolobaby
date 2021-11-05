@@ -45,6 +45,7 @@ $lang = get_bloginfo('language');
                 <div class="wrap">
                     <h2 class="sectionHeading"><span><?php _e('Gratulacje!', 'lolobaby'); ?></span></h2>
                     <h4><?php _e('Udało Ci się pomyślnie złożyć zamówienie!', 'lolobaby'); ?></h4>
+                    <h4><?php _e('ID zamówienia', 'lolobaby'); ?>: #<?php echo $order->get_id(); ?></h4>
                     <p class="content"><?php _e('Dziękujemy za zakupy w naszym sklepie. Dokładamy wszelkich starań, aby twoje zamówienie dotarło na wskazany adres jak najszybciej. Wkrótce otrzymasz maila ze szczegółami zamówienia.', 'lolobaby'); ?></p>
                     <a href="<?php echo home_url(); ?>" class="btn"><span><?php _e('Wróć do sklepu', 'lolobaby'); ?></span></a>
                 </div>

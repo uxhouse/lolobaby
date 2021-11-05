@@ -1032,9 +1032,9 @@ $(document).ready(function(){
     $(document).ready(function(){
         if($('body').hasClass('woocommerce-checkout')){
             var lang = $('body').attr('lang');
-            var shipmentID = $('.checkoutPage').attr('selectedshipment');
-            console.log(shipmentID);
-            if(shipmentID == '11'){
+            var shipmentID = parseInt($('.checkoutPage').attr('selectedshipment'));
+            // console.log(shipmentID);
+            if(shipmentID == 11){
                 $('#billing_country_field').css('pointer-events', 'all');
             }else{
                 $('#billing_country_field').css('pointer-events', 'none');
@@ -1126,13 +1126,11 @@ $(document).ready(function(){
 
         $('.selectPoint').on('click', function(){
             if($('#furgonetkaPointName').length){
-                console.log('jest');
                 console.log($('#furgonetkaPointName').attr('value'));
             }
             $('#select-point').trigger('click');
         });
         $('#furgonetkaPointName').on('change', function(){
-            console.log('changed');
             var val = $(this).attr('value');
             $('.checkoutDeliverySelected').find('.pointname').text(val);
         });
@@ -1303,10 +1301,10 @@ $(document).ready(function(){
     $(document.body).on('updated_wc_div', closeButton);
     $(document.body).on('updated_cart_totals', closeButton);
 
-    if($(window).width() < 767){
-        $('.openMiniCart').removeClass('openMiniCart').attr('href', '/koszyk');
-        $('.miniCart').remove();
-    }
+    // if($(window).width() < 767){
+    //     $('.openMiniCart').removeClass('openMiniCart').attr('href', '/koszyk');
+    //     $('.miniCart').remove();
+    // }
 
     /* Masonry gallery - collection */
     if($('.collectionGallery__images').length){
