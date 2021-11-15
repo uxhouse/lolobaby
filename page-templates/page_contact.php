@@ -22,7 +22,7 @@ get_header(); ?>
                         <img src="<?php echo get_template_directory_uri() . '/images/icons/home.svg' ?>" alt="" />
                         <h3 class="contactContent__subheading"><?php _e('Adres', 'lolobaby'); ?>:</h3>
                     </div>
-                    <p>Lolo Baby<br>ul. Rynek Kosciuszki 8/1<br>15-426 Białystok<br><?php _e('Polska', 'lolobaby'); ?></p>
+                    <p>Lolobaby<br>ul. Rynek Kosciuszki 8/1<br>15-426 Białystok<br><?php _e('Polska', 'lolobaby'); ?></p>
                     <p><b><?php _e('Magazyn', 'lolobaby'); ?>:</b><br/>Fabryczna 101<br/>15-119 Białystok</p>
                 </li>
                 <li>
