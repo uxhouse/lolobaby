@@ -10,10 +10,11 @@ get_header(); ?>
         <div class="homeSlider__slider">
             <?php while(have_rows('homepage_slider')): the_row();
                 $bg = get_sub_field('homepage_slider_image');
+                $bgMobile = get_sub_field('homepage_slider_image_mobile');
                 $text = get_sub_field('homepage_slider_text');
                 $btn = get_sub_field('homepage_slider_btn');
             ?>
-            <div class="homeSlider__slide" num="num_<?php the_row_index(); ?>" style="background-image: url('<?php echo $bg; ?>');">
+            <div class="homeSlider__slide" num="num_<?php the_row_index(); ?>" data-image="<?php echo $bg; ?>" data-image-mobile="<?php echo $bgMobile; ?>">
                 <div class="homeSlider__wrap">
                     <h2><span><?php echo $text; ?></span></h2>
                     <a href="<?php echo $btn['url']; ?>" class="btn"><span><?php echo $btn['title']; ?></span></a>

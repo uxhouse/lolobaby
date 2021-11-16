@@ -26,6 +26,17 @@ $(document).ready(function(){
         $('.homeSlider__dots span').removeClass('active');
         $('.homeSlider__dots span[num="' + currentSlide + '"]').addClass('active');
     });
+
+    $('.homeSlider__slide').each(function(){
+        var bg = $(this).attr('data-image');
+        var bgmobile = $(this).attr('data-image-mobile');
+
+        if($(window).width() > 767){
+            $(this).css('background-image', 'url(' + bg + ')');
+        }else{
+            $(this).css('background-image', 'url(' + bgmobile + ')');
+        }
+    });
 });
 
 /* ---- Bestsellers slider ---- */ 

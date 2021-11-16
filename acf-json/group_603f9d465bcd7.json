@@ -3,7 +3,7 @@
     "title": "Strona główna",
     "fields": [
         {
-            "key": "field_611183a3acfc8",
+            "key": "field_6193aec4990b9",
             "label": "Info bar",
             "name": "",
             "type": "tab",
@@ -15,22 +15,24 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 1,
             "placement": "top",
             "endpoint": 0
         },
         {
-            "key": "field_611185a9c6598",
+            "key": "field_6193aeaa990b8",
             "label": "Tekst belki informacyjnej",
             "name": "infobar",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 1,
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -85,6 +87,31 @@
                         "class": "",
                         "id": ""
                     },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_6193a8f4bebef",
+                    "label": "Zdjęcie (MOBILE)",
+                    "name": "homepage_slider_image_mobile",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 1,
                     "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
@@ -252,7 +279,7 @@
                     "label": "Zdjęcie wyrózniające",
                     "name": "homepage_collections_image",
                     "type": "image",
-                    "instructions": "Minimalna rozdzielczość zdjęcia: 960x940 (szer. x wys.)",
+                    "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -446,7 +473,7 @@
                     "label": "Zdjęcie",
                     "name": "homepage_instagram_image",
                     "type": "image",
-                    "instructions": "Minimalna rozdzielczość zdjęcia: 480x480",
+                    "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -504,5 +531,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628538309
+    "modified": 1637068516
 }
