@@ -215,14 +215,69 @@
             }
         }
         &__list{
-            max-width: fit-content;
+            max-width: 510px;
             width: 100%;
             justify-content: center;
-            flex-direction: column;
-            flex-wrap: unset;
 
             .productTile{
-                margin: 0;
+                max-width: 250px;
+                width: 100%;
+                margin: 0 2px;
+
+                &__thumb{
+                    height: 250px !important;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px){
+    .archiveShop{
+        &__list{
+            max-width: 100%;
+
+            .productTile{
+                max-width: calc(100% / 2 - 5px);
+
+                &__wishlist{
+                    left: 6px;
+                    width: 20px;
+                    height: 20px;
+
+                    .tinvwl_add_to_wishlist_button{
+                        width: 20px;
+                        height: 20px;
+
+                        &:before{
+                            background-size: 15px;
+                            width: 15px;
+                            height: 15px;
+                        }
+                    }
+                }
+                &__bestseller{
+                    top: 4px;
+                    right: 5px;
+
+                    p{
+                        font-size: 12px;
+                        line-height: 14px;
+
+                        &:before{
+                            background-size: 15px;
+                            width: 15px;
+                            height: 15px;
+                            margin-right: 5px;
+                            top: 2px;
+                        }
+                    }
+                }
+                &__thumb{
+                    height: 180px !important;
+                }
+                &__content{
+                    padding: 15px 0 38px;
+                }
             }
         }
     }
@@ -985,6 +1040,45 @@
             }
             .woof_products_top_panel{
                 left: 15px;
+            }
+        }
+    }
+}
+
+/* ---- Archive SEO desc --- */
+
+.categoryContent{
+    margin: 40px 0;
+
+    &__wrap{
+        max-width: 850px;
+        margin: 0 auto;
+
+        p{
+            font-size: 16px;
+            line-height: 21px;
+            color: #000;
+            text-align: center;
+            margin: 0;
+        }
+    }
+}
+@media (max-width: 991px){
+    .categoryContent{
+        &__wrap{
+            max-width: 650px;
+        }
+    }
+}
+@media (max-width: 767px){
+    .categoryContent{
+        &__wrap{
+            max-width: 550px;
+            padding: 0 15px;
+
+            p{
+                font-size: 14px;
+                line-height: 19px;
             }
         }
     }

@@ -38,8 +38,16 @@ get_header(); ?>
     </section>
     <?php endif; ?>
 
+    <?php if(get_field('homepage_infotext')): ?>
+    <section class="homeTextinfo">
+        <div class="homeTextinfo__wrap container">
+            <p><?php the_field('homepage_infotext'); ?></p>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <?php if (get_field('homepage_reassurance')): ?>
-    <section class="homeReassurance">
+    <section class="homeReassurance<?php if(get_field('homepage_infotext')): ?> homeReassurance--uptext<?php endif; ?>">
         <div class="homeReassurance__wrap container">
             <?php while(have_rows('homepage_reassurance')): the_row();
                 $icon = get_sub_field('homepage_reassurance_icon');

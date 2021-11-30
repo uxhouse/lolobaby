@@ -18,7 +18,12 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
-$lang = get_bloginfo('language'); ?>
+$lang = get_bloginfo('language');
+
+// get category ID
+$current_category_object = get_queried_object();
+$category_terms = get_fields('term_' . $current_category_object->term_id);
+?>
 <div class="archiveShop">
     <!-- <div class="archiveShop__breadcrumb container">
         <?php
@@ -37,7 +42,11 @@ $lang = get_bloginfo('language'); ?>
         <?php if(is_shop()): ?>
             <h1 class="sectionHeading"><span><?php _e('Produkty', 'lolobaby'); ?></span></h1>
         <?php else: ?>
-            <h1 class="sectionHeading"><span><?php woocommerce_page_title(); ?></span></h1>
+            <?php if($category_terms['categoryName']): ?>
+                <h1 class="sectionHeading"><span><?php echo $category_terms['categoryName']; ?></span></h1>
+            <?php else: ?>
+                <h1 class="sectionHeading"><span><?php woocommerce_page_title(); ?></span></h1>
+            <?php endif; ?>
         <?php endif; ?>
         <div class="catDesc">
             <?php if(is_shop()): ?>
@@ -76,7 +85,11 @@ $lang = get_bloginfo('language'); ?>
                             <img class="thumb__icon" src="<?php echo $term_fields['categoryIcon']; ?>"/>
                         </div>
                         <div class="content">
-                            <p class="name"><?php echo $cat->name; ?></p>
+                            <?php if($term_fields['categoryName']): ?>
+                                <p class="name"><?php echo $term_fields['categoryName']; ?></p>
+                            <?php else: ?>
+                                <p class="name"><?php echo $cat->name; ?></p>
+                            <?php endif; ?>
                             <span><?php _e('Wybierz', 'lolobaby'); ?></span>
                         </div>
                     </a>
@@ -186,6 +199,13 @@ $lang = get_bloginfo('language'); ?>
              */
             do_action( 'woocommerce_after_shop_loop' );
             ?>
+        <?php if($category_terms['categorySEODesc']): ?>
+            <section class="categoryContent">
+                <div class="categoryContent__wrap">
+                    <p><?php echo $category_terms['categorySEODesc']; ?></p>
+                </div>
+            </section>
+        <?php endif; ?>
         <?php else: ?>
         <section class="archiveNotfound">
             <svg xmlns="http://www.w3.org/2000/svg" class="wave wave--top" width="5469" height="34" viewBox="0 0 5469 34" fill="none">

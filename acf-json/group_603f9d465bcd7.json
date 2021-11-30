@@ -160,6 +160,43 @@
             ]
         },
         {
+            "key": "field_61a61497055c9",
+            "label": "Tekst pod sliderem",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_61a614a4055ca",
+            "label": "Tekst pod sliderem",
+            "name": "homepage_infotext",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": "br",
+            "wpml_cf_preferences": 1
+        },
+        {
             "key": "field_6049ed1b2f20a",
             "label": "Bloki pod sliderem",
             "name": "",
@@ -531,5 +568,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637068516
+    "modified": 1638274238
 }

@@ -106,6 +106,58 @@ $sliderHeight: 85vh;
     }
 }
 
+/* ---- Home info text ---- */ 
+
+.homeTextinfo{
+    padding: 40px 0 0;
+    background-color: $pink-color;
+
+    &__wrap{
+        padding: 0 15px;
+
+        p{
+            font-size: 16px;
+            line-height: 21px;
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    }
+}
+@media (max-width: 1199px){
+    .homeTextinfo{
+        &__wrap{
+            p{
+                max-width: 700px;
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .homeTextinfo{
+        padding: 25px 0 0;
+
+        &__wrap{
+            p{
+                font-size: 14px;
+                line-height: 19px;
+            }
+        }
+    }
+}
+@media (max-width: 575px){
+    .homeTextinfo{
+        &__wrap{
+            p{
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
+    }
+}
+
 /* ---- Reassurance boxes ---- */ 
 
 .homeReassurance{
@@ -169,6 +221,11 @@ $sliderHeight: 85vh;
         position: absolute;
         bottom: -23px;
         z-index: 3;
+    }
+    &--uptext{
+        &:before{
+            top: -125px;
+        }
     }
 }
 @media (max-width: 1450px){
