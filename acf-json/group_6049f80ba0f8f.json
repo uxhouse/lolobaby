@@ -36,15 +36,18 @@
                 "czerwony": "Czerwony",
                 "niebieski": "Niebieski",
                 "granatowy": "Granatowy",
+                "jasnydenim": "Jasny Denim",
+                "lawendowy": "Lawendowy",
                 "zolty": "Żółty",
                 "mietowy": "Miętowy",
+                "floral": "Floral",
                 "multikolor": "Multikolor",
                 "kremowy": "Kremowy",
-                "rozowy": "Różowy"
+                "rozowy": "Różowy",
+                "brak": "Inny\/Komplet"
             },
             "allow_null": 0,
-            "other_choice": 1,
-            "save_other_choice": 1,
+            "other_choice": 0,
             "default_value": "",
             "layout": "vertical",
             "return_format": "value",
@@ -52,7 +55,8 @@
             "show_column_sortable": 1,
             "show_column_weight": 100,
             "allow_quickedit": 1,
-            "allow_bulkedit": 1
+            "allow_bulkedit": 1,
+            "save_other_choice": 0
         },
         {
             "key": "field_6049f827dcba4",
@@ -462,5 +466,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1638447880
+    "modified": 1638450165
 }

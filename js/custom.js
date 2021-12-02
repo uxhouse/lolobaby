@@ -204,11 +204,15 @@ $(document).ready(function(){
             czerwony: 1,
             niebieski: 2,
             granatowy: 3,
-            zolty: 4,
-            mietowy: 5,
-            multikolor: 6,
-            kremowy: 7,
-            rozowy: 8,          
+            jasnydenim: 4,
+            lawendowy: 5,
+            zolty: 6,
+            mietowy: 7,
+            floral: 8,
+            multikolor: 9,
+            kremowy: 10,
+            rozowy: 11,
+            brak: 12, 
         }
         if(param === false){
             var items = $('.productTile--archive');

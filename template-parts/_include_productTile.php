@@ -1,4 +1,4 @@
-<article class="productTile<?php if(!is_front_page()): ?> productTile--archive<?php endif; ?>"<?php if(!is_front_page()): ?> data-color="<?php the_field('productColor_sort'); ?>"<?php endif; ?> productID="<?php the_ID(); ?>">
+<article class="productTile<?php if(!is_front_page()): ?> productTile--archive<?php endif; ?>"<?php if(!is_front_page() && get_field('productColor_sort')): ?> data-color="<?php the_field('productColor_sort'); ?>"<?php endif; ?> productID="<?php the_ID(); ?>">
     <div class="productTile__wrap">
         <a href="<?php the_permalink() ?>" class="productTile__thumb">
             <img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
