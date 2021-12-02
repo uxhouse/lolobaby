@@ -195,6 +195,36 @@ $(document).ready(function(){
         });
     }
 
+    /**
+     *  Sort products by color
+     */
+    $(document).ready(function(){
+        var param = getUrlParameter('orderby');
+        var sort = {
+            czerwony: 1,
+            niebieski: 2,
+            granatowy: 3,
+            zolty: 4,
+            mietowy: 5,
+            multikolor: 6,
+            kremowy: 7,
+            rozowy: 8,          
+        }
+        if(param === false){
+            var items = $('.productTile--archive');
+            items.each(function(){
+                var color = $(this).data('color');
+                if(sort[color] !== undefined){
+                    $(this).attr('data-sort', sort[color]);
+                }
+            });
+            items.sort(function(a, b){
+                return +$(a).data('sort') - +$(b).data('sort');
+            });
+            items.appendTo('.archiveShop__list');
+        }
+    });
+
     /* ---- Blog dropdown ---- */
 
     var blogButton = $('.blog__dropdownButton');
