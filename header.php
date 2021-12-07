@@ -56,13 +56,13 @@
 </head>
 <?php $lang = get_bloginfo('language'); ?>
 <body <?php body_class(); ?> currency="<?php echo get_woocommerce_currency_symbol(); ?>" <?php if (is_checkout() && !empty(is_wc_endpoint_url('order-received'))) {echo 'thankyoupage="true"';}; ?> freeshipping="<?php echo $freeshippingamount; ?>" lang="<?php echo $lang; ?>">
-	<?php wp_body_open(); ?>
-
+	
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXVX2SM"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-	
+
+	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'lolobaby'); ?></a>
 		<div class="lolosite__header">
