@@ -201,17 +201,17 @@ $(document).ready(function(){
     $(document).ready(function(){
         var param = getUrlParameter('orderby');
         var sort = {
-            czerwony: 1,
-            niebieski: 2,
-            granatowy: 3,
-            jasnydenim: 4,
-            lawendowy: 5,
-            zolty: 6,
-            mietowy: 7,
+            multikolor: 1,
+            czerwony: 2,
+            niebieski: 3,
+            ocean: 4,
+            kremowy: 5,
+            rozowy: 6,
+            lawendowy: 7,
             floral: 8,
-            multikolor: 9,
-            kremowy: 10,
-            rozowy: 11,
+            granatowy: 9,
+            zolty: 10,
+            mietowy: 11,
             brak: 12, 
         }
         if(param === false){

@@ -36,7 +36,7 @@
                 "czerwony": "Czerwony",
                 "niebieski": "Niebieski",
                 "granatowy": "Granatowy",
-                "jasnydenim": "Jasny Denim",
+                "ocean": "Ocean",
                 "lawendowy": "Lawendowy",
                 "zolty": "Żółty",
                 "mietowy": "Miętowy",
@@ -987,5 +987,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1638974371
+    "modified": 1638978313
 }
