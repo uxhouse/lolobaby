@@ -20,9 +20,9 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_before_cart' );
 
     global $woocommerce;
-    $chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
-    $chosen_shipping = $chosen_methods[0];
-    $shipmentID = (int) filter_var($chosen_shipping, FILTER_SANITIZE_NUMBER_INT);
+    // $chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+    // $chosen_shipping = $chosen_methods[0];
+    // $shipmentID = (int) filter_var($chosen_shipping, FILTER_SANITIZE_NUMBER_INT);
     $lang = get_bloginfo('language'); ?>
 <?php 
 $brand_terms = get_terms(array(
@@ -36,7 +36,7 @@ if($brand_terms): ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-<div class="loloCart"<?php if($shipmentID): ?> selectedShipment="id_<?php echo $shipmentID; ?>"<?php endif; ?>>
+<div class="loloCart">
     <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post" checkout="<?php echo get_permalink(icl_object_id(9, 'page', false, ICL_LANGUAGE_CODE)); ?>">
         <div class="loloCart__wave container">
             <img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">

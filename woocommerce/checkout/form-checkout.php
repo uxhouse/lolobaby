@@ -126,7 +126,10 @@ $shippingTotal = $woocommerce->cart->get_cart_shipping_total();
             <div class="checkoutDeliverySelect">
             <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
                 <?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
-                    <?php wc_cart_totals_shipping_html(); ?>
+                    <?php 
+                        // WC()->cart->calculate_totals();
+                        wc_cart_totals_shipping_html();
+                    ?>
                 <?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
             <?php endif; ?>
             </div>

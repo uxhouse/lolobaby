@@ -912,6 +912,14 @@ body[thankyoupage="true"]{
                     display: inline-block;
                 }
 
+                // &[methodid="11"]{
+                //     &:before{
+                //         background-image: url('/wp-content/themes/lolobaby/images/icons/international_ico.svg');
+                //         background-size: 70px 50px;
+                //         width: 70px;
+                //         height: 50px;
+                //     }
+                // }
                 &[methodid="9"]{
                     &:before{
                         background-image: url('/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg');
@@ -976,6 +984,17 @@ body[thankyoupage="true"]{
                         border: 2px solid $red-color;
                     }
 
+                    &[methodid="11"]{
+                        label{
+                            &:before{
+                                background-image: url('/wp-content/themes/lolobaby/images/icons/international_ico.svg');
+                                background-size: 60px;
+                                width: 60px;
+                                height: 60px;
+                                opacity: .7;
+                            }
+                        }
+                    }
                     &[methodid="9"]{
                         label{
                             &:before{

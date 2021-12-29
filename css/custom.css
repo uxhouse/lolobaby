@@ -6198,6 +6198,14 @@ body[thankyoupage="true"] #masthead {
   border: 2px solid #EC422B;
 }
 
+.checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="11"] label:before {
+  background-image: url("/wp-content/themes/lolobaby/images/icons/international_ico.svg");
+  background-size: 60px;
+  width: 60px;
+  height: 60px;
+  opacity: .7;
+}
+
 .checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="9"] label:before {
   background-image: url("/wp-content/themes/lolobaby/images/icons/delivery_inpost_logo.svg");
   background-size: 100px 50px;

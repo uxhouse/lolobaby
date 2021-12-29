@@ -543,26 +543,116 @@ $(document).ready(function(){
             var totalDiscount = $('.couponList').attr('totaldiscount');
         }
 
-        var selectedShipment = $('.loloCart').attr('selectedshipment');
-        if(typeof selectedShipment !== typeof undefined && selectedShipment !== false){
-            $('.deliveryList__option[methodid="' + selectedShipment + '"]').addClass('deliveryList__option--checked');
-            var selectedOptionAmount = $('.deliveryList__option[methodid="' + selectedShipment + '"]').attr('methodamount');
-
-            if(selectedOptionAmount == '0'){
-                if(lang == 'pl-PL'){
-                    deliveryAmount.find('p').text('ZA DARMO');
-                }else{
-                    deliveryAmount.find('p').text('FREE');
-                }
-            }else{
-                deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
+        /**
+         * Get selected shippment ID
+         */
+        $(document).ready(function(){
+            var data = {
+                action: 'get_user_shipping_method',
             }
+            $.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: data,
+                beforeSend: function(){
+                    $('.loloCart__delivery').css('opacity', '.5');
+                    $('.loloCart__delivery').css('pointer-events', 'none');
+                },
+                success: function(response){
+                    console.log(response);
+                    if($('body').hasClass('woocommerce-checkout')){
+                        var lang = $('body').attr('lang');
+                        var shipmentID = parseInt(response);
+                        if(shipmentID == 11){
+                            $('#billing_country_field').css('pointer-events', 'all');
+                            $('#billing_country').find('option[value="PL"]').remove();
+                        }else{
+                            $('#billing_country_field').css('pointer-events', 'none');
+                        }
+                        $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
+                        setTimeout(function(){
+                            $('li[methodid="' + shipmentID + '"]').each(function(){
+                                var getname = $(this).find('label')[0].childNodes[0].nodeValue;
+                                var name = getname.replace(':', '');
+                                var methodid = $(this).attr('methodid');
+            
+                                $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
+                                $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
+                                $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
+            
+                                if(methodid == 8 && methodid == 11){
+                                    $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
+                                    $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
+                                }
+                                if(methodid == 9){
+                                    $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
+                                    $('.checkoutDeliverySelected').find('.pointname').text($('#selected-point').text());
+                                    $('.btn.selectPoint').addClass('visible');
+                                }
+                            });
+                        }, 100);
+            
+                        if(shipmentID > 0){
+                            $('.checkoutDeliverySelect').slideUp();
+                            if(lang == 'pl-PL'){
+                                $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
+                            }else{
+                                $('.checkoutPage__delivery').find('.heading').find('h3').text('Selected delivery method');
+                            }
+                        }else{
+                            if(lang == 'pl-PL'){
+                                $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
+                            }else{
+                                $('.checkoutPage__delivery').find('.heading').find('h3').text('Select delivery method');
+                            }
+                        }
+                    }else{
+                        $('.loloCart__delivery').css('opacity', '1');
+                        $('.loloCart__delivery').css('pointer-events', 'all');
+                        if(response !== 'error'){
+                            var buttonhref = $('.woocommerce-cart-form').attr('checkout');
+                            $('.loloCart__afterCart').removeClass('notSelected');
+                            $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
 
-            // var formaction = $('.woocommerce-cart-form').attr('action');
-            // var buttonhref = formaction.replace('koszyk', 'zamowienie');
-            // $('.loloCart__afterCart').removeClass('notSelected');
-            // $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
-        }
+                            $('.deliveryList__option[methodid="id_' + response + '"]').addClass('deliveryList__option--checked');
+                            var selectedOptionAmount = $('.deliveryList__option[methodid="id_' + response + '"]').attr('methodamount');
+                            if(selectedOptionAmount == '0'){
+                                if(lang == 'pl-PL'){
+                                    deliveryAmount.find('p').text('ZA DARMO');
+                                }else{
+                                    deliveryAmount.find('p').text('FREE');
+                                }
+                            }else{
+                                deliveryAmount.find('p').text(selectedOptionAmount + ' ' + currency);
+                            }
+                        }else{
+                            console.error('Brak wybranego sposobu dostawy');
+                        }
+                    }
+                },
+            });
+        });
+
+        /**
+         * System delivery click
+         */
+        var delieryOption = $('#shipping_method').find('.shipping_method');
+        $(delieryOption).on('click', function(){
+            var id = $(this).parent().attr('methodid');
+            var data = {
+                action: 'add_user_shipping_method',
+                methodid: id,
+            }
+            $.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: data,
+                success: function(response){
+                    console.log(response);
+                },
+            })
+        });
+
         $(deliverySelector).on('click', function(){
             var buttonhref = $('.woocommerce-cart-form').attr('checkout');
             $('.loloCart__afterCart').removeClass('notSelected');
@@ -602,6 +692,19 @@ $(document).ready(function(){
                 }
                 carTotalValue.html(totalAmountFormated + ' ' + currency);
             }
+
+            var data = {
+                action: 'add_user_shipping_method',
+                methodid: methodID,
+            }
+            $.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: data,
+                success: function(response){
+                    console.log(response);
+                },
+            })
         });
 
         /* Product page - variation update price */
@@ -1059,57 +1162,6 @@ $(document).ready(function(){
         var regex = /^[0-9]+$/;
         if (regex.test(this.value) !== true){
             this.value = this.value.replace(/[^0-9]+/, '');
-        }
-    });
-
-    /////////////  Select choosed shipment option //////////////
-    $(document).ready(function(){
-        if($('body').hasClass('woocommerce-checkout')){
-            var lang = $('body').attr('lang');
-            var shipmentID = parseInt($('.checkoutPage').attr('selectedshipment'));
-            // console.log(shipmentID);
-            if(shipmentID == 11){
-                $('#billing_country_field').css('pointer-events', 'all');
-            }else{
-                $('#billing_country_field').css('pointer-events', 'none');
-            }
-            $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
-            setTimeout(function(){
-                $('li[methodid="' + shipmentID + '"]').each(function(){
-                    var getname = $(this).find('label')[0].childNodes[0].nodeValue;
-                    var name = getname.replace(':', '');
-                    var methodid = $(this).attr('methodid');
-
-                    $('.checkoutDeliverySelected').removeClass('checkoutDeliverySelected--disable');
-                    $('.checkoutDeliverySelected').find('h3').text(name).attr('methodid', methodid);
-                    $('.summaryPage__shipping').find('.name').text(name).attr('methodid', methodid);
-
-                    if(methodid == 8 && methodid == 11){
-                        $('.checkoutDeliverySelected').find('.pointname').removeClass('visible');
-                        $('.checkoutDeliverySelected').find('.selectPoint').removeClass('visible');
-                    }
-                    if(methodid == 9){
-                        $('.checkoutDeliverySelected').find('.pointname').addClass('visible');
-                        $('.checkoutDeliverySelected').find('.pointname').text($('#selected-point').text());
-                        $('.btn.selectPoint').addClass('visible');
-                    }
-                });
-            }, 100);
-
-            if(shipmentID > 0){
-                $('.checkoutDeliverySelect').slideUp();
-                if(lang == 'pl-PL'){
-                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybrany sposób dostawy');
-                }else{
-                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Selected delivery method');
-                }
-            }else{
-                if(lang == 'pl-PL'){
-                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Wybierz sposób dostawy');
-                }else{
-                    $('.checkoutPage__delivery').find('.heading').find('h3').text('Select delivery method');
-                }
-            }
         }
     });
 

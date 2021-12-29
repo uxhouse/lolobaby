@@ -743,3 +743,32 @@ function wc_session_enabler() {
         WC()->session->set_customer_session_cookie( true );
     }
 }
+
+/**
+ * Selected shipping method
+ */
+add_action('wp_ajax_add_user_shipping_method', 'add_user_shipping_method');
+add_action('wp_ajax_nopriv_add_user_shipping_method', 'add_user_shipping_method');
+function add_user_shipping_method(){
+	$id = $_POST['methodid'];
+
+	$expiry = strtotime('+1 day');
+	setcookie('shipping_method', $id, $expiry);
+	echo $_COOKIE['shipping_method'];
+	die();
+}
+
+/**
+ * GET selected shipping method
+ */
+add_action('wp_ajax_get_user_shipping_method', 'get_user_shipping_method');
+add_action('wp_ajax_nopriv_get_user_shipping_method', 'get_user_shipping_method');
+function get_user_shipping_method(){
+	$shippingID = $_COOKIE['shipping_method'];
+	if(isset($shippingID)){
+		echo $shippingID;
+	}else{
+		echo 'error';
+	}
+	die();
+}
