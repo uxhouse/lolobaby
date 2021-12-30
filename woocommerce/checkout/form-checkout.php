@@ -44,7 +44,6 @@ $shippingTotal = $woocommerce->cart->get_cart_shipping_total();
 // $orderData = wc_get_order($orderID); 
 // $orderItems = $orderData->get_items();
 // $orderItemsQty = $orderItems['quantity'];
-// 
 ?>
 <form name="checkout" method="post" class="checkout checkoutForm woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
     <div class="checkoutPage<?php if(is_user_logged_in() || !$checkout->is_registration_enabled()): ?> checkoutPage--ready checkoutPage--visible<?php endif; ?> container" selectedshipment="<?php echo $shipmentID; ?>" clientName="<?php if($username){echo $username;}else{echo $nickname;}; ?>">

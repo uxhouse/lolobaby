@@ -570,6 +570,7 @@ $(document).ready(function(){
                             $('#billing_country_field').css('pointer-events', 'none');
                         }
                         $('#shipping_method').find('li[methodid="' + shipmentID + '"]').addClass('radio-selected');
+                        $('#shipping_method').find('li[methodid="' + shipmentID + '"]').find('input').trigger('click');
                         setTimeout(function(){
                             $('li[methodid="' + shipmentID + '"]').each(function(){
                                 var getname = $(this).find('label')[0].childNodes[0].nodeValue;
@@ -610,11 +611,8 @@ $(document).ready(function(){
                         $('.loloCart__delivery').css('opacity', '1');
                         $('.loloCart__delivery').css('pointer-events', 'all');
                         if(response !== 'error'){
-                            var buttonhref = $('.woocommerce-cart-form').attr('checkout');
-                            $('.loloCart__afterCart').removeClass('notSelected');
-                            $('.loloCart__afterCart').find('.tocheckout').attr('href', buttonhref);
-
                             $('.deliveryList__option[methodid="id_' + response + '"]').addClass('deliveryList__option--checked');
+                            $('#method_' + response).trigger('click');
                             var selectedOptionAmount = $('.deliveryList__option[methodid="id_' + response + '"]').attr('methodamount');
                             if(selectedOptionAmount == '0'){
                                 if(lang == 'pl-PL'){
