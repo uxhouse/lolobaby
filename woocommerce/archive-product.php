@@ -53,7 +53,7 @@ $category_terms = get_fields('term_' . $current_category_object->term_id);
                 <?php if($lang == 'pl-PL'): ?>
                     <p><?php the_field('archiveShop_description', 2567); ?></p>
                 <?php else: ?>
-                    <p><?php the_field('archiveShop_description', 2728); ?></p>
+                    <p><?php the_field('archiveShop_description', 3640); ?></p>
                 <?php endif; ?>
             <?php else: ?>
                 <?php do_action( 'woocommerce_archive_description' ); ?>
