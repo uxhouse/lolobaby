@@ -166,6 +166,15 @@ get_header(); ?>
     <?php endif; ?>
 
     <?php include get_template_directory() . '/template-parts/_include_instagramSection.php'; ?>
+
+    <?php if(get_field('homepage_infotext_bottom')): ?>
+    <section class="homeInfo">
+        <div class="homeInfo__wrap">
+            <p><?php the_field('homepage_infotext_bottom'); ?></p>
+        </div>
+    </section>
+    <?php endif; ?>
+
 </main>
 
 <?php get_footer(); ?>

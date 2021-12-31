@@ -87,8 +87,8 @@ body {
 
 .homeSlider__wrap h2 {
   font-family: "Pacifico";
-  font-size: 100px;
-  line-height: 115px;
+  font-size: 90px;
+  line-height: 105px;
   color: #fff;
   transform: rotate(-3deg);
   pointer-events: none;
@@ -149,8 +149,8 @@ body {
     max-width: 550px;
   }
   .homeSlider__wrap h2 {
-    font-size: 90px;
-    line-height: 10px;
+    font-size: 80px;
+    line-height: 95px;
   }
 }
 
@@ -864,6 +864,35 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+  }
+}
+
+.homeInfo {
+  width: 100%;
+  padding: 40px 0 32px;
+}
+
+.homeInfo__wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.homeInfo__wrap p {
+  font-size: 16px;
+  line-height: 21px;
+  color: #000;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .homeInfo {
+    padding: 20px 0 15px;
+  }
+  .homeInfo__wrap p {
+    font-size: 14px;
+    line-height: 19px;
   }
 }
 

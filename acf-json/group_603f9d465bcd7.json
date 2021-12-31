@@ -549,6 +549,43 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_61cef23ddc829",
+            "label": "Tekst na dole strony",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_61cef247dc82a",
+            "label": "Tekst na dole strony",
+            "name": "homepage_infotext_bottom",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": "br",
+            "wpml_cf_preferences": 2
         }
     ],
     "location": [
@@ -568,5 +605,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1638274238
+    "modified": 1640952432
 }

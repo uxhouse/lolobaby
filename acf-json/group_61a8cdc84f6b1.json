@@ -132,12 +132,12 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 3,
             "collapsed": "",
             "min": 0,
             "max": 0,
             "layout": "row",
             "button_label": "Dodaj kolor",
-            "wpml_cf_preferences": 1,
             "sub_fields": [
                 {
                     "key": "field_61a8cdc86e4ed",
@@ -152,12 +152,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 1,
+                    "wpml_cf_preferences": 3,
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "show_column": 0,
+                    "show_column_sortable": 0,
+                    "show_column_weight": 1000,
+                    "allow_quickedit": 0,
+                    "allow_bulkedit": 0
                 },
                 {
                     "key": "field_61a8cdc86e524",
@@ -172,6 +177,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 1,
                     "choices": {
                         "color": "Kolor",
                         "pattern": "Wzór"
@@ -181,7 +187,11 @@
                     "default_value": "",
                     "layout": "vertical",
                     "return_format": "value",
-                    "wpml_cf_preferences": 1,
+                    "show_column": 0,
+                    "show_column_sortable": 0,
+                    "show_column_weight": 1000,
+                    "allow_quickedit": 0,
+                    "allow_bulkedit": 0,
                     "save_other_choice": 0
                 },
                 {
@@ -205,8 +215,13 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 1,
                     "default_value": "",
-                    "wpml_cf_preferences": 1
+                    "show_column": 0,
+                    "show_column_sortable": 0,
+                    "show_column_weight": 1000,
+                    "allow_quickedit": 0,
+                    "allow_bulkedit": 0
                 },
                 {
                     "key": "field_61a8cdc86e52f",
@@ -254,6 +269,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 3,
                     "post_type": [
                         "product"
                     ],
@@ -269,7 +285,8 @@
                     "min": "",
                     "max": "",
                     "return_format": "object",
-                    "wpml_cf_preferences": 1
+                    "show_column": 0,
+                    "show_column_weight": 1000
                 }
             ]
         },
@@ -987,5 +1004,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1638978313
+    "modified": 1640953516
 }

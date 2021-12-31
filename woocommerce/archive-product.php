@@ -51,9 +51,9 @@ $category_terms = get_fields('term_' . $current_category_object->term_id);
         <div class="catDesc">
             <?php if(is_shop()): ?>
                 <?php if($lang == 'pl-PL'): ?>
-                    <p>Bezpieczeństwo i komfort Maluchów to nasz priorytet, dlatego też wszystkie ubranka naszej marki szyjemy w Polsce z najwyższej jakości materiałów posiadających certyfikat Oeko-Tex Standard 100 i spełniających normy Unii Europejskiej. Nasze produkty są zaprojektowane z dbałością o każdy szczegół. Są wygodne i praktyczne, uszyte z delikatnych, miłych w dotyku materiałów, dzięki czemu mogą towarzyszyć Waszemu maleństwu od pierwszych dni jego życia.</p>
+                    <p><?php the_field('archiveShop_description', 2567); ?></p>
                 <?php else: ?>
-                    <p>The safety and comfort of children is our priority, which is why all our brand clothes are sewn in Poland from the highest quality materials with the Oeko-Tex Standard 100 certificate and meeting the standards of the European Union. Our products are designed with attention to every detail. They are comfortable and practical, made of delicate, pleasant to the touch materials, thanks to which they can accompany your baby from the first days of his life.</p>
+                    <p><?php the_field('archiveShop_description', 2728); ?></p>
                 <?php endif; ?>
             <?php else: ?>
                 <?php do_action( 'woocommerce_archive_description' ); ?>
