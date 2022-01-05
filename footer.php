@@ -223,5 +223,6 @@
 </script>
 <?php wp_footer(); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript">var _sscp_id = "61ceed45711ed";(function() {var s = document.createElement('script');s.type = 'text/javascript';s.src = "https://widget.contactleader.pl/f/" + _sscp_id + "/cl.js";s.async = true;document.getElementsByTagName('head')[0].appendChild(s);})();</script>
 </body>
 </html>
