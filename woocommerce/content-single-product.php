@@ -114,7 +114,7 @@ function cleanArray($array){
                         <p><?php _e('Więcej o <a href="/dostawa" target="_blank">dostawie</a> i <a href="/platnosc" target="_blank">płatności', 'lolobaby'); ?></a></p>
                     </div>
                     <?php if(get_field('product_boxes')): ?>
-                    <h4 class="summary__boxesTitle"><span><?php _e('Dlaczego bambus?', 'lolobaby'); ?></span></h4>
+                    <h4 class="summary__boxesTitle"><span><?php _e('Dlaczego warto?', 'lolobaby'); ?></span></h4>
                     <div class="summary__boxes">
                         <?php while(have_rows('product_boxes')): the_row();
                             $icon = get_sub_field('product_boxes_icon');
