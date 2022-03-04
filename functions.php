@@ -191,6 +191,7 @@ function lolobaby_scripts() {
 
 	/* Custom js */
 	wp_enqueue_script( 'lolobaby-custom-js', get_template_directory_uri() . '/js/custom.js', array(), $theme_version . $random_number, true );
+	wp_localize_script( 'lolobaby-custom-js', 'loloajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 	wp_enqueue_script( 'lolobaby-language-js', get_template_directory_uri() . '/js/_language.js', array(), $theme_version . $random_number, true );
 	wp_enqueue_script( 'lolobaby-checkout-js', get_template_directory_uri() . '/js/_checkout.js', array(), $theme_version . $random_number, true );
 	wp_enqueue_script( 'lolobaby-sliders-js', get_template_directory_uri() . '/js/sliders.js', array(), $theme_version . $random_number, true );
@@ -364,14 +365,15 @@ function get_custom_email_html($heading = false, $mailer ) {
 	));
 }
 
-add_action('init','create_account');
-function create_account(){
-    //You may need some data validation here
-	$formID = ( isset($_POST['register-formid']) ? $_POST['register-formid'] : '' );
-    $user = ( isset($_POST['registerUsername']) ? $_POST['registerUsername'] : '' );
-    $pass = ( isset($_POST['registerUserpassword']) ? $_POST['registerUserpassword'] : '' );
-    $email = ( isset($_POST['registerUseremail']) ? $_POST['registerUseremail'] : '' );
-    $newsletter = ( isset($_POST['mc4wp-subscribe']) ? $_POST['mc4wp-subscribe'] : '' );
+// add_action('init', 'create_account');
+add_action('wp_ajax_registerForm', 'registerForm');
+add_action('wp_ajax_nopriv_registerForm', 'registerForm');
+function registerForm(){
+	$formID = ( isset($_POST['formID']) ? $_POST['formID'] : '' );
+    $user = ( isset($_POST['user']) ? $_POST['user'] : '' );
+    $pass = ( isset($_POST['pass']) ? $_POST['pass'] : '' );
+    $email = ( isset($_POST['email']) ? $_POST['email'] : '' );
+    $newsletter = ( isset($_POST['newsletter']) ? $_POST['newsletter'] : '' );
 
 	if($formID == 21){
 		if (!email_exists($email)){
@@ -389,12 +391,14 @@ function create_account(){
 
 				wp_set_current_user($user_id);
 				wp_set_auth_cookie($user_id);
-				wp_redirect(home_url('/zamowienie'));
-				exit;
+				// wp_redirect(home_url('/zamowienie'));
+				echo 'done - zamowienie';
+			}else{
+				echo 'error';
 			}
 		}else{
-			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
-			exit;
+			echo 'failed - zamowienie';
+			// wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
 		}
 	}else{
 		if (!email_exists($email)){
@@ -412,14 +416,17 @@ function create_account(){
 
 				wp_set_current_user($user_id);
 				wp_set_auth_cookie($user_id);
-				wp_redirect(home_url('/moje-konto'));
-				exit;
+				// wp_redirect(home_url('/moje-konto'));
+				echo 'done';
+			}else{
+				echo 'error';
 			}
 		}else{
-			wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
-			exit;
+			echo 'failed';
+			// wp_redirect(home_url('/moje-konto?registerstatus=failed&reason=email'));
 		}
 	}
+	die();
 }
 
 // define the woocommerce_process_login_errors callback 

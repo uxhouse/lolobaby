@@ -47,6 +47,7 @@ if($brand_terms): ?>
                 foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
                 $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
                 $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+                $productID = wc_get_product($product_id);
 
                 if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ):
                 $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
@@ -66,7 +67,7 @@ if($brand_terms): ?>
                     ?>
                     </div>
                     <div class="cartItem__name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
-                        <h3><?php echo $_product->get_title(); ?></h3>
+                        <h3><?php echo $productID->name; ?></h3>
                     </div>
                     <div class="cartItem__remove">
                     <?php
@@ -254,19 +255,21 @@ if($brand_terms): ?>
                         <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php
                                 if( $freeshippingamount > $cart ){
                                     echo $price;
-                                }else if($freeshippingamount <= $cart && $lang == 'pl-PL'){
+                                }else if($freeshippingamount <= $cart){
                                     echo '0';
                                 }
                             ?>">
                             <div class="name">
                                 <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
-                                <label for="method_<?php echo $shipping_method->instance_id; ?>" delivery-time="<?php echo $deliveryTime; ?>"><?php echo $shipping_method->title;?></label>
+                                <label for="method_<?php echo $shipping_method->instance_id; ?>" delivery-time="<?php echo $deliveryTime; ?>">
+                                    <?php _e($shipping_method->title, 'lolobaby'); ?>
+                                </label>
                             </div>
                             <div class="amount">
                                 <?php                    
                                     if( $freeshippingamount > $cart ){
                                         echo '<span>' . wc_price($price) . '</span>';
-                                    }else{
+                                    }else if($freeshippingamount <= $cart){
                                         echo '<span>' . __('Za darmo!', 'lolobaby') . '</span>';
                                     }
                                 ?>
@@ -288,7 +291,9 @@ if($brand_terms): ?>
                         <div class="deliveryList__option" methodid="id_<?php echo $shipping_method->instance_id; ?>" methodamount="<?php echo $price; ?>">
                             <div class="name">
                                 <input type="radio" id="method_<?php echo $shipping_method->instance_id; ?>" methodid="<?php echo $shipping_method->instance_id; ?>" name="delivery_option" value="method_<?php echo $shipping_method->instance_id; ?>"/>
-                                <label for="method_<?php echo $shipping_method->instance_id; ?>"><?php echo $shipping_method->title;?></label>
+                                <label for="method_<?php echo $shipping_method->instance_id; ?>">
+                                    <?php _e($shipping_method->title, 'lolobaby'); ?>
+                                </label>
                             </div>
                             <div class="amount">
                                 <?php echo '<span>' . wc_price($price) . '</span>'; ?>

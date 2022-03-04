@@ -559,7 +559,6 @@ $(document).ready(function(){
                     $('.loloCart__delivery').css('pointer-events', 'none');
                 },
                 success: function(response){
-                    console.log(response);
                     if($('body').hasClass('woocommerce-checkout')){
                         var lang = $('body').attr('lang');
                         var shipmentID = parseInt(response);
@@ -767,6 +766,7 @@ $(document).ready(function(){
             $('.checkoutUser__change').find('.toLogin').addClass('changeBox--ready');
             setTimeout(function(){
                 $('.checkoutLogin').removeClass('checkoutLogin--ready');
+                $('.gotoRegister').removeClass('gotoRegister--ready');
             }, 200);
 
             /* Open register form */
@@ -789,9 +789,11 @@ $(document).ready(function(){
             /* Open login form */
             setTimeout(function(){
                 $('.checkoutLogin').addClass('checkoutLogin--ready');
+                $('.gotoRegister').addClass('gotoRegister--ready');
             }, 200);
             setTimeout(function(){
                 $('.checkoutLogin').addClass('checkoutLogin--visible');
+                $('.gotoRegister').addClass('gotoRegister--visible');
             }, 500);
         }
 
@@ -802,6 +804,93 @@ $(document).ready(function(){
             if(resetStatus == 'true'){
                 $('.checkoutLogin').find('.notices').append('<p class="success">Twoje hasło zostało zmienione, zaloguj się za pomocą nowego hasła.</p>');
             }
+        });
+
+        /**
+         * Register sent
+         */
+        $(document).ready(function(){
+            jQuery.validator.setDefaults({
+                debug: false,
+                success: 'valid'
+            });
+            $('form[name="checkoutRegisterForm"]').validate({
+                // Specify validation rules
+                rules: {
+                    registerUsername: "required",
+                    registerUseremail: {
+                        required: true,
+                        email: true
+                    },
+                    registerUserpassword: {
+                        required: true,
+                        minlength: 8
+                    },
+                    registerConsent: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    registerUsername: "Wprowadź imię i nazwisko",
+                    registerUserpassword: {
+                        required: "Wprowadź hasło",
+                        minlength: "Twoje hasło musi posiadać przynajmniej 8 znaków"
+                    },
+                    registerUseremail: "Wprowadź prawidłowy adres e-mail",
+                    registerConsent: "<p>Potwierdź zapoznanie z regulaminem sklepu</p>",
+                },
+            });
+
+            $('#checkoutRegisterForm').on('submit', function(e){
+                e.preventDefault();
+                var form = $(this),
+                    id = form.find('input[name="register-formid"]').val(),
+                    name = form.find('input[name="registerUsername"]').val(),
+                    email = form.find('input[name="registerUseremail"]').val(),
+                    pass = form.find('input[name="registerUserpassword"]').val(),
+                    newsletter = false;
+
+                if(form.find('input[name="mc4wp-subscribe"]').parent().hasClass('checked')){
+                    newsletter = true;
+                }
+                
+                var data = {
+                    action: 'registerForm',
+                    formID: id,
+                    user: name,
+                    email: email,
+                    pass: pass,
+                    newsletter: newsletter,
+                }
+                form.validate();
+
+                if(form.valid() == true){
+                    console.log(data);
+                    $.ajax({ 
+                        type: 'POST',
+                        url: ajaxurl,
+                        data: data,
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 'done'){
+                                if($('body').attr('lang') == 'pl-PL'){
+                                    window.location.href = '/moje-konto';
+                                }else{
+                                    window.location.href = '/en/my-account';
+                                }
+                            }else if(response == 'done - zamowienie'){
+                                if($('body').attr('lang') == 'pl-PL'){
+                                    window.location.href = '/zamowienie';
+                                }else{
+                                    window.location.href = '/en/checkout';
+                                }
+                            }else if(response == 'failed' || response == 'failed - zamowienie'){
+                                form.find('.notices').append('<p class="error">Na podany adres e-mail jest już zarejestrowane konto użytkownika.</p>');
+                            }
+                        }
+                    });
+                }
+            });
         });
 
         /* ---- Register notices ---- */
@@ -846,7 +935,6 @@ $(document).ready(function(){
 
         $(openRegister).on('click', function(){
             openRegisterForm();
-
         });
         $(openLogin).on('click', function(){
             openLoginForm();
@@ -1058,40 +1146,6 @@ $(document).ready(function(){
     });
 
     ///////////// Validate /////////////
-    $(function() {
-        // Initialize form validation on the registration form.
-        // It has the name attribute "registration"
-        $('form[name="checkoutRegisterForm"]').validate({
-            // Specify validation rules
-            rules: {
-                registerUsername: "required",
-                registerUseremail: {
-                    required: true,
-                    email: true
-                },
-                registerUserpassword: {
-                    required: true,
-                    minlength: 8
-                },
-                registerConsent: {
-                    required: true,
-                },
-            },
-            messages: {
-                registerUsername: "Wprowadź imię i nazwisko",
-                registerUserpassword: {
-                    required: "Wprowadź hasło",
-                    minlength: "Twoje hasło musi posiadać przynajmniej 8 znaków"
-                },
-                registerUseremail: "Wprowadź prawidłowy adres e-mail",
-                registerConsent: "Potwierdź zapoznanie z regulaminem sklepu",
-            },
-            
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-    });
 
     // Validate newsletter
     $(document).ready(function(){

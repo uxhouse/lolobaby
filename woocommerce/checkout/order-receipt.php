@@ -97,11 +97,11 @@ $cartTotal = $order->get_total();
         <?php endforeach; ?>
         <div class="cartSummary">
             <p><?php _e('Wysyłka', 'lolobaby'); ?>: 
-            <?php if($shippingTotal > 0): ?>
+            <?php //if($shippingTotal > 0): ?>
                 <span><?php echo wc_price($shippingTotal); ?></span>
-            <?php else: ?>
-                <span><?php _e('Za darmo', 'lolobaby'); ?></span>
-            <?php endif; ?>
+            <?php //else: ?>
+                <!-- <span><?php // _e('Za darmo', 'lolobaby'); ?></span> -->
+            <?php //endif; ?>
             <p><?php _e('Suma', 'lolobaby'); ?>: <?php echo wc_price($cartTotal); ?></p>
         </div>
     </div>
@@ -137,7 +137,7 @@ $cartTotal = $order->get_total();
             }
         ?>
             <div class="optionList__option optionList__option--active" paymentmethod="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
-                <p class="name"><?php echo $gateway->title; ?></p>
+                <p class="name"><?php _e($gateway->title, 'lolobaby'); ?></p>
             </div>
             <?php endforeach; ?>
         <?php endif; ?>

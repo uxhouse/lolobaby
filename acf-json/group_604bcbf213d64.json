@@ -15,12 +15,17 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 1,
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "show_column": 0,
+            "show_column_sortable": 0,
+            "show_column_weight": 1000,
+            "allow_quickedit": 0,
+            "allow_bulkedit": 0
         },
         {
             "key": "field_604bcc0929a66",
@@ -35,6 +40,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "return_format": "url",
             "preview_size": "medium",
             "library": "all",
@@ -44,7 +50,11 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "allow_quickedit": 0,
+            "allow_bulkedit": 0
         },
         {
             "key": "field_6155a48a6beed",
@@ -59,9 +69,15 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "message": "Zaznacz jeśli kategoria ma być widoczna w sklepie",
             "default_value": 0,
             "ui": 0,
+            "show_column": 0,
+            "show_column_sortable": 0,
+            "show_column_weight": 1000,
+            "allow_quickedit": 0,
+            "allow_bulkedit": 0,
             "ui_on_text": "",
             "ui_off_text": ""
         },
@@ -78,12 +94,16 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
             "rows": 4,
             "new_lines": "br",
-            "wpml_cf_preferences": 1
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "allow_quickedit": 0,
+            "allow_bulkedit": 0
         }
     ],
     "location": [
@@ -103,5 +123,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1638272796
+    "modified": 1646405759
 }

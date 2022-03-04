@@ -5702,15 +5702,19 @@ body[thankyoupage="true"] #masthead {
 
 .checkoutRegister__checkbox label.error {
   position: absolute;
-  top: -25px;
+  top: -35px;
   right: 0;
   width: calc(440px);
-  text-align: center;
+}
+
+.checkoutRegister__checkbox label.error p {
   padding: 2px;
   border-radius: 4px;
-  color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
+  margin: 0;
+  text-align: center;
+  color: #721c24;
 }
 
 .checkoutPage {
@@ -6243,12 +6247,12 @@ body[thankyoupage="true"] #masthead {
 
 .checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="9"] label:after {
   display: block;
-  content: '2-3 dni';
+  content: attr(delivery-time);
   margin-top: 5px;
 }
 
 .checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="8"] label:before {
-  content: 'Kurier';
+  content: attr(delivery-name);
   font-size: 24px;
   font-weight: bold;
   display: flex;
@@ -6259,7 +6263,7 @@ body[thankyoupage="true"] #masthead {
 
 .checkoutPage__delivery .checkoutDeliverySelect ul li[methodid="8"] label:after {
   display: block;
-  content: '1-2 dni';
+  content: attr(delivery-time);
   margin-top: 5px;
 }
 

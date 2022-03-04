@@ -23,6 +23,7 @@ $formatted_destination    = isset( $formatted_destination ) ? $formatted_destina
 $has_calculated_shipping  = ! empty( $has_calculated_shipping );
 $show_shipping_calculator = ! empty( $show_shipping_calculator );
 $calculator_text          = '';
+$lang = get_bloginfo('language');
 ?>
 <div class="woocommerce-shipping-totals shipping">
 	<div data-title="<?php echo esc_attr( $package_name ); ?>">
@@ -41,10 +42,25 @@ $calculator_text          = '';
 						$cost        = $shipping_rate->get_cost(); // The cost without tax
 						$tax_cost    = $shipping_rate->get_shipping_tax(); // The tax cost
 						$taxes       = $shipping_rate->get_taxes(); // The taxes details (array)
-
+						if($instance_id == 8 && $instance_id !== 11){
+							if($lang == 'pl-PL'){
+								$deliveryTime = '1-2 dni';
+							}else{
+								$deliveryTime = '1-2 days';
+							}
+						}else{
+							if($lang == 'pl-PL'){
+								$deliveryTime = '2-3 dni';
+							}else{
+								$deliveryTime = '2-3 days';
+							}
+						}
+						if($instance_id == 11){
+							$deliveryTime = '';
+						}
 						echo '<li methodid="' . $instance_id . '">';
 						echo '<input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_' . $method_id . $instance_id . '" value="' . $rate_id . '" class="shipping_method engineRadio" />';
-						echo '<label for="shipping_method_0_' . $method_id . $instance_id . '">' . $label_name . '</label>';
+						echo '<label for="shipping_method_0_' . $method_id . $instance_id . '" delivery-time="' . $deliveryTime . '" delivery-name="' .  __($label_name, 'lolobaby') . '">' . __($label_name, 'lolobaby') . '</label>';
 						echo '</li>';
 					}
 				}
@@ -87,8 +103,10 @@ $calculator_text          = '';
 							printf( '<input type="radio" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method engineRadio" %4$s />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ), checked( $method->id, $chosen_method, false ) ); // WPCS: XSS ok.
 						} else {
 							printf( '<input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method" />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ) ); // WPCS: XSS ok.
-						}
-						printf( '<label for="shipping_method_%1$s_%2$s">%3$s</label>', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) ); // WPCS: XSS ok.
+						}?>
+						<label><?php _e($methodName, 'lolobaby'); ?></label>
+						<?php
+						// printf( '<label for="shipping_method_%1$s_%2$s">%3$s</label>', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) ); // WPCS: XSS ok.
                         do_action( 'woocommerce_after_shipping_rate', $method, $index );
 						?>
 					</li>

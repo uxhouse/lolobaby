@@ -450,15 +450,19 @@ body[thankyoupage="true"]{
 
             &.error{
                 position: absolute;
-                top: -25px;
+                top: -35px;
                 right: 0;
                 width: calc(440px);
-                text-align: center;
-                padding: 2px;
-                border-radius: 4px;
-                color: #721c24;
-                background-color: #f8d7da;
-                border: 1px solid #f5c6cb;
+            
+                p{
+                    padding: 2px;
+                    border-radius: 4px;
+                    background-color: #f8d7da;
+                    border: 1px solid #f5c6cb;
+                    margin: 0;
+                    text-align: center;
+                    color: #721c24;
+                }
             }
         }
     }
@@ -1004,7 +1008,7 @@ body[thankyoupage="true"]{
                             }
                             &:after{
                                 display: block;
-                                content: '2-3 dni';
+                                content: attr(delivery-time);
                                 margin-top: 5px;
                             }
                         }
@@ -1012,7 +1016,7 @@ body[thankyoupage="true"]{
                     &[methodid="8"]{
                         label{
                             &:before{
-                                content: 'Kurier';
+                                content: attr(delivery-name);
                                 font-size: 24px;
                                 font-weight: bold;
                                 display: flex;
@@ -1022,7 +1026,7 @@ body[thankyoupage="true"]{
                             }
                             &:after{
                                 display: block;
-                                content: '1-2 dni';
+                                content: attr(delivery-time);
                                 margin-top: 5px;
                             }
                         }

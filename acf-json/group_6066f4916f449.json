@@ -15,6 +15,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
@@ -41,5 +42,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617360082
+    "modified": 1646405965
 }

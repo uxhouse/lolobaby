@@ -35,6 +35,7 @@ $activeItems = WC()->cart->get_cart_contents_count();
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 			$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 			$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+			$productID = wc_get_product($product_id);
 
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				$product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
@@ -51,22 +52,22 @@ $activeItems = WC()->cart->get_cart_contents_count();
 								<?php echo $thumbnail; ?>
 							</div>
 							<div class="info">
-								<h3 class="info__name"><?php echo $_product->get_title(); ?></h3>
+								<h3 class="info__name"><?php echo $productID->name; ?></h3>
 								<div class="info__content">
 									<p><?php _e('Rozmiar', 'lolobaby'); ?>: <?php echo $cart_item['variation']['attribute_pa_rozmiar']; ?></p>
-									<p><?php _e('Kolor', 'lolobaby'); ?>: 
+									<!-- <p><?php _e('Kolor', 'lolobaby'); ?>: 
 									<?php
-										$attributeName = $_product->get_attribute('pa_kolor');
-										$allVariants = get_terms('pa_kolor');
+										// $attributeName = $_product->get_attribute('pa_kolor');
+										// $allVariants = get_terms('pa_kolor');
 					
-										foreach($allVariants as $variant){
-											$variantName = $variant->name;
-											if($variantName == $attributeName){
-												echo '<span termname="' . $variant->slug . '" style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
-											}
-										}
+										// foreach($allVariants as $variant){
+										// 	$variantName = $variant->name;
+										// 	if($variantName == $attributeName){
+										// 		echo '<span termname="' . $variant->slug . '" style="background-color:' . get_term_meta($variant->term_id)["product_attribute_color"][0] . '"></span>';
+										// 	}
+										// }
 									?>
-									</p>
+									</p> -->
 								</div>
 								<div class="info__qty">
 									<p><?php _e('Liczba', 'lolobaby'); ?>: <?php echo $cart_item['quantity']; ?></p>
@@ -120,7 +121,11 @@ $activeItems = WC()->cart->get_cart_contents_count();
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-	<a class="btn" href="<?php echo wc_get_cart_url(); ?>"><span><?php _e('Koszyk', 'lolobaby'); ?></span></a>
+	<?php
+		$lang = get_bloginfo('language');
+		$cartEN = apply_filters( 'wpml_permalink', wc_get_cart_url(), 'en' );
+	?>
+	<a class="btn" href="<?php if($lang == 'pl-PL'){echo wc_get_cart_url();}else{echo $cartEN;}; ?>"><span><?php _e('Koszyk', 'lolobaby'); ?></span></a>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
 

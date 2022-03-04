@@ -207,11 +207,11 @@ $shippingTotal = $woocommerce->cart->get_cart_shipping_total();
             <?php endforeach; ?>
             <div class="cartSummary">
                 <p><?php _e('Wysyłka', 'lolobaby'); ?>: 
-                <?php if($shippingTotal !== ''): ?>
+                <?php //if($shippingTotal !== ''): ?>
                     <span><?php echo $shippingTotal; ?></span>
-                <?php else: ?>
-                    <span><?php _e('Za darmo', 'lolobaby'); ?></span>
-                <?php endif; ?>
+                <?php //else: ?>
+                    <!-- <span><?php // _e('Za darmo', 'lolobaby'); ?></span> -->
+                <?php // endif; ?>
                 <p><?php _e('Suma', 'lolobaby'); ?>: <?php echo $cartTotal; ?></p>
             </div>
         </div>

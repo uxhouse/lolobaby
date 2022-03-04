@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </form>
 <div class="checkoutRegister">
 	<h2><?php _e('Zarejestruj się', 'lolobaby'); ?></h2>
-	<form class="checkoutRegister__form" id="checkoutRegisterForm" name="checkoutRegisterForm" method="post" action="/">
+	<form class="checkoutRegister__form" id="checkoutRegisterForm" name="checkoutRegisterForm">
 		<div class="notices"></div>
 		<input type="hidden" name="register-formid" value="20"/>
 		<div class="checkoutRegister__input">
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<button type="submit" class="btn btn--button" value="<?php _e('Zarejestruj się', 'lolobaby'); ?>"><?php _e('Zarejestruj się', 'lolobaby'); ?></button>
 		</div>
 	</form>
-	<div class="checkoutLogin__gotoOtherForm">
+	<div class="checkoutLogin__gotoOtherForm checkoutUser__change">
 		<div class="wave">
 			<img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
 		</div>
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="btn openLogin"><span><?php _e('Zaloguj się', 'lolobaby'); ?></span></p>
 	</div>
 </div>
-<div class="checkoutLogin__gotoOtherForm gotoRegister gotoRegister--ready gotoRegister--visible">
+<div class="checkoutLogin__gotoOtherForm checkoutUser__change gotoRegister gotoRegister--ready gotoRegister--visible">
 	<div class="wave">
 		<img src="<?php echo get_template_directory_uri() . '/images/wave_thin.svg'; ?>">
 	</div>
